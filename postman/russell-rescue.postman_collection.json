@@ -1,0 +1,448 @@
+{
+	"info": {
+		"_postman_id": "813ba107-592c-4c27-bffa-fe0c7dc50382",
+		"name": "russell-rescue",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - pets_at_shelter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91a67843-aa3a-466c-88df-eea1bb69fbef",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.adoptapet.com/search/pets_at_shelter?key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json&shelter_id=79570&start_number=1&end_number=500",
+					"protocol": "https",
+					"host": [
+						"api",
+						"adoptapet",
+						"com"
+					],
+					"path": [
+						"search",
+						"pets_at_shelter"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "4303b8174616d9c1fbbcefa5656aa5c9"
+						},
+						{
+							"key": "v",
+							"value": "2"
+						},
+						{
+							"key": "output",
+							"value": "json"
+						},
+						{
+							"key": "shelter_id",
+							"value": "79570"
+						},
+						{
+							"key": "start_number",
+							"value": "1"
+						},
+						{
+							"key": "end_number",
+							"value": "500\n"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Returns the pets based on a shelter_id. Expect a 200 HTTP StatusOK return.\n\nAPI Key is required for all queries.\n\nOutput can be JSON or XML\n\nend_number and start_number are not necessary"
+			},
+			"response": []
+		},
+		{
+			"name": "GET - pet_details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "00405e13-6043-4496-ab90-7acaa7e2fed2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.adoptapet.com/search/pet_details?key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json&pet_id=24013036",
+					"protocol": "https",
+					"host": [
+						"api",
+						"adoptapet",
+						"com"
+					],
+					"path": [
+						"search",
+						"pet_details"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "4303b8174616d9c1fbbcefa5656aa5c9"
+						},
+						{
+							"key": "v",
+							"value": "2"
+						},
+						{
+							"key": "output",
+							"value": "json"
+						},
+						{
+							"key": "shelter_id",
+							"value": "79570",
+							"disabled": true
+						},
+						{
+							"key": "start_number",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "end_number",
+							"value": "500\n",
+							"disabled": true
+						},
+						{
+							"key": "pet_id",
+							"value": "24013036"
+						}
+					]
+				},
+				"description": "Use any pet_id from the previous query"
+			},
+			"response": []
+		},
+		{
+			"name": "GET - pets_at_shelters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6cf443ab-a0f3-42d9-96aa-00b542fa0f8c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.adoptapet.com/search/pets_at_shelters?key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json&shelter_id=77070&shelter_id=79568&shelter_id=79570&start_number=1&end_number=500",
+					"protocol": "https",
+					"host": [
+						"api",
+						"adoptapet",
+						"com"
+					],
+					"path": [
+						"search",
+						"pets_at_shelters"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "4303b8174616d9c1fbbcefa5656aa5c9"
+						},
+						{
+							"key": "v",
+							"value": "2"
+						},
+						{
+							"key": "output",
+							"value": "json"
+						},
+						{
+							"key": "shelter_id",
+							"value": "77070"
+						},
+						{
+							"key": "shelter_id",
+							"value": "79568"
+						},
+						{
+							"key": "shelter_id",
+							"value": "79570"
+						},
+						{
+							"key": "start_number",
+							"value": "1"
+						},
+						{
+							"key": "end_number",
+							"value": "500\n"
+						},
+						{
+							"key": "meta_only",
+							"value": "True",
+							"disabled": true
+						}
+					]
+				},
+				"description": "GET all pets at shelter_id(s) requested. \n\nshelter_id must be one after another. If shelter_id(s) are not bunched together, the query will fail."
+			},
+			"response": []
+		},
+		{
+			"name": "Dallas/Ft. Worth/Midland/Longview",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Austin/San Antonio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://api.adoptapet.com/search/pets_at_shelter?key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json&shelter_id=79569&start_number=1&end_number=500\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"adoptapet",
+						"com"
+					],
+					"path": [
+						"search",
+						"pets_at_shelter"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "4303b8174616d9c1fbbcefa5656aa5c9"
+						},
+						{
+							"key": "v",
+							"value": "2"
+						},
+						{
+							"key": "output",
+							"value": "json"
+						},
+						{
+							"key": "shelter_id",
+							"value": "79569"
+						},
+						{
+							"key": "start_number",
+							"value": "1"
+						},
+						{
+							"key": "end_number",
+							"value": "500\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Houston",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://api.adoptapet.com/search/pets_at_shelter?key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json&shelter_id=79570&start_number=1&end_number=500\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"adoptapet",
+						"com"
+					],
+					"path": [
+						"search",
+						"pets_at_shelter"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "4303b8174616d9c1fbbcefa5656aa5c9"
+						},
+						{
+							"key": "v",
+							"value": "2"
+						},
+						{
+							"key": "output",
+							"value": "json"
+						},
+						{
+							"key": "shelter_id",
+							"value": "79570"
+						},
+						{
+							"key": "start_number",
+							"value": "1"
+						},
+						{
+							"key": "end_number",
+							"value": "500\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Louisiana",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Oklahoma",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://api.adoptapet.com/search/pets_at_shelter?key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json&shelter_id=80090&start_number=1&end_number=500\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"adoptapet",
+						"com"
+					],
+					"path": [
+						"search",
+						"pets_at_shelter"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "4303b8174616d9c1fbbcefa5656aa5c9"
+						},
+						{
+							"key": "v",
+							"value": "2"
+						},
+						{
+							"key": "output",
+							"value": "json"
+						},
+						{
+							"key": "shelter_id",
+							"value": "80090"
+						},
+						{
+							"key": "start_number",
+							"value": "1"
+						},
+						{
+							"key": "end_number",
+							"value": "500\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Owner Surrenders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://api.adoptapet.com/search/pets_at_shelter?key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json&shelter_id=77070&start_number=1&end_number=500\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"adoptapet",
+						"com"
+					],
+					"path": [
+						"search",
+						"pets_at_shelter"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "4303b8174616d9c1fbbcefa5656aa5c9"
+						},
+						{
+							"key": "v",
+							"value": "2"
+						},
+						{
+							"key": "output",
+							"value": "json"
+						},
+						{
+							"key": "shelter_id",
+							"value": "77070"
+						},
+						{
+							"key": "start_number",
+							"value": "1"
+						},
+						{
+							"key": "end_number",
+							"value": "500\n"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
