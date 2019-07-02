@@ -4,7 +4,6 @@
     "returned_pets": 5,
     "pets": [
         {
-            "details_url": "https://api.adoptapet.com/search/limited_pet_details?pet_id=24263099&key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json",
             "order": 1,
             "sex": "f",
             "secondary_breed": null,
@@ -27,7 +26,6 @@
             "sex": "m",
             "large_results_photo_width": 200,
             "secondary_breed": null,
-            "details_url": "https://api.adoptapet.com/search/limited_pet_details?pet_id=25384727&key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json",
             "order": 2,
             "results_photo_height": 90,
             "primary_breed": "Jack Russell Terrier",
@@ -58,7 +56,6 @@
             "primary_breed": "Jack Russell Terrier",
             "results_photo_height": 90,
             "order": 3,
-            "details_url": "https://api.adoptapet.com/search/limited_pet_details?pet_id=24494629&key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json",
             "secondary_breed": null,
             "large_results_photo_width": 200,
             "sex": "m"
@@ -71,7 +68,6 @@
             "sex": "m",
             "secondary_breed": null,
             "large_results_photo_width": 200,
-            "details_url": "https://api.adoptapet.com/search/limited_pet_details?pet_id=24494519&key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json",
             "order": 4,
             "results_photo_width": 90,
             "pet_id": "24494519",
@@ -93,7 +89,6 @@
             "results_photo_width": 66,
             "pet_id": "25476582",
             "species": "dog",
-            "details_url": "https://api.adoptapet.com/search/limited_pet_details?pet_id=25476582&key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json",
             "order": 5,
             "sex": "f",
             "secondary_breed": null,
