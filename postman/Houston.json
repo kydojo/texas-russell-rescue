@@ -1,1 +1,47 @@
-{"total_pets":2,"returned_pets":2,"status":"ok","pets":[{"primary_breed":"Jack Russell Terrier","results_photo_url":"https://pet-uploads.adoptapet.com/5/2/3/394232254.jpg","age":"puppy","results_photo_height":74,"sex":"f","secondary_breed":null,"large_results_photo_width":200,"details_url":"https://api.adoptapet.com/search/limited_pet_details?pet_id=23657141&key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json","order":1,"pet_id":"23657141","species":"dog","results_photo_width":90,"addr_state_code":"TX","size":"Small 25 lbs (11 kg) or less","large_results_photo_height":200,"addr_city":"Houston","large_results_photo_url":"https://pet-uploads.adoptapet.com/e/5/7/394232256.jpg","pet_name":"Heidi in Bryan, Texas"},{"results_photo_height":90,"age":"adult","results_photo_url":"https://pet-uploads.adoptapet.com/2/2/e/378291301.jpg","primary_breed":"Jack Russell Terrier","order":2,"details_url":"https://api.adoptapet.com/search/limited_pet_details?pet_id=24013036&key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json","large_results_photo_width":200,"secondary_breed":null,"sex":"f","addr_state_code":"TX","results_photo_width":51,"species":"dog","pet_id":"24013036","large_results_photo_url":"https://pet-uploads.adoptapet.com/7/8/f/378291303.jpg","pet_name":"Suzy in Bryan, Texas","addr_city":"Houston","large_results_photo_height":200,"size":"Small 25 lbs (11 kg) or less"}]}
+{
+    "status": "ok",
+    "total_pets": 2,
+    "pets": [
+        {
+            "results_photo_width": 90,
+            "pet_id": "23657141",
+            "sex": "f",
+            "results_photo_url": "https://pet-uploads.adoptapet.com/5/2/3/394232254.jpg",
+            "size": "Small 25 lbs (11 kg) or less",
+            "large_results_photo_url": "https://pet-uploads.adoptapet.com/e/5/7/394232256.jpg",
+            "age": "puppy",
+            "addr_city": "Houston",
+            "details_url": "https://api.adoptapet.com/search/limited_pet_details?pet_id=23657141&key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json",
+            "primary_breed": "Jack Russell Terrier",
+            "large_results_photo_height": 200,
+            "species": "dog",
+            "large_results_photo_width": 200,
+            "addr_state_code": "TX",
+            "results_photo_height": 74,
+            "order": 1,
+            "pet_name": "Heidi in Bryan, Texas",
+            "secondary_breed": null
+        },
+        {
+            "sex": "f",
+            "results_photo_width": 51,
+            "pet_id": "24013036",
+            "results_photo_url": "https://pet-uploads.adoptapet.com/2/2/e/378291301.jpg",
+            "size": "Small 25 lbs (11 kg) or less",
+            "large_results_photo_url": "https://pet-uploads.adoptapet.com/7/8/f/378291303.jpg",
+            "age": "adult",
+            "details_url": "https://api.adoptapet.com/search/limited_pet_details?pet_id=24013036&key=4303b8174616d9c1fbbcefa5656aa5c9&v=2&output=json",
+            "addr_city": "Houston",
+            "primary_breed": "Jack Russell Terrier",
+            "large_results_photo_height": 200,
+            "species": "dog",
+            "large_results_photo_width": 200,
+            "results_photo_height": 90,
+            "addr_state_code": "TX",
+            "order": 2,
+            "pet_name": "Suzy in Bryan, Texas",
+            "secondary_breed": null
+        }
+    ],
+    "returned_pets": 2
+}
