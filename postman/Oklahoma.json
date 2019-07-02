@@ -1,1 +1,7 @@
-{"exception":{"msg":"no_pets_found","details":"No pets were found at this shelter. "},"status":"ok"}
+{
+    "status": "ok",
+    "exception": {
+        "details": "No pets were found at this shelter. ",
+        "msg": "no_pets_found"
+    }
+}
