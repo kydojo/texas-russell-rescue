@@ -24,6 +24,13 @@ posts = [
 ]
 
 
+# Texas Russell Rescue Routes\
+@app.route("/index")
+def index():
+    return render_template('index.html', title='Index')
+
+
+
 @app.route("/")
 @app.route("/home")
 def home():
