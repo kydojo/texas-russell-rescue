@@ -26,3 +26,4 @@ my_post = posts.find_one({'author':'shannon'})
 print(my_post)
 # this prints the object_id and not the inserted_id
 print(my_post['_id'])
+
