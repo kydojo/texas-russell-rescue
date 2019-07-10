@@ -4,7 +4,7 @@ from flask_login import current_user
 from wtforms import BooleanField, PasswordField, StringField, SubmitField
 from wtforms.fields.core import BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
-from flaskblog.models import User
+from app.models import User
 
 # Python classes will be converted into HTML forms
 
