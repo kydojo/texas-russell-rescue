@@ -1,5 +1,5 @@
 from datetime import datetime
-from flaskblog import db, login_manager
+from app import db, login_manager
 from flask_login import UserMixin
 
 # The login manager needs this to be able to identify users based on their ID

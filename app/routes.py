@@ -2,10 +2,10 @@ import os   # to get file extensions from the image files
 import secrets  # for random hex
 from PIL import Image   # Python Imaging Library; for image resizing (Pillow)
 from flask import render_template, url_for, flash, redirect, request
-from flaskblog import app, db, bcrypt
+from app import app, db, bcrypt
 # import the classes from forms.py since it's in the same dir
-from flaskblog.forms import RegistrationForm, LoginForm, UpdateAccountForm
-from flaskblog.models import User, Post
+from app.forms import RegistrationForm, LoginForm, UpdateAccountForm
+from app.models import User, Post
 from flask_login import login_user, logout_user, current_user, login_required
 
 posts = [

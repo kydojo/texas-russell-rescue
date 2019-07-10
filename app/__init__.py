@@ -13,4 +13,4 @@ login_manager.login_view = 'login' 	# pass in the function name of the route wit
 login_manager.login_message_category = 'danger' 	# the BS class for the flashed message (danger = red)
 
 # This has to be after app is created and initialized to avoid circular imports 
-from flaskblog import routes
+from app import routes

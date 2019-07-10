@@ -1,4 +1,4 @@
-from flaskblog import app
+from app import app
 
 # Moved to the __init__.py file
 	# # from datetime import datetime
