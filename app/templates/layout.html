@@ -14,9 +14,10 @@
 	<!-- meta character set -->
 	<meta charset="UTF-8">
 	<!-- Site Title -->
-	<title>Animal Shelter</title>
+	<title>Texas Russell Rescue</title>
 
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet"> 
 		<!--
 		CSS
 		============================================= -->
@@ -33,20 +34,21 @@
 		  <header id="header" id="home">
 			<div class="container main-menu">
 				<div class="row align-items-center justify-content-between d-flex">
-				  <div id="logo">
-					<a href="index.html"><img src="../static/img/logo.png" alt="" title="" /></a>
-				  </div>
+				  <!-- <div id="logo">
+					<a href="{{ url_for('home') }}"><img src="../static/img/logo-flat-small.png" alt="" title="" /></a>
+				  </div> -->
 				  <nav id="nav-menu-container">
 					<ul class="nav-menu">
-					  <li class="menu-active"><a href="index.html">Home</a></li>
-					  <li><a href="about.html">About Us</a></li>
+					  <li class="menu-active"><a href="{{ url_for('home') }}">Home</a></li>
+					  <li><a href="{{ url_for('about') }}">About Us</a></li>
 					  <li><a href="cats.html">Cats</a></li>
 					  <li><a href="dogs.html">Dogs</a></li>
+					  <li><a><img id="nav-logo" src="../static/img/LOGO1.png" alt="" title="" /></a></li>
 					  <li><a href="volunteer.html">Volunteer</a></li>
-					  <li class="menu-has-children"><a href="">Blog</a>
+					  <li class="menu-has-children"><a href="">Available Dogs</a>
 						<ul>
-						  <li><a href="blog-home.html">Blog Home</a></li>
-						  <li><a href="blog-single.html">Blog Single</a></li>
+						  <li><a href="#">Rescues</a></li>
+						  <li><a href="#">Owner Listings</a></li>
 						</ul>
 					  </li>						          
 					  <li><a href="contact.html">Contact</a></li>
@@ -74,10 +76,7 @@
 				<div class="overlay overlay-bg"></div>
 				<div class="row fullscreen d-flex align-items-center justify-content-start">
 					<div class="banner-content col-lg-8 col-md-12">
-						<h1 class="text-uppercase">
-							Adopt Us. <br>
-							We need your help.		
-						</h1>
+						<!-- <a><img src="../static/img/logo-flat.png" alt="" title="" /></a> -->
 						<p class="text-white sub-head">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp
 							or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
@@ -472,9 +471,9 @@
 			<div class="copyright-text">
 				<div class="container">
 					<div class="row footer-bottom d-flex justify-content-between">
-						<p class="col-lg-8 col-sm-6 footer-text m-0 text-white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+						<p class="col-lg-8 col-sm-6 footer-text m-0 text-white">
+							&copy;<script>document.write(new Date().getFullYear());</script>. All rights reserved. Visit our national page at <a href="https://russellrescue.com" target="_blank">russellrescue.com</a>.
+						</p>
 						<div class="col-lg-4 col-sm-6 footer-social">
 							<a href="#"><i class="fa fa-facebook"></i></a>
 							<a href="#"><i class="fa fa-twitter"></i></a>
