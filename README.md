@@ -1,4 +1,8 @@
-# texas-russell-rescue
+# Texas Russell Rescue
+
+### Re-designing a local nonprofit's website to increase Jack Russell Terrier adoption in Texas
+### OSU Capstone - CS467
+
 Texas Russell Rescue, Inc. website development
 
 To run the site locally:
@@ -9,5 +13,8 @@ Access the site at:
   ```
   localhost:5000
   ```
+---
 
-[Shannon's MongoDB notes](https://www.notion.so/Week-3-e2984cf3173e4380b5f0896050073e81)
+---
+
+Link to the current site: http://texasrussellrescue.com/Default.aspx
