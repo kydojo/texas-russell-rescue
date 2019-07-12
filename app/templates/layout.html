@@ -40,19 +40,34 @@
 				  <nav id="nav-menu-container">
 					<ul class="nav-menu">
 					  <li class="menu-active"><a href="{{ url_for('home') }}">Home</a></li>
-					  <li><a href="{{ url_for('about') }}">About Us</a></li>
-					  <li><a href="cats.html">Cats</a></li>
-					  <li><a href="dogs.html">Dogs</a></li>
-					  <li><a><img id="nav-logo" src="../static/img/LOGO1.png" alt="" title="" /></a></li>
-					  <li><a href="volunteer.html">Volunteer</a></li>
-					  <li class="menu-has-children"><a href="">Available Dogs</a>
+					  <li class="menu-has-children"><a href="">Adopt</a>
+						<ul>
+						  <li><a href="#">Before You Adopt</a></li>
+						  <li><a href="#">Adoption Application</a></li>
+						</ul>
+					  </li>
+					  <li class="menu-has-children"><a href="#">Available Dogs</a>
 						<ul>
 						  <li><a href="#">Rescues</a></li>
 						  <li><a href="#">Owner Listings</a></li>
 						</ul>
+					  </li>	
+					  <li><a href="{{ url_for('about') }}">About Us</a></li>
+					  <li><a><img id="nav-logo" src="../static/img/LOGO1.png" alt="" title="" /></a></li>
+					  <li><a href="#">Volunteer</a></li>
+					  <li class="menu-has-children"><a href="#">News</a>
+						<ul>
+						  <li><a href="#">Spotlight Dogs</a></li>
+						  <li><a href="#">Happy Tails</a></li>
+						</ul>
 					  </li>						          
-					  <li><a href="contact.html">Contact</a></li>
-					  <li class="menu-has-children"><a href="">Dropdown</a>
+					  <li class="menu-has-children"><a href="#">Contact</a>
+						<ul>
+						  <li><a href="#">Owner Listing Application</a></li>
+						  <li><a href="#">Contact Us</a></li>
+						</ul>
+					  </li>	
+					  <!-- <li class="menu-has-children"><a href="">Dropdown</a>
 						<ul>
 						  <li><a href="elements.html">Elements</a></li>	
 						  <li><a href="#">Item</a></li>
@@ -63,7 +78,7 @@
 							</ul>
 						  </li>	
 						</ul>
-					  </li>				              
+					  </li>				               -->
 					</ul>
 				  </nav><!-- #nav-menu-container -->		    		
 				</div>
@@ -398,7 +413,7 @@
 		
 		<!-- start footer Area -->		
 		<footer class="footer-area">
-			<div class="container">
+			<!-- <div class="container">
 				<div class="row pt-120 pb-80">
 					<div class="col-lg-4 col-md-6">
 						<div class="single-footer-widget">
@@ -467,12 +482,12 @@
 						</div>
 					</div>						
 				</div>
-			</div>
+			</div> -->
 			<div class="copyright-text">
 				<div class="container">
 					<div class="row footer-bottom d-flex justify-content-between">
 						<p class="col-lg-8 col-sm-6 footer-text m-0 text-white">
-							&copy;<script>document.write(new Date().getFullYear());</script>. All rights reserved. Visit our national page at <a href="https://russellrescue.com" target="_blank">russellrescue.com</a>.
+							Texas Russel Rescue &copy <script>document.write(new Date().getFullYear());</script>. All rights reserved. Visit our national page at <a href="https://russellrescue.com" target="_blank">russellrescue.com</a>.
 						</p>
 						<div class="col-lg-4 col-sm-6 footer-social">
 							<a href="#"><i class="fa fa-facebook"></i></a>
