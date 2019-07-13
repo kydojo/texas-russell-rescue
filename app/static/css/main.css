@@ -2024,7 +2024,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu > li {
-  float: left;
+  /* float: left; */
+  display: inline-block
 }
 
 .nav-menu li:hover > ul,
