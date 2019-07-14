@@ -2,77 +2,68 @@ import os   # to get file extensions from the image files
 import secrets  # for random hex
 from PIL import Image   # Python Imaging Library; for image resizing (Pillow)
 from flask import render_template, url_for, flash, redirect, request
-from app import app, db, bcrypt
+from app import app, db, bcrypt, mongo
 # import the classes from forms.py since it's in the same dir
 # from app.forms import RegistrationForm, LoginForm, UpdateAccountForm
 from app.models import User, Post
 from flask_login import login_user, logout_user, current_user, login_required
 
-posts = [
-    {
-        'author': 'Kyle Johnson',
-        'title': 'Happy Tails Post 1',
-        'content': 'First post content',
-        'date_posted': 'June 24, 2019'
-    },
-    {
-        'author': 'Shannon Lucas',
-        'title': 'Happy Tails Post 2',
-        'content': 'Second post content',
-        'date_posted': 'June 25, 2019'
-    },
-    {
-        'author': 'Neal Quigley',
-        'title': 'Happy Tails Post 3',
-        'content': 'Third post content',
-        'date_posted': 'June 26, 2019'
-    }
-]
-
-
 # Texas Russell Rescue Routes
+
 
 @app.route("/home")
 @app.route("/index")
 @app.route("/")
 def index():
-    return render_template('index.html', title='Home', posts=posts)
+    return render_template('index.html', title='Home')
+
 
 @app.route("/about")
 def about():
     return render_template('about.html', title='About')
 
+
 @app.route("/volunteer")
 def volunteer():
     return render_template('volunteer.html', title='Volunteer')
+
 
 @app.route("/before_you_adopt")
 def before_you_adopt():
     return render_template('before_you_adopt.html', title='Before You Adopt')
 
+
 @app.route("/adoption_application")
 def adoption_application():
     return render_template('adoption_app.html', title='Adoption Application')
+
 
 @app.route("/rescues")
 def rescues():
     return render_template('rescues.html', title='Rescues')
 
+
 @app.route("/owner_listings")
 def owner_listings():
     return render_template('owner_listings.html', title='Owner Listings')
+
 
 @app.route("/spotlight_terriers")
 def spotlight_terriers():
     return render_template('spotlight_terriers.html', title='Spotlight Terriers')
 
+
 @app.route("/happy_tails")
 def happy_tails():
+    posts = mongo.db.posts.find()
+    print(posts)
     return render_template('happy_tails.html', title='Happy Tails', posts=posts)
+
 
 @app.route("/owner_listing_application")
 def owner_listing_application():
     return render_template('owner_listing_app.html', title='Owner Listing Application')
+
 
 @app.route("/contact")
 def contact():
@@ -136,18 +127,19 @@ def save_picture(form_picture):
 
     # Store the file name (not used, so named '_') and extension from the image file
     _, f_ext = os.path.splitext(form_picture.filename)
-    
+
     # Create the picture file name
     picture_fn = random_hex + f_ext
 
     # Create the file path and save it to the path
-    picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
-    
+    picture_path = os.path.join(
+        app.root_path, 'static/profile_pics', picture_fn)
+
     # Resize the image to 125px (saves on space and load times)
     output_size = (125, 125)
     i = Image.open(form_picture)
     i.thumbnail(output_size)
-    
+
     # Save the image
     i.save(picture_path)
 
@@ -158,7 +150,7 @@ def save_picture(form_picture):
 @login_required
 def account():
     form = UpdateAccountForm()
-	# If the form field inputs are valid, update the username and email and commit to the db
+    # If the form field inputs are valid, update the username and email and commit to the db
     if form.validate_on_submit():
         if form.picture.data:
             # Save the current user's image to the picture file
@@ -169,11 +161,11 @@ def account():
         current_user.email = form.email.data
         db.session.commit()
         flash('Your account has been updated!', 'success')
-        return redirect(url_for('account')) 
-	# If this is a GET request (on page load), pre-populate the form fields with the current username and email
+        return redirect(url_for('account'))
+        # If this is a GET request (on page load), pre-populate the form fields with the current username and email
     elif request.method == 'GET':
-	    form.username.data = current_user.username
-	    form.email.data = current_user.email
+        form.username.data = current_user.username
+        form.email.data = current_user.email
 
     image_file = url_for(
         'static', filename='profile_pics/' + current_user.image_file)
