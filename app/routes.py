@@ -30,7 +30,7 @@ posts = [
 @app.route("/index")
 @app.route("/")
 def index():
-    return render_template('index.html', title='Home', posts=posts)
+    return render_template('index.html', title='Home')
 
 @app.route("/about")
 def about():
