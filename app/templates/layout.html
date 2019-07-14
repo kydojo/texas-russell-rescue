@@ -39,37 +39,71 @@
 	<nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
 		<div class="collapse navbar-collapse w-100 order-1 order-lg-0" id="navbarNav">
 			<ul class="navbar-nav">
-				<li class="nav-item active"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+				<li class="nav-item nav-item-padding"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+				
+				<div class="dropdown">
+					<li class="dropbtn">Adopt</li>
+					<div class="dropdown-content">
+					  <a href="{{ url_for('before_you_adopt') }}">Before You Adopt</a>
+					  <a href="{{ url_for('adoption_application') }}">Adoption Application</a>
+					</div>
+				</div>
 				<!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Adopt</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="#">Before You Adopt</a>
 						<a class="dropdown-item" href="#">Adoption Application</a>
+					</div> -->
+
+				<div class="dropdown">
+					<li class="dropbtn">Available Dogs</li>
+					<div class="dropdown-content">
+						<a href="{{ url_for('rescues') }}">Rescues</a>
+						<a href="{{ url_for('owner_listings') }}">Owner Listings</a>
 					</div>
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Available Dogs</a>
+				</div>
+				<!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Available Dogs</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown2">
 						<a class="dropdown-item" href="#">Rescues</a>
 						<a class="dropdown-item" href="#">Owner Listings</a>
 					</div> -->
 				<li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About Us</a></li>
 				<li class="nav-item"><a class="nav-link" href="{{ url_for('volunteer') }}">Volunteer</a></li>
+				
+				<div class="dropdown">
+					<li class="dropbtn">News</li>
+					<div class="dropdown-content">
+						<a href="{{ url_for('spotlight_terriers') }}">Spotlight Terriers</a>
+						<a href="{{ url_for('happy_tails') }}">Happy Tails</a>
+					</div>
+				</div>
 				<!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown3">
 						<a class="dropdown-item" href="#">Spotlight Dogs</a>
 						<a class="dropdown-item" href="#">Happy Tails</a>
+					</div> -->
+
+				<div class="dropdown">
+					<li class="dropbtn">Contact</li>
+					<div class="dropdown-content">
+						<a href="{{ url_for('owner_listing_application') }}">Owner Listing Application</a>
+						<a href="{{ url_for('contact') }}">Contact Us</a>
 					</div>
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</a>
+				</div>
+				<!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown3">
 						<a class="dropdown-item" href="#">Owner Listing Application</a>
 						<a class="dropdown-item" href="#">Contact Us</a>
 					</div> -->
-				<li class="nav-item"><a class="nav-link" href="{{ url_for('before_you_adopt') }}">(Temp)Before You Adopt</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{ url_for('adoption_application') }}">(Temp)Adoption App</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{ url_for('rescues') }}">(Temp)Rescues</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{ url_for('owner_listings') }}">(Temp)Owner Listings</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{ url_for('spotlight_terriers') }}">(Temp)Spotlight Terriers</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{ url_for('happy_tails') }}">(Temp)Happy Tails</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{ url_for('owner_listing_application') }}">(Temp)Owner Listing App</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">(Temp)Contact Us</a></li>
+
+				<!-- <li class="nav-item"><a class="nav-link" href="{{ url_for('before_you_adopt') }}">(Temp)Before You Adopt</a></li> -->
+				<!-- <li class="nav-item"><a class="nav-link" href="{{ url_for('adoption_application') }}">(Temp)Adoption App</a></li> -->
+				<!-- <li class="nav-item"><a class="nav-link" href="{{ url_for('rescues') }}">(Temp)Rescues</a></li> -->
+				<!-- <li class="nav-item"><a class="nav-link" href="{{ url_for('owner_listings') }}">(Temp)Owner Listings</a></li> -->
+				<!-- <li class="nav-item"><a class="nav-link" href="{{ url_for('spotlight_terriers') }}">(Temp)Spotlight Terriers</a></li> -->
+				<!-- <li class="nav-item"><a class="nav-link" href="{{ url_for('happy_tails') }}">(Temp)Happy Tails</a></li> -->
+				<!-- <li class="nav-item"><a class="nav-link" href="{{ url_for('owner_listing_application') }}">(Temp)Owner Listing App</a></li> -->
+				<!-- <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">(Temp)Contact Us</a></li> -->
+				
 				
 			</ul>
 		</div>
@@ -79,7 +113,7 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 			</div>
-			<a class="navbar-brand text-center w-100" href="#"><img id="nav-logo" src="../static/img/LOGO1.png" alt="" title="" /></a>
+			<a class="navbar-brand text-center w-100" href="{{ url_for('home') }}"><img id="nav-logo" src="../static/img/LOGO1.png" alt="" title="" /></a>
 			<span class="w-100"></span>
 		</div>
 		
