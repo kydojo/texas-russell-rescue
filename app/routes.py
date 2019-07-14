@@ -11,15 +11,21 @@ from flask_login import login_user, logout_user, current_user, login_required
 posts = [
     {
         'author': 'Kyle Johnson',
-        'title': 'Blog Post 1',
+        'title': 'Happy Tails Post 1',
         'content': 'First post content',
         'date_posted': 'June 24, 2019'
     },
     {
         'author': 'Shannon Lucas',
-        'title': 'Blog Post 2',
+        'title': 'Happy Tails Post 2',
         'content': 'Second post content',
         'date_posted': 'June 25, 2019'
+    },
+    {
+        'author': 'Neal Quigley',
+        'title': 'Happy Tails Post 3',
+        'content': 'Third post content',
+        'date_posted': 'June 26, 2019'
     }
 ]
 
@@ -67,7 +73,7 @@ def spotlight_terriers():
 
 @app.route("/happy_tails")
 def happy_tails():
-    return render_template('happy_tails.html', title='Happy Tails')
+    return render_template('happy_tails.html', title='Happy Tails', posts=posts)
 
 @app.route("/owner_listing_application")
 def owner_listing_application():
