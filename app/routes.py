@@ -15,7 +15,7 @@ from flask_login import login_user, logout_user, current_user, login_required
 @app.route("/index")
 @app.route("/")
 def home():
-    return render_template('home.html', title='Home')
+    return render_template('index.html', title='Home')
 
 
 @app.route("/about")
