@@ -783,6 +783,10 @@ td, th {
   font-size: 24px;
 }
 
+.no-decoration {
+  text-decoration: none !important;  
+}
+
 b, sup, sub, u, del {
   color: #fab700;
 }

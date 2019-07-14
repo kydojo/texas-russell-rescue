@@ -17,7 +17,6 @@ from flask_login import login_user, logout_user, current_user, login_required
 def index():
     return render_template('index.html', title='Home')
 
-
 @app.route("/about")
 def about():
     return render_template('about.html', title='About')
