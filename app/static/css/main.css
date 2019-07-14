@@ -2027,7 +2027,7 @@ h1, h2, h3, h4, h5, h6 {
 }
  
 .zoom:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 /* .nav-item-padding {
@@ -2894,7 +2894,19 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .footer-area {
-  background: #1e1c27;
+  background: #25408f;
+}
+
+.center-footer-text {
+  text-align: center !important;
+}
+
+/* .pad-left {
+  padding-left: 40px !important;
+} */
+
+.footer-link {
+  color: #d3232a !important;
 }
 
 .footer-area .single-footer-widget h6 {
@@ -2943,7 +2955,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .footer-area .copyright-text {
-  background-color: #23202e;
+  background-color: #18295c;
   padding: 20px 0;
 }
 
