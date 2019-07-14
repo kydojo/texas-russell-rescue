@@ -26,16 +26,11 @@ posts = [
 
 # Texas Russell Rescue Routes
 
-# Temp - has the entire original index/home template stored here
-@app.route("/index")
-def index():
-    return render_template('index.html', title='About')
-
-
-@app.route("/")
 @app.route("/home")
-def home():
-    return render_template('home.html', title='Home', posts=posts)
+@app.route("/index")
+@app.route("/")
+def index():
+    return render_template('index.html', title='Home', posts=posts)
 
 @app.route("/about")
 def about():
