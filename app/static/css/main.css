@@ -2006,9 +2006,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-custom {
   background-color: #ffffff;
-  background-image: linear-gradient(to bottom, #fafbfb, #ffffff);
+  /* background-image: linear-gradient(to bottom, #fafbfb, #ffffff); */
   font-size: 1.0em; 
   font-family: 'Kalam', cursive;
+  /* Shadow */
+  -webkit-box-shadow: 0 10px 10px rgba(0,0,0,.2);
+  box-shadow: 0 10px 10px rgba(0,0,0,.2); 
+}
+
+.navbar-toggler-padding {
+
 }
 
 /* .nav-item-padding {
