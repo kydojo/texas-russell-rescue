@@ -1,6 +1,30 @@
 $(document).ready(function() {
     "use strict";
 
+    // Custom Texas Russell Rescue JS
+
+    // Remove tilt from navbar links/logo on small viewports
+    $(function(){
+        $(window).bind("resize",function(){
+            console.log($(this).width())
+            if($(this).width()<991){
+                $('.zoom').removeClass("zoom")
+            }
+        })
+    })
+
+     // Add zoom to navbar links/logo on resize back to larger viewport
+     $(function(){
+        $(window).bind("resize",function(){
+            console.log($(this).width())
+            if($(this).width()>991){
+                $('.add-zoom').addClass("zoom")
+            }
+        })
+    })
+
+
+
     var window_width = $(window).width(),
         window_height = window.innerHeight,
         header_height = $(".default-header").height(),
