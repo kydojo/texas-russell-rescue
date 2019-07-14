@@ -13,7 +13,7 @@
   <!-- Load in list of post objects passed by @app.route("/happy_tails") and display -->
   {% for post in posts %}
     <h2>{{ post.title }}</h2>
-    <p>By {{ post.author }} on {{ post.date_posted }}</p>
+    <p>By {{ post.author }}</p>
     <p>{{ post.content }}</p>
     <br>
   {% endfor %}
