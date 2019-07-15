@@ -1,6 +1,6 @@
 # Texas Russell Rescue
 
-### Re-designing a local nonprofit's website to increase Jack Russell Terrier adoption in Texas
+### Re-designing a state non-profit's website to increase Jack Russell Terrier adoption in Texas
 ### OSU Capstone - CS467
 
 Texas Russell Rescue, Inc. website development
