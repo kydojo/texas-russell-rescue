@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     // Custom Texas Russell Rescue JS
 
-    // Remove tilt from navbar links/logo on small viewports
+    // Remove zoom from navbar links/logo on small viewports
     $(function(){
         $(window).bind("resize",function(){
             console.log($(this).width())
