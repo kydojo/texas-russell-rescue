@@ -1,19 +1,18 @@
-from flask import render_template, url_for, flash, redirect, request
+from flask import render_template
 
 from app.models import User, Post       # "unused import", but "Exception: No user_loader has been installed
                                         # for this LoginManager." thrown if removed.
 
-# from app import app, db, bcrypt, mongo
-from app import app, db, bcrypt                     # temp removed mongo (above line is intact)
+# from app import app, db, mongo
+from app import app, db                     # temp removed mongo (above line is intact)
 
-
-# Texas Russell Rescue Routes
 
 @app.route("/home")
 @app.route("/index")
 @app.route("/")
 def index():
     return render_template('index.html', title='Home')
+
 
 @app.route("/about")
 def about():
