@@ -1,10 +1,7 @@
 from flask import render_template
 
-from app.models import User, Post       # "unused import", but "Exception: No user_loader has been installed
-                                        # for this LoginManager." thrown if removed.
-
 # from app import app, db, mongo
-from app import app, db                     # temp removed mongo (above line is intact)
+from app import app                   # temp removed mongo (above line is intact)
 
 
 @app.route("/home")
