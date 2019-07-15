@@ -1,7 +1,5 @@
 from flask import render_template
-
-# from app import app, db, mongo
-from app import app                   # temp removed mongo (above line is intact)
+from app import app, mongo
 
 
 @app.route("/home")

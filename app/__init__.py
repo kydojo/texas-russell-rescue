@@ -1,12 +1,12 @@
 import os
 
 from flask import Flask
-from flask_pymongo import PyMongo                                # temp commented out
+from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 
-# app.config['MONGO_URI'] = os.environ['MONGO_DB_URI']           # temp commented out
-# mongo = PyMongo(app)                                           # temp commented out
+app.config['MONGO_URI'] = os.environ['MONGO_DB_URI']
+mongo = PyMongo(app)
 
 # After app creation and initialization to avoid circular imports
 from app import routes
