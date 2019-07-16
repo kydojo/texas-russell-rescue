@@ -1,5 +1,6 @@
 from flask import render_template
 from app import app, mongo
+from app.pets import get_pets
 
 
 @app.route("/home")
@@ -47,7 +48,7 @@ def spotlight_terriers():
 @app.route("/happy_tails")
 def happy_tails():
     posts = mongo.db.posts.find()
-    print(posts)
+    print(type(posts))
     return render_template('happy_tails.html', title='Happy Tails', posts=posts)
 
 
@@ -59,3 +60,9 @@ def owner_listing_application():
 @app.route("/contact")
 def contact():
     return render_template('contact.html', title='Contact Us')
+
+
+@app.route("/pet_test", methods=["GET"])
+def pet_test():
+    pets = get_pets()
+    return render_template('pets_test.html', title='test bb', okc=pets['OKC'], austin=pets['Austin'], sanantonio=pets['SanAntonio'], dallas=pets['DallasFtWorth'], houston=pets['Houston'])
