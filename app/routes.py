@@ -1,4 +1,5 @@
-from flask import render_template
+from flask import Flask, render_template, url_for
+# from forms import RegistrationForm, LoginForm
 from app import app, mongo
 
 
@@ -59,3 +60,8 @@ def owner_listing_application():
 @app.route("/contact")
 def contact():
     return render_template('contact.html', title='Contact Us')
+
+@app.route("/register")
+def register():
+    form = RegistrationForm()
+    return render_template('register.html', title='Register New User')
