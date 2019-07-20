@@ -31,4 +31,5 @@ virtualenv==16.6.1
 Werkzeug==0.15.4
 wrapt==1.11.2
 WTForms==2.2.1
-pymongo==3.8.0
+Flask-Pymongo==2.3.0
+dnspython==1.16.0
