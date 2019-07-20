@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for
 # from forms import RegistrationForm, LoginForm
 from app import app, mongo
+from app.pets import get_pets, get_all_pets
 
 
 @app.route("/home")
@@ -48,7 +49,7 @@ def spotlight_terriers():
 @app.route("/happy_tails")
 def happy_tails():
     posts = mongo.db.posts.find()
-    print(posts)
+    print(type(posts))
     return render_template('happy_tails.html', title='Happy Tails', posts=posts)
 
 
@@ -65,3 +66,8 @@ def contact():
 def register():
     form = RegistrationForm()
     return render_template('register.html', title='Register New User')
+
+@app.route("/pet_test", methods=["GET"])
+def pet_test():
+    pets = get_all_pets()
+    return render_template('pets_test.html', title='test title', pets=pets)

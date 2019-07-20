@@ -78,7 +78,7 @@ a {
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-  color: #25408f !important;
+  color: #25408f;
 }
 
 iframe {
@@ -2032,6 +2032,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link {
   margin: 0px 5px;
+  color: #25408f !important;
 }
 .margin-auto {
   margin: 0 auto !important;
@@ -2073,7 +2074,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   display: inline-block;
   color: #25408f !important;
-/*  max-height: 35px;*/
+  max-height: 30px !important;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -2922,6 +2923,89 @@ body.mobile-nav-active #mobile-nav-toggle {
     flex-direction: column !important;
   }
 }
+
+/* Footer */
+/* Adapted from: https://demo.tutorialzine.com/2015/01/freebie-5-responsive-footer-templates/*/
+
+.footer-distributed{
+	background-color: #25408f;
+	/*box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);*/
+	-webkit-box-shadow: 0 10px 10px rgba(0,0,0,.2);
+    box-shadow: 0 10px 10px rgba(0,0,0,.2);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	/*font: normal 16px sans-serif;*/
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 50;
+	padding: 10px 50px;
+	/*margin-top: 80px;*/
+}
+
+.footer-distributed .footer-left p{
+	color:  #8f9296;
+	font-size: 14px;
+	margin: 0;
+	/*text-align: center;*/
+}
+
+/* Footer links */
+
+.footer-distributed p.footer-links{
+	font-size:18px;
+	font-weight: bold;
+	color:  #ffffff !important;
+	margin: 0 0 0px;
+	padding: 0;
+}
+
+.footer-distributed p.footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-right{
+	float: right;
+	margin-top: 10px;
+	max-width: 180px;
+}
+
+.footer-distributed .footer-right a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background-color:  #d3232a;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-left: 3px;
+}
+
+@media (max-width: 600px) {
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-right{
+		text-align: center;
+	}
+
+	.footer-distributed .footer-right{
+		float: none;
+		margin: 0 auto 10px;
+		margin-top: 10px;
+	}
+
+	.footer-distributed .footer-left p.footer-links{
+		line-height: 1.8;
+	}
+}
+
+/*****************************************************************/
 
 .footer-area {
   background: #25408f;
