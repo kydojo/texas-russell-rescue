@@ -16,9 +16,9 @@
 <link rel="stylesheet" href="../static/css/pets.css">
 
   <div class="container">
-  		<h2 style="text-align:center">Austin</h2>  
+  		<h2 style="text-align:center">All Pets</h2>  
       <div class="row justify-content-around">
-  				{% for pet in austin|batch(3, '&nbsp;') %}
+  				{% for pet in pets|batch(3, '&nbsp;') %}
             {% for column in pet %}
               <div style="text-align:center" class="border col-lg-4 col-sm-6 justify-content-center">
                 <div class="petsBorderAlignment">
@@ -26,6 +26,11 @@
                 <div style="text-align:center">
                   <img src="{{ column.large_results_photo_url }}">
                 </div>
+                
+                {% if column.ownerSurrender %}
+                  <p>Owner Surrender</p>
+                {% endif %}
+
                 <p style="text-align:center">{{ column.sex }}</p>
                 <p style="text-align:center">{{ column.age }}</p>
                 </div>
@@ -33,78 +38,6 @@
             {% endfor %}
     			{% endfor %}
   		</div>
-
-      <h2 style="text-align:center">Houston</h2>  
-      <div class="row justify-content-around">
-          {% for pet in houston|batch(3, '&nbsp;') %}
-            {% for column in pet %}
-              <div style="text-align:center" class="border col-lg-4 col-sm-6 justify-content-center">
-                <div class="petsBorderAlignment">
-                <p>{{ column.pet_name }}</p>                
-                <div style="text-align:center">
-                  <img src="{{ column.large_results_photo_url }}">
-                </div>
-                <p style="text-align:center">{{ column.sex }}</p>
-                <p style="text-align:center">{{ column.age }}</p>
-                </div>
-              </div>
-            {% endfor %}
-          {% endfor %}
-      </div>
-
-      <h2 style="text-align:center">San Antonio</h2>  
-      <div class="row justify-content-around">
-          {% for pet in sanantonio|batch(3, '&nbsp;') %}
-            {% for column in pet %}
-              <div style="text-align:center" class="border col-lg-4 col-sm-6 justify-content-center">
-                <div class="petsBorderAlignment">
-                <p>{{ column.pet_name }}</p>                
-                <div style="text-align:center">
-                  <img src="{{ column.large_results_photo_url }}">
-                </div>
-                <p style="text-align:center">{{ column.sex }}</p>
-                <p style="text-align:center">{{ column.age }}</p>
-                </div>
-              </div>
-            {% endfor %}
-          {% endfor %}
-      </div>
-
-      <h2 style="text-align:center">Dallas Ft. Worth</h2>  
-      <div class="row justify-content-around">
-          {% for pet in dallas|batch(3, '&nbsp;') %}
-            {% for column in pet %}
-              <div style="text-align:center" class="border col-lg-4 col-sm-6 justify-content-center">
-                <div class="petsBorderAlignment">
-                <p>{{ column.pet_name }}</p>                
-                <div style="text-align:center">
-                  <img src="{{ column.large_results_photo_url }}">
-                </div>
-                <p style="text-align:center">{{ column.sex }}</p>
-                <p style="text-align:center">{{ column.age }}</p>
-                </div>
-              </div>
-            {% endfor %}
-          {% endfor %}
-      </div>
-
-      <h2 style="text-align:center">Oklahoma</h2>  
-      <div class="row justify-content-around">
-          {% for pet in okc|batch(3, '&nbsp;') %}
-            {% for column in pet %}
-              <div style="text-align:center" class="border col-lg-4 col-sm-6 justify-content-center">
-                <div class="petsBorderAlignment">
-                <p>{{ column.pet_name }}</p>                
-                <div style="text-align:center">
-                  <img src="{{ column.large_results_photo_url }}">
-                </div>
-                <p style="text-align:center">{{ column.sex }}</p>
-                <p style="text-align:center">{{ column.age }}</p>
-                </div>
-              </div>
-            {% endfor %}
-          {% endfor %}
-      </div>
 	</div>
 
 {% endblock %}

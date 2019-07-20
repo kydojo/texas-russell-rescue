@@ -40,3 +40,42 @@ def get_pets():
             print("Error")
 
     return all_pets
+
+
+def pet_get_request(url):
+    response = requests.get(url)
+    if response.status_code != 200:
+        print("Could not complete GET request")
+        return
+    else:
+        json_response = json.loads(response.content.decode('utf-8'))
+
+    return json_response
+
+
+def get_all_pets():
+    owner_surrender_base_url = "https://api.adoptapet.com/search/pets_at_shelters?v=2&output=json&shelter_id=77070&key="
+    rescue_base_url = "https://api.adoptapet.com/search/pets_at_shelters?v=2&output=json&shelter_id=79568&shelter_id=79570&shelter_id=99754&shelter_id=79569&shelter_id=80090&key="
+    api_key = os.environ['ADOPTAPET_API_KEY']
+    owner_url = owner_surrender_base_url + api_key
+    rescue_url = rescue_base_url + api_key
+
+    # two GET requests bc there is no shelter_id reference in responses
+    owner_pets = pet_get_request(owner_url)
+    rescue_pets = pet_get_request(rescue_url)
+
+    all_pets = []
+
+    for pet in rescue_pets['pets']:
+        all_pets.append(pet)
+
+    for pet in owner_pets['pets']:
+        # add a k/v that indicates this is an owner surrender pet
+        pet['ownerSurrender'] = True
+        all_pets.append(pet)
+
+    return all_pets
+
+
+if __name__ == "__main__":
+    a = get_all_pets()

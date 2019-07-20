@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app, mongo
-from app.pets import get_pets
+from app.pets import get_pets, get_all_pets
 
 
 @app.route("/home")
@@ -64,5 +64,5 @@ def contact():
 
 @app.route("/pet_test", methods=["GET"])
 def pet_test():
-    pets = get_pets()
-    return render_template('pets_test.html', title='test bb', okc=pets['OKC'], austin=pets['Austin'], sanantonio=pets['SanAntonio'], dallas=pets['DallasFtWorth'], houston=pets['Houston'])
+    pets = get_all_pets()
+    return render_template('pets_test.html', title='test title', pets=pets)
