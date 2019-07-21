@@ -5,7 +5,7 @@
 	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Favicon-->
-	<link rel="shortcut icon" href="img/fav.png">
+	<link rel="shortcut icon" href="../static/img/fav-paw.ico">
 	<!-- Author Meta -->
 	<meta name="author" content="codepixer">
 	<!-- Meta Description -->
@@ -36,6 +36,8 @@
 	<nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
 		<div class="collapse navbar-collapse w-100 order-1 order-lg-0" id="navbarNav">
 			<ul class="navbar-nav margin-auto">
+				<!--<li class="nav-item zoom add-zoom add-margin-top"><a class="nav-link" href="{{ url_for('index') }}">Home</a></li>-->
+
 				<li class="nav-item zoom add-zoom add-margin-top"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
 
 				<div class="dropdown nav-link add-margin-top">
@@ -43,24 +45,40 @@
 					<div class="dropdown-content">
 						<a class="zoom add-zoom" href="{{ url_for('before_you_adopt') }}">Before You Adopt</a>
 						<a class="zoom add-zoom" href="{{ url_for('adoption_application') }}">Adoption Application</a>
+						<a class="zoom add-zoom" href="{{ url_for('rescues') }}">Available Dogs</a>
+						<!--<a class="zoom add-zoom" href="{{ url_for('owner_listings') }}">Owner Listings</a>-->
 					</div>
 				</div>
 
-				<div class="dropdown nav-link add-margin-top">
-					<li class="dropbtn zoom add-zoom">Availability</li>
-					<div class="dropdown-content">
-						<a class="zoom add-zoom" href="{{ url_for('rescues') }}">Rescues</a>
-						<a class="zoom add-zoom" href="{{ url_for('owner_listings') }}">Owner Listings</a>
-					</div>
-				</div>
+				<li class="nav-item zoom add-zoom add-margin-top"><a class="nav-link" href="#">Donate</a></li>
+
+
+				<!--<div class="dropdown nav-link add-margin-top">-->
+					<!--<li class="dropbtn zoom add-zoom">View Dogs</li>-->
+					<!--<div class="dropdown-content">-->
+						<!--<a class="zoom add-zoom" href="{{ url_for('rescues') }}">Rescue Dogs</a>-->
+						<!--<a class="zoom add-zoom" href="{{ url_for('owner_listings') }}">Owner Listings</a>-->
+					<!--</div>-->
+				<!--</div>-->
 
 				<li class="nav-logo text-center d-none d-lg-block zoom add-zoom"><a class="nav-link" href="{{ url_for('index') }}"><img id="nav-logo"
 							src="../static/img/LOGO1.png" alt="" title="" /></a></li>
-				<li class="nav-item zoom add-zoom add-margin-top"><a class="nav-link" href="{{ url_for('volunteer') }}">Volunteer</a></li>
+
+				<!--<li class="nav-item zoom add-zoom add-margin-top"><a class="nav-link" href="#">Donate</a></li>-->
+
+				<!--<li class="nav-item zoom add-zoom add-margin-top"><a class="nav-link" href="{{ url_for('volunteer') }}">Volunteer</a></li>-->
+				<div class="dropdown nav-link add-margin-top">
+					<li class="dropbtn zoom add-zoom">Volunteer</li>
+					<div class="dropdown-content">
+						<a class="zoom add-zoom" href="{{ url_for('volunteer') }}">Volunteer Application</a>
+						<a class="zoom add-zoom" href="#">Meet Our Volunteers</a>
+					</div>
+				</div>
 
 				<div class="dropdown nav-link add-margin-top">
 					<li class="dropbtn zoom add-zoom">News</li>
 					<div class="dropdown-content">
+						<a class="zoom add-zoom" href="#">Events</a>
 						<a class="zoom add-zoom" href="{{ url_for('spotlight_terriers') }}">Spotlight Terriers</a>
 						<a class="zoom add-zoom" href="{{ url_for('happy_tails') }}">Happy Tails</a>
 					</div>
@@ -70,7 +88,7 @@
 				<div class="dropdown nav-link add-margin-top">
 					<li class="dropbtn zoom add-zoom">Contact</li>
 					<div class="dropdown-content">
-						<a class="zoom add-zoom" href="{{ url_for('owner_listing_application') }}">Owner Listing Application</a>
+						<a class="zoom add-zoom" href="{{ url_for('owner_listing_application') }}">Owner Surrender</a>
 						<a class="zoom add-zoom" href="{{ url_for('contact') }}">Contact Us</a>
 					</div>
 				</div>
@@ -442,8 +460,8 @@
 	<!-- End calltoaction Area -->
 
 	<!-- start footer Area -->
-	<footer class="footer-area">
-		<!-- <div class="container">
+	<!--<footer class="footer-area">
+		&lt;!&ndash; <div class="container">
 				<div class="row pt-120 pb-80">
 					<div class="col-lg-4 col-md-6">
 						<div class="single-footer-widget">
@@ -512,24 +530,62 @@
 						</div>
 					</div>						
 				</div>
-			</div> -->
+			</div> &ndash;&gt;
 		<div class="copyright-text">
 			<div class="container">
 				<div class="row d-flex pad-left">
 					<p class="col-lg-12 m-0 text-white center-footer-text">
 						Visit our national page at <a class="footer-link" href="https://russellrescue.com"
-							target="_blank">russellrescue.com</a>.&nbsp
+							target="_blank">russellrescue.com</a>.&lt;!&ndash;&nbsp&ndash;&gt;
 						<a href="#"><i class="fa fa-paw"></i></a>
 					</p>
-					<!-- <div class="col-lg-1 col-sm-6 footer-social">
-						<!-- <a href="#"><i class="fa fa-paw"></i></a> -->
-					<!-- <a href="#"><i class="fa fa-twitter"></i></a>
+					<div class="col-lg-4 col-sm-6 footer-social">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
 						<a href="#"><i class="fa fa-dribbble"></i></a>
 						<a href="#"><i class="fa fa-behance"></i></a>
-					</div> -->
+					</div>
 				</div>
 			</div>
 		</div>
+		&lt;!&ndash;<div class="copyright-text">&ndash;&gt;
+					&lt;!&ndash;<div class="container">&ndash;&gt;
+						&lt;!&ndash;<div class="row footer-bottom d-flex justify-content-between">&ndash;&gt;
+							&lt;!&ndash;<p class="col-lg-8 col-sm-6 footer-text m-0 text-white">&ndash;&gt;
+								&lt;!&ndash;Visit our national page at <a class="footer-link" href="https://russellrescue.com"&ndash;&gt;
+								&lt;!&ndash;target="_blank">russellrescue.com</a>.&nbsp&ndash;&gt;
+								&lt;!&ndash;<a href="#"><i class="fa fa-paw"></i></a>&ndash;&gt;
+							&lt;!&ndash;</p>&ndash;&gt;
+							&lt;!&ndash;<div class="col-lg-4 col-sm-6 footer-social">&ndash;&gt;
+								&lt;!&ndash;<a href="#"><i class="fa fa-facebook"></i></a>&ndash;&gt;
+								&lt;!&ndash;<a href="#"><i class="fa fa-twitter"></i></a>&ndash;&gt;
+								&lt;!&ndash;<a href="#"><i class="fa fa-dribbble"></i></a>&ndash;&gt;
+								&lt;!&ndash;<a href="#"><i class="fa fa-behance"></i></a>&ndash;&gt;
+							&lt;!&ndash;</div>&ndash;&gt;
+						&lt;!&ndash;</div>&ndash;&gt;
+					&lt;!&ndash;</div>&ndash;&gt;
+				&lt;!&ndash;</div>&ndash;&gt;
+	</footer>-->
+
+	<footer class="footer-distributed">
+
+		<div class="footer-right">
+
+			<a href="https://www.facebook.com/TexasRussellRescueInc/" target="_blank"><i class="fa fa-facebook"></i></a>
+			<a href="https://twitter.com/russellrescuetx" target="_blank"><i class="fa fa-twitter"></i></a>
+			<a href="https://www.instagram.com/texasrussellrescue/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a>
+
+		</div>
+
+		<div class="footer-left">
+
+			<p class="footer-links">
+				Visit our national page at <a class="footer-link" href="https://russellrescue.com"
+							target="_blank">RussellRescue.com</a>.&nbsp
+			</p>
+			<p class="">&copy;<script>document.write(new Date().getFullYear());</script> | Russell Rescue, Inc. | 501(c)3 Organization </p>
+		</div>
+
 	</footer>
 	<!-- End footer Area -->
 

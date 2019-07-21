@@ -4,7 +4,7 @@
 # from flask_login import UserMixin
 
 # The login manager needs this to be able to identify users based on their ID
-# Source: LoginManager documenation
+# Source: LoginManager documentation
 # @login_manager.user_loader	# necessary decorator
 # def load_user(user_id):
 # 	return User.query.get(int(user_id))
@@ -23,8 +23,8 @@
 # 	# Dunder (magic) method to define how the object will be printed out
 # 	def __repr__(self):
 # 		return f"User('{self.username}', '{self.email}', '{self.image_file}')"
-
-
+#
+#
 # Post class, inherits from db.Model
 # class Post(db.Model):
 # 	id = db.Column(db.Integer, primary_key=True) # create the user id attribute and set it to the PK for the db

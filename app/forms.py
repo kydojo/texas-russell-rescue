@@ -4,7 +4,7 @@ from flask_login import current_user
 from wtforms import BooleanField, PasswordField, StringField, SubmitField
 from wtforms.fields.core import BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
-from app.models import User
+# from app.models import User
 
 # Python classes will be converted into HTML forms
 
@@ -42,11 +42,9 @@ class RegistrationForm(FlaskForm):
 
 # Login form class that inherits from FlaskForm
 class LoginForm(FlaskForm):
-    # username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
-    # confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
-    remember = BooleanField('Remember me?')
+    remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
 
