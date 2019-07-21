@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for
-# from forms import RegistrationForm, LoginForm
+from .forms import RegistrationForm, LoginForm
 from app import app, mongo
 from app.pets import get_pets, get_all_pets
 
@@ -62,12 +62,32 @@ def owner_listing_application():
 def contact():
     return render_template('contact.html', title='Contact Us')
 
-@app.route("/register")
-def register():
-    form = RegistrationForm()
-    return render_template('register.html', title='Register New User')
-
 @app.route("/pet_test", methods=["GET"])
 def pet_test():
     pets = get_all_pets()
     return render_template('pets_test.html', title='test title', pets=pets)
+
+# @app.route("/register")
+# def register():
+#     form = RegistrationForm()
+#     return render_template('register.html', title='Register New User')
+
+# @app.route("/register", methods=['GET', 'POST'])
+# def register():
+#     form = RegistrationForm()
+#     if form.validate_on_submit():
+#         flash(f'Account created for {form.username.data}!', 'success')
+#         return redirect(url_for('home'))
+#     return render_template('register.html', title='Register', form=form)
+#
+#
+# @app.route("/login", methods=['GET', 'POST'])
+# def login():
+#     form = LoginForm()
+#     if form.validate_on_submit():
+#         if form.email.data == 'admin@blog.com' and form.password.data == 'password':
+#             flash('You have been logged in!', 'success')
+#             return redirect(url_for('home'))
+#         else:
+#             flash('Login Unsuccessful. Please check username and password', 'danger')
+#     return render_template('login.html', title='Login', form=form)
