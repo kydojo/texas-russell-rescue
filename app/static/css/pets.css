@@ -1,5 +1,16 @@
-.petsBorderAlignment{
+/*.petsBorderAlignment{
     margin:100px; 
     padding:100px; 
     background-color: coral;
+}*/
+
+.dog-card {
+    /*margin: 1px;*/
+    text-align:center;
+    text-transform: capitalize;
 }
+
+/*
+.center-text {
+    text-align:center;
+}*/

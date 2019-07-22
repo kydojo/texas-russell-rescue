@@ -14,30 +14,30 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   
 <link rel="stylesheet" href="../static/css/pets.css">
-
   <div class="container">
-      <h2 style="text-align:center">All Pets</h2>
+      <h2 style="text-align:center">Available Dogs</h2>
       <div class="row justify-content-around">
-  				{% for pet in pets|batch(3, '&nbsp;') %}
-            {% for column in pet %}
-              <div style="text-align:center" class="border col-lg-4 col-sm-6 justify-content-center">
-                <div class="petsBorderAlignment">
-                <p>{{ column.pet_name }}</p>                
-                <div style="text-align:center">
-                  <img src="{{ column.large_results_photo_url }}">
-                </div>
-                
-                {% if column.ownerSurrender %}
-                  <p>Owner Surrender</p>
-                {% endif %}
+          {% for pet in pets|batch(3, '&nbsp;') %}
+              {% for column in pet %}
+                  <div class="col-lg-4 col-sm-6 justify-content-center border rounded dog-card">
+                      <div class="petsBorderAlignment">
+                        <a href="https://www.adoptapet.com/pet/{{ column.pet_id }}" target="_blank">{{ column.pet_name }}</a>
+                        <p> Pet ID: {{ column.pet_id }}</p>
+                        <div style="text-align:center">
+                            <img src="{{ column.large_results_photo_url }}">
+                        </div>
 
-                <p style="text-align:center">{{ column.sex }}</p>
-                <p style="text-align:center">{{ column.age }}</p>
-                </div>
-              </div>
-            {% endfor %}
-    			{% endfor %}
-  		</div>
+                        {% if column.ownerSurrender %}
+                          <p>Owner Surrender</p>
+                        {% endif %}
+
+                        <p>{{ column.sex }}</p>
+                        <p class="capitalize">{{ column.age }}</p>
+                      </div>
+                  </div>
+              {% endfor %}
+          {% endfor %}
+      </div>
 	</div>
 
 {% endblock %}

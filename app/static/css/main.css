@@ -2467,7 +2467,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 .banner-area {
   background: url(../img/jr15-mirror.jpg) center;
   background-size: cover;
-  margin-top: 150px;
+  margin-top: 140px;
   /* Flip Image */
   /* -webkit-transform: scaleX(-1);
   transform: scaleX(-1); */
