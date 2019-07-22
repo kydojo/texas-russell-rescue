@@ -79,5 +79,5 @@ class UpdateAccountForm(FlaskForm):
 class ContactUsForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired()])
-    content = TextAreaField('Content', validators=[DataRequired()])
-    submit = SubmitField('Post')
+    content = TextAreaField('Message', validators=[DataRequired()])
+    submit = SubmitField('Send')

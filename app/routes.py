@@ -1,8 +1,7 @@
-from flask import render_template, url_for, redirect
+from flask import render_template, url_for, redirect, flash, request
 from app import app, mongo
 from app.pets import get_pets, get_all_pets
 from app.forms import ContactUsForm
-
 
 @app.route("/home")
 @app.route("/index")
@@ -54,7 +53,7 @@ def contact():
     form = ContactUsForm()
     if form.validate_on_submit():
         flash('Your message has been sent.', 'success')
-        return redirect(url_for('home'))
+        return redirect(url_for('index'))
     return render_template('contact.html', title='Contact Us', form=form)
 
 @app.route("/pet_test", methods=["GET"])
