@@ -1,7 +1,7 @@
 
-from flask import Flask, render_template, url_for, redirect, flash, request
-from .forms import RegistrationForm, LoginForm
-from app import app, mongo
+from flask import render_template, url_for, redirect, flash, request
+from app.forms import RegistrationForm, LoginForm
+from app import app
 from app.pets import get_pets, get_all_pets
 from app.forms import ContactUsForm
 
@@ -42,8 +42,8 @@ def spotlight_terriers():
 
 @app.route("/happy_tails")
 def happy_tails():
-    posts = mongo.db.posts.find()
-    print(type(posts))
+    # posts = mongo.db.posts.find()
+    # print(type(posts))
     return render_template('happy_tails.html', title='Happy Tails', posts=posts)
 
 @app.route("/owner_listing_application")
@@ -54,6 +54,7 @@ def owner_listing_application():
 def contact():
     form = ContactUsForm()
     if form.validate_on_submit():
+        message = Message(name=form.name.data, email=form.email.data, content=form.content.data)
         flash('Your message has been sent.', 'success')
         return redirect(url_for('index'))
     return render_template('contact.html', title='Contact Us', form=form)
