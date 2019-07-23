@@ -1,7 +1,7 @@
 
-from flask import Flask, render_template, url_for, redirect, flash, request
-from .forms import RegistrationForm, LoginForm
-from app import app, mongo
+from flask import render_template, url_for, redirect, flash, request
+from app.forms import RegistrationForm, LoginForm
+from app import app
 from app.pets import get_pets, get_all_pets
 from app.forms import ContactUsForm
 
@@ -42,8 +42,8 @@ def spotlight_terriers():
 
 @app.route("/happy_tails")
 def happy_tails():
-    posts = mongo.db.posts.find()
-    print(type(posts))
+    # posts = mongo.db.posts.find()
+    # print(type(posts))
     return render_template('happy_tails.html', title='Happy Tails', posts=posts)
 
 @app.route("/owner_listing_application")
@@ -54,6 +54,7 @@ def owner_listing_application():
 def contact():
     form = ContactUsForm()
     if form.validate_on_submit():
+        message = Message(name=form.name.data, email=form.email.data, content=form.content.data)
         flash('Your message has been sent.', 'success')
         return redirect(url_for('index'))
     return render_template('contact.html', title='Contact Us', form=form)
@@ -69,22 +70,22 @@ def pet_test():
 #     form = RegistrationForm()
 #     return render_template('register.html', title='Register New User')
 
-# @app.route("/register", methods=['GET', 'POST'])
-# def register():
-#     form = RegistrationForm()
-#     if form.validate_on_submit():
-#         flash(f'Account created for {form.username.data}!', 'success')
-#         return redirect(url_for('home'))
-#     return render_template('register.html', title='Register', form=form)
-#
-#
-# @app.route("/login", methods=['GET', 'POST'])
-# def login():
-#     form = LoginForm()
-#     if form.validate_on_submit():
-#         if form.email.data == 'admin@blog.com' and form.password.data == 'password':
-#             flash('You have been logged in!', 'success')
-#             return redirect(url_for('home'))
-#         else:
-#             flash('Login Unsuccessful. Please check username and password', 'danger')
-#     return render_template('login.html', title='Login', form=form)
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!', 'success')
+        return redirect(url_for('home'))
+    return render_template('register.html', title='Register', form=form)
+
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        if form.email.data == 'admin@blog.com' and form.password.data == 'password':
+            flash('You have been logged in!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Login Unsuccessful. Please check username and password', 'danger')
+    return render_template('login.html', title='Login', form=form)
