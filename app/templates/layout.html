@@ -130,7 +130,24 @@
 
 	
 	<!-- Content block to be populated by the rendered HTML page -->
-	<div id="content">{% block content %}{% endblock %}</div>
+	<main role="main" class="container">
+		<div class="row">
+			<div class="col-md-10 id="content">
+				<!-- As is this displays weirdly with the text outside of the flash color block, 
+				but leaving it here for now inc ase we want to revisit it later. 
+				{% with messages = get_flashed_messages(with_categories=true) %}
+					{% if messages %}
+						{% for category, message in messages %}
+							<div class="alert alert-{{ category }}"></div>
+								{{ message }}
+							</div>
+						{% endfor %}
+					{% endif %}
+				{% endwith %} -->
+				{% block content %}{% endblock %}
+			</div>
+		</div>
+	</main>
 
 
 	<!-- Start image-carusel Area -->

@@ -7,7 +7,9 @@ from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationE
 # from app.models import User
 
 
-# Python classes will be converted into HTML forms
+# Python classes will be converted into HTML forms. General approach  
+# adapted from Corey Schafer's Flask tutorial series:
+# https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=1
 
 # Registration form class that inherits from FlaskForm
 class RegistrationForm(FlaskForm):
@@ -25,20 +27,20 @@ class RegistrationForm(FlaskForm):
     # 		raise ValidationError('Validation Message')
 
     # Validate that username doesn't already exist in the db
-    def validate_username(self, username):
-        # returns 'none' if the username isn't in the db
-        user = User.query.filter_by(username=username.data).first()
-        if user:
-            raise ValidationError(
-                'That username is taken. Please choose another.')
+    # def validate_username(self, username):
+    #     # returns 'none' if the username isn't in the db
+    #     user = User.query.filter_by(username=username.data).first()
+    #     if user:
+    #         raise ValidationError(
+    #             'That username is taken. Please choose another.')
 
     # Validate that user email doesn't already exist in the db
-    def validate_email(self, email):
-        # returns 'none' if the username isn't in the db
-        user = User.query.filter_by(email=email.data).first()
-        if user:
-            raise ValidationError(
-                'That email address is taken. Please choose another.')
+    # def validate_email(self, email):
+    #     # returns 'none' if the username isn't in the db
+    #     user = User.query.filter_by(email=email.data).first()
+    #     if user:
+    #         raise ValidationError(
+    #             'That email address is taken. Please choose another.')
 
 
 # Login form class that inherits from FlaskForm
