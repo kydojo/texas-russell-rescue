@@ -4,7 +4,7 @@ from flask_login import current_user
 from wtforms import BooleanField, PasswordField, StringField, SubmitField, TextAreaField
 from wtforms.fields.core import BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
-# from app.models import User
+from app.models import User
 
 
 # Python classes will be converted into HTML forms. General approach
@@ -22,25 +22,25 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Sign Up')
 
     # Custom validation function template
-    # def validate_field(self, field):
-    # 	if True:
-    # 		raise ValidationError('Validation Message')
+    def validate_field(self, field):
+    	if True:
+    		raise ValidationError('Validation Message')
 
     # Validate that username doesn't already exist in the db
-    # def validate_username(self, username):
-    #     # returns 'none' if the username isn't in the db
-    #     user = User.query.filter_by(username=username.data).first()
-    #     if user:
-    #         raise ValidationError(
-    #             'That username is taken. Please choose another.')
+    def validate_username(self, username):
+        # returns 'none' if the username isn't in the db
+        user = User.query.filter_by(username=username.data).first()
+        if user:
+            raise ValidationError(
+                'That username is taken. Please choose another.')
 
     # Validate that user email doesn't already exist in the db
-    # def validate_email(self, email):
-    #     # returns 'none' if the username isn't in the db
-    #     user = User.query.filter_by(email=email.data).first()
-    #     if user:
-    #         raise ValidationError(
-    #             'That email address is taken. Please choose another.')
+    def validate_email(self, email):
+        # returns 'none' if the username isn't in the db
+        user = User.query.filter_by(email=email.data).first()
+        if user:
+            raise ValidationError(
+                'That email address is taken. Please choose another.')
 
 
 # Login form class that inherits from FlaskForm

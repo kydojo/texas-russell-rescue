@@ -1,9 +1,9 @@
 
 from flask import render_template, url_for, redirect, flash, request
-from app.forms import RegistrationForm, LoginForm
-from app import app
+from app.forms import RegistrationForm, LoginForm, ContactUsForm
+from app import app, db, bcrypt
 from app.pets import get_pets, get_all_pets
-from app.forms import ContactUsForm
+from app.models import User, Post, Message
 
 @app.route("/home")
 @app.route("/index")
@@ -68,8 +68,12 @@ def pet_test():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
+        hashed_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password=hashed_pw)
+        db.session.add(user)
+        db.session.commit()
         flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('index'))
+        return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
