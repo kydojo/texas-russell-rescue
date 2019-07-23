@@ -130,8 +130,19 @@
 
 	
 	<!-- Content block to be populated by the rendered HTML page -->
-	<div id="content">{% block content %}{% endblock %}</div>
-
+	<div id="content">
+		<!-- TODO - This displays weirdly with the text outside of the flash color block -->
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				{% for category, message in messages %}
+					<div class="alert alert-{{ category }}"></div>
+						{{ message }}
+					</div>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		{% block content %}{% endblock %}
+	</div>
 
 	<!-- Start image-carusel Area -->
 	<!-- <section class="image-carusel-area">
@@ -584,9 +595,15 @@
 							target="_blank">RussellRescue.com</a>.&nbsp
 			</p>
 			<p class="">
-				<a href="{{ url_for('login') }}" style="text-decoration : none; color : #8f9296;">
-					&copy;
-				</a>
+				{% if current_user.is_authenticated %}
+					<a href="{{ url_for('logout') }}" style="text-decoration : none; color : #8f9296;">
+						&copy;
+					</a>
+				{% else %}
+					<a href="{{ url_for('login') }}" style="text-decoration : none; color : #8f9296;">
+						&copy;
+					</a>
+				{% endif %}
 				<script>document.write(new Date().getFullYear());</script> | Russell Rescue, Inc. | 501(c)3 Organization 
 			</p>
 		</div>

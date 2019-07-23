@@ -4,10 +4,12 @@ from flask_login import current_user
 from wtforms import BooleanField, PasswordField, StringField, SubmitField, TextAreaField
 from wtforms.fields.core import BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
-# from app.models import User
+from app.models import User
 
 
-# Python classes will be converted into HTML forms
+# Python classes will be converted into HTML forms. General approach
+# adapted from Corey Schafer's Flask tutorial series:
+# https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=1
 
 # Registration form class that inherits from FlaskForm
 class RegistrationForm(FlaskForm):
@@ -20,9 +22,9 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Sign Up')
 
     # Custom validation function template
-    # def validate_field(self, field):
-    # 	if True:
-    # 		raise ValidationError('Validation Message')
+    def validate_field(self, field):
+    	if True:
+    		raise ValidationError('Validation Message')
 
     # Validate that username doesn't already exist in the db
     def validate_username(self, username):

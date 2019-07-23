@@ -1,12 +1,12 @@
 from datetime import datetime
-from app import db
+from app import db, login_manager
 from flask_login import UserMixin
 
 # The login manager needs this to be able to identify users based on their ID
 # Source: LoginManager documentation
-# @login_manager.user_loader	# necessary decorator
-# def load_user(user_id):
-# 	return User.query.get(int(user_id))
+@login_manager.user_loader	# necessary decorator
+def load_user(user_id):
+	return User.query.get(int(user_id))
 
 # Each class (model) will be its own table in the db
 # User class, inherits from db.Model and UserMixin (UserMixin adds attributes needed by LoginManager to manage user sessions)
