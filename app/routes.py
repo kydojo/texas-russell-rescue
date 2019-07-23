@@ -88,7 +88,10 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
-            return redirect(url_for('index'))
+            next_page = request.args.get('next')    # .get() returns None if key does not exist
+
+            # If applicable, redirect to page user tried to access before logging in, else to home page
+            return redirect(next_page) if next_page else redirect(url_for('index'))
         else:
             # TODO - this executes but does not properly display the flash message
             print("Invalid username or password")
