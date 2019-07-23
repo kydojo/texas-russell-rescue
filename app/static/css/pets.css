@@ -10,7 +10,34 @@
     text-transform: capitalize;
 }
 
-/*
-.center-text {
-    text-align:center;
-}*/
+.dog-name-text {
+    font-size: 20px;
+    color: #25408f;
+    text-decoration: none !important;
+}
+
+.dog-text {
+    padding-right: 10px;
+    padding-left: 0px;
+    width: 138px;
+}
+
+
+.owner-listing-text {
+    color: #ffffff;
+    text-decoration: none !important;
+}
+
+.text-style {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.lower-case {
+    text-transform: none;
+}
+
+.btn {
+    background-color: #d3232a !important;
+}
+
