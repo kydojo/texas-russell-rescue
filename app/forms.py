@@ -7,7 +7,7 @@ from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationE
 # from app.models import User
 
 
-# Python classes will be converted into HTML forms. General approach  
+# Python classes will be converted into HTML forms. General approach
 # adapted from Corey Schafer's Flask tutorial series:
 # https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=1
 
