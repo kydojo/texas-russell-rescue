@@ -4,7 +4,7 @@ from app.forms import RegistrationForm, LoginForm, ContactUsForm
 from app import app, db, bcrypt
 from app.pets import get_pets, get_all_pets
 from app.models import User, Post, Message
-from flask_login import login_user, logout_user, current_user
+from flask_login import login_user, logout_user, current_user, login_required
 
 @app.route("/home")
 @app.route("/index")
@@ -99,3 +99,8 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.route("/account")
+@login_required
+def account():
+    return render_template('account.html', title='Account')
