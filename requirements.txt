@@ -34,4 +34,3 @@ WTForms==2.2.1
 Flask-Pymongo==2.3.0
 dnspython==1.16.0
 sqlalchemy-utils==0.34.1
-flask-mail==0.9.1

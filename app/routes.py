@@ -5,8 +5,6 @@ from app import app, db, bcrypt
 from app.pets import get_pets, get_all_pets
 from app.models import User, Post, Message
 from flask_login import login_user, logout_user, current_user, login_required
-from flask.ext.mail import Mail
-from flask.ext.mail import Message as flask_msg 
 
 @app.route("/home")
 @app.route("/index")
