@@ -55,7 +55,10 @@ def owner_listing_application():
 def contact():
     form = ContactUsForm()
     if form.validate_on_submit():
-        message = Message(name=form.name.data, email=form.email.data, content=form.content.data)
+        message = Message(
+            name=form.name.data, email=form.email.data, subject=form.subject.data, content=form.content.data)
+        db.session.add(message)
+        db.session.commit()
         flash('Your message has been sent.', 'success')
         return redirect(url_for('index'))
     return render_template('contact.html', title='Contact Us', form=form)

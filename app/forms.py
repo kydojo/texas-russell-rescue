@@ -4,7 +4,7 @@ from flask_login import current_user
 from wtforms import BooleanField, PasswordField, StringField, SubmitField, TextAreaField
 from wtforms.fields.core import BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
-from app.models import User
+from app.models import User, Post, Message
 
 
 # Python classes will be converted into HTML forms. General approach
@@ -81,5 +81,6 @@ class UpdateAccountForm(FlaskForm):
 class ContactUsForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired()])
+    subject = StringField('Subject', validators=[DataRequired()])
     content = TextAreaField('Message', validators=[DataRequired()])
     submit = SubmitField('Send')

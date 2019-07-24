@@ -13,6 +13,8 @@ db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
+
+# TODO - this still displays weirdly (to check, go to account page while logged out)
 login_manager.login_message_category = 'info'
 
 # After app creation and initialization to avoid circular imports
