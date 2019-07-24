@@ -43,8 +43,6 @@ def spotlight_terriers():
 
 @app.route("/happy_tails")
 def happy_tails():
-    # posts = mongo.db.posts.find()
-    # print(type(posts))
     return render_template('happy_tails.html', title='Happy Tails', posts=posts)
 
 @app.route("/owner_listing_application")
@@ -55,7 +53,11 @@ def owner_listing_application():
 def contact():
     form = ContactUsForm()
     if form.validate_on_submit():
-        message = Message(name=form.name.data, email=form.email.data, content=form.content.data)
+        message = Message(
+            name=form.name.data, email=form.email.data, phone=form.phone.data,
+            city=form.city.data, state=form.state.data, content=form.content.data)
+        db.session.add(message)
+        db.session.commit()
         flash('Your message has been sent.', 'success')
         return redirect(url_for('index'))
     return render_template('contact.html', title='Contact Us', form=form)
