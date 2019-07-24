@@ -82,8 +82,8 @@ STATE_LIST = [('AL', 'Alabama'), ('AK', 'Alaska'), ('AR', 'Arkansas')]
 
 class ContactUsForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired(), Email(), Length(max=120)])
-    phone = StringField('Phone Number')
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    phone = StringField('Phone Number', validators=[Length(max=20)])
     city = StringField('City', validators=[DataRequired()])
     # state = StringField('State', validators=[DataRequired()])
     state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
