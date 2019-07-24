@@ -78,7 +78,7 @@ class UpdateAccountForm(FlaskForm):
                 raise ValidationError(
                     'That email address is taken. Please choose another.')
 
-STATE_LIST = [('AL', 'Alabama'), ('AK', 'Alaska'), ('AR', 'Arkansas')]
+STATE_LIST = [('AL', 'Alabama'), ('AK', 'Alaska'), ('AR', 'Arkansas'), ('LA', 'Louisiana'), ('OK', 'Oklahoma'), ('TX', 'Texas')]
 
 class ContactUsForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])

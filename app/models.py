@@ -43,12 +43,12 @@ class Message(db.Model):
 	name = db.Column(db.String(60), nullable=False)
 	email = db.Column(EmailType, nullable=False)
 	phone = db.Column(db.String(20))
-	city = db.Column(db.String(60))
-	state = db.Column(db.String(2))
+	city = db.Column(db.String(60), nullable=False)
+	state = db.Column(db.String(2), nullable=False)
 	date_sent = db.Column(db.DateTime, nullable=False, default=datetime.utcnow) # date_posted attribute, DateTime, set the default to the time posted unless set
 	content = db.Column(db.Text, nullable=False) # content attribute, text content of the post
 
 	# Dunder (magic) method to define how the object will be printed out
 	def __repr__(self):
-		return f"Message('{self.name}', '{self.city}' '{self.date_sent}')"
+		return f"Message('{self.name}', '{self.city}', '{self.state}', '{self.date_sent}')"
 		

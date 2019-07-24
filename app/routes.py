@@ -5,6 +5,8 @@ from app import app, db, bcrypt
 from app.pets import get_pets, get_all_pets
 from app.models import User, Post, Message
 from flask_login import login_user, logout_user, current_user, login_required
+from flask.ext.mail import Mail
+from flask.ext.mail import Message as flask_msg 
 
 @app.route("/home")
 @app.route("/index")
@@ -43,8 +45,6 @@ def spotlight_terriers():
 
 @app.route("/happy_tails")
 def happy_tails():
-    # posts = mongo.db.posts.find()
-    # print(type(posts))
     return render_template('happy_tails.html', title='Happy Tails', posts=posts)
 
 @app.route("/owner_listing_application")
@@ -56,7 +56,8 @@ def contact():
     form = ContactUsForm()
     if form.validate_on_submit():
         message = Message(
-            name=form.name.data, email=form.email.data, subject=form.subject.data, content=form.content.data)
+            name=form.name.data, email=form.email.data, phone=form.phone.data,
+            city=form.city.data, state=form.state.data, content=form.content.data)
         db.session.add(message)
         db.session.commit()
         flash('Your message has been sent.', 'success')
