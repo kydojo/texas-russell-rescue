@@ -1,6 +1,7 @@
 from datetime import datetime
 from app import db, login_manager
 from flask_login import UserMixin
+from sqlalchemy_utils import EmailType
 
 # The login manager needs this to be able to identify users based on their ID
 # Source: LoginManager documentation
@@ -12,7 +13,7 @@ def load_user(user_id):
 # Each class (model) will be its own table in the db
 # User class, inherits from db.Model and UserMixin (UserMixin adds attributes needed by LoginManager to manage user sessions)
 class User(db.Model, UserMixin):
-	id = db.Column(db.Integer, primary_key=True) # create the user id attribute and set it to the PK for the db
+	id = db.Column(db.Integer, autoincrement=True, primary_key=True) # create the user id attribute and set it to the PK for the db
 	username = db.Column(db.String(20), unique=True, nullable=False) # username attribute, string with max length of 20, unique, not null
 	email = db.Column(db.String(120), unique=True, nullable=False) # email attribute, string with max length of 120, unique, not null
 	image_file = db.Column(db.String(20), nullable=False, default='default.jpg') # image_file attribute for profile pic, hash will have a max length of 20, default image will be set
@@ -26,7 +27,7 @@ class User(db.Model, UserMixin):
 
 # Post class, inherits from db.Model
 class Post(db.Model):
-	id = db.Column(db.Integer, primary_key=True) # create the user id attribute and set it to the PK for the db
+	id = db.Column(db.Integer, autoincrement=True, primary_key=True) # create the user id attribute and set it to the PK for the db
 	title = db.Column(db.String(100), nullable=False) # title attribute, string with a max length of 100, not null
 	date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow) # date_posted attribute, DateTime, set the default to the time posted unless set
 	content = db.Column(db.Text, nullable=False) # content attribute, text content of the post
@@ -38,10 +39,10 @@ class Post(db.Model):
 
 # Message class, inherits from db.Model
 class Message(db.Model):
-	id = db.Column(db.Integer, primary_key=True) # create the user id attribute and set it to the PK for the db
+	id = db.Column(db.Integer, autoincrement=True, primary_key=True) # create the user id attribute and set it to the PK for the db
 	name = db.Column(db.String(60), nullable=False) 
-	email = db.Column(db.String(120), nullable=False)
-	subject = db.Column(db.String(120), nullable=False)
+	email = db.Column(EmailType, nullable=False)
+	_phone = db.Column(db.Unicode(20))
 	date_sent = db.Column(db.DateTime, nullable=False, default=datetime.utcnow) # date_posted attribute, DateTime, set the default to the time posted unless set
 	content = db.Column(db.Text, nullable=False) # content attribute, text content of the post
 

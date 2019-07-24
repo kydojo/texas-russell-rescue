@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed      # for image upload
 from flask_login import current_user
-from wtforms import BooleanField, PasswordField, StringField, SubmitField, TextAreaField
+from wtforms import BooleanField, PasswordField, StringField, SubmitField, TextAreaField, SelectField
 from wtforms.fields.core import BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 from app.models import User, Post, Message
@@ -78,9 +78,14 @@ class UpdateAccountForm(FlaskForm):
                 raise ValidationError(
                     'That email address is taken. Please choose another.')
 
+STATE_LIST = [('AL', 'Alabama'), ('AK', 'Alaska'), ('AR', 'Arkansas')]
+
 class ContactUsForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired()])
-    subject = StringField('Subject', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email(), Length(max=120)])
+    phone = StringField('Phone Number')
+    city = StringField('City', validators=[DataRequired()])
+    # state = StringField('State', validators=[DataRequired()])
+    state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
     content = TextAreaField('Message', validators=[DataRequired()])
     submit = SubmitField('Send')
