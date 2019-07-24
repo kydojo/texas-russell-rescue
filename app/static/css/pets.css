@@ -1,5 +1,83 @@
-.petsBorderAlignment{
+/*.petsBorderAlignment{
     margin:100px; 
     padding:100px; 
     background-color: coral;
+}*/
+
+.container-style {
+    padding: 20px;
+}
+
+.title-text {
+    text-align:center;
+    color: #25408f;
+}
+
+.disclaimer-div {
+    color: #d3232a !important;
+    background-color: #ecf1ff;
+    border-color: #25408f !important;
+    padding: 5px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 10px 10px rgba(0,0,0,.2);
+    box-shadow: 0 10px 10px rgba(0,0,0,.2);
+}
+
+.dog-card {
+    /*margin: 10px;*/
+    margin: 10px 0px;
+    /*border-color: #25408f !important;*/
+    border: 2px solid #25408f;
+    background-color: #ecf1ff;
+    padding: 5px;
+    text-align:center;
+    /*text-transform: capitalize;*/
+    -webkit-box-shadow: 0 10px 10px rgba(0,0,0,.2);
+    box-shadow: 0 10px 10px rgba(0,0,0,.2);
+}
+
+.dog-card-outer {
+    /*width: 230px;*/
+}
+
+.dog-name-text {
+    width: 120px;
+    padding-right: 5px;
+    font-size: 20px;
+    color: #25408f;
+    text-decoration: none !important;
+}
+
+.dog-text {
+    padding-right: 10px;
+    padding-left: 0px;
+    width: 138px;
+}
+
+.dog-text-inner {
+    padding-right: 10px;
+}
+
+.owner-listing-text {
+    color: #d3232a;
+   /*text-decoration: none !important;*/
+}
+
+.text-style {
+    font-size: 18px;
+    margin-top: 20px;
+    text-transform: capitalize;
+}
+
+.lower-case {
+    text-transform: none;
+}
+
+/*.btn {
+    background-color: #d3232a !important;
+}*/
+
+.dog-img {
+    border-radius: 5px;
+    /*border: 2px solid #25408f;*/
 }
