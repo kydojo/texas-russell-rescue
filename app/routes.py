@@ -5,6 +5,7 @@ from app import app, db, bcrypt
 from app.pets import get_pets, get_all_pets
 from app.models import User, Post, Message
 from flask_login import login_user, logout_user, current_user, login_required
+from sqlalchemy import desc
 
 @app.route("/home")
 @app.route("/index")
@@ -75,7 +76,7 @@ def contact():
 @app.route("/contact_inbox", methods=['GET'])
 @login_required
 def contact_inbox():
-    messages = Message.query.all()  
+    messages = Message.query.order_by(desc(Message.date_sent)).all()  
     # TODO - need to also collect owner surrender messages once that implementation is done
     # applications = OwnerSurrenderApplication.query.all() # also add applications to render args below
     return render_template(
