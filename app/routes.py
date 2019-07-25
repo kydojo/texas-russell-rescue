@@ -76,7 +76,7 @@ def contact():
 @app.route("/contact_inbox", methods=['GET'])
 @login_required
 def contact_inbox():
-    messages = Message.query.order_by(desc(Message.date_sent)).all()  
+    messages = Message.query.order_by(desc(Message.date_sent)).all()
     # TODO - need to also collect owner surrender messages once that implementation is done
     # applications = OwnerSurrenderApplication.query.all() # also add applications to render args below
     return render_template(
