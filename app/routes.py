@@ -51,7 +51,8 @@ def owner_listing_application():
     if form.validate_on_submit():
         application = OwnerSurrenderApplication(
             first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data,
-            phone=form.phone.data, city=form.city.data, state=form.state.data, content=form.content.data)
+            phone=form.phone.data, address=form.address.data, city=form.city.data, state=form.state.data, 
+            content=form.content.data)
         db.session.add(application)
         db.session.commit()
         flash('Your message has been sent.', 'success')

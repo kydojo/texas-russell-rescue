@@ -54,6 +54,8 @@
                         {{ form.email(class="form-control form-control-md", placeholder="name@domain.com") }}
                     {% endif %}
                 </div>
+            </div>
+            <div class="row">
                 <div class="form-group col-md-7">
                     {{ form.phone.label(class="form-control-label") }}
                     {% if form.phone.errors %}
@@ -67,6 +69,21 @@
                         {{ form.phone(class="form-control form-control-md", placeholder="555-555-5555") }}
                     {% endif %}
                 </div>  
+            </div> 
+            <div class="row">
+              <div class="form-group col-md-7">
+                  {{ form.address.label(class="form-control-label") }}
+                  {% if form.address.errors %}
+                      {{ form.address(class="form-control form-control-md is-invalid", placeholder="123 Main St.") }}
+                      <div class="invalid-feedback">
+                          {% for error in form.address.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.address(class="form-control form-control-md", placeholder="123 Main St.") }}
+                  {% endif %}
+              </div>  
             </div>      
             <div class="row">
                 <div class="form-group col-md-5">
