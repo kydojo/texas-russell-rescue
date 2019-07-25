@@ -4,9 +4,6 @@
     <list default="true" id="c454bd19-703c-4df9-926d-119a406ab0e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/css/pets.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/pets.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/img/LOGO1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/layout.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,9 +58,9 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="9" />
-          <entry key="css" value="1575" />
+          <entry key="css" value="1739" />
           <entry key="dummy" value="7" />
-          <entry key="html" value="1865" />
+          <entry key="html" value="1918" />
           <entry key="js" value="117" />
           <entry key="md" value="6" />
           <entry key="py" value="1121" />
@@ -72,8 +69,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1575" />
-          <entry key="HTML" value="1865" />
+          <entry key="CSS" value="1739" />
+          <entry key="HTML" value="1918" />
           <entry key="JavaScript" value="117" />
           <entry key="Markdown" value="6" />
           <entry key="PLAIN_TEXT" value="156" />
@@ -83,14 +80,14 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.510241">
+    <splitter split-orientation="horizontal" split-proportion="0.59638554">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/templates/layout.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="399">
-                  <caret line="105" column="125" selection-start-line="105" selection-start-column="125" selection-end-line="105" selection-end-column="125" />
+                <state relative-caret-position="250">
+                  <caret line="118" column="73" selection-start-line="118" selection-start-column="73" selection-end-line="118" selection-end-column="73" />
                   <folding>
                     <element signature="e#6279#7904#0" />
                     <element signature="e#7973#8373#0" />
@@ -129,8 +126,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
-                  <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+                <state relative-caret-position="442">
+                  <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
@@ -151,8 +148,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/static/css/main.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="350">
-                  <caret line="2485" column="1" selection-start-line="2485" selection-start-column="1" selection-end-line="2485" selection-end-column="1" />
+                <state relative-caret-position="597">
+                  <caret line="2493" column="29" selection-start-line="2493" selection-start-column="29" selection-end-line="2493" selection-end-column="29" />
                 </state>
               </provider>
             </entry>
@@ -230,8 +227,8 @@
         <option value="$PROJECT_DIR$/examples/login/login_example_form.py" />
         <option value="$PROJECT_DIR$/app/static/css/pets.css" />
         <option value="$PROJECT_DIR$/app/templates/pets_test.html" />
-        <option value="$PROJECT_DIR$/app/templates/layout.html" />
         <option value="$PROJECT_DIR$/app/static/js/main.js" />
+        <option value="$PROJECT_DIR$/app/templates/layout.html" />
         <option value="$PROJECT_DIR$/app/static/css/main.css" />
       </list>
     </option>
@@ -265,6 +262,13 @@
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="static" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="texas-russell-rescue" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="static" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="img" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="texas-russell-rescue" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -386,7 +390,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32939914" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.2864807" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.18669528" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32939914" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -576,8 +580,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+        <state relative-caret-position="442">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -595,10 +599,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="40" lean-forward="true" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="105" column="125" selection-start-line="105" selection-start-column="125" selection-end-line="105" selection-end-column="125" />
+        <state relative-caret-position="250">
+          <caret line="118" column="73" selection-start-line="118" selection-start-column="73" selection-end-line="118" selection-end-column="73" />
           <folding>
             <element signature="e#6279#7904#0" />
             <element signature="e#7973#8373#0" />
@@ -612,17 +623,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="40" lean-forward="true" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/static/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="2485" column="1" selection-start-line="2485" selection-start-column="1" selection-end-line="2485" selection-end-column="1" />
+        <state relative-caret-position="597">
+          <caret line="2493" column="29" selection-start-line="2493" selection-start-column="29" selection-end-line="2493" selection-end-column="29" />
         </state>
       </provider>
     </entry>
