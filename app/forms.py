@@ -89,3 +89,13 @@ class ContactUsForm(FlaskForm):
     state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
     content = TextAreaField('Message', validators=[DataRequired()])
     submit = SubmitField('Send')
+
+class OwnerSurrenderForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    phone = StringField('Phone Number', validators=[Length(max=20)])
+    city = StringField('City', validators=[DataRequired()])
+    # state = StringField('State', validators=[DataRequired()])
+    state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
+    content = TextAreaField('Message', validators=[DataRequired()])
+    submit = SubmitField('Send')

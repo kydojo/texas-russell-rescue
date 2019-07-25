@@ -1,6 +1,6 @@
 
 from flask import render_template, url_for, redirect, flash, request
-from app.forms import RegistrationForm, LoginForm, ContactUsForm
+from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrenderForm
 from app import app, db, bcrypt
 from app.pets import get_pets, get_all_pets
 from app.models import User, Post, Message
@@ -45,9 +45,18 @@ def spotlight_terriers():
 def happy_tails():
     return render_template('happy_tails.html', title='Happy Tails', posts=posts)
 
-@app.route("/owner_listing_application")
+@app.route("/owner_listing_application", methods=['GET', 'POST'])
 def owner_listing_application():
-    return render_template('owner_listing_app.html', title='Owner Listing Application')
+    form = OwnerSurrenderForm()
+    if form.validate_on_submit():
+        message = Message(
+            name=form.name.data, email=form.email.data, phone=form.phone.data,
+            city=form.city.data, state=form.state.data, content=form.content.data)
+        db.session.add(message)
+        db.session.commit()
+        flash('Your message has been sent.', 'success')
+        return redirect(url_for('index'))
+    return render_template('owner_listing_app.html', title='Owner Listing Application', form=form)
 
 @app.route("/contact", methods=['GET', 'POST'])
 def contact():
