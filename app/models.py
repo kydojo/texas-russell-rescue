@@ -50,8 +50,8 @@ class Message(db.Model):
 	content = db.Column(db.Text, nullable=False) # content attribute, text content of the post
 
 	# Dunder (magic) method to define how the object will be printed out
-	# def __repr__(self):
-	# 	return f"Message('{self.name}', '{self.city}', '{self.state}', '{self.date_sent}')"
+	def __repr__(self):
+		return f"Message('{self.name}', '{self.city}', '{self.state}', '{self.date_sent}')"
 
 class OwnerSurrenderApplication(db.Model):
 	id = db.Column(db.Integer, autoincrement=True, primary_key=True) # create the user id attribute and set it to the PK for the db
