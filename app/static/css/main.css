@@ -2030,6 +2030,12 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 8px !important;
 }
 
+@media (max-width: 991.98px) {
+  .navbar-custom {
+    margin 0px;
+  }
+}
+
 .nav-link {
   margin: 0px 5px;
   color: #25408f !important;
@@ -2039,11 +2045,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .add-margin-top {
-  margin-top: 50px;
+  margin-top: 4px;
 }
 
 .navbar-toggler-padding {
-  margin-top: 35px;
+  margin: 10px 0px;
 }
 
 /* Source: https://designshack.net/articles/css/joshuajohnson-2/ */
@@ -2180,8 +2186,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #nav-logo {
-  height: 140px;
-  width: auto;
+  height: auto;
+  width: 400px;
+  margin: 0px 10px 0px 10px;
+  z-index: 1;
+  transition: transform .3s;
+}
+
+#nav-logo-sm-screen {
+  height: auto;
+  width: 300px;
+  margin: 15px 10px 0px 30px;
   z-index: 1;
   transition: transform .3s;
 }
@@ -2389,9 +2404,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     display: none;
   }
 
-  /*.add-margin-top {
-    margin-top: 50px;
-  }*/
 }
 
 .alert-msg {
@@ -2467,7 +2479,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 .banner-area {
   background: url(../img/jr15-mirror.jpg) center;
   background-size: cover;
-  margin-top: 140px;
+  margin-top: 80px;
   /* Flip Image */
   /* -webkit-transform: scaleX(-1);
   transform: scaleX(-1); */
@@ -3139,14 +3151,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 
   #nav-logo {
-    /* margin-left: -20px; */
     height: 100px;
     width: auto;
     z-index: 1;
   }
 
   .banner-area {
-    margin-top: 125px;
+    margin-top: 75px;
   }
 }
 
