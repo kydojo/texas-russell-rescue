@@ -16,20 +16,20 @@
                 <div class="form-group col-md-3">
                     {{ form.first_name.label(class="form-control-label") }}
                     {% if form.first_name.errors %}
-                        {{ form.first_name(class="form-control form-control-md is-invalid", placeholder="Jane Doe") }}
+                        {{ form.first_name(class="form-control form-control-md is-invalid", placeholder="Jane") }}
                         <div class="invalid-feedback">
                             {% for error in form.first_name.errors %}
                                 <span>{{ error }}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.first_name(class="form-control form-control-md", placeholder="Jane Doe") }}
+                        {{ form.first_name(class="form-control form-control-md", placeholder="Jane") }}
                     {% endif %}
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-5">
                   {{ form.last_name.label(class="form-control-label") }}
                   {% if form.last_name.errors %}
-                      {{ form.last_name(class="form-control form-control-md is-invalid", placeholder="Jane") }}
+                      {{ form.last_name(class="form-control form-control-md is-invalid", placeholder="Doe") }}
                       <div class="invalid-feedback">
                           {% for error in form.last_name.errors %}
                               <span>{{ error }}</span>
@@ -41,7 +41,7 @@
               </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-7">
+                <div class="form-group col-md-5">
                     {{ form.email.label(class="form-control-label") }}
                     {% if form.email.errors %}
                         {{ form.email(class="form-control form-control-md is-invalid", placeholder="name@domain.com") }}
@@ -54,9 +54,7 @@
                         {{ form.email(class="form-control form-control-md", placeholder="name@domain.com") }}
                     {% endif %}
                 </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-7">
+                <div class="form-group col-md-3">
                     {{ form.phone.label(class="form-control-label") }}
                     {% if form.phone.errors %}
                         {{ form.phone(class="form-control form-control-md is-invalid", placeholder="555-555-5555") }}
@@ -71,7 +69,7 @@
                 </div>  
             </div> 
             <div class="row">
-              <div class="form-group col-md-7">
+              <div class="form-group col-md-8">
                   {{ form.address.label(class="form-control-label") }}
                   {% if form.address.errors %}
                       {{ form.address(class="form-control form-control-md is-invalid", placeholder="123 Main St.") }}
@@ -114,7 +112,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-7">
+                <div class="form-group col-md-8">
                     {{ form.content.label(class="form-control-label") }}
                     {% if form.content.errors %}
                         {{ form.content(class="form-control form-control-lg is-invalid") }}
