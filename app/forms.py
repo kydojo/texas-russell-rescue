@@ -1,10 +1,10 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed      # for image upload
 from flask_login import current_user
-from wtforms import BooleanField, PasswordField, StringField, SubmitField, TextAreaField
+from wtforms import BooleanField, PasswordField, StringField, SubmitField, TextAreaField, SelectField, DateField
 from wtforms.fields.core import BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
-from app.models import User
+from app.models import User, Post, Message
 
 
 # Python classes will be converted into HTML forms. General approach
@@ -78,8 +78,81 @@ class UpdateAccountForm(FlaskForm):
                 raise ValidationError(
                     'That email address is taken. Please choose another.')
 
+STATE_LIST = [
+    ('TX', 'Texas'),
+    ('AL', 'Alabama'),
+    ('AK', 'Alaska'),
+    ('AZ', 'Arizona'),
+    ('AR', 'Arkansas'),
+    ('CA', 'California'),
+    ('CO', 'Colorado'),
+    ('CT', 'Connecticut'),
+    ('DE', 'Delware'),
+    ('DC', 'District of Columbia'),
+    ('FL', 'Florida'),
+    ('GA', 'Georgia'),
+    ('HI', 'Hawaii'),
+    ('ID', 'Idaho'),
+    ('IL', 'Illinois'),
+    ('IN', 'Indiana'),
+    ('IA', 'Iowa'),
+    ('KS', 'Kansas'),
+    ('KY', 'Kentucky'),
+    ('LA', 'Louisiana'),
+    ('ME', 'Maine'),
+    ('MD', 'Maryland'),
+    ('MA', 'Massachusetts'),
+    ('MI', 'Michigan'),
+    ('MN', 'Minnesota'),
+    ('MI', 'Mississippi'),
+    ('MO', 'Missouri'),
+    ('MT', 'Montana'),
+    ('NE', 'Nebraska'),
+    ('NV', 'Nevada'),
+    ('NH', 'New Hampshire'),
+    ('NJ', 'New Jersey'),
+    ('NM', 'New Mexico'),
+    ('NY', 'New York'),
+    ('NC', 'North Carolina'),
+    ('ND', 'North Dakota'),
+    ('OH', 'Ohio'),
+    ('OK', 'Oklahoma'),
+    ('OR', 'Oregon'),
+    ('PA', 'Pennsyvania'),
+    ('RI', 'Rhode Island'),
+    ('SC', 'South Carolina'),
+    ('SD', 'South Dakota'),
+    ('TN', 'Tennessee'),
+    ('UT', 'Utah'),
+    ('VT', 'Vermont'),
+    ('VA', 'Virginia'),
+    ('WA', 'Washington'),
+    ('WV', 'West Virginia'),
+    ('WI', 'Wisconsin'),
+    ('WY', 'Wyoming')
+]
+
 class ContactUsForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired(), Length(max=120)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    phone = StringField('Phone Number', validators=[Length(max=20)])
+    city = StringField('City', validators=[DataRequired()])
+    # state = StringField('State', validators=[DataRequired()])
+    state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
     content = TextAreaField('Message', validators=[DataRequired()])
+    submit = SubmitField('Send')
+
+class OwnerSurrenderForm(FlaskForm):
+    first_name = StringField('First Name', validators=[DataRequired(), Length(max=60)])
+    last_name = StringField('Last Name', validators=[DataRequired(), Length(max=60)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    phone = StringField('Phone Number', validators=[Length(max=20)])
+    address = StringField('Address', validators=[DataRequired(), Length(max=120)])
+    city = StringField('City', validators=[DataRequired()])
+    # state = StringField('State', validators=[DataRequired()])
+    state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
+    dog_origin = TextAreaField('Where did you get your Jack Russell?  Please provide the name of shelter/rescue or name of breeder if you bought him/her from a breeder', validators=[DataRequired()])
+    spayed_or_neutered = BooleanField('My Jack Russell has been spayed/neutered.')
+    vaccines_up_to_date = BooleanField('My Jack Russell is up to date on vaccinations.')
+    vaccine_due_date = DateField('Due Date')
     submit = SubmitField('Send')

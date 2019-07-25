@@ -31,5 +31,5 @@ virtualenv==16.6.1
 Werkzeug==0.15.4
 wrapt==1.11.2
 WTForms==2.2.1
-Flask-Pymongo==2.3.0
 dnspython==1.16.0
+sqlalchemy-utils==0.34.1
