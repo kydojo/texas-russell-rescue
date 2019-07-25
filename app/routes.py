@@ -49,10 +49,10 @@ def happy_tails():
 def owner_listing_application():
     form = OwnerSurrenderForm()
     if form.validate_on_submit():
-        message = Message(
-            name=form.name.data, email=form.email.data, phone=form.phone.data,
-            city=form.city.data, state=form.state.data, content=form.content.data)
-        db.session.add(message)
+        application = OwnerSurrenderApplication(
+            first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data,
+            phone=form.phone.data, city=form.city.data, state=form.state.data, content=form.content.data)
+        db.session.add(application)
         db.session.commit()
         flash('Your message has been sent.', 'success')
         return redirect(url_for('index'))
@@ -63,8 +63,8 @@ def contact():
     form = ContactUsForm()
     if form.validate_on_submit():
         message = Message(
-            name=form.name.data, email=form.email.data, phone=form.phone.data,
-            city=form.city.data, state=form.state.data, content=form.content.data)
+            first_name=form.first_name.data, last_name=form.last_name.data,  email=form.email.data,
+            phone=form.phone.data, city=form.city.data, state=form.state.data, content=form.content.data)
         db.session.add(message)
         db.session.commit()
         flash('Your message has been sent.', 'success')

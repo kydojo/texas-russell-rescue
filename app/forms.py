@@ -78,10 +78,18 @@ class UpdateAccountForm(FlaskForm):
                 raise ValidationError(
                     'That email address is taken. Please choose another.')
 
-STATE_LIST = [('AL', 'Alabama'), ('AK', 'Alaska'), ('AR', 'Arkansas'), ('LA', 'Louisiana'), ('OK', 'Oklahoma'), ('TX', 'Texas')]
+STATE_LIST = [
+    ('AL', 'Alabama'),
+    ('AK', 'Alaska'),
+    ('AZ', 'Arizona'),
+    ('AR', 'Arkansas'),
+    ('LA', 'Louisiana'),
+    ('OK', 'Oklahoma'),
+    ('TX', 'Texas')
+]
 
 class ContactUsForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired(), Length(max=120)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     phone = StringField('Phone Number', validators=[Length(max=20)])
     city = StringField('City', validators=[DataRequired()])
@@ -91,7 +99,8 @@ class ContactUsForm(FlaskForm):
     submit = SubmitField('Send')
 
 class OwnerSurrenderForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
+    first_name = StringField('First Name', validators=[DataRequired(), Length(max=60)])
+    last_name = StringField('Last Name', validators=[DataRequired(), Length(max=60)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     phone = StringField('Phone Number', validators=[Length(max=20)])
     city = StringField('City', validators=[DataRequired()])
