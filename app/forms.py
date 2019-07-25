@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed      # for image upload
 from flask_login import current_user
-from wtforms import BooleanField, PasswordField, StringField, SubmitField, TextAreaField, SelectField
+from wtforms import BooleanField, PasswordField, StringField, SubmitField, TextAreaField, SelectField, DateField
 from wtforms.fields.core import BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 from app.models import User, Post, Message
@@ -79,6 +79,7 @@ class UpdateAccountForm(FlaskForm):
                     'That email address is taken. Please choose another.')
 
 STATE_LIST = [
+    ('TX', 'Texas'),
     ('AL', 'Alabama'),
     ('AK', 'Alaska'),
     ('AZ', 'Arizona'),
@@ -122,7 +123,6 @@ STATE_LIST = [
     ('SC', 'South Carolina'),
     ('SD', 'South Dakota'),
     ('TN', 'Tennessee'),
-    ('TX', 'Texas'),
     ('UT', 'Utah'),
     ('VT', 'Vermont'),
     ('VA', 'Virginia'),
@@ -151,5 +151,8 @@ class OwnerSurrenderForm(FlaskForm):
     city = StringField('City', validators=[DataRequired()])
     # state = StringField('State', validators=[DataRequired()])
     state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
-    content = TextAreaField('Where did you get your Jack Russell?  Please provide the name of shelter/rescue or name of breeder if you bought him/her from a breeder', validators=[DataRequired()])
+    dog_origin = TextAreaField('Where did you get your Jack Russell?  Please provide the name of shelter/rescue or name of breeder if you bought him/her from a breeder', validators=[DataRequired()])
+    spayed_or_neutered = BooleanField('My Jack Russell has been spayed/neutered.')
+    vaccines_up_to_date = BooleanField('My Jack Russell is up to date on vaccinations.')
+    vaccine_due_date = DateField('Due Date')
     submit = SubmitField('Send')

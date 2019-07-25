@@ -52,7 +52,7 @@ def owner_listing_application():
         application = OwnerSurrenderApplication(
             first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data,
             phone=form.phone.data, address=form.address.data, city=form.city.data, state=form.state.data, 
-            content=form.content.data)
+            dog_origin=form.dog_origin.data)
         db.session.add(application)
         db.session.commit()
         flash('Your message has been sent.', 'success')

@@ -61,7 +61,8 @@ class OwnerSurrenderApplication(db.Model):
 	city = db.Column(db.String(60), nullable=False)
 	state = db.Column(db.String(2), nullable=False)
 	date_sent = db.Column(db.DateTime, nullable=False, default=datetime.utcnow) # date_posted attribute, DateTime, set the default to the time posted unless set
-	content = db.Column(db.Text, nullable=False) # content attribute, text content of the post
+	dog_origin = db.Column(db.Text, nullable=False) # content attribute, text content of the post
+	spayed_or_neutered = db.Column(db.Boolean, nullable=False, default=False)
 
 	# Dunder (magic) method to define how the object will be printed out
 	def __repr__(self):
