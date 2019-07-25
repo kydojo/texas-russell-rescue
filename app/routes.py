@@ -52,7 +52,7 @@ def owner_listing_application():
         application = OwnerSurrenderApplication(
             first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data,
             phone=form.phone.data, address=form.address.data, city=form.city.data, state=form.state.data, 
-            dog_origin=form.dog_origin.data)
+            dog_origin=form.dog_origin.data, spayed_or_neutered=form.spayed_or_neutered.data)
         db.session.add(application)
         db.session.commit()
         flash('Your message has been sent.', 'success')
@@ -64,13 +64,22 @@ def contact():
     form = ContactUsForm()
     if form.validate_on_submit():
         message = Message(
-            first_name=form.first_name.data, last_name=form.last_name.data,  email=form.email.data,
-            phone=form.phone.data, city=form.city.data, state=form.state.data, content=form.content.data)
+            name=form.name.data, email=form.email.data, phone=form.phone.data, city=form.city.data,
+            state=form.state.data, subject=form.subject.data, content=form.content.data)
         db.session.add(message)
         db.session.commit()
         flash('Your message has been sent.', 'success')
         return redirect(url_for('index'))
     return render_template('contact.html', title='Contact Us', form=form)
+
+@app.route("/contact_inbox", methods=['GET'])
+@login_required
+def contact_inbox():
+    messages = Message.query.all()  
+    # TODO - need to also collect owner surrender messages once that implementation is done
+    # applications = OwnerSurrenderApplication.query.all() # also add applications to render args below
+    return render_template(
+        'contact_inbox.html', title='Contact Us Inbox', messages=messages)
 
 @app.route("/pet_test", methods=["GET"])
 def pet_test():
