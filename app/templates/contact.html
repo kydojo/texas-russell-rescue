@@ -85,6 +85,21 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-8">
+                    {{ form.subject.label(class="form-control-label") }}
+                    {% if form.subject.errors %}
+                        {{ form.subject(class="form-control form-control-md is-invalid", placeholder="Subject") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.subject.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.subject(class="form-control form-control-md", placeholder="Subject") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
                     {{ form.content.label(class="form-control-label") }}
                     {% if form.content.errors %}
                         {{ form.content(class="form-control form-control-md is-invalid", rows="5") }}
