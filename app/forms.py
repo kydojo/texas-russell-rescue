@@ -142,6 +142,10 @@ class ContactUsForm(FlaskForm):
     content = TextAreaField('Message', validators=[DataRequired()])
     submit = SubmitField('Send')
 
+# TODO - Vaccination due date field needs to be added in concert with the vaccines_current field
+# TODO - Might want to replace some of the boolean checkboxes with radio fields
+# TODO - Need to add ability to upload at least 3 photos and 1 video
+# TODO - validation seems wonky. If I try to submit an empty form the notifications are not helpful
 class OwnerSurrenderForm(FlaskForm):
     first_name = StringField('First Name', validators=[DataRequired(), Length(max=60)])
     last_name = StringField('Last Name', validators=[DataRequired(), Length(max=60)])
@@ -150,8 +154,42 @@ class OwnerSurrenderForm(FlaskForm):
     address = StringField('Address', validators=[DataRequired(), Length(max=120)])
     city = StringField('City', validators=[DataRequired()])
     state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
-    dog_origin = TextAreaField('Where did you get your Jack Russell?  Please provide the name of shelter/rescue or name of breeder if you bought him/her from a breeder', validators=[DataRequired()])
+    dog_origin = TextAreaField(
+        'Where did you get your Jack Russell?  Please provide the name of shelter/rescue or name of breeder if you bought him/her from a breeder', validators=[DataRequired()]
+    )
     spayed_or_neutered = BooleanField('My Jack Russell has been spayed/neutered.')
-    vaccines_up_to_date = BooleanField('My Jack Russell is up to date on vaccinations.')
+    vaccines_current = BooleanField('My Jack Russell is up to date on vaccinations.')
     vaccine_due_date = StringField('Due Date')
+    heartworm_meds_current = BooleanField(
+        'My Jack Russell is current on a heartworm prevention medication such as Heartgard.'
+    )
+    why_rehoming = TextAreaField(
+        'We would like to understand your unique situation.  Please tell us how long you have owned your dog & why you are rehoming him/her?', validators=[DataRequired()]
+        )
+    dog_friendly = BooleanField('My Jack Russell gets along with other dogs.')
+    cat_friendly = BooleanField('My Jack Russell gets along with cats.')
+    people_friendly = TextAreaField(
+        'How does your Jack Russell interact with people?  Are they friendly around people or are they anxious and/or aggressive?  How are they around children?', validators=[DataRequired()]
+    )
+    training = TextAreaField(
+        'Does your Jack Russell know any tricks or have any type of training?', validators=[DataRequired()]
+    )
+    leash_behavior = TextAreaField(
+        'How does your Jack Russell do when walking on a leash?', validators=[DataRequired()]
+    )
+    car_behavior = StringField(
+        'Does your Jack Russell enjoy rides in the car?', validators=[DataRequired()]
+    )
+    general_health = TextAreaField(
+        'Is your Jack Russell healthy?  Are there any special medical needs they might have? Do they have any separation anxiety?', validators=[DataRequired()])
+    potty_trained = StringField('Is your Jack Russell house trained and crate trained?', validators=[DataRequired()]
+    )
+    home_alone_behavior = TextAreaField(
+        'When you leave the house, where does your dog stay?  How long is he/she used to you being gone?', validators=[DataRequired()])
+    can_remain_home_until_adopted = StringField(
+        'All dogs entering rescue are either temporarily placed in a foster home or must remain with their owners until a suitable home can be found.  Foster space is limited, so foster homes are generally reserved for dogs that are in danger of euthanasia at local shelters or are in an emergency situation.  Is your dog able to remain in your home while we find a suitable home for him/her?', validators=[DataRequired()]
+    )
+    other_info = TextAreaField(
+        'Is there anything else you would want us to know about your Jack Russell?', validators=[DataRequired()]
+    )
     submit = SubmitField('Send')

@@ -3,7 +3,7 @@ from flask import render_template, url_for, redirect, flash, request
 from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrenderForm
 from app import app, db, bcrypt
 from app.pets import get_pets, get_all_pets
-from app.models import User, Post, Message
+from app.models import User, Post, Message, OwnerSurrenderApplication
 from flask_login import login_user, logout_user, current_user, login_required
 from sqlalchemy import desc
 
@@ -16,7 +16,6 @@ def index():
 @app.route("/about")
 def about():
     return render_template('about.html', title='About')
-
 
 @app.route("/volunteer")
 def volunteer():
@@ -51,9 +50,30 @@ def owner_listing_application():
     form = OwnerSurrenderForm()
     if form.validate_on_submit():
         application = OwnerSurrenderApplication(
-            first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data,
-            phone=form.phone.data, address=form.address.data, city=form.city.data, state=form.state.data, 
-            dog_origin=form.dog_origin.data, spayed_or_neutered=form.spayed_or_neutered.data)
+            first_name=form.first_name.data,
+            last_name=form.last_name.data,
+            email=form.email.data,
+            phone=form.phone.data,
+            address=form.address.data,
+            city=form.city.data,
+            state=form.state.data, 
+            dog_origin=form.dog_origin.data,
+            spayed_or_neutered=form.spayed_or_neutered.data,
+            vaccines_current=form.vaccines_current.data,
+            heartworm_meds_current=form.heartworm_meds_current.data,
+            why_rehoming=form.why_rehoming.data,
+            dog_friendly=form.dog_friendly.data,
+            cat_friendly=form.cat_friendly.data,
+            people_friendly=form.people_friendly.data,
+            training=form.training.data,
+            leash_behavior=form.leash_behavior.data,
+            car_behavior=form.car_behavior.data,
+            general_health=form.general_health.data,
+            potty_trained=form.potty_trained.data,
+            home_alone_behavior=form.home_alone_behavior.data,
+            can_remain_home_until_adopted=form.can_remain_home_until_adopted.data,
+            other_info=form.other_info.data
+        )
         db.session.add(application)
         db.session.commit()
         flash('Your message has been sent.', 'success')
@@ -65,8 +85,14 @@ def contact():
     form = ContactUsForm()
     if form.validate_on_submit():
         message = Message(
-            name=form.name.data, email=form.email.data, phone=form.phone.data, city=form.city.data,
-            state=form.state.data, subject=form.subject.data, content=form.content.data)
+            name=form.name.data,
+            email=form.email.data,
+            phone=form.phone.data,
+            city=form.city.data,
+            state=form.state.data,
+            subject=form.subject.data,
+            content=form.content.data
+        )
         db.session.add(message)
         db.session.commit()
         flash('Your message has been sent.', 'success')
