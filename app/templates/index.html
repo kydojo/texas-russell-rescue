@@ -1,9 +1,131 @@
-<!-- This makes home.html inherit from layout.html -->
+<!-- This makes index.html inherit from layout.html -->
 {% extends "layout.html" %}
 {% block content %}
-<h1>Home</h1>
-<p>Home page content will go here.</p><br>
-<p>Most recent spotlight terrier post needs to be posted here (format?) and link to the spotlight terriers page.</p>
+
+<!-- start banner Area -->
+<section class="banner-area relative banner-home" id="home">
+    <div class="container">
+        <div class="overlay overlay-bg"></div>
+        <div class="row fullscreen d-flex justify-content-start">
+            <div class="banner-content col-lg-8 col-md-12">
+                 <a><img class="banner-logo" src="../static/img/LOGO2.png" alt="" title="" /></a>
+                <p class="text-white sub-head banner-sm-font">
+                    Texas Russell Rescue is the Texas group of Russell Rescue, Inc., a national network of volunteers
+                    dedicated to placing unwanted, displaced or abandoned Jack Russell Terriers into permanent homes.
+                </p>
+                <a href="{{ url_for('about') }}" class="primary-btn header-btn text-uppercase no-decoration">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+
+<!-- Start home-about Area -->
+<section class="home-about-area">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-6 home-about-left no-padding">
+                <img src="../static/img/jr_Heidi.jpg" alt="Spotlight Terrier" style="border-radius: 5px">
+            </div>
+            <div class="col-lg-6 home-about-right no-padding">
+                <h1>
+                    Spotlight Terrier
+                </h1>
+                <h3>Heidi</h3>
+                <p>
+                    <br> This pretty and smart girl is Heidi.  She is being fostered in Bryan, Texas.
+                    Heidi is about 10 months old and is a Jack Russell Terrier mix.
+                    She is current on all of her vet work.<br><br> As you can see from her video, she is very smart!
+                    Her foster mom is a trainer, so Heidi has been trained to follow several commands.
+                    She has been very socialized with other dogs as well.<br><br>
+                    We are looking for the perfect home for this girl. She has been in her foster home since she was a baby.
+                    What she really wants is to find her forever family.
+                    Heidi will do okay with other dogs and will probably be okay with cats. She would love a playmate in her new home.
+                    She prefers a home with no kids. She needs a fenced in yard so she can run and play,
+                    and she needs an owner who is not gone all day.<br><br>She can be adopted in Texas, Oklahoma or Louisiana.
+                    Her adopter must have a good vet reference and must be comfortable with a home visit. Her adoption fee is $200.<br><br>
+                    Check out Heidi in <a href="https://youtu.be/iyrrHimUrVU" target="_blank">action</a>!
+                    Could Heidi be the dog for you? Apply to adopt today!<br><br>
+                </p>
+                <div>
+                    <a href="{{ url_for('adoption_application') }}" class="primary-btn text-uppercase">Apply to Adopt</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<section class="video-area section-gap">-->
+    <!--<div class="container">-->
+        <!--<div class="row justify-content-center align-items-center">-->
+            <!--<div class="col-lg-8">-->
+                <!--<div class="about-video-right justify-content-center align-items-center d-flex relative">-->
+                    <!--<div class="overlay overlay-bg"></div>-->
+                    <!--<a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img-->
+                            <!--class="img-fluid mx-auto" src="../static/img/play-btn.png" alt=""></a>-->
+                <!--</div>-->
+                <!--<div class="description">-->
+                    <!--<h4>Watch this video how they live here</h4>-->
+                    <!--<p>-->
+                        <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt-->
+                        <!--ut labore et dolore magna aliqua. Ut enim ad minim.-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</section>-->
+
+<!-- End home-about Area -->
+
+<!-- Start image-carusel Area -->
+<!--<section class="image-carusel-area">-->
+    <!--<div class="container">-->
+        <!--<div class="row">-->
+            <!--<div class="active-image-carusel">-->
+                <!--<div class="single-image-carusel">-->
+                    <!--<img class="img-fluid" src="../static/img/jr_Britta.jpg" alt="">-->
+                <!--</div>-->
+                <!--<div class="single-image-carusel">-->
+                    <!--<img class="img-fluid" src="../static/img/jr_Halo.jpg" alt="">-->
+                <!--</div>-->
+                <!--<div class="single-image-carusel">-->
+                    <!--<img class="img-fluid" src="../static/img/jr_Halo2.jpg" alt="">-->
+                <!--</div>-->
+                <!--<div class="single-image-carusel">-->
+                    <!--<img class="img-fluid" src="../static/img/jr_Harley.jpg" alt="">-->
+                <!--</div>-->
+                <!--<div class="single-image-carusel">-->
+                    <!--<img class="img-fluid" src="../static/img/c1.jpg" alt="">-->
+                <!--</div>-->
+                <!--<div class="single-image-carusel">-->
+                    <!--<img class="img-fluid" src="../static/img/c2.jpg" alt="">-->
+                <!--</div>-->
+                <!--<div class="single-image-carusel">-->
+                    <!--<img class="img-fluid" src="../static/img/c3.jpg" alt="">-->
+                <!--</div>-->
+                <!--<div class="single-image-carusel">-->
+                    <!--<img class="img-fluid" src="../static/img/c4.jpg" alt="">-->
+                <!--</div>-->
+                <!--<div class="single-image-carusel">-->
+                    <!--<img class="img-fluid" src="../static/img/c1.jpg" alt="">-->
+                <!--</div>-->
+                <!--<div class="single-image-carusel">-->
+                    <!--<img class="img-fluid" src="../static/img/c2.jpg" alt="">-->
+                <!--</div>-->
+                <!--<div class="single-image-carusel">-->
+                    <!--<img class="img-fluid" src="../static/img/c3.jpg" alt="">-->
+                <!--</div>-->
+                <!--<div class="single-image-carusel">-->
+                    <!--<img class="img-fluid" src="../static/img/c4.jpg" alt="">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</section>-->
+<!-- End image-carusel Area -->
+
+
 
 	<!-- {% for post in posts %}
 	<article class="media content-section">

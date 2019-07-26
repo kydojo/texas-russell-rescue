@@ -2405,7 +2405,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .primary-btn {
-  background-color: #fab700;
+  background-color: #25408f;
   line-height: 42px;
   padding-left: 30px;
   padding-right: 30px;
@@ -2440,8 +2440,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .primary-btn:hover {
   background: transparent;
-  color: #fab700;
-  border-color: #fab700;
+  color: #25408f;
+  border-color: #25408f;
+  text-decoration: none;
 }
 
 .primary-btn.white {
@@ -2470,15 +2471,44 @@ body.mobile-nav-active #mobile-nav-toggle {
   bottom: 0;
 }
 
-.banner-area {
+/*.banner-general {
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}*/
+
+.banner-home {
   background: url(../img/jr15-mirror.jpg) center;
   background-size: cover;
   margin-top: 80px;
+  height: 700px;
+}
+
+.banner-about {
+  background: url(../img/jr18.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-before-you-adopt {
+  background: url(../img/jr10.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-adoption-app {
+  background: url(../img/jr20.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
 }
 
 .banner-logo {
 width: 300px;
 height: auto;
+margin-left: -180px;
 }
 
 .banner-area .primary-btn {
@@ -2491,15 +2521,18 @@ height: auto;
 }
 
 .banner-content {
-    margin: 150px 0px 0px -75px;
+    margin: 150px 0px 0px -175px;
+    text-align: center;
 }
 
+/*
 .banner-content h1 {
   color: #25408f;
   font-size: 60px;
   font-weight: 600;
   line-height: 1em;
 }
+*/
 
 @media (max-width: 991.98px) {
   .banner-content h1 {
@@ -2529,6 +2562,18 @@ height: auto;
   max-width: 550px;
   margin-bottom: 20px;
   margin-top: 5px;
+  /*font-size: 20px;*/
+}
+
+.banner-content .banner-sm-font {
+  font-size: 20px;
+}
+
+.banner-content .banner-lg-font {
+  font-size: 80px;
+  font-family: "Poppins", sans-serif;
+  /*text-transform: uppercase;*/
+  font-weight: 300;
 }
 
 @media (max-width: 960px) {
@@ -2545,6 +2590,7 @@ height: auto;
   padding-right: 30px;
   border: 1px solid transparent;
   color: #fff;
+  margin-left: -183px;
 }
 
 .header-btn:hover {
@@ -2554,7 +2600,7 @@ height: auto;
 }
 
 .image-carusel-area {
-  margin-top: -170px;
+  margin-top: -30px;
 }
 
 @media (max-width: 960px) {
@@ -2592,7 +2638,7 @@ height: auto;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-  background: #fab700;
+  background: #25408f;
 }
 
 @media (max-width: 414px) {
@@ -2649,11 +2695,17 @@ height: auto;
   }
 }
 
+.home-about-area {
+    margin: 30px;
+    padding: 10px;
+}
+
 .home-about-left img {
   width: 100%;
 }
 
 .home-about-right {
+  margin-top: -50px;
   padding-right: 20%;
   padding-left: 4%;
 }
