@@ -3,25 +3,21 @@ $(document).ready(function() {
 
     // Custom Texas Russell Rescue JS
 
-    // Remove zoom from navbar links/logo on small viewports
-    $(function(){
-        $(window).bind("resize",function(){
-            console.log($(this).width())
-            if($(this).width()<991){
-                $('.zoom').removeClass("zoom")
-            }
-        })
-    })
 
-     // Add zoom to navbar links/logo on resize back to larger viewport
-     $(function(){
-        $(window).bind("resize",function(){
-            console.log($(this).width())
-            if($(this).width()>991){
-                $('.add-zoom').addClass("zoom")
-            }
-        })
-    })
+    // Add/remove zoom from navbar based on viewport size
+    var alterClass = function() {
+        var ww = document.body.clientWidth;
+        if (ww < 991) {
+            $('.zoom').removeClass('zoom');
+        } else if (ww >= 991) {
+            $('.add-zoom').addClass('zoom');
+        };
+    };
+    $(window).resize(function(){
+    alterClass();
+    });
+    //Fire it when the page first loads:
+    alterClass();
 
 
 
