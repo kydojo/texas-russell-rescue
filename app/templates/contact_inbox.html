@@ -15,10 +15,11 @@
         <p><strong>Message: </strong>{{ message.content }}</p>
         <P>
             <strong>Phone:</strong> {{ message.phone }} &emsp; 
-            <strong>Email:</strong> {{ message.email }} &emsp;
+            <strong>Email:</strong> <a href="mailto:{{ message.email }}">{{ message.email }}</a> &emsp;
             <strong>Location:</strong> {{ message.city }}, {{ message.state }}
         </P>
         <br>
+        <hr>
     {% endfor %}
 </div>
 {% endblock %}
