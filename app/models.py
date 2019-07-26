@@ -59,11 +59,26 @@ class OwnerSurrenderApplication(db.Model):
 	last_name = db.Column(db.String(60), nullable=False)
 	email = db.Column(EmailType, nullable=False)
 	phone = db.Column(db.String(20))
+	address = db.Column(db.String(120), nullable=False)
 	city = db.Column(db.String(60), nullable=False)
 	state = db.Column(db.String(2), nullable=False)
 	date_sent = db.Column(db.DateTime, nullable=False, default=datetime.utcnow) # date_posted attribute, DateTime, set the default to the time posted unless set
-	dog_origin = db.Column(db.Text, nullable=False) # content attribute, text content of the post
-	spayed_or_neutered = db.Column(db.Boolean, nullable=False, default=False)
+	dog_origin = db.Column(db.Text, nullable=False)
+	spayed_or_neutered = db.Column(db.Boolean, default=False)
+	vaccines_current = db.Column(db.Boolean, default=False)
+	heartworm_meds_current = db.Column(db.Boolean, default=False)
+	why_rehoming = db.Column(db.Text, nullable=False)
+	dog_friendly = db.Column(db.Boolean, default=False)
+	cat_friendly = db.Column(db.Boolean, default=False)
+	people_friendly = db.Column(db.Text, nullable=False)
+	training = db.Column(db.Text, nullable=False)
+	leash_behavior = db.Column(db.Text, nullable=False)
+	car_behavior = db.Column(db.String, nullable=False)
+	general_health = db.Column(db.Text, nullable=False)
+	potty_trained = db.Column(db.String, nullable=False)
+	home_alone_behavior = db.Column(db.Text, nullable=False)
+	can_remain_home_until_adopted = db.Column(db.String, nullable=False)
+	other_info = db.Column(db.Text)
 
 	# Dunder (magic) method to define how the object will be printed out
 	def __repr__(self):
