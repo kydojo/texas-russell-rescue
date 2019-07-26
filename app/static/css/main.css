@@ -2030,6 +2030,12 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 8px !important;
 }
 
+@media (max-width: 991.98px) {
+  .navbar-custom {
+    margin 0px;
+  }
+}
+
 .nav-link {
   margin: 0px 5px;
   color: #25408f !important;
@@ -2039,11 +2045,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .add-margin-top {
-  margin-top: 50px;
+  margin-top: 4px;
 }
 
 .navbar-toggler-padding {
-  margin-top: 35px;
+  margin: 10px 0px;
 }
 
 /* Source: https://designshack.net/articles/css/joshuajohnson-2/ */
@@ -2180,18 +2186,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #nav-logo {
-  height: 140px;
-  width: auto;
+  height: auto;
+  width: 450px;
+  margin: 0px 10px 0px 10px;
   z-index: 1;
   transition: transform .3s;
 }
 
-/* #nav-logo:hover {
-		/* -moz-box-shadow: 0 0 10px #ccc;
-		-webkit-box-shadow: 0 0 10px #ccc;
-    box-shadow: 0 0 10px #ccc; */
-    /* transform: scale(1.1); */
-	/* } */ */
+#nav-logo-sm-screen {
+  height: auto;
+  width: 300px;
+  margin: 15px 10px 0px 35px;
+  z-index: 1;
+  transition: transform .3s;
+}
+
 
 .nav-menu a {
   padding: 0px 8px 0px 8px;
@@ -2389,9 +2398,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     display: none;
   }
 
-  /*.add-margin-top {
-    margin-top: 50px;
-  }*/
 }
 
 .alert-msg {
@@ -2399,7 +2405,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .primary-btn {
-  background-color: #fab700;
+  background-color: #25408f;
   line-height: 42px;
   padding-left: 30px;
   padding-right: 30px;
@@ -2434,8 +2440,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .primary-btn:hover {
   background: transparent;
-  color: #fab700;
-  border-color: #fab700;
+  color: #25408f;
+  border-color: #25408f;
+  text-decoration: none;
 }
 
 .primary-btn.white {
@@ -2464,13 +2471,44 @@ body.mobile-nav-active #mobile-nav-toggle {
   bottom: 0;
 }
 
-.banner-area {
+/*.banner-general {
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}*/
+
+.banner-home {
   background: url(../img/jr15-mirror.jpg) center;
   background-size: cover;
-  margin-top: 140px;
-  /* Flip Image */
-  /* -webkit-transform: scaleX(-1);
-  transform: scaleX(-1); */
+  margin-top: 80px;
+  height: 700px;
+}
+
+.banner-about {
+  background: url(../img/jr18.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-before-you-adopt {
+  background: url(../img/jr10.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-adoption-app {
+  background: url(../img/jr20.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-logo {
+width: 300px;
+height: auto;
+margin-left: -180px;
 }
 
 .banner-area .primary-btn {
@@ -2482,12 +2520,19 @@ body.mobile-nav-active #mobile-nav-toggle {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+.banner-content {
+    margin: 150px 0px 0px -175px;
+    text-align: center;
+}
+
+/*
 .banner-content h1 {
   color: #25408f;
   font-size: 60px;
   font-weight: 600;
   line-height: 1em;
 }
+*/
 
 @media (max-width: 991.98px) {
   .banner-content h1 {
@@ -2517,6 +2562,18 @@ body.mobile-nav-active #mobile-nav-toggle {
   max-width: 550px;
   margin-bottom: 20px;
   margin-top: 5px;
+  /*font-size: 20px;*/
+}
+
+.banner-content .banner-sm-font {
+  font-size: 20px;
+}
+
+.banner-content .banner-lg-font {
+  font-size: 80px;
+  font-family: "Poppins", sans-serif;
+  /*text-transform: uppercase;*/
+  font-weight: 300;
 }
 
 @media (max-width: 960px) {
@@ -2533,6 +2590,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding-right: 30px;
   border: 1px solid transparent;
   color: #fff;
+  margin-left: -183px;
 }
 
 .header-btn:hover {
@@ -2542,7 +2600,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .image-carusel-area {
-  margin-top: -170px;
+  margin-top: -30px;
 }
 
 @media (max-width: 960px) {
@@ -2580,7 +2638,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-  background: #fab700;
+  background: #25408f;
 }
 
 @media (max-width: 414px) {
@@ -2637,11 +2695,17 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
+.home-about-area {
+    margin: 30px;
+    padding: 10px;
+}
+
 .home-about-left img {
   width: 100%;
 }
 
 .home-about-right {
+  margin-top: -50px;
   padding-right: 20%;
   padding-left: 4%;
 }
@@ -3139,14 +3203,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 
   #nav-logo {
-    /* margin-left: -20px; */
     height: 100px;
     width: auto;
     z-index: 1;
   }
 
   .banner-area {
-    margin-top: 125px;
+    margin-top: 75px;
   }
 }
 

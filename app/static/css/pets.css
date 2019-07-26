@@ -16,7 +16,7 @@
 .disclaimer-div {
     color: #d3232a !important;
     background-color: #ecf1ff;
-    border-color: #25408f !important;
+    /*border-color: #25408f !important;*/
     padding: 5px;
     margin-bottom: 10px;
     -webkit-box-shadow: 0 10px 10px rgba(0,0,0,.2);
