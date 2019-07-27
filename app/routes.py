@@ -80,6 +80,14 @@ def owner_listing_application():
         return redirect(url_for('index'))
     return render_template('owner_listing_app.html', title='Owner Listing Application', form=form)
 
+@app.route("/surrender_inbox", methods=['GET'])
+@login_required
+def surrender_inbox():
+    applications = OwnerSurrenderApplication.query.order_by(desc(OwnerSurrenderApplication.date_sent)).all()
+    return render_template(
+        'surrender_inbox.html', title='Owner Surrender Inbox', applications=applications
+    )
+
 @app.route("/contact", methods=['GET', 'POST'])
 def contact():
     form = ContactUsForm()
@@ -103,10 +111,9 @@ def contact():
 @login_required
 def contact_inbox():
     messages = Message.query.order_by(desc(Message.date_sent)).all()
-    # TODO - need to also collect owner surrender messages once that implementation is done
-    # applications = OwnerSurrenderApplication.query.all() # also add applications to render args below
     return render_template(
-        'contact_inbox.html', title='Contact Us Inbox', messages=messages)
+        'contact_inbox.html', title='Contact Us Inbox', messages=messages
+    )
 
 @app.route("/pet_test", methods=["GET"])
 def pet_test():

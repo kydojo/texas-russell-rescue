@@ -155,7 +155,7 @@ class OwnerSurrenderForm(FlaskForm):
     city = StringField('City', validators=[DataRequired()])
     state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
     dog_origin = TextAreaField(
-        'Where did you get your Jack Russell?  Please provide the name of shelter/rescue or name of breeder if you bought him/her from a breeder', validators=[DataRequired()]
+        'Where did you get your Jack Russell?  Please provide the name of shelter/rescue or name of breeder if you bought him/her from a breeder.', validators=[DataRequired()]
     )
     spayed_or_neutered = BooleanField('My Jack Russell has been spayed/neutered.')
     vaccines_current = BooleanField('My Jack Russell is up to date on vaccinations.')

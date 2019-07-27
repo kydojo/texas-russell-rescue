@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+{% block title %}Owner Surrender Applications{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %} 
+  <div class="col-md-8">
+    <p><h3>Owner Surrender Applications</h3></p>
+    <hr>
+    {% for application in applications %}
+        <p><strong>From:</strong> {{ application.first_name }} {{ application.last_name }} &emsp;
+            <strong>Date: </strong> {{ application.date_sent }}</p>
+        <P>
+            <strong>Phone:</strong> {{ application.phone }} &emsp; 
+            <strong>Email:</strong> <a href="mailto:{{ application.email }}">{{ application.email }}</a> &emsp;
+            <strong>Address:</strong> {{ application.address }}, {{ application.city }}, {{ application.state }}
+        </P>
+        <p><strong>Where did you get your Jack Russell? Please provide the name of shelter/rescue or name of 
+            breeder if you bought him/her from a breeder:</strong></p>
+        <p>{{ application.dog_origin }}</p>
+        <p><strong>Spayed/neutered: </strong>
+            {% if application.spayed_or_neutered %}
+                <p>Yes</p>
+            {% else %}
+                <p>No</p>
+            {% endif %}
+        </p>
+        <p><strong>Up to date on vaccinations: </strong>
+            {% if application.vaccines_current %}
+                <p>Yes</p>
+            {% else %}
+                <p>No</p>
+            {% endif %}
+        </p>
+        <p><strong>Current on a heartworm prevention medication: </strong>
+            {% if application.heartworm_meds_current %}
+                <p>Yes</p>
+            {% else %}
+                <p>No</p>
+            {% endif %}
+        </p>
+        <p>
+            <strong>Why are you rehoming your dog?</strong> 
+        </p>
+        <p>
+            {{ application.why_rehoming }}
+        </p>
+        <p><strong>My Jack Russell gets along with other dogs: </strong>
+            {% if application.dog_friendly %}
+                <p>Yes</p>
+            {% else %}
+                <p>No</p>
+            {% endif %}
+        </p>
+        <p><strong>My Jack Russell gets along with cats: </strong>
+            {% if application.cat_friendly %}
+                <p>Yes</p>
+            {% else %}
+                <p>No</p>
+            {% endif %}
+        </p>
+        <p><strong>How does your Jack Russell interact with people? Are they friendly around people
+             or are they anxious and/or aggressive?  How are they around children?</strong></p>
+        <p>
+            {{ application.people_friendly }}
+        </p>
+        <p><strong>Does your Jack Russell know any tricks or have any type of training?</strong></p>
+        <p>
+            {{ application.training }}
+        </p>
+        <p><strong>How does your Jack Russell do when walking on a leash?</strong></p>
+        <p>
+            {{ application.leash_behavior }}
+        </p>
+        <p><strong>Does your Jack Russell enjoy rides in the car?</strong></p>
+        <p>
+            {{ application.car_behavior }}
+        </p>
+        <p><strong>Is your Jack Russell healthy?  Are there any special medical needs they might have? Do they have any separation anxiety?</strong></p>
+        <p>
+            {{ application.general_health }}
+        </p>
+        <p><strong>Is your Jack Russell house trained and crate trained?</strong></p>
+        <p>
+            {{ application.potty_trained }}
+        </p>
+        <p><strong>When you leave the house, where does your dog stay?  How long is he/she used to you being gone?</strong></p>
+        <p>
+            {{ application.home_alone_behavior }}
+        </p>
+        <p><strong>All dogs entering rescue are either temporarily placed in a foster home or must remain with their owners until a suitable home can be found.  Foster space is limited, so foster homes are generally reserved for dogs that are in danger of euthanasia at local shelters or are in an emergency situation.  Is your dog able to remain in your home while we find a suitable home for him/her?</strong></p>
+        <p>
+            {{ application.can_remain_home_until_adopted }}
+        </p>
+        <p><strong>Is there anything else you would want us to know about your Jack Russell?</strong></p>
+        <p>
+            {{ application.other_info }}
+        </p>
+        <p></p>
+        <br>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}
