@@ -29,9 +29,10 @@ def before_you_adopt():
 def adoption_application():
     return render_template('adoption_app.html', title='Adoption Application')
 
-@app.route("/rescues")
-def rescues():
-    return render_template('rescues.html', title='Rescues')
+@app.route("/available_dogs", methods=["GET"])
+def available_dogs():
+    pets = get_all_pets()
+    return render_template('available_dogs.html', title='test title', pets=pets)
 
 @app.route("/owner_listings")
 def owner_listings():
@@ -114,11 +115,6 @@ def contact_inbox():
     return render_template(
         'contact_inbox.html', title='Contact Us Inbox', messages=messages
     )
-
-@app.route("/pet_test", methods=["GET"])
-def pet_test():
-    pets = get_all_pets()
-    return render_template('pets_test.html', title='test title', pets=pets)
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
