@@ -2420,6 +2420,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   transition: all 0.3s ease 0s;
   cursor: pointer;
   position: relative;
+
 }
 
 .primary-btn:focus {
@@ -2482,6 +2483,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background-size: cover;
   margin-top: 80px;
   height: 700px;
+  /*overflow: hidden;*/
 }
 
 .banner-about {
@@ -2508,7 +2510,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 .banner-logo {
 width: 300px;
 height: auto;
-margin-left: -180px;
+text-align: left;
+margin-left: -45%;
+/*padding-left: 10;*/
 }
 
 .banner-area .primary-btn {
@@ -2521,7 +2525,7 @@ margin-left: -180px;
 }
 
 .banner-content {
-    margin: 150px 0px 0px -175px;
+    margin: 120px 0px 0px 0px;
     text-align: center;
 }
 
@@ -2567,6 +2571,16 @@ margin-left: -180px;
 
 .banner-content .banner-sm-font {
   font-size: 20px;
+  margin-left: -7%;
+  max-width: 500px;
+}
+
+@media (max-width: 1230px) {
+    .banner-content .banner-sm-font {
+       font-size: 20px;
+       margin-left: 0%;
+       max-width: 500px;
+    }
 }
 
 .banner-content .banner-lg-font {
@@ -2590,7 +2604,7 @@ margin-left: -180px;
   padding-right: 30px;
   border: 1px solid transparent;
   color: #fff;
-  margin-left: -183px;
+  margin-left: -45%;
 }
 
 .header-btn:hover {
@@ -2991,6 +3005,11 @@ margin-left: -180px;
 /* Footer */
 /* Adapted from: https://demo.tutorialzine.com/2015/01/freebie-5-responsive-footer-templates/*/
 
+.footer-list {
+    list-style-type: circle;
+    padding-left: 20px;
+}
+
 .footer-distributed{
 	background-color: #25408f;
 	/*box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);*/
@@ -3084,6 +3103,18 @@ margin-left: -180px;
 } */
 
 .footer-link {
+  color: #d3232a !important;
+}
+
+.footer-link:hover {
+  color: #ffffff !important;
+}
+
+.footer-link-right {
+  color: #ffffff !important;
+}
+
+.footer-link-right:hover {
   color: #d3232a !important;
 }
 
