@@ -2055,6 +2055,11 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0px 5px;
   color: #25408f !important;
 }
+
+.current-page {
+    color: #d2232a !important;
+}
+
 .margin-auto {
   margin: 0 auto !important;
 }
@@ -2074,6 +2079,10 @@ h1, h2, h3, h4, h5, h6 {
  
 .zoom:hover {
   transform: scale(1.05);
+}
+
+.highlight:hover {
+  color: #d2232a !important;
 }
 
 /* .nav-item-padding {
@@ -2121,7 +2130,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #ecf1ff;
   text-decoration: none;
   border-radius: 4px;
 }
