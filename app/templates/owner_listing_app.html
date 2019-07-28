@@ -7,7 +7,24 @@
   </style>
 {% endblock %}
 {% block content %}
-  <div class="container content-section">
+
+    <section class="banner-area relative banner-general banner-owner-listing-app">
+        <div class="container">
+            <div class="overlay overlay-bg"></div>
+            <div class="row fullscreen d-flex justify-content-start" style="0px">
+                <div class="banner-content col-lg-8 col-md-12">
+                     <!--<a><img class="banner-logo" src="../static/img/LOGO2.png" alt="" title="" /></a>-->
+                    <p class="text-white sub-head banner-lg-font">
+                        Surrender Application
+                    </p>
+                    <!--<a href="#" class="primary-btn header-btn text-uppercase no-decoration">Find a pet to adopt</a>-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+  <div class="container content-section mt-30">
       <form method="POST" action="">
         {{ form.hidden_tag() }}
             <legend class="border-bottom mb-4">Owner Listing Application</legend>
@@ -315,7 +332,7 @@
                     {% endif %}
                 </div>
             </div>
-            {{ form.submit(class="btn btn-outline-info") }}
+            {{ form.submit(class="btn btn-outline-info custom-submit-btn") }}
         </div>
       </form>
       <p></p>

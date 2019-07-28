@@ -45,18 +45,18 @@
 					<div class="dropdown-content">
 						<a class="zoom add-zoom" href="{{ url_for('before_you_adopt') }}">Before You Adopt</a>
 						<a class="zoom add-zoom" href="{{ url_for('adoption_application') }}">Adoption Application</a>
-						<a class="zoom add-zoom" href="{{ url_for('rescues') }}">Available Dogs</a>
+						<a class="zoom add-zoom" href="{{ url_for('available_dogs') }}">Available Dogs</a>
 						<!--<a class="zoom add-zoom" href="{{ url_for('owner_listings') }}">Owner Listings</a>-->
 					</div>
 				</div>
 
-				<li class="nav-item zoom add-zoom add-margin-top"><a class="nav-link" href="#">Donate</a></li>
+				<li class="nav-item zoom add-zoom add-margin-top"><a class="nav-link" href="{{ url_for('donate') }}">Donate</a></li>
 
 
 				<!--<div class="dropdown nav-link add-margin-top">-->
 					<!--<li class="dropbtn zoom add-zoom">View Dogs</li>-->
 					<!--<div class="dropdown-content">-->
-						<!--<a class="zoom add-zoom" href="{{ url_for('rescues') }}">Rescue Dogs</a>-->
+						<!--<a class="zoom add-zoom" href="{{ url_for('available_dogs') }}">Rescue Dogs</a>-->
 						<!--<a class="zoom add-zoom" href="{{ url_for('owner_listings') }}">Owner Listings</a>-->
 					<!--</div>-->
 				<!--</div>-->
@@ -71,14 +71,14 @@
 					<li class="dropbtn zoom add-zoom">Volunteer</li>
 					<div class="dropdown-content">
 						<a class="zoom add-zoom" href="{{ url_for('volunteer') }}">Volunteer Application</a>
-						<a class="zoom add-zoom" href="#">Meet Our Volunteers</a>
+						<a class="zoom add-zoom" href="{{ url_for('meet_our_volunteers') }}">Meet Our Volunteers</a>
 					</div>
 				</div>
 
 				<div class="dropdown nav-link add-margin-top">
 					<li class="dropbtn zoom add-zoom">News</li>
 					<div class="dropdown-content">
-						<a class="zoom add-zoom" href="#">Events</a>
+						<a class="zoom add-zoom" href="{{ url_for('events') }}">Events</a>
 						<a class="zoom add-zoom" href="{{ url_for('spotlight_terriers') }}">Spotlight Terriers</a>
 						<a class="zoom add-zoom" href="{{ url_for('happy_tails') }}">Happy Tails</a>
 					</div>
@@ -452,120 +452,53 @@
 	<!-- End calltoaction Area -->
 
 	<!-- start footer Area -->
-	<!--<footer class="footer-area">
-		&lt;!&ndash; <div class="container">
-				<div class="row pt-120 pb-80">
+	<footer class="footer-area">
+		<div class="container">
+				<div class="row pt-30 pb-10">
 					<div class="col-lg-4 col-md-6">
-						<div class="single-footer-widget">
-							<h6>About Us</h6>
+						<div class="single-footer-widget text-white">
+							<h5>About Texas Russell Rescue</h5>
 							<p>
-								Few would argue that, despite the advanc ements off eminism over the past three decades, women still face a double standard when it comes to their behavior. While men’s borderline-inappropriate behavior. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								Texas Russell Rescue is a state-wide network of volunteers dedicated to placing unwanted,
+                                displaced or abandoned Jack Russell Terriers into permanent homes.
+                                All dogs entering rescue are either temporarily placed in a foster home or must remain
+                                with their owners until a suitable home can be found.
 							</p>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="single-footer-widget">
-							<h6>Useful Links</h6>
-							<div class="row">
-								<ul class="col footer-nav">
-									<li><a href="#">Home</a></li>
-									<li><a href="#">Service</a></li>
-									<li><a href="#">About</a></li>
-									<li><a href="#">Case Study</a></li>
-								</ul>
-								<ul class="col footer-nav">
-									<li><a href="#">Pricing</a></li>
-									<li><a href="#">Team</a></li>
-									<li><a href="#">Blog</a></li>
-								</ul>									
-							</div>
+                    <div class="col-lg-4 col-md-6">
+						<div class="single-footer-widget text-white">
+							<h5>Funded by Donations</h5>
+							<p>
+                                Our organization is funded entirely by donations. These donations are used for temporary
+                                housing, spaying/neutering, veterinarian treatments, food, water, etc.							</p>
 						</div>
-					</div>						
-					<div class="col-lg-4  col-md-6">
-						<div class="single-footer-widget mail-chimp">
-							<h6 class="mb-20">Contact Us</h6>
-							<ul class="list-contact">
-								<li class="flex-row d-flex">
-									<div class="icon">
-										<span class="lnr lnr-home"></span>
-									</div>
-									<div class="detail">
-										<h4>Binghamton, New York</h4>
-										<p>
-											4343 Hinkle Deegan Lake Road
-										</p>
-									</div>	
-								</li>
-								<li class="flex-row d-flex">
-									<div class="icon">
-										<span class="lnr lnr-phone-handset"></span>
-									</div>
-									<div class="detail">
-										<h4>00 (953) 9865 562</h4>
-										<p>
-											Mon to Fri 9am to 6 pm
-										</p>
-									</div>	
-								</li>
-								<li class="flex-row d-flex">
-									<div class="icon">
-										<span class="lnr lnr-envelope"></span>
-									</div>
-									<div class="detail">
-										<h4>support@colorlib.com</h4>
-										<p>
-											Send us your query anytime!
-										</p>
-									</div>	
-								</li>																		
-							</ul>
-						</div>
-					</div>						
-				</div>
-			</div> &ndash;&gt;
-		<div class="copyright-text">
-			<div class="container">
-				<div class="row d-flex pad-left">
-					<p class="col-lg-12 m-0 text-white center-footer-text">
-						Visit our national page at <a class="footer-link" href="https://russellrescue.com"
-							target="_blank">russellrescue.com</a>.&lt;!&ndash;&nbsp&ndash;&gt;
-						<a href="#"><i class="fa fa-paw"></i></a>
-					</p>
-					<div class="col-lg-4 col-sm-6 footer-social">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-dribbble"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>
 					</div>
+                    <div class="col-lg-4 col-md-6">
+						<div class="single-footer-widget text-white">
+							<h5>What Rescue Does</h5>
+                            <p>
+                                <ul class="footer-list">
+                                    <li>Protects the Jack Russell Terrier by educating pet owners and breeders</li>
+                                    <li>Places Jack Russell Terriers in suitable homes</li>
+                                    <li>Provides for the temporary health and well being of Jack Russell Terriers</li>
+                                </ul>
+                            </p>
+						</div>
+					</div>
+
+
 				</div>
 			</div>
-		</div>
-		&lt;!&ndash;<div class="copyright-text">&ndash;&gt;
-					&lt;!&ndash;<div class="container">&ndash;&gt;
-						&lt;!&ndash;<div class="row footer-bottom d-flex justify-content-between">&ndash;&gt;
-							&lt;!&ndash;<p class="col-lg-8 col-sm-6 footer-text m-0 text-white">&ndash;&gt;
-								&lt;!&ndash;Visit our national page at <a class="footer-link" href="https://russellrescue.com"&ndash;&gt;
-								&lt;!&ndash;target="_blank">russellrescue.com</a>.&nbsp&ndash;&gt;
-								&lt;!&ndash;<a href="#"><i class="fa fa-paw"></i></a>&ndash;&gt;
-							&lt;!&ndash;</p>&ndash;&gt;
-							&lt;!&ndash;<div class="col-lg-4 col-sm-6 footer-social">&ndash;&gt;
-								&lt;!&ndash;<a href="#"><i class="fa fa-facebook"></i></a>&ndash;&gt;
-								&lt;!&ndash;<a href="#"><i class="fa fa-twitter"></i></a>&ndash;&gt;
-								&lt;!&ndash;<a href="#"><i class="fa fa-dribbble"></i></a>&ndash;&gt;
-								&lt;!&ndash;<a href="#"><i class="fa fa-behance"></i></a>&ndash;&gt;
-							&lt;!&ndash;</div>&ndash;&gt;
-						&lt;!&ndash;</div>&ndash;&gt;
-					&lt;!&ndash;</div>&ndash;&gt;
-				&lt;!&ndash;</div>&ndash;&gt;
-	</footer>-->
+	</footer>
 
 	<footer class="footer-distributed">
 
 		<div class="footer-right">
 
-			<a href="https://www.facebook.com/TexasRussellRescueInc/" target="_blank"><i class="fa fa-facebook"></i></a>
-			<a href="https://twitter.com/russellrescuetx" target="_blank"><i class="fa fa-twitter"></i></a>
-			<a href="https://www.instagram.com/texasrussellrescue/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a>
+			<a class="footer-link-right" href="https://www.facebook.com/TexasRussellRescueInc/" target="_blank"><i class="fa fa-facebook"></i></a>
+			<a class="footer-link-right" href="https://twitter.com/russellrescuetx" target="_blank"><i class="fa fa-twitter"></i></a>
+			<a class="footer-link-right" href="https://www.instagram.com/texasrussellrescue/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a>
 
 		</div>
 
@@ -573,7 +506,7 @@
 
 			<p class="footer-links">
 				Visit our national page at <a class="footer-link" href="https://russellrescue.com"
-							target="_blank">RussellRescue.com</a>.&nbsp
+							target="_blank">RussellRescue.com</a>&nbsp
 			</p>
 			<p class="">
 				{% if current_user.is_authenticated %}

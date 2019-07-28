@@ -1,11 +1,9 @@
 {% extends "layout.html" %}
-{% block title %}Happy Tails{% endblock %}
+{% block title %}Available Dogs{% endblock %}
 {% block head %}
 {{ super() }}
 <style type="text/css">
     .important { color: #336699; }
-
-
 </style>
 {% endblock %}
 
@@ -21,9 +19,25 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-
-
 <link rel="stylesheet" href="../static/css/pets.css">
+
+<!-- Banner area -->
+<section class="banner-area relative banner-general banner-available-dogs" id="home">
+    <div class="container">
+        <div class="overlay overlay-bg"></div>
+        <div class="row fullscreen d-flex justify-content-start" style="0px">
+            <div class="banner-content col-lg-8 col-md-12">
+                 <!--<a><img class="banner-logo" src="../static/img/LOGO2.png" alt="" title="" /></a>-->
+                <p class="text-white sub-head banner-lg-font">
+                    Available Dogs
+                </p>
+                <!--<a href="#" class="primary-btn header-btn text-uppercase no-decoration">Find a pet to adopt</a>-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Disclaimer text -->
 <div class="container container-style">
     <!--<h2 class="title-text">Available Dogs</h2>-->
     <div class="disclaimer-div border rounded">Regarding dogs marked as "Owner Listing":
