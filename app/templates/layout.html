@@ -38,19 +38,19 @@
 			<ul class="navbar-nav margin-auto">
 				<!--<li class="nav-item zoom add-zoom add-margin-top"><a class="nav-link" href="{{ url_for('index') }}">Home</a></li>-->
 
-				<li class="nav-item add-margin-top"><a class="nav-link highlight" href="{{ url_for('about') }}">About</a></li>
+				<li class="nav-item add-margin-top"><a class="nav-link highlight {{ 'current-page' if current_page == 'about' else '' }}" href="{{ url_for('about') }}">About</a></li>
 
 				<div class="dropdown nav-link add-margin-top">
-					<li class="dropbtn highlight">Adopt</li>
+					<li class="dropbtn highlight {{ 'current-page' if (current_page == 'before_you_adopt' or current_page == 'adoption_application' or current_page == 'available_dogs') else '' }}">Adopt</li>
 					<div class="dropdown-content">
-						<a class="highlight" href="{{ url_for('before_you_adopt') }}">Before You Adopt</a>
-						<a class="highlight" href="{{ url_for('adoption_application') }}">Adoption Application</a>
-						<a class="highlight" href="{{ url_for('available_dogs') }}">Available Dogs</a>
+						<a class="highlight {{ 'current-page' if current_page == 'before_you_adopt' else '' }}" href="{{ url_for('before_you_adopt') }}">Before You Adopt</a>
+						<a class="highlight {{ 'current-page' if current_page == 'adoption_application' else '' }}" href="{{ url_for('adoption_application') }}">Adoption Application</a>
+						<a class="highlight {{ 'current-page' if current_page == 'available_dogs' else '' }}" href="{{ url_for('available_dogs') }}">Available Dogs</a>
 						<!--<a class="zoom add-zoom" href="{{ url_for('owner_listings') }}">Owner Listings</a>-->
 					</div>
 				</div>
 
-				<li class="nav-item add-margin-top"><a class="nav-link highlight" href="{{ url_for('donate') }}">Donate</a></li>
+				<li class="nav-item add-margin-top"><a class="nav-link highlight {{ 'current-page' if current_page == 'donate' else '' }}" href="{{ url_for('donate') }}">Donate</a></li>
 
 
 				<!--<div class="dropdown nav-link add-margin-top">-->
@@ -68,28 +68,28 @@
 
 				<!--<li class="nav-item zoom add-zoom add-margin-top"><a class="nav-link" href="{{ url_for('volunteer') }}">Volunteer</a></li>-->
 				<div class="dropdown nav-link add-margin-top">
-					<li class="dropbtn highlight">Volunteer</li>
+					<li class="dropbtn highlight {{ 'current-page' if (current_page == 'volunteer_application' or current_page == 'meet_our_volunteers') else '' }}">Volunteer</li>
 					<div class="dropdown-content">
-						<a class="highlight" href="{{ url_for('volunteer') }}">Volunteer Application</a>
-						<a class="highlight" href="{{ url_for('meet_our_volunteers') }}">Meet Our Volunteers</a>
+						<a class="highlight {{ 'current-page' if current_page == 'volunteer_application' else '' }}" href="{{ url_for('volunteer') }}">Volunteer Application</a>
+						<a class="highlight {{ 'current-page' if current_page == 'meet_our_volunteers' else '' }}" href="{{ url_for('meet_our_volunteers') }}">Meet Our Volunteers</a>
 					</div>
 				</div>
 
 				<div class="dropdown nav-link add-margin-top">
-					<li class="dropbtn highlight">News</li>
+					<li class="dropbtn highlight {{ 'current-page' if (current_page == 'events' or current_page == 'spotlight_terriers' or current_page == 'happy_tails') else '' }}">News</li>
 					<div class="dropdown-content">
-						<a class="highlight" href="{{ url_for('events') }}">Events</a>
-						<a class="highlight" href="{{ url_for('spotlight_terriers') }}">Spotlight Terriers</a>
-						<a class="highlight" href="{{ url_for('happy_tails') }}">Happy Tails</a>
+						<a class="highlight {{ 'current-page' if current_page == 'events' else '' }}" href="{{ url_for('events') }}">Events</a>
+						<a class="highlight {{ 'current-page' if current_page == 'spotlight_terriers' else '' }}" href="{{ url_for('spotlight_terriers') }}">Spotlight Terriers</a>
+						<a class="highlight {{ 'current-page' if current_page == 'happy_tails' else '' }}" href="{{ url_for('happy_tails') }}">Happy Tails</a>
 					</div>
 				</div>
 
 
 				<div class="dropdown nav-link add-margin-top">
-					<li class="dropbtn highlight">Contact</li>
+					<li class="dropbtn highlight {{ 'current-page' if (current_page == 'owner_listing_application' or current_page == 'contact' or current_page == 'available_dogs') else '' }}">Contact</li>
 					<div class="dropdown-content">
-						<a class="highlight" href="{{ url_for('owner_listing_application') }}">Owner Surrender</a>
-						<a class="highlight" href="{{ url_for('contact') }}">Contact Us</a>
+						<a class="highlight {{ 'current-page' if current_page == 'owner_listing_application' else '' }}" href="{{ url_for('owner_listing_application') }}">Owner Surrender</a>
+						<a class="highlight {{ 'current-page' if current_page == 'contact' else '' }}" href="{{ url_for('contact') }}">Contact Us</a>
 					</div>
 				</div>
 
