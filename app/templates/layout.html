@@ -50,7 +50,7 @@
 					</div>
 				</div>
 
-				<li class="nav-item zoom add-zoom add-margin-top"><a class="nav-link" href="#">Donate</a></li>
+				<li class="nav-item zoom add-zoom add-margin-top"><a class="nav-link" href="{{ url_for('donate') }}">Donate</a></li>
 
 
 				<!--<div class="dropdown nav-link add-margin-top">-->
@@ -71,14 +71,14 @@
 					<li class="dropbtn zoom add-zoom">Volunteer</li>
 					<div class="dropdown-content">
 						<a class="zoom add-zoom" href="{{ url_for('volunteer') }}">Volunteer Application</a>
-						<a class="zoom add-zoom" href="#">Meet Our Volunteers</a>
+						<a class="zoom add-zoom" href="{{ url_for('meet_our_volunteers') }}">Meet Our Volunteers</a>
 					</div>
 				</div>
 
 				<div class="dropdown nav-link add-margin-top">
 					<li class="dropbtn zoom add-zoom">News</li>
 					<div class="dropdown-content">
-						<a class="zoom add-zoom" href="#">Events</a>
+						<a class="zoom add-zoom" href="{{ url_for('events') }}">Events</a>
 						<a class="zoom add-zoom" href="{{ url_for('spotlight_terriers') }}">Spotlight Terriers</a>
 						<a class="zoom add-zoom" href="{{ url_for('happy_tails') }}">Happy Tails</a>
 					</div>
