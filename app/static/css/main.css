@@ -2418,9 +2418,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media (max-width: 991.98px) {
-  .section-title p br {
+  /*.section-title p br {
     display: none;
-  }
+  }*/
 
 }
 

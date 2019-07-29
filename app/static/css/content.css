@@ -1,0 +1,24 @@
+
+/* General styles */
+
+.no-decoration {
+    /*text-decoration: none;*/
+}
+
+
+/* About Page */
+.about-text {
+    font-size: 1.3em;
+    padding: 50px 0px;
+    text-decoration: none;
+}
+
+.about-text a:hover {
+    color: #d3232a;
+}
+
+@media (max-width: 600px) {
+    .about-text {
+        padding: 30px 50px !important;
+    }
+}
