@@ -1,14 +1,35 @@
 
 /* General styles */
 
+.red-text {
+    color: #d3232a;
+}
+
+.blue-text {
+    color: #25408f;
+}
+
 .no-decoration {
     /*text-decoration: none;*/
 }
 
+.carousel-pic-div {
+    width: 275px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.carousel-pic {
+    display: block;
+    width: 100%;
+    margin -20%;
+}
+
+
 
 /* About Page */
 .about-text {
-    font-size: 1.3em;
+    font-size: 1.5em;
     padding: 50px 0px;
     text-decoration: none;
 }
@@ -21,4 +42,9 @@
     .about-text {
         padding: 30px 50px !important;
     }
+}
+
+.about-logo {
+    height: 250px;
+    width: auto;
 }
