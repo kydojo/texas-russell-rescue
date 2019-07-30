@@ -9,6 +9,8 @@ message = Mail(
     to_emails='lucassha@oregonstate.edu',
     subject='Submission confirmation',
     html_content="<h3>Thanks for your submission! We'll be in touch soon.</h3> <div>And test here</div>")
+message.template_id = "d-21bc2284cfb946ed8f0f5da52af20abf"
+
 try:
     sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
     response = sg.send(message)
