@@ -3093,8 +3093,11 @@ margin-left: -45%;
 /* Adapted from: https://demo.tutorialzine.com/2015/01/freebie-5-responsive-footer-templates/*/
 
 .footer-list {
-    list-style-type: circle;
-    padding-left: 20px;
+    margin-left: -8px;
+}
+
+.footer-bullet {
+    margin-bottom: 5px;
 }
 
 .footer-distributed{
