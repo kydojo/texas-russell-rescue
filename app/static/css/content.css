@@ -27,6 +27,7 @@
 
 
 
+
 /* About Page */
 .about-text {
     font-size: 1.5em;
@@ -38,13 +39,28 @@
     color: #d3232a;
 }
 
-@media (max-width: 600px) {
-    .about-text {
-        padding: 30px 50px !important;
-    }
+.about-text-inner {
+    margin: 10px 0px;
 }
 
 .about-logo {
     height: 250px;
     width: auto;
 }
+
+.about-pic-1 {
+    height: 400px;
+    width: auto;
+}
+
+@media (max-width: 991px) {
+    .about-text {
+        padding: 0px 50px !important;
+    }
+
+
+}
+
+
+
+
