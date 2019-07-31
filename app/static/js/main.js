@@ -19,6 +19,13 @@ $(document).ready(function() {
     //Fire it when the page first loads:
     alterClass();
 
+    // Navbar hamburger collapse when clicking off of menu
+        $(document).click(function(e) {
+            if (!$(e.target).is('.navbar-nav')) {
+                $('.collapse').collapse('hide');
+            }
+        });
+
 
 
     var window_width = $(window).width(),
