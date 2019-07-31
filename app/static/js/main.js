@@ -178,7 +178,7 @@ $(document).ready(function() {
         }
     });
 
-    $('.active-testimonial-carusel').owlCarousel({
+    $('.active-testimonial-carousel').owlCarousel({
         items: 3,
         loop: true,
         margin: 30,
@@ -201,7 +201,7 @@ $(document).ready(function() {
         }
     });
 
-    $('.active-image-carusel').owlCarousel({
+    $('.active-image-carousel').owlCarousel({
         items: 4,
         loop: true,
         dots: true,
