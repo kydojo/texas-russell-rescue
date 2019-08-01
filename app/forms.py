@@ -17,8 +17,8 @@ class RegistrationForm(FlaskForm):
                            DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = PasswordField('Confirm Password', validators=[
-                                     DataRequired(), EqualTo('password')])
+    confirm_password = PasswordField(
+        'Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
 
     # Custom validation function template
@@ -53,8 +53,8 @@ class LoginForm(FlaskForm):
 
 # Update account form class that inherits from FlaskForm
 class UpdateAccountForm(FlaskForm):
-    username = StringField('Username', validators=[
-                           DataRequired(), Length(min=2, max=20)])
+    username = StringField(
+        'Username', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
     submit = SubmitField('Update')
