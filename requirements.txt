@@ -33,3 +33,4 @@ wrapt==1.11.2
 WTForms==2.2.1
 dnspython==1.16.0
 sqlalchemy-utils==0.34.1
+sendgrid==6.0.5
