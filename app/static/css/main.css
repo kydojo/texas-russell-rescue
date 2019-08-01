@@ -2136,7 +2136,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+    display: block;
+    max-width: 300px;
+}
 
 /* ******************************************************************* */
 
