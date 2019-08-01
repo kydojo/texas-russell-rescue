@@ -147,9 +147,9 @@
 //--------- End Banner Area -------------//
 
 
-//--------- Start image-carusel Area -------------//
+//--------- Start image-carousel Area -------------//
 
-.image-carusel-area{
+.image-carousel-area{
 	margin-top: -170px;	
 	@media(max-width:960px){
 		margin-top:30px;
@@ -181,13 +181,13 @@
 	}
 		
 	@media(max-width:414px){
-		.active-tstimonial-carusel{
+		.active-tstimonial-carousel{
 			padding:30px;
 		}
 	}
 
 
-	.single-image-carusel{
+	.single-image-carousel{
 		background-color:#000;
 		img{
 			opacity:.8;
@@ -201,7 +201,7 @@
 }
 
 
-//--------- End image-carusel Area -------------//
+//--------- End image-carousel Area -------------//
 
 
 //--------- Start callto-top Area -------------//
@@ -451,7 +451,7 @@
 	}
 		
 	@media(max-width:414px){
-		.active-tstimonial-carusel{
+		.active-tstimonial-carousel{
 			padding:30px;
 		}
 	}	
