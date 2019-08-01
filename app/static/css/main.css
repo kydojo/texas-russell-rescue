@@ -2228,6 +2228,13 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform .3s;
 }
 
+@media (max-width: 415px) {
+    #nav-logo-sm-screen {
+        height: auto !important;
+        width: 200px !important;
+    }
+}
+
 
 .nav-menu a {
   padding: 0px 8px 0px 8px;
