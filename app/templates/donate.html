@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% set current_page = "donate" %}
+{% block title %}Donate{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+
+    <section class="banner-area relative banner-general banner-donate" id="home">
+        <div class="container">
+            <div class="overlay overlay-bg"></div>
+            <div class="row fullscreen d-flex justify-content-start" style="0px">
+                <div class="banner-content col-lg-8 col-md-12">
+                     <!--<a><img class="banner-logo" src="../static/img/LOGO2.png" alt="" title="" /></a>-->
+                    <p class="text-white sub-head banner-lg-font">
+                        Every Bit Helps
+                    </p>
+                    <!--<a href="#" class="primary-btn header-btn text-uppercase no-decoration">Find a pet to adopt</a>-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container about-text">
+        <div class="row">
+            <div class="col-8">
+                <p>
+                    Russell Rescue, Inc. is funded entirely through donations.  We are supported by Jack Russell lovers and
+                    volunteers throughout the world.  Russell Rescue, Inc. has been approved as a non-profit 501(c)(3) corporation.
+                    All donations made to Russell Rescue are tax-deductible to the contributor.
+                </p>
+            </div>
+            <div class="col">
+
+
+            </div>
+        </div>
+
+        <p class="">
+            Russell Rescue, Inc. is funded entirely through donations.  We are supported by Jack Russell lovers and
+            volunteers throughout the world.  Russell Rescue, Inc. has been approved as a non-profit 501(c)(3) corporation.
+            All donations made to Russell Rescue are tax-deductible to the contributor. <br><br>
+
+            Jack Russells entering our rescue program often require medical care.  Donations are used to provide
+            veterinary care including spaying/neutering, vaccinations, surgeries, medications, heartworm testing and
+            treatment, etc.  We provide the care necessary for our Jack Russell’s to be healthy and ready to be
+            adopted.<br><br>
+
+            We try and make it easy for you to support us.  Donations can be made with PayPal, all major credit cards,
+            money orders or cashiers checks and personal checks.  When donating, please include your mailing address so
+            we can send you a tax deduction letter. <br><br>
+
+        </p>
+    </div>
+{% endblock %}

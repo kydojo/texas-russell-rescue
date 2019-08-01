@@ -21,6 +21,14 @@ def about():
 def volunteer():
     return render_template('volunteer.html', title='Volunteer')
 
+@app.route("/meet_our_volunteers")
+def meet_our_volunteers():
+    return render_template('meet_our_volunteers.html', title='Meet Our Volunteers')
+
+@app.route("/events")
+def events():
+    return render_template('events.html', title='Events')
+
 @app.route("/before_you_adopt")
 def before_you_adopt():
     return render_template('before_you_adopt.html', title='Before You Adopt')
@@ -29,9 +37,14 @@ def before_you_adopt():
 def adoption_application():
     return render_template('adoption_app.html', title='Adoption Application')
 
-@app.route("/rescues")
-def rescues():
-    return render_template('rescues.html', title='Rescues')
+@app.route("/available_dogs", methods=["GET"])
+def available_dogs():
+    pets = get_all_pets()
+    return render_template('available_dogs.html', title='test title', pets=pets)
+
+@app.route("/donate")
+def donate():
+    return render_template('donate.html', title='Donate')
 
 @app.route("/owner_listings")
 def owner_listings():
@@ -43,7 +56,7 @@ def spotlight_terriers():
 
 @app.route("/happy_tails")
 def happy_tails():
-    return render_template('happy_tails.html', title='Happy Tails', posts=posts)
+    return render_template('happy_tails.html', title='Happy Tails')
 
 @app.route("/owner_listing_application", methods=['GET', 'POST'])
 def owner_listing_application():
@@ -114,11 +127,6 @@ def contact_inbox():
     return render_template(
         'contact_inbox.html', title='Contact Us Inbox', messages=messages
     )
-
-@app.route("/pet_test", methods=["GET"])
-def pet_test():
-    pets = get_all_pets()
-    return render_template('pets_test.html', title='test title', pets=pets)
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():

@@ -13,7 +13,7 @@
 }
 
 ::selection {
-  background-color: #fab700;
+  background-color: #d2232a;
   color: #fff;
 }
 
@@ -109,6 +109,21 @@ a, a:focus, a:hover {
  *  Typography
  *
  **/
+
+.custom-submit-btn {
+    color: #25408f !important;
+    background-color: transparent;
+    background-image: none;
+    border-color: #25408f !important;
+}
+
+.custom-submit-btn:hover {
+    color: #ffffff !important;
+    background-color: #25408f !important;
+    background-image: none;
+    border-color: #25408f !important;
+}
+
 .btn i, .btn-large i, .btn-floating i, .btn-large i, .btn-flat i {
   font-size: 1em;
   line-height: inherit;
@@ -2040,6 +2055,11 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0px 5px;
   color: #25408f !important;
 }
+
+.current-page {
+    color: #d2232a !important;
+}
+
 .margin-auto {
   margin: 0 auto !important;
 }
@@ -2059,6 +2079,10 @@ h1, h2, h3, h4, h5, h6 {
  
 .zoom:hover {
   transform: scale(1.05);
+}
+
+.highlight:hover {
+  color: #d2232a !important;
 }
 
 /* .nav-item-padding {
@@ -2106,7 +2130,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #ecf1ff;
   text-decoration: none;
   border-radius: 4px;
 }
@@ -2394,9 +2418,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media (max-width: 991.98px) {
-  .section-title p br {
+  /*.section-title p br {
     display: none;
-  }
+  }*/
 
 }
 
@@ -2420,6 +2444,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   transition: all 0.3s ease 0s;
   cursor: pointer;
   position: relative;
+
 }
 
 .primary-btn:focus {
@@ -2482,6 +2507,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background-size: cover;
   margin-top: 80px;
   height: 700px;
+  /*overflow: hidden;*/
 }
 
 .banner-about {
@@ -2505,10 +2531,75 @@ body.mobile-nav-active #mobile-nav-toggle {
   height: 400px;
 }
 
+.banner-available-dogs {
+  background: url(../img/jr13.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-donate {
+  background: url(../img/jr8.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-volunteer {
+  background: url(../img/jr7.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-meet-our-volunteers {
+  background: url(../img/jr_coats.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-events {
+  background: url(../img/jr_Zelda.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-spotlight-terriers {
+  background: url(../img/jr14.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-happy-tails {
+  background: url(../img/jr4.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-owner-listing-app {
+  background: url(../img/jr8.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-contact {
+  background: url(../img/jr8.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
 .banner-logo {
 width: 300px;
 height: auto;
-margin-left: -180px;
+text-align: left;
+margin-left: -45%;
+/*padding-left: 10;*/
 }
 
 .banner-area .primary-btn {
@@ -2521,7 +2612,7 @@ margin-left: -180px;
 }
 
 .banner-content {
-    margin: 150px 0px 0px -175px;
+    margin: 120px 0px 0px 0px;
     text-align: center;
 }
 
@@ -2567,6 +2658,16 @@ margin-left: -180px;
 
 .banner-content .banner-sm-font {
   font-size: 20px;
+  margin-left: -7%;
+  max-width: 500px;
+}
+
+@media (max-width: 1230px) {
+    .banner-content .banner-sm-font {
+       font-size: 20px;
+       margin-left: 0%;
+       max-width: 500px;
+    }
 }
 
 .banner-content .banner-lg-font {
@@ -2590,7 +2691,7 @@ margin-left: -180px;
   padding-right: 30px;
   border: 1px solid transparent;
   color: #fff;
-  margin-left: -183px;
+  margin-left: -45%;
 }
 
 .header-btn:hover {
@@ -2599,17 +2700,17 @@ margin-left: -180px;
   color: #fff !important;
 }
 
-.image-carusel-area {
+.image-carousel-area {
   margin-top: -30px;
 }
 
 @media (max-width: 960px) {
-  .image-carusel-area {
+  .image-carousel-area {
     margin-top: 30px;
   }
 }
 
-.image-carusel-area .owl-dots {
+.image-carousel-area .owl-dots {
   text-align: center;
   bottom: 5px;
   margin-top: 50px;
@@ -2620,7 +2721,7 @@ margin-left: -180px;
   backface-visibility: hidden;
 }
 
-.image-carusel-area .owl-dot {
+.image-carousel-area .owl-dot {
   height: 10px;
   width: 10px;
   display: inline-block;
@@ -2633,7 +2734,7 @@ margin-left: -180px;
   transition: all 0.3s ease 0s;
 }
 
-.image-carusel-area .owl-dot.active {
+.image-carousel-area .owl-dot.active {
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -2642,16 +2743,16 @@ margin-left: -180px;
 }
 
 @media (max-width: 414px) {
-  .image-carusel-area .active-tstimonial-carusel {
+  .image-carousel-area .active-tstimonial-carousel {
     padding: 30px;
   }
 }
 
-.image-carusel-area .single-image-carusel {
+.image-carousel-area .single-image-carousel {
   background-color: #000;
 }
 
-.image-carusel-area .single-image-carusel img {
+.image-carousel-area .single-image-carousel img {
   opacity: .8;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -2659,7 +2760,7 @@ margin-left: -180px;
   transition: all 0.3s ease 0s;
 }
 
-.image-carusel-area .single-image-carusel img:hover {
+.image-carousel-area .single-image-carousel img:hover {
   opacity: 1;
 }
 
@@ -2912,7 +3013,7 @@ margin-left: -180px;
 }
 
 @media (max-width: 414px) {
-  .testomial-area .active-tstimonial-carusel {
+  .testomial-area .active-tstimonial-carousel {
     padding: 30px;
   }
 }
@@ -2990,6 +3091,14 @@ margin-left: -180px;
 
 /* Footer */
 /* Adapted from: https://demo.tutorialzine.com/2015/01/freebie-5-responsive-footer-templates/*/
+
+.footer-list {
+    margin-left: -8px;
+}
+
+.footer-bullet {
+    font-size: .9em;
+}
 
 .footer-distributed{
 	background-color: #25408f;
@@ -3084,6 +3193,18 @@ margin-left: -180px;
 } */
 
 .footer-link {
+  color: #d3232a !important;
+}
+
+.footer-link:hover {
+  color: #ffffff !important;
+}
+
+.footer-link-right {
+  color: #ffffff !important;
+}
+
+.footer-link-right:hover {
   color: #d3232a !important;
 }
 
