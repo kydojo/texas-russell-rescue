@@ -42,6 +42,7 @@ def send_contact_info(contact, template_id):
         from_email='shannonlucas4@gmail.com',
         to_emails=trr_volunteers
     )
+    message.reply_to = contact.email.data
     message.dynamic_template_data = {
         'name': contact.name.data,
         'email': contact.email.data,
@@ -69,6 +70,7 @@ def send_surrender_applicant_info(contact, template_id):
         from_email='shannonlucas4@gmail.com',
         to_emails=trr_volunteers
     )
+    message.reply_to = contact.email.data
     message.dynamic_template_data = {
         'first_name': contact.first_name.data,
         'last_name': contact.last_name.data,
