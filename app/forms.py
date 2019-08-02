@@ -193,3 +193,84 @@ class OwnerSurrenderForm(FlaskForm):
         'Is there anything else you would want us to know about your Jack Russell?', validators=[DataRequired()]
     )
     submit = SubmitField('Send')
+
+class VolunteerApplicationForm(FlaskForm):
+    # Adoption Preferences
+    terrier_name
+    male_female
+    dog_age
+    willing_to_consider_alternatives
+
+    # Applicant Information
+    first_name = StringField('First Name', validators=[DataRequired(), Length(max=60)])
+    last_name = StringField('Last Name', validators=[DataRequired(), Length(max=60)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    home_phone = StringField('Home Phone', validators=[Length(max=20)])
+    cell_phone
+    work_phone 
+    best_time_to_call 
+    street_address = StringField('Street Address', validators=[DataRequired(), Length(max=120)])
+    city = StringField('City', validators=[DataRequired()])
+    state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
+    zip_code
+    occupation
+    when_able_to_take_posession = TextAreaField(
+        'If approved, when could you take possession of a dog?', validators=[DataRequired()]
+    )
+    how_far_willing_to_travel
+
+    # Housing/landlord Information
+    housing_type
+    rent_or_own
+    landlord_permission
+    landlord_name
+    landlord_phone
+    how_long_at_address
+
+    # Household Information
+    num_adults_in_household
+    adults_age
+    num_children_in_household
+    children_age
+    planning_to_have_children
+    animal_allergies
+    hours_terrier_must_be_alone
+    household_visitors
+    lifestyle
+
+    # Other Animal Information
+    own_other_dogs
+    other_dogs_spayed_neutered
+    breed_size_gender_of_other_dogs
+    own_cats
+    own_other_animals
+    num_dogs_owned_past_five_years
+    status_of_other_dogs_owned
+
+    # Breed-specific Information
+    previously_owned_jrt
+    why_choose_jrt
+    jrt_breed_purpose
+    planned_activities_with_jrt
+    indorrs_or_outdoors
+    where_will_sleep
+
+    # Veterinarian Information
+    has_regular_vet  
+    Vet_clinic_name
+    doctor_name
+    vet_street_address
+    vet_city
+    vet_state 
+    vet_zip
+    vet_phone
+    last_vet_visit_date
+
+    # Reference/Miscellaneous Information
+    how_learned_about_us
+    if_other
+    personal_reference
+    reference_name
+    reference_relationship
+    reference_phone
+    additional_comments
