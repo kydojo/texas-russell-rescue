@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% set current_page = "about" %}
+{% set current_page = "surrender" %}
 {% block title %}Index{% endblock %}
 {% block head %}
   <!--{{ super() }}
@@ -10,19 +10,37 @@
 
 {% block content %}
 
-    <section class="banner-area relative banner-general banner-about" id="home">
+    <section class="banner-area relative banner-general banner-surrender" id="home">
         <div class="container">
             <div class="overlay overlay-bg"></div>
             <div class="row d-flex justify-content-start">
                 <div class="banner-content col-lg-8 col-md-12">
                      <!--<a><img class="banner-logo" src="../static/img/LOGO2.png" alt="" title="" /></a>-->
                     <p class="text-white sub-head banner-lg-font">
-                        About Us
+                        Surrender Program
                     </p>
                     <!--<a href="#" class="primary-btn header-btn text-uppercase no-decoration">Find a pet to adopt</a>-->
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="container mt-30">
+        <div class="surrender-content">
+            Sometimes life’s circumstances are such that seeking a new home for your Jack Russell is necessary.
+            Owner-surrendered Jack Russells being considered for our rescue should be current on their vaccinations
+            and spayed or neutered.  You will be required to provide information about your terrier, photos of your
+            dog, and current veterinary records on our Surrender Form. <br><br>
+
+            We do not take aggressive Jack Russells into our program. Due to liability issues, if your dog has
+            bitten a human of any age or is extremely aggressive with other animals, we are unable to assist you.
+            There are no exceptions to this policy.  You may also want to contact your veterinarian to rule out
+            any medical problems that could account for your dog’s behavior. <br><br>
+        </div>
+
+        <div class="text-center mt-40 mb-40">
+            <a href="{{ url_for('surrender_form') }}" class="primary-btn text-uppercase">Surrender Program Questionnaire</a>
+        </div>
+    </div>
 
 {% endblock %}

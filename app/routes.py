@@ -72,6 +72,10 @@ def happy_tails():
     return render_template('happy_tails.html', title='Happy Tails')
 
 
+@app.route("/surrender")
+def surrender():
+    return render_template('surrender.html', title='Surrender Program')
+
 @app.route("/surrender_form", methods=['GET', 'POST'])
 def surrender_form():
     form = OwnerSurrenderForm()
