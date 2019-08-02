@@ -3,7 +3,7 @@ from flask import render_template, url_for, redirect, flash, request
 from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrenderForm
 from app import app, db, bcrypt
 from app.pets import get_pets, get_all_pets
-from app.sender import send_application_submission_confirmation
+from app.sender import send_application_submission_confirmation, send_contact_info
 from app.models import User, Post, Message, OwnerSurrenderApplication
 from flask_login import login_user, logout_user, current_user, login_required
 from sqlalchemy import desc
@@ -138,6 +138,7 @@ def contact():
         flash('Your message has been sent.', 'success')
         send_application_submission_confirmation(
             form.email.data, "texasrussell@test.com", "", "d-91e54bb8d19b473ba12dac4dbe04c0d0")
+        send_contact_info(form, "d-138e4074de7c49ea9dde946259d49777")
         return redirect(url_for('index'))
     return render_template('contact.html', title='Contact Us', form=form)
 
