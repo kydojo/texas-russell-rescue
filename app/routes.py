@@ -72,8 +72,12 @@ def happy_tails():
     return render_template('happy_tails.html', title='Happy Tails')
 
 
-@app.route("/owner_listing_application", methods=['GET', 'POST'])
-def owner_listing_application():
+@app.route("/surrender")
+def surrender():
+    return render_template('surrender.html', title='Surrender Program')
+
+@app.route("/surrender_form", methods=['GET', 'POST'])
+def surrender_form():
     form = OwnerSurrenderForm()
     if form.validate_on_submit():
         application = OwnerSurrenderApplication(
@@ -109,7 +113,7 @@ def owner_listing_application():
         send_application_submission_confirmation(
             form.email.data, "texasrussell@test.com", "", "d-21bc2284cfb946ed8f0f5da52af20abf")
         return redirect(url_for('index'))
-    return render_template('owner_listing_app.html', title='Owner Listing Application', form=form)
+    return render_template('surrender_form.html', title='Surrender Form', form=form)
 
 
 @app.route("/surrender_inbox", methods=['GET'])

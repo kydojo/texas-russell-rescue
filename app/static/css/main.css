@@ -2590,7 +2590,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   height: 400px;
 }
 
-.banner-owner-listing-app {
+.banner-surrender {
+  background: url(../img/jr8.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-surrender-form {
   background: url(../img/jr8.jpg) center;
   background-size: cover;
   margin-top: 80px;

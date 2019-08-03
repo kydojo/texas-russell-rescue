@@ -105,10 +105,15 @@
     .about-text {
         padding: 0px 50px !important;
     }
-
-
 }
 
+/* Surrender Page*/
+
+.surrender-content {
+    font-size: 1.4em;
+    padding: 50px 0px;
+    text-decoration: none;
+}
 
 
 
