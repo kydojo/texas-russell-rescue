@@ -94,7 +94,9 @@ def adoption_application():
             other_dogs_spayed_neutered=form.other_dogs_spayed_neutered.data
             breed_size_gender_of_other_dogs=form.breed_size_gender_of_other_dogs.data
             own_cats=form.own_cats.data
+            how_many_cats=form.how_many_cats.data
             own_other_animals=form.own_other_animals.data
+            other_animals_description=form.other_animals_description.data
             num_dogs_owned_past_five_years=form.num_dogs_owned_past_five_years.data
             status_of_other_dogs_owned=form.status_of_other_dogs_owned.data
 
@@ -102,7 +104,7 @@ def adoption_application():
             why_choose_jrt=form.why_choose_jrt.data
             jrt_breed_purpose=form.jrt_breed_purpose.data
             planned_activities_with_jrt=form.planned_activities_with_jrt.data
-            indorrs_or_outdoors=form.indorrs_or_outdoors.data
+            indoors_or_outdoors=form.indorrs_or_outdoors.data
             where_will_sleep=form.where_will_sleep.data
 
             has_regular_vet=form.has_regular_vet.data

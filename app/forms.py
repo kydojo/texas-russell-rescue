@@ -255,6 +255,27 @@ ACTIVITY_LEVEL = [
     ('INACTIVE', 'Inactive')
 ]
 
+NUM_CATS = [
+    ('1', '1'),
+    ('2', '2'),
+    ('3+', '3+')
+]
+
+ACTIVITIES_LIST = [
+    Pet, Guard, Hunting, Obedience, Terrier Trials, Other
+    ('PET', 'Family Pet'),
+    ('GUARD', 'Guard'),
+    ('HUNTING', 'Hunting'),
+    ('OBEDIENCE', 'Obedience'),
+    ('TERRIER TRIALS', 'Terrier Trials'),
+    ('OTHER', 'Other')
+]
+
+INDOORS_OUTDOORS = [
+    ('INDOORS', "Indoors"),
+    ('OUTDOORS', 'Outdoors')
+]
+
 YES_NO = [
     ('YES', 'Yes'),
     ('NO', 'No')
@@ -298,15 +319,15 @@ class AdoptionApplicationForm(FlaskForm):
     # Fence/Yard/Kennel Information
     has_fenced_yard = StringField('Do you have a completely fenced yard suitable for a dog?', choices=YES_NO, validators=[DataRequired()])
     has_kennel_run = StringField('Do you have a kennel run?', choices=YES_NO, validators=[DataRequired()])
-    fence_kennel_description = TextAreaField('Describe fence and/or kennel run (type, height, size)', validators=[DataRequired()])
-    if_none_how_handle_dog_needs = TextAreaField('If no fence/kennel, how will you handle the dog\'s exercise/toilet needs?', validators=[DataRequired()])
+    fence_kennel_description = TextAreaField('Describe fence and/or kennel run (type, height, size)')
+    if_none_how_handle_dog_needs = TextAreaField('If no fence/kennel, how will you handle the dog\'s exercise/toilet needs?')
     has_dog_crate = StringField('Do you have a suitable dog crate?', choices=YES_NO, validators=[DataRequired()])
 
     # Household Information
     num_adults_in_household = SelectField('How many adults in the household?', choices=NUM_ADULTS_IN_HOUSEHOLD, validators=[DataRequired()])
     adults_age = StringField('Age of Adults', validators=[DataRequired(), Length(max=200)])
     num_children_in_household = SelectField('How many children in the household?', choices=NUM_CHILDREN_IN_HOUSEHOLD, validators=[DataRequired()])
-    children_age = StringField('Age of Children', validators=[DataRequired(), Length(max=200)])
+    children_age = StringField('Age of Children', validators=[Length(max=200)])
     planning_to_have_children = SelectField('Are you planning to have children within the next 5 years?', choices=YES_NO, validators=[DataRequired()])
     animal_allergies = SelectField('Are any household members allergic to animals?', choices=YES_NO, validators=[DataRequired()])
     hours_terrier_must_be_alone = StringField('How many hours a day must the terrier be alone? ', validators=[DataRequired(), Length(max=30)])
@@ -314,21 +335,23 @@ class AdoptionApplicationForm(FlaskForm):
     lifestyle = SelectField('How would you describe your lifestyle?', choices=ACTIVITY_LEVEL, validators=[DataRequired()])
 
     # Other Animal Information
-    own_other_dogs = StringField('', validators=[DataRequired()])
-    other_dogs_spayed_neutered = StringField('', validators=[DataRequired()])
-    breed_size_gender_of_other_dogs = StringField('', validators=[DataRequired()])
-    own_cats = StringField('', validators=[DataRequired()])
-    own_other_animals = StringField('', validators=[DataRequired()])
-    num_dogs_owned_past_five_years = StringField('', validators=[DataRequired()])
-    status_of_other_dogs_owned = StringField('', validators=[DataRequired()])
+    own_other_dogs = SelectField('Do you own any other dogs?', choices=YES_NO, validators=[DataRequired()])
+    other_dogs_spayed_neutered = SelectField('If yes, are they Spayed/Neutered?', choices=YES_NO)
+    breed_size_gender_of_other_dogs = TextAreaField('Please list breed, size, and gender of each')
+    own_cats = SelectField('Do you own any cats?', choices=YES_NO, validators=[DataRequired()])
+    how_many_cats = SelectField(' If Yes, how many?', choices=NUM_CATS)
+    own_other_animals = SelectField('Do you own any other animals?', choices=YES_NO, validators=[DataRequired()])
+    other_animals_description = TextAreaField('If yes, please describe them')
+    num_dogs_owned_past_five_years = StringField('How many dogs have you owned in the past 5 years?', validators=[DataRequired(), Length(max=200)])
+    status_of_other_dogs_owned = TextAreaField('If you do not still own the dog(s), what happened to them?')
 
     # Breed-specific Information
-    previously_owned_jrt = StringField('', validators=[DataRequired()])
-    why_choose_jrt = StringField('', validators=[DataRequired()])
-    jrt_breed_purpose = StringField('', validators=[DataRequired()])
-    planned_activities_with_jrt = StringField('', validators=[DataRequired()])
-    indorrs_or_outdoors = StringField('', validators=[DataRequired()])
-    where_will_sleep = StringField('', validators=[DataRequired()])
+    previously_owned_jrt = SelectField('Have you ever owned a Jack Russell before?', choices=YES_NO, validators=[DataRequired()])
+    why_choose_jrt = TextField('Why did you choose this breed?', validators=[DataRequired()])
+    jrt_breed_purpose = TextField('What is the Jack Russell bred to do (if you know)?')
+    planned_activities_with_jrt = SelectField('What primary activitiy do you plan to do with this dog?', choices=ACTIVITIES_LIST, validators=[DataRequired()])
+    indoors_or_outdoors = SelectField('Where do you intend to keep this dog primarily?', choices=INDOORS_OUTDOORS, validators=[DataRequired()])
+    where_will_sleep = StringField('Where will the dog sleep?', validators=[DataRequired(), Length(max=200)])
 
     # Veterinarian Information
     has_regular_vet = StringField('', validators=[DataRequired()])  
