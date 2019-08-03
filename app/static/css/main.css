@@ -110,20 +110,6 @@ a, a:focus, a:hover {
  *
  **/
 
-.custom-submit-btn {
-    color: #25408f !important;
-    background-color: transparent;
-    background-image: none;
-    border-color: #25408f !important;
-}
-
-.custom-submit-btn:hover {
-    color: #ffffff !important;
-    background-color: #25408f !important;
-    background-image: none;
-    border-color: #25408f !important;
-}
-
 .btn i, .btn-large i, .btn-floating i, .btn-large i, .btn-flat i {
   font-size: 1em;
   line-height: inherit;
@@ -2531,7 +2517,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: url(../img/jr10.jpg) center;
   background-size: cover;
   margin-top: 80px;
-  height: 400px;
+  height: 600px;
 }
 
 .banner-adoption-app {
