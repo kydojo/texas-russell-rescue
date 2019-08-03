@@ -115,16 +115,15 @@
     text-decoration: none;
 }
 
+/* Volunteer Page */
+
+.volunteer-content {
+    font-size: 1.4em;
+    padding: 50px 0px;
+    text-decoration: none;
+}
 
 /* Forms */
-/*
-.center-content {
-    margin: 0 auto;
-}*/
-/*
-.w-auto {
-    width: 300px;
-}*/
 
 .custom-submit-btn {
     color: #25408f !important;
