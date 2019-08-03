@@ -328,11 +328,11 @@ class AdoptionApplicationForm(FlaskForm):
     how_long_at_address_months = StringField('Months', validators=[DataRequired(), Length(max=3)])
 
     # Fence/Yard/Kennel Information
-    has_fenced_yard = StringField('Do you have a completely fenced yard suitable for a dog?', choices=YES_NO, validators=[DataRequired()])
-    has_kennel_run = StringField('Do you have a kennel run?', choices=YES_NO, validators=[DataRequired()])
+    has_fenced_yard = SelectField('Do you have a completely fenced yard suitable for a dog?', choices=YES_NO, validators=[DataRequired()])
+    has_kennel_run = SelectField('Do you have a kennel run?', choices=YES_NO, validators=[DataRequired()])
     fence_kennel_description = TextAreaField('Describe fence and/or kennel run (type, height, size)')
     if_none_how_handle_dog_needs = TextAreaField('If no fence/kennel, how will you handle the dog\'s exercise/toilet needs?')
-    has_dog_crate = StringField('Do you have a suitable dog crate?', choices=YES_NO, validators=[DataRequired()])
+    has_dog_crate = SelectField('Do you have a suitable dog crate?', choices=YES_NO, validators=[DataRequired()])
 
     # Household Information
     num_adults_in_household = SelectField('How many adults in the household?', choices=NUM_ADULTS_IN_HOUSEHOLD, validators=[DataRequired()])
