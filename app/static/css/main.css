@@ -2549,6 +2549,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   height: 400px;
 }
 
+.banner-volunteer-form {
+  background: url(../img/jr7.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
 .banner-meet-our-volunteers {
   background: url(../img/jr_coats.jpg) center;
   background-size: cover;

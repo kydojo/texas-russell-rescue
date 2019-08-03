@@ -25,6 +25,9 @@ def about():
 def volunteer():
     return render_template('volunteer.html', title='Volunteer')
 
+@app.route("/volunteer_form")
+def volunteer_form():
+    return render_template('volunteer_form.html', title='Volunteer Form')
 
 @app.route("/meet_our_volunteers")
 def meet_our_volunteers():
