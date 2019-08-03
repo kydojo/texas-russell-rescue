@@ -789,7 +789,7 @@ td, th {
 }
 
 b, sup, sub, u, del {
-  color: #fab700;
+  color: #d2232a;
 }
 
 h1 {
@@ -2543,6 +2543,13 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-volunteer {
+  background: url(../img/jr7.jpg) center;
+  background-size: cover;
+  margin-top: 80px;
+  height: 400px;
+}
+
+.banner-volunteer-form {
   background: url(../img/jr7.jpg) center;
   background-size: cover;
   margin-top: 80px;
