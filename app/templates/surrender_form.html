@@ -28,8 +28,8 @@
   <div class="container content-section mt-30">
       <form method="POST" action="">
         {{ form.hidden_tag() }}
-            <legend class="border-bottom mb-4">Surrender Program</legend>
-            <div class="row">
+            <!--<legend class="border-bottom mb-4">Surrender Program</legend>-->
+            <div class="row justify-content-center">
                 <div class="form-group col-md-3">
                     {{ form.first_name.label(class="form-control-label") }}
                     {% if form.first_name.errors %}
@@ -57,7 +57,7 @@
                   {% endif %}
               </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="form-group col-md-5">
                     {{ form.email.label(class="form-control-label") }}
                     {% if form.email.errors %}
@@ -85,7 +85,7 @@
                     {% endif %}
                 </div>  
             </div> 
-            <div class="row">
+            <div class="row justify-content-center">
               <div class="form-group col-md-8">
                   {{ form.address.label(class="form-control-label") }}
                   {% if form.address.errors %}
@@ -100,8 +100,8 @@
                   {% endif %}
               </div>  
             </div>      
-            <div class="row">
-                <div class="form-group col-md-5">
+            <div class="row justify-content-center">
+                <div class="form-group col-md-6">
                     {{ form.city.label(class="form-control-label") }}
                     {% if form.city.errors %}
                         {{ form.city(class="form-control form-control-md is-invalid", placeholder="Dallas") }}
@@ -128,7 +128,7 @@
                 {% endif %}
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="form-group col-md-8">
                     {{ form.dog_origin.label(class="form-control-label") }}
                     {% if form.dog_origin.errors %}
@@ -143,7 +143,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
               <div class="form-group col-md-8">
                 <div class="form-check">
                   {{ form.spayed_or_neutered(class="form-check-input") }}
@@ -151,7 +151,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="form-group col-md-8">
                   <div class="form-check">
                     {{ form.vaccines_current(class="form-check-input") }}
@@ -159,7 +159,7 @@
                   </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="form-group col-md-8">
                   <div class="form-check">
                     {{ form.heartworm_meds_current(class="form-check-input") }}
@@ -167,7 +167,7 @@
                   </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="form-group col-md-8">
                     {{ form.why_rehoming.label(class="form-control-label") }}
                     {% if form.why_rehoming.errors %}
@@ -182,7 +182,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
               <div class="form-group col-md-8">
                 <div class="form-check">
                   {{ form.dog_friendly(class="form-check-input") }}
@@ -190,7 +190,7 @@
                 </div>
               </div>
           </div>
-          <div class="row">
+          <div class="row justify-content-center">
             <div class="form-group col-md-8">
               <div class="form-check">
                 {{ form.cat_friendly(class="form-check-input") }}
@@ -198,7 +198,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row justify-content-center">
               <div class="form-group col-md-8">
                   {{ form.people_friendly.label(class="form-control-label") }}
                   {% if form.people_friendly.errors %}
@@ -213,7 +213,7 @@
                   {% endif %}
               </div>
           </div>
-          <div class="row">
+          <div class="row justify-content-center">
               <div class="form-group col-md-8">
                   {{ form.training.label(class="form-control-label") }}
                   {% if form.training.errors %}
@@ -228,7 +228,7 @@
                   {% endif %}
               </div>
           </div>
-          <div class="row">
+          <div class="row justify-content-center">
               <div class="form-group col-md-8">
                   {{ form.leash_behavior.label(class="form-control-label") }}
                   {% if form.leash_behavior.errors %}
@@ -243,7 +243,7 @@
                   {% endif %}
               </div>
           </div>
-          <div class="row">
+          <div class="row justify-content-center">
               <div class="form-group col-md-8">
                   {{ form.car_behavior.label(class="form-control-label") }}
                   {% if form.car_behavior.errors %}
@@ -258,7 +258,7 @@
                   {% endif %}
               </div>  
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="form-group col-md-8">
                     {{ form.general_health.label(class="form-control-label") }}
                     {% if form.general_health.errors %}
@@ -273,7 +273,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="form-group col-md-8">
                     {{ form.potty_trained.label(class="form-control-label") }}
                     {% if form.potty_trained.errors %}
@@ -288,7 +288,7 @@
                     {% endif %}
                 </div>  
             </div>  
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="form-group col-md-8">
                     {{ form.home_alone_behavior.label(class="form-control-label") }}
                     {% if form.home_alone_behavior.errors %}
@@ -303,7 +303,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="form-group col-md-8">
                     {{ form.can_remain_home_until_adopted.label(class="form-control-label") }}
                     {% if form.can_remain_home_until_adopted.errors %}
@@ -318,7 +318,7 @@
                     {% endif %}
                 </div>  
             </div> 
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="form-group col-md-8">
                     {{ form.other_info.label(class="form-control-label") }}
                     {% if form.other_info.errors %}
@@ -333,7 +333,11 @@
                     {% endif %}
                 </div>
             </div>
-            {{ form.submit(class="btn btn-outline-info custom-submit-btn") }}
+            <div class="row justify-content-center">
+                <div class="form-group col-md-8">
+                {{ form.submit(class="btn btn-outline-info custom-submit-btn") }}
+                </div>
+            </div>
         </div>
       </form>
       <p></p>
