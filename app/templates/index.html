@@ -2,59 +2,137 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<!-- start banner Area -->
-<section class="banner-area relative banner-home">
-    <div class="container">
-        <div class="overlay overlay-bg"></div>
-        <div class="row fullscreen d-flex justify-content-start">
-            <div class="banner-content col-lg-8 col-md-12">
-                 <img class="banner-logo" src="../static/img/LOGO2.png" alt="Texas Russell Rescue Logo" title="Texas Russell Rescue Logo" />
-                <p class="text-white sub-head banner-sm-font">
-                    Texas Russell Rescue is the Texas group of Russell Rescue, Inc., a national network of volunteers
-                    dedicated to placing unwanted, displaced or abandoned Jack Russell Terriers into permanent homes.
-                </p>
-                <a href="{{ url_for('about') }}" class="primary-btn header-btn text-uppercase no-decoration">Learn More</a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End banner Area -->
-
-<!-- Start Spotlight Terrier -->
-<section class="home-about-area">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-lg-6 home-about-left no-padding">
-                <img src="../static/img/jr_Heidi.jpg" alt="Spotlight Terrier" style="">
-            </div>
-            <div class="col-lg-6 home-about-right">
-                <h1 class="text-center red-text">
-                    Spotlight Terrier
-                </h1>
-                <h3 class="blue-text">Heidi</h3>
-                <p class="blue-text">
-                    <br> This pretty and smart girl is Heidi.  She is being fostered in Bryan, Texas.
-                    Heidi is about 10 months old and is a Jack Russell Terrier mix.
-                    She is current on all of her vet work.<br><br> As you can see from her video, she is very smart!
-                    Her foster mom is a trainer, so Heidi has been trained to follow several commands.
-                    She has been very socialized with other dogs as well.<br><br>
-                    We are looking for the perfect home for this girl. She has been in her foster home since she was a baby.
-                    What she really wants is to find her forever family.
-                    Heidi will do okay with other dogs and will probably be okay with cats. She would love a playmate in her new home.
-                    She prefers a home with no kids. She needs a fenced in yard so she can run and play,
-                    and she needs an owner who is not gone all day.<br><br>She can be adopted in Texas, Oklahoma or Louisiana.
-                    Her adopter must have a good vet reference and must be comfortable with a home visit. Her adoption fee is $200.<br><br>
-                    Check out Heidi in <a href="https://youtu.be/iyrrHimUrVU" target="_blank" class="red-text" style="text-decoration: none">action</a>!
-                    Could Heidi be the dog for you? Apply to adopt today!<br><br>
-                </p>
-                <div class="text-center">
-                    <a href="{{ url_for('adoption_application') }}" class="primary-btn text-uppercase">Apply to Adopt</a>
+    <!-- start banner Area -->
+    <section class="banner-area relative banner-home">
+        <div class="container">
+            <div class="overlay overlay-bg"></div>
+            <div class="row fullscreen d-flex justify-content-start">
+                <div class="banner-content col-lg-8 col-md-12">
+                     <img class="banner-logo" src="../static/img/LOGO2.png" alt="Texas Russell Rescue Logo" title="Texas Russell Rescue Logo" />
+                    <p class="text-white sub-head banner-sm-font">
+                        Texas Russell Rescue is the Texas group of Russell Rescue, Inc., a national network of volunteers
+                        dedicated to placing unwanted, displaced or abandoned Jack Russell Terriers into permanent homes.
+                    </p>
+                    <a href="{{ url_for('about') }}" class="primary-btn header-btn text-uppercase no-decoration">Learn More</a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <!-- End banner Area -->
 
+    <!-- Start Spotlight Terrier -->
+    <section class="home-about-area">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-6 home-about-left no-padding">
+                    <img src="../static/img/jr_Heidi.jpg" alt="Spotlight Terrier" style="">
+                </div>
+                <div class="col-lg-6 home-about-right">
+                    <h1 class="text-center red-text">
+                        Spotlight Terrier
+                    </h1>
+                    <h3 class="blue-text">Heidi</h3>
+                    <p class="blue-text">
+                        <br> This pretty and smart girl is Heidi.  She is being fostered in Bryan, Texas.
+                        Heidi is about 10 months old and is a Jack Russell Terrier mix.
+                        She is current on all of her vet work.<br><br> As you can see from her video, she is very smart!
+                        Her foster mom is a trainer, so Heidi has been trained to follow several commands.
+                        She has been very socialized with other dogs as well.<br><br>
+                        We are looking for the perfect home for this girl. She has been in her foster home since she was a baby.
+                        What she really wants is to find her forever family.
+                        Heidi will do okay with other dogs and will probably be okay with cats. She would love a playmate in her new home.
+                        She prefers a home with no kids. She needs a fenced in yard so she can run and play,
+                        and she needs an owner who is not gone all day.<br><br>She can be adopted in Texas, Oklahoma or Louisiana.
+                        Her adopter must have a good vet reference and must be comfortable with a home visit. Her adoption fee is $200.<br><br>
+                        Check out Heidi in <a href="https://youtu.be/iyrrHimUrVU" target="_blank" class="red-text" style="text-decoration: none">action</a>!
+                        Could Heidi be the dog for you? Apply to adopt today!<br><br>
+                    </p>
+                    <div class="text-center">
+                        <a href="{{ url_for('adoption_application') }}" class="primary-btn text-uppercase">Apply to Adopt</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<!-- Start testomial Area -->
+	 <section class="testimonial-area section-gap" id="testimonial">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="menu-content pb-40 col-lg-8">
+					<div class="title text-center">
+						<h1 class="mb-10">What People are Saying about<br>Texas Russell Rescue</h1>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="active-testimonial-carousel">
+                    <div class="single-testimonial item">
+						<p class="testimonial-text mt-30">
+							I want to thank you all for all you do! I am so grateful for all the assistance
+                            in allowing me to be Jeeps new mama! He is wonderful!
+						</p>
+						<h4>Lisa D.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text">
+							Russell Rescue is diligent about finding good home for Jack Russell Terriers.
+                            They know how special these little dogs are, and they want to make sure that
+                            they'll have a safe, loving home. <i class="fa fa-heart"></i> They are the best!
+						</p>
+						<h4>Richard F.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text mt-40">
+							They brought my Lissey to me. She has been the best behaved dog I have ever had.
+                            She is a true sweetheart.
+						</p>
+						<h4>Denise F.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text mt-30">
+							Almost two years ago we adopted the sweetest little man, Chip, from this rescue...
+                            Super easy to communicate with and the most caring fur lovers!
+						</p>
+						<h4>Tina P.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text mt-40">
+							One of the best rescues around that truly care about the dog AND are picky about who
+                            they adopt to.
+						</p>
+						<h4>Janet K.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text mt-50">
+							Wonderful people at Texas-Russell Rescue. Healthy dogs!
+						</p>
+						<h4>Rik L.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text mt-50">
+							Great bunch of saviors. Dogs find new homes everyday.
+						</p>
+						<h4>Debra B.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text mt-30">
+							They do a wonderful job finding the right homes for these little dogs,
+                            and they love and care about every single one!
+						</p>
+						<h4>Sherie G.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text mt-40">
+							They assisted me in obtaining an owner surrendered JRT in San Antonio. Thank you so much!!
+						</p>
+						<h4>Genie H.</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	 <!--End Testimonial Area-->
 <!--<section class="video-area section-gap">-->
     <!--<div class="container">-->
         <!--<div class="row justify-content-center align-items-center">-->
