@@ -64,13 +64,22 @@ def adoption_application():
             occupation=form.occupation.data
             when_able_to_take_posession=form.when_able_to_take_posession.data
             how_far_willing_to_travel=form.how_far_willing_to_travel.data
+
             housing_type=form.housing_type.data
             housing_type_if_other=form.housing_type_if_other.data
             rent_or_own=form.rent_or_own.data
             landlord_permission=form.landlord_permission.data
             landlord_name=form.landlord_name.data
             landlord_phone=form.landlord_phone.data
-            how_long_at_address=form.how_long_at_address.data
+            how_long_at_address_years=form.how_long_at_address_years.data
+            how_long_at_address_months=form.how_long_at_address_months.data
+
+            has_fenced_yard=form.has_fenced_yard.data
+            has_kennel_run=form.has_kennel_run.data
+            fence_kennel_description=form.fence_kennel_description.data
+            if_none_how_handle_dog_needs=form.if_none_how_handle_dog_needs.data
+            has_dog_crate=form.has_dog_crate.data
+
             num_adults_in_household=form.num_adults_in_household.data
             adults_age=form.adults_age.data
             num_children_in_household=form.num_children_in_household.data
@@ -80,6 +89,7 @@ def adoption_application():
             hours_terrier_must_be_alone=form.hours_terrier_must_be_alone.data
             household_visitors=form.household_visitors.data
             lifestyle=form.lifestyle.data
+
             own_other_dogs=form.own_other_dogs.data
             other_dogs_spayed_neutered=form.other_dogs_spayed_neutered.data
             breed_size_gender_of_other_dogs=form.breed_size_gender_of_other_dogs.data
@@ -87,12 +97,14 @@ def adoption_application():
             own_other_animals=form.own_other_animals.data
             num_dogs_owned_past_five_years=form.num_dogs_owned_past_five_years.data
             status_of_other_dogs_owned=form.status_of_other_dogs_owned.data
+
             previously_owned_jrt=form.previously_owned_jrt.data
             why_choose_jrt=form.why_choose_jrt.data
             jrt_breed_purpose=form.jrt_breed_purpose.data
             planned_activities_with_jrt=form.planned_activities_with_jrt.data
             indorrs_or_outdoors=form.indorrs_or_outdoors.data
             where_will_sleep=form.where_will_sleep.data
+
             has_regular_vet=form.has_regular_vet.data
             Vet_clinic_name=form.Vet_clinic_name.data
             doctor_name=form.doctor_name.data
@@ -102,6 +114,7 @@ def adoption_application():
             vet_zip=form.vet_zip.data
             vet_phone=form.vet_phone.data
             last_vet_visit_date=form.last_vet_visit_date.data
+            
             how_learned_about_us=form.how_learned_about_us.data
             if_other=form.if_other.data
             personal_reference=form.personal_reference.data

@@ -224,11 +224,47 @@ CALL_TIME_LIST = [
     ('EVENING', 'Evening')
 ]
 
+RENT_OR_OWN = [
+    ('RENT', 'Rent'),
+    ('OWN', 'Own')
+]
+
+LANDLORD_PERMISSION = [
+    ('YES', 'Yes'),
+    ('NO', 'No'),
+    ('N/A', 'I do not rent')
+]
+
+NUM_ADULTS_IN_HOUSEHOLD = [
+    ('1', '1'),
+    ('2', '2'),
+    ('3+', '3+')
+]
+
+NUM_CHILDREN_IN_HOUSEHOLD = [
+    ('0', 'None')
+    ('1', '1'),
+    ('2', '2'),
+    ('3+', '3+')
+]
+
+ACTIVITY_LEVEL = [
+    ('VERY ACTIVE', 'Very Active'),
+    ('ACTIVE', 'Active'),
+    ('NOT VERY ACTIVE', 'Not very active'),
+    ('INACTIVE', 'Inactive')
+]
+
+YES_NO = [
+    ('YES', 'Yes'),
+    ('NO', 'No')
+]
+
 class AdoptionApplicationForm(FlaskForm):
     # Adoption Preferences
     terrier_name = StringField('Name of terrier you would like to adopt (if unknown, type 'Unknown')', validators=[DataRequired(), Length(max=60)])
     male_female = SelectField('State', choices=MALE_FEMALE_LIST, validators=[DataRequired()])
-    dog_age = StringField('Age Preference', validators=[DataRequired(), Length(max=60)])
+    dog_age = StringField('Age Preference', validators=[DataRequired(), Length(max=40)])
     willing_to_consider_alternative  = SelectField('I am willing to consider a suitable dog of a different', choices=ALTERNATIVES_LIST, validators=[DataRequired()])
 
     # Applicant Information
@@ -242,66 +278,74 @@ class AdoptionApplicationForm(FlaskForm):
     street_address = StringField('Street Address', validators=[DataRequired(), Length(max=120)])
     city = StringField('City', validators=[DataRequired(), Length(max=60)])
     state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
-    zip_code = StringField('Zip', validators=[DataRequired()])
-    occupation = StringField('Occupation', validators=[DataRequired()])
+    zip_code = StringField('Zip', validators=[DataRequired(), Length(max=15)])
+    occupation = StringField('Occupation', validators=[DataRequired(), Length(max=60)])
     when_able_to_take_posession = TextAreaField(
         'If approved, when could you take possession of a dog?', validators=[DataRequired()]
     )
-    how_far_willing_to_travel = StringField
+    how_far_willing_to_travel = StringField('How far would you travel to pick up your terrier? (in hours)', validators=[DataRequired(), Length(max=40)])
 
     # Housing/landlord Information
     housing_type = SelectField('I (we) live in a:', choices=HOUSING_TYPE_LIST, validators=[DataRequired()])
-    housing_type_if_other = StringField('', validators=[Length(max=60)])
-    rent_or_own = StringField('', validators=[DataRequired()])
-    landlord_permission
-    landlord_name
-    landlord_phone
-    how_long_at_address
+    housing_type_if_other = StringField('Housing type if you chose other', validators=[Length(max=60)])
+    rent_or_own = SelectField('Do you own or rent your home?', choices=RENT_OR_OWN, validators=[DataRequired()])
+    landlord_permission = SelectField('If you rent, do you have your landlords permission to own a dog?', choices=YES_NO, validators=[DataRequired()])
+    landlord_name = StringField('Landlord Name', validators=[Length(max=120)])
+    landlord_phone = StringField('Landlord Phone', validators=[Length(max=20)])
+    how_long_at_address_years = StringField('How long have you lived at this address? Years', validators=[DataRequired(), Length(max=3)])
+    how_long_at_address_months = StringField('Months', validators=[DataRequired(), Length(max=3)])
+
+    # Fence/Yard/Kennel Information
+    has_fenced_yard = StringField('Do you have a completely fenced yard suitable for a dog?', choices=YES_NO, validators=[DataRequired()])
+    has_kennel_run = StringField('Do you have a kennel run?', choices=YES_NO, validators=[DataRequired()])
+    fence_kennel_description = TextAreaField('Describe fence and/or kennel run (type, height, size)', validators=[DataRequired()])
+    if_none_how_handle_dog_needs = TextAreaField('If no fence/kennel, how will you handle the dog\'s exercise/toilet needs?', validators=[DataRequired()])
+    has_dog_crate = StringField('Do you have a suitable dog crate?', choices=YES_NO, validators=[DataRequired()])
 
     # Household Information
-    num_adults_in_household
-    adults_age
-    num_children_in_household
-    children_age
-    planning_to_have_children
-    animal_allergies
-    hours_terrier_must_be_alone
-    household_visitors
-    lifestyle
+    num_adults_in_household = SelectField('How many adults in the household?', choices=NUM_ADULTS_IN_HOUSEHOLD, validators=[DataRequired()])
+    adults_age = StringField('Age of Adults', validators=[DataRequired(), Length(max=200)])
+    num_children_in_household = SelectField('How many children in the household?', choices=NUM_CHILDREN_IN_HOUSEHOLD, validators=[DataRequired()])
+    children_age = StringField('Age of Children', validators=[DataRequired(), Length(max=200)])
+    planning_to_have_children = SelectField('Are you planning to have children within the next 5 years?', choices=YES_NO, validators=[DataRequired()])
+    animal_allergies = SelectField('Are any household members allergic to animals?', choices=YES_NO, validators=[DataRequired()])
+    hours_terrier_must_be_alone = StringField('How many hours a day must the terrier be alone? ', validators=[DataRequired(), Length(max=30)])
+    household_visitors = SelectField('Are there visitors to your home with which a new dog will have to interact?', choices=YES_NO, validators=[DataRequired()])
+    lifestyle = SelectField('How would you describe your lifestyle?', choices=ACTIVITY_LEVEL, validators=[DataRequired()])
 
     # Other Animal Information
-    own_other_dogs
-    other_dogs_spayed_neutered
-    breed_size_gender_of_other_dogs
-    own_cats
-    own_other_animals
-    num_dogs_owned_past_five_years
-    status_of_other_dogs_owned
+    own_other_dogs = StringField('', validators=[DataRequired()])
+    other_dogs_spayed_neutered = StringField('', validators=[DataRequired()])
+    breed_size_gender_of_other_dogs = StringField('', validators=[DataRequired()])
+    own_cats = StringField('', validators=[DataRequired()])
+    own_other_animals = StringField('', validators=[DataRequired()])
+    num_dogs_owned_past_five_years = StringField('', validators=[DataRequired()])
+    status_of_other_dogs_owned = StringField('', validators=[DataRequired()])
 
     # Breed-specific Information
-    previously_owned_jrt
-    why_choose_jrt
-    jrt_breed_purpose
-    planned_activities_with_jrt
-    indorrs_or_outdoors
-    where_will_sleep
+    previously_owned_jrt = StringField('', validators=[DataRequired()])
+    why_choose_jrt = StringField('', validators=[DataRequired()])
+    jrt_breed_purpose = StringField('', validators=[DataRequired()])
+    planned_activities_with_jrt = StringField('', validators=[DataRequired()])
+    indorrs_or_outdoors = StringField('', validators=[DataRequired()])
+    where_will_sleep = StringField('', validators=[DataRequired()])
 
     # Veterinarian Information
-    has_regular_vet  
-    Vet_clinic_name
-    doctor_name
-    vet_street_address
-    vet_city
-    vet_state 
-    vet_zip
-    vet_phone
-    last_vet_visit_date
+    has_regular_vet = StringField('', validators=[DataRequired()])  
+    Vet_clinic_name = StringField('', validators=[DataRequired()])
+    doctor_name = StringField('', validators=[DataRequired()])
+    vet_street_address = StringField('', validators=[DataRequired()])
+    vet_city = StringField('', validators=[DataRequired()])
+    vet_state = StringField('', validators=[DataRequired()]) 
+    vet_zip = StringField('', validators=[DataRequired()])
+    vet_phone = StringField('', validators=[DataRequired()])
+    last_vet_visit_date = StringField('', validators=[DataRequired()])
 
     # Reference/Miscellaneous Information
-    how_learned_about_us
-    if_other
-    personal_reference
-    reference_name
-    reference_relationship
-    reference_phone
-    additional_comments
+    how_learned_about_us = StringField('', validators=[DataRequired()])
+    if_other = StringField('', validators=[DataRequired()])
+    personal_reference = StringField('', validators=[DataRequired()])
+    reference_name = StringField('', validators=[DataRequired()])
+    reference_relationship = StringField('', validators=[DataRequired()])
+    reference_phone = StringField('', validators=[DataRequired()])
+    additional_comments = StringField('', validators=[DataRequired()])
