@@ -41,7 +41,7 @@ def before_you_adopt():
     return render_template('before_you_adopt.html', title='Before You Adopt')
 
 
-@app.route("/adoption_application")
+@app.route("/adoption_application", methods=['GET', 'POST'])
 def adoption_application():
     form = AdoptionApplicationForm()
     if form.validate_on_submit():
@@ -128,7 +128,7 @@ def adoption_application():
         db.session.commit()
         flash('Your application has been sent.', 'success')
         return redirect(url_for('index'))
-    return render_template('adoption_app.html', title='Adoption Application')
+    return render_template('adoption_app.html', title='Adoption Application', form=form)
 
 
 @app.route("/available_dogs", methods=["GET"])

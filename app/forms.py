@@ -382,3 +382,5 @@ class AdoptionApplicationForm(FlaskForm):
     reference_relationship = StringField('Relationship', validators=[DataRequired(), Length(max=120)])
     reference_phone = StringField('Phone Number', validators=[DataRequired(), Length(max=20)])
     additional_comments = TextAreaField('Additional Comments')
+
+    submit = SubmitField('Submit')

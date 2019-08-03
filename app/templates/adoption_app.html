@@ -9,12 +9,12 @@
 {% endblock %}
 {% block content %}
 
-<section class="banner-area relative banner-general banner-adoption-app" id="home">
+<section class="banner-area relative banner-general banner-adoption-app">
     <div class="container">
         <div class="overlay overlay-bg"></div>
-        <div class="row fullscreen d-flex justify-content-start">
+        <div class="row fullscreen d-flex justify-content-start" style="0px">
             <div class="banner-content col-lg-8 col-md-12">
-                 <!--<a><img class="banner-logo" src="../static/img/LOGO2.png" alt="" title="" /></a>-->
+                    <!--<a><img class="banner-logo" src="../static/img/LOGO2.png" alt="" title="" /></a>-->
                 <p class="text-white sub-head banner-lg-font">
                     Apply to Adopt
                 </p>
@@ -24,17 +24,130 @@
     </div>
 </section>
 
+<div class="container content-section">
   <h1>Adoption Application</h1>
-  <p>Adoption Application form will go here via WTForms.</p>
   <p>
-      By submitting this application, you are making a FORMAL request to adopt a dog from Russell Rescue, Inc., 
-      an all-volunteer, donation-supported organization. Please do not fill out this application if you are not 
-      serious about working with Russell Rescue, Inc. You will be contacted if a suitable terrier is matched to 
-      your application. Filling out an application does not guarantee a terrier. Not all homes are suitable for 
-      placement. Russell Rescue, Inc. has the right to refuse any application.
+    By submitting this application, you are making a FORMAL request to adopt a dog from Russell Rescue, Inc., 
+    an all-volunteer, donation-supported organization. Please do not fill out this application if you are not 
+    serious about working with Russell Rescue, Inc. You will be contacted if a suitable terrier is matched to 
+    your application. Filling out an application does not guarantee a terrier. Not all homes are suitable for 
+    placement. Russell Rescue, Inc. has the right to refuse any application.
   </p>
   <p>
       If you do not receive a notice that tells you the application was submitted,
       please <a href="{{ url_for('contact') }}">Contact Us.</a>
   </p>
+  <p>
+    <form method="POST" action="" class="center-content">
+        {{ form.hidden_tag() }}
+            <!--<legend class="border-bottom mb-4">Contact Us</legend>-->
+            <div class="row mt-30 justify-content-center">
+                <div class="form-group col-md-8">
+                    {{ form.first_name.label(class="form-control-label") }}
+                    {% if form.first_name.errors %}
+                        {{ form.first_name(class="form-control form-control-md is-invalid", placeholder="Jane Doe") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.first_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.first_name(class="form-control form-control-md", placeholder="Jane Doe") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="form-group col-md-5">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-md is-invalid", placeholder="name@domain.com") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-md", placeholder="name@domain.com") }}
+                    {% endif %}
+                </div>
+                <div class="form-group col-md-3">
+                    {{ form.home_phone.label(class="form-control-label") }}
+                    {% if form.home_phone.errors %}
+                        {{ form.home_phone(class="form-control form-control-md is-invalid", placeholder="555-555-5555") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.home_phone.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.home_phone(class="form-control form-control-md", placeholder="555-555-5555") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="form-group col-md-6 w-auto">
+                    {{ form.city.label(class="form-control-label") }}
+                    {% if form.city.errors %}
+                        {{ form.city(class="form-control form-control-md is-invalid", placeholder="Dallas") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.city.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.city(class="form-control form-control-md", placeholder="Dallas") }}
+                    {% endif %}
+                </div>
+                <div class="form-group col-md-2">
+                    {{ form.state.label(class="form-control-label") }}
+                    {% if form.state.errors %}
+                    {{ form.state(class="form-control form-control-md is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.state.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.state(class="form-control form-control-md") }}
+                {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="form-group col-md-8">
+                    {{ form.zip_code.label(class="form-control-label") }}
+                    {% if form.zip_code.errors %}
+                        {{ form.zip_code(class="form-control form-control-md is-invalid", placeholder="12345") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.zip_code.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.zip_code(class="form-control form-control-md", placeholder="12345") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="form-group col-md-8">
+                    {{ form.when_able_to_take_posession.label(class="form-control-label") }}
+                    {% if form.when_able_to_take_posession.errors %}
+                        {{ form.when_able_to_take_posession(class="form-control form-control-md is-invalid", rows="5") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.when_able_to_take_posession.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.when_able_to_take_posession(class="form-control form-control-md", rows="5") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="form-group col-md-8">
+                {{ form.submit(class="btn btn-outline-info custom-submit-btn") }}
+                </div>
+            </div>
+        </form>
+  </p>
+  </div>
 {% endblock %}
