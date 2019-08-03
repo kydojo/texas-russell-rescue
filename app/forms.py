@@ -124,6 +124,7 @@ STATE_LIST = [
     ('SC', 'South Carolina'),
     ('SD', 'South Dakota'),
     ('TN', 'Tennessee'),
+    ('TX', 'Texas'),
     ('UT', 'Utah'),
     ('VT', 'Vermont'),
     ('VA', 'Virginia'),

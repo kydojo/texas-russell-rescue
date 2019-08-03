@@ -66,16 +66,15 @@
 				<li class="nav-logo text-center d-none d-lg-block zoom add-zoom"><a class="nav-link" href="{{ url_for('index') }}"><img id="nav-logo"
 							src="../static/img/logo-text.png" alt="" title="Logo" /></a></li>
 
-				<!--<li class="nav-item zoom add-zoom add-margin-top"><a class="nav-link" href="#">Donate</a></li>-->
+				<li class="nav-item add-margin-top"><a class="nav-link highlight {{ 'current-page' if current_page == 'volunteer' or current_page == 'volunteer_form' else '' }}" href="{{ url_for('volunteer') }}">Volunteer</a></li>
 
-				<!--<li class="nav-item zoom add-zoom add-margin-top"><a class="nav-link" href="{{ url_for('volunteer') }}">Volunteer</a></li>-->
-				<div class="dropdown nav-link add-margin-top">
+				<!--<div class="dropdown nav-link add-margin-top">
 					<li class="dropbtn highlight {{ 'current-page' if (current_page == 'volunteer_application' or current_page == 'meet_our_volunteers') else '' }}">Volunteer</li>
 					<div class="dropdown-content">
 						<a class="highlight {{ 'current-page' if current_page == 'volunteer_application' else '' }}" href="{{ url_for('volunteer') }}">Volunteer Application</a>
 						<a class="highlight {{ 'current-page' if current_page == 'meet_our_volunteers' else '' }}" href="{{ url_for('meet_our_volunteers') }}">Meet Our Volunteers</a>
 					</div>
-				</div>
+				</div>-->
 
 				<div class="dropdown nav-link add-margin-top">
 					<li class="dropbtn highlight {{ 'current-page' if (current_page == 'events' or current_page == 'spotlight_terriers' or current_page == 'happy_tails') else '' }}">News</li>
@@ -88,7 +87,7 @@
 
 
 				<div class="dropdown nav-link add-margin-top">
-					<li class="dropbtn highlight {{ 'current-page' if (current_page == 'surrender' or current_page == 'contact' or current_page == 'available_dogs') else '' }}">Contact</li>
+					<li class="dropbtn highlight {{ 'current-page' if current_page == 'contact' else '' }}">Contact</li>
 					<div class="dropdown-content">
 						<a class="highlight {{ 'current-page' if current_page == 'surrender' else '' }}" href="{{ url_for('surrender') }}">Surrender Program</a>
 						<a class="highlight {{ 'current-page' if current_page == 'contact' else '' }}" href="{{ url_for('contact') }}">Questions? Contact Us</a>
@@ -126,6 +125,85 @@
 		{% endwith %}
 		{% block content %}{% endblock %}
 	</div>
+
+	<!-- Start testomial Area -->
+	 <section class="testimonial-area section-gap" id="testimonial">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="menu-content pb-40 col-lg-8">
+					<div class="title text-center">
+						<h1 class="mb-10">What People are Saying about<br>Texas Russell Rescue</h1>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="active-testimonial-carousel">
+                    <div class="single-testimonial item">
+						<p class="testimonial-text mt-30">
+							I want to thank you all for all you do! I am so grateful for all the assistance
+                            in allowing me to be Jeeps new mama! He is wonderful!
+						</p>
+						<h4>Lisa D.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text">
+							Russell Rescue is diligent about finding good home for Jack Russell Terriers.
+                            They know how special these little dogs are, and they want to make sure that
+                            they'll have a safe, loving home. <i class="fa fa-heart"></i> They are the best!
+						</p>
+						<h4>Richard F.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text mt-40">
+							They brought my Lissey to me. She has been the best behaved dog I have ever had.
+                            She is a true sweetheart.
+						</p>
+						<h4>Denise F.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text mt-30">
+							Almost two years ago we adopted the sweetest little man, Chip, from this rescue...
+                            Super easy to communicate with and the most caring fur lovers!
+						</p>
+						<h4>Tina P.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text mt-40">
+							One of the best rescues around that truly care about the dog AND are picky about who
+                            they adopt to.
+						</p>
+						<h4>Janet K.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text mt-50">
+							Wonderful people at Texas-Russell Rescue. Healthy dogs!
+						</p>
+						<h4>Rik L.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text mt-50">
+							Great bunch of saviors. Dogs find new homes everyday.
+						</p>
+						<h4>Debra B.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text mt-30">
+							They do a wonderful job finding the right homes for these little dogs,
+                            and they love and care about every single one!
+						</p>
+						<h4>Sherie G.</h4>
+					</div>
+					<div class="single-testimonial item">
+						<p class="testimonial-text mt-40">
+							They assisted me in obtaining an owner surrendered JRT in San Antonio. Thank you so much!!
+						</p>
+						<h4>Genie H.</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	 <!--End Testimonial Area-->
 
 	<!--&lt;!&ndash; Start image-carousel Area &ndash;&gt;-->
 	<!--<section class="image-carousel-area">-->
@@ -315,123 +393,7 @@
 	<!-- End process Area -->
 
 
-	<!-- Start testomial Area -->
-	<!-- <section class="testomial-area section-gap" id="testimonail">
-		<div class="container">
-			<div class="row d-flex justify-content-center">
-				<div class="menu-content pb-60 col-lg-8">
-					<div class="title text-center">
-						<h1 class="mb-10">Testimonials from our guardians</h1>
-						<p>Who are in extremely love with eco friendly system.</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="active-testimonial-carousel">
-					<div class="single-testimonial item">
-						<img class="mx-auto" src="../static/img/t1.png" alt="">
-						<p class="desc">
-							Accessories Here you can find the best computer accessory for your laptop, monitor, printer,
-							scanner, speaker, projector, hardware and more. laptop accessory
-						</p>
-						<h4>Mark Alviro Wiens</h4>
-						<p>
-							CEO at Google
-						</p>
-					</div>
-					<div class="single-testimonial item">
-						<img class="mx-auto" src="../static/img/t2.png" alt="">
-						<p class="desc">
-							Accessories Here you can find the best computer accessory for your laptop, monitor, printer,
-							scanner, speaker, projector, hardware and more. laptop accessory
-						</p>
-						<h4>Mark Alviro Wiens</h4>
-						<p>
-							CEO at Google
-						</p>
-					</div>
-					<div class="single-testimonial item">
-						<img class="mx-auto" src="../static/img/t3.png" alt="">
-						<p class="desc">
-							Accessories Here you can find the best computer accessory for your laptop, monitor, printer,
-							scanner, speaker, projector, hardware and more. laptop accessory
-						</p>
-						<h4>Mark Alviro Wiens</h4>
-						<p>
-							CEO at Google
-						</p>
-					</div>
-					<div class="single-testimonial item">
-						<img class="mx-auto" src="../static/img/t1.png" alt="">
-						<p class="desc">
-							Accessories Here you can find the best computer accessory for your laptop, monitor, printer,
-							scanner, speaker, projector, hardware and more. laptop accessory
-						</p>
-						<h4>Mark Alviro Wiens</h4>
-						<p>
-							CEO at Google
-						</p>
-					</div>
-					<div class="single-testimonial item">
-						<img class="mx-auto" src="../static/img/t2.png" alt="">
-						<p class="desc">
-							Accessories Here you can find the best computer accessory for your laptop, monitor, printer,
-							scanner, speaker, projector, hardware and more. laptop accessory
-						</p>
-						<h4>Mark Alviro Wiens</h4>
-						<p>
-							CEO at Google
-						</p>
-					</div>
-					<div class="single-testimonial item">
-						<img class="mx-auto" src="../static/img/t3.png" alt="">
-						<p class="desc">
-							Accessories Here you can find the best computer accessory for your laptop, monitor, printer,
-							scanner, speaker, projector, hardware and more. laptop accessory
-						</p>
-						<h4>Mark Alviro Wiens</h4>
-						<p>
-							CEO at Google
-						</p>
-					</div>
-					<div class="single-testimonial item">
-						<img class="mx-auto" src="../static/img/t1.png" alt="">
-						<p class="desc">
-							Accessories Here you can find the best computer accessory for your laptop, monitor, printer,
-							scanner, speaker, projector, hardware and more. laptop accessory
-						</p>
-						<h4>Mark Alviro Wiens</h4>
-						<p>
-							CEO at Google
-						</p>
-					</div>
-					<div class="single-testimonial item">
-						<img class="mx-auto" src="../static/img/t2.png" alt="">
-						<p class="desc">
-							Accessories Here you can find the best computer accessory for your laptop, monitor, printer,
-							scanner, speaker, projector, hardware and more. laptop accessory
-						</p>
-						<h4>Mark Alviro Wiens</h4>
-						<p>
-							CEO at Google
-						</p>
-					</div>
-					<div class="single-testimonial item">
-						<img class="mx-auto" src="../static/img/t3.png" alt="">
-						<p class="desc">
-							Accessories Here you can find the best computer accessory for your laptop, monitor, printer,
-							scanner, speaker, projector, hardware and more. laptop accessory
-						</p>
-						<h4>Mark Alviro Wiens</h4>
-						<p>
-							CEO at Google
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> -->
-	<!-- End testomial Area -->
+
 
 	<!-- Start calltoaction Area -->
 	<!-- <section class="calltoaction-area section-gap relative">
