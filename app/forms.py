@@ -242,7 +242,7 @@ NUM_ADULTS_IN_HOUSEHOLD = [
 ]
 
 NUM_CHILDREN_IN_HOUSEHOLD = [
-    ('0', 'None')
+    ('0', 'None'),
     ('1', '1'),
     ('2', '2'),
     ('3+', '3+')
@@ -262,13 +262,24 @@ NUM_CATS = [
 ]
 
 ACTIVITIES_LIST = [
-    Pet, Guard, Hunting, Obedience, Terrier Trials, Other
     ('PET', 'Family Pet'),
     ('GUARD', 'Guard'),
     ('HUNTING', 'Hunting'),
     ('OBEDIENCE', 'Obedience'),
     ('TERRIER TRIALS', 'Terrier Trials'),
     ('OTHER', 'Other')
+]
+
+HOW_FOUND_US_LIST = [
+    ('Texas Russell Rescue Website', 'Texas Russell Rescue Website'), 
+    ('JRTCA Website', 'JRTCA Website'),
+    ('JRTCA Breeders Website', 'JRTCA Breeders Website'),
+    ('True Grit Magazine', 'True Grit Magazine'),
+    ('From a Friend', 'From a Friend'),
+    ('From a Breeder', 'From a Breeder'),
+    ('From my Vet', 'From my Vet'),
+    ('Texas Russell Rescue Facebook Page', 'Texas Russell Rescue Facebook Page'),
+    ('Other', 'Other')
 ]
 
 INDOORS_OUTDOORS = [
@@ -283,7 +294,7 @@ YES_NO = [
 
 class AdoptionApplicationForm(FlaskForm):
     # Adoption Preferences
-    terrier_name = StringField('Name of terrier you would like to adopt (if unknown, type 'Unknown')', validators=[DataRequired(), Length(max=60)])
+    terrier_name = StringField('Name of terrier you would like to adopt (if unknown, type \'Unknown\')', validators=[DataRequired(), Length(max=60)])
     male_female = SelectField('State', choices=MALE_FEMALE_LIST, validators=[DataRequired()])
     dog_age = StringField('Age Preference', validators=[DataRequired(), Length(max=40)])
     willing_to_consider_alternative  = SelectField('I am willing to consider a suitable dog of a different', choices=ALTERNATIVES_LIST, validators=[DataRequired()])
@@ -295,7 +306,7 @@ class AdoptionApplicationForm(FlaskForm):
     home_phone = StringField('Home Phone', validators=[Length(max=20)])
     cell_phone = StringField('Cell Phone', validators=[Length(max=20)]) 
     work_phone = StringField('Work Phone', validators=[Length(max=20)]) 
-    best_time_to_call = SelectField('Best time to Call', choices=CALL_TIME_LIST validators=[DataRequired()]) 
+    best_time_to_call = SelectField('Best time to Call', choices=CALL_TIME_LIST, validators=[DataRequired()]) 
     street_address = StringField('Street Address', validators=[DataRequired(), Length(max=120)])
     city = StringField('City', validators=[DataRequired(), Length(max=60)])
     state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
@@ -347,28 +358,27 @@ class AdoptionApplicationForm(FlaskForm):
 
     # Breed-specific Information
     previously_owned_jrt = SelectField('Have you ever owned a Jack Russell before?', choices=YES_NO, validators=[DataRequired()])
-    why_choose_jrt = TextField('Why did you choose this breed?', validators=[DataRequired()])
-    jrt_breed_purpose = TextField('What is the Jack Russell bred to do (if you know)?')
+    why_choose_jrt = TextAreaField('Why did you choose this breed?', validators=[DataRequired()])
+    jrt_breed_purpose = TextAreaField('What is the Jack Russell bred to do (if you know)?')
     planned_activities_with_jrt = SelectField('What primary activitiy do you plan to do with this dog?', choices=ACTIVITIES_LIST, validators=[DataRequired()])
     indoors_or_outdoors = SelectField('Where do you intend to keep this dog primarily?', choices=INDOORS_OUTDOORS, validators=[DataRequired()])
     where_will_sleep = StringField('Where will the dog sleep?', validators=[DataRequired(), Length(max=200)])
 
     # Veterinarian Information
-    has_regular_vet = StringField('', validators=[DataRequired()])  
-    Vet_clinic_name = StringField('', validators=[DataRequired()])
-    doctor_name = StringField('', validators=[DataRequired()])
-    vet_street_address = StringField('', validators=[DataRequired()])
-    vet_city = StringField('', validators=[DataRequired()])
-    vet_state = StringField('', validators=[DataRequired()]) 
-    vet_zip = StringField('', validators=[DataRequired()])
-    vet_phone = StringField('', validators=[DataRequired()])
-    last_vet_visit_date = StringField('', validators=[DataRequired()])
+    has_regular_vet = SelectField('Do you have a regular veterinarian? If no, skip this section.', choices=YES_NO, validators=[DataRequired()])  
+    Vet_clinic_name = StringField('Vet Clinic Name', validators=[DataRequired(), Length(max=60)])
+    doctor_name = StringField('Doctor Name', validators=[DataRequired(), Length(max=120)])
+    vet_street_address = StringField('Street Address', validators=[DataRequired(), Length(max=120)])
+    vet_city = StringField('City', validators=[DataRequired(), Length(max=60)])
+    vet_state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
+    vet_zip = StringField('Zip', validators=[DataRequired(), Length(max=15)])
+    vet_phone = StringField('Vet Phone Number', validators=[Length(max=20)])
+    last_vet_visit_date = StringField('Date of Last Vet Visit', validators=[DataRequired(), Length(max=15)])
 
     # Reference/Miscellaneous Information
-    how_learned_about_us = StringField('', validators=[DataRequired()])
-    if_other = StringField('', validators=[DataRequired()])
-    personal_reference = StringField('', validators=[DataRequired()])
-    reference_name = StringField('', validators=[DataRequired()])
-    reference_relationship = StringField('', validators=[DataRequired()])
-    reference_phone = StringField('', validators=[DataRequired()])
-    additional_comments = StringField('', validators=[DataRequired()])
+    how_learned_about_us = SelectField('How did you learn of Russell Rescue, Inc.?', choices=HOW_FOUND_US_LIST, validators=[DataRequired()])
+    if_other = StringField('If you select other please describe', validators=[Length(max=200)])
+    reference_name = StringField('Name', validators=[DataRequired(), Length(max=120)])
+    reference_relationship = StringField('Relationship', validators=[DataRequired(), Length(max=120)])
+    reference_phone = StringField('Phone Number', validators=[DataRequired(), Length(max=20)])
+    additional_comments = TextAreaField('Additional Comments')

@@ -1,10 +1,10 @@
 
 from flask import render_template, url_for, redirect, flash, request
-from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrenderForm
+from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrenderForm, AdoptionApplicationForm
 from app import app, db, bcrypt
 from app.pets import get_pets, get_all_pets
 from app.sender import send_application_submission_confirmation, send_contact_info, send_surrender_applicant_info
-from app.models import User, Post, Message, OwnerSurrenderApplication
+from app.models import User, Post, Message, OwnerSurrenderApplication, adoptionApplication
 from flask_login import login_user, logout_user, current_user, login_required
 from sqlalchemy import desc
 
@@ -46,83 +46,82 @@ def adoption_application():
     form = AdoptionApplicationForm()
     if form.validate_on_submit():
         application = AdoptionApplication(
-            terrier_name=form.terrier_name.data 
-            male_female=form.data
-            dog_age=form.male_female.data
-            willing_to_consider_alternative=form.willing_to_consider_alternative.data
-            first_name=form.first_name.data
-            last_name=form.last_name.data
-            email=form.email.data
-            home_phone=form.home_phone.data
-            cell_phone=form.cell_phone.data
-            work_phone=form.work_phone.data
-            best_time_to_call=form.best_time_to_call.data
-            street_address=form.street_address.data
-            city=form.city.data
-            state=form.state.data
-            zip_code=form.zip_code.data
-            occupation=form.occupation.data
-            when_able_to_take_posession=form.when_able_to_take_posession.data
-            how_far_willing_to_travel=form.how_far_willing_to_travel.data
+            terrier_name=form.terrier_name.data,
+            male_female=form.male_female.data,
+            dog_age=form.dog_age.data,
+            willing_to_consider_alternative=form.willing_to_consider_alternative.data,
+            first_name=form.first_name.data,
+            last_name=form.last_name.data,
+            email=form.email.data,
+            home_phone=form.home_phone.data,
+            cell_phone=form.cell_phone.data,
+            work_phone=form.work_phone.data,
+            best_time_to_call=form.best_time_to_call.data,
+            street_address=form.street_address.data,
+            city=form.city.data,
+            state=form.state.data,
+            zip_code=form.zip_code.data,
+            occupation=form.occupation.data,
+            when_able_to_take_posession=form.when_able_to_take_posession.data,
+            how_far_willing_to_travel=form.how_far_willing_to_travel.data,
 
-            housing_type=form.housing_type.data
-            housing_type_if_other=form.housing_type_if_other.data
-            rent_or_own=form.rent_or_own.data
-            landlord_permission=form.landlord_permission.data
-            landlord_name=form.landlord_name.data
-            landlord_phone=form.landlord_phone.data
-            how_long_at_address_years=form.how_long_at_address_years.data
-            how_long_at_address_months=form.how_long_at_address_months.data
+            housing_type=form.housing_type.data,
+            housing_type_if_other=form.housing_type_if_other.data,
+            rent_or_own=form.rent_or_own.data,
+            landlord_permission=form.landlord_permission.data,
+            landlord_name=form.landlord_name.data,
+            landlord_phone=form.landlord_phone.data,
+            how_long_at_address_years=form.how_long_at_address_years.data,
+            how_long_at_address_months=form.how_long_at_address_months.data,
 
-            has_fenced_yard=form.has_fenced_yard.data
-            has_kennel_run=form.has_kennel_run.data
-            fence_kennel_description=form.fence_kennel_description.data
-            if_none_how_handle_dog_needs=form.if_none_how_handle_dog_needs.data
-            has_dog_crate=form.has_dog_crate.data
+            has_fenced_yard=form.has_fenced_yard.data,
+            has_kennel_run=form.has_kennel_run.data,
+            fence_kennel_description=form.fence_kennel_description.data,
+            if_none_how_handle_dog_needs=form.if_none_how_handle_dog_needs.data,
+            has_dog_crate=form.has_dog_crate.data,
 
-            num_adults_in_household=form.num_adults_in_household.data
-            adults_age=form.adults_age.data
-            num_children_in_household=form.num_children_in_household.data
-            children_age=form.children_age.data
-            planning_to_have_children=form.planning_to_have_children.data
-            animal_allergies=form.animal_allergies.data
-            hours_terrier_must_be_alone=form.hours_terrier_must_be_alone.data
-            household_visitors=form.household_visitors.data
-            lifestyle=form.lifestyle.data
+            num_adults_in_household=form.num_adults_in_household.data,
+            adults_age=form.adults_age.data,
+            num_children_in_household=form.num_children_in_household.data,
+            children_age=form.children_age.data,
+            planning_to_have_children=form.planning_to_have_children.data,
+            animal_allergies=form.animal_allergies.data,
+            hours_terrier_must_be_alone=form.hours_terrier_must_be_alone.data,
+            household_visitors=form.household_visitors.data,
+            lifestyle=form.lifestyle.data,
 
-            own_other_dogs=form.own_other_dogs.data
-            other_dogs_spayed_neutered=form.other_dogs_spayed_neutered.data
-            breed_size_gender_of_other_dogs=form.breed_size_gender_of_other_dogs.data
-            own_cats=form.own_cats.data
-            how_many_cats=form.how_many_cats.data
-            own_other_animals=form.own_other_animals.data
-            other_animals_description=form.other_animals_description.data
-            num_dogs_owned_past_five_years=form.num_dogs_owned_past_five_years.data
-            status_of_other_dogs_owned=form.status_of_other_dogs_owned.data
+            own_other_dogs=form.own_other_dogs.data,
+            other_dogs_spayed_neutered=form.other_dogs_spayed_neutered.data,
+            breed_size_gender_of_other_dogs=form.breed_size_gender_of_other_dogs.data,
+            own_cats=form.own_cats.data,
+            how_many_cats=form.how_many_cats.data,
+            own_other_animals=form.own_other_animals.data,
+            other_animals_description=form.other_animals_description.data,
+            num_dogs_owned_past_five_years=form.num_dogs_owned_past_five_years.data,
+            status_of_other_dogs_owned=form.status_of_other_dogs_owned.data,
 
-            previously_owned_jrt=form.previously_owned_jrt.data
-            why_choose_jrt=form.why_choose_jrt.data
-            jrt_breed_purpose=form.jrt_breed_purpose.data
-            planned_activities_with_jrt=form.planned_activities_with_jrt.data
-            indoors_or_outdoors=form.indorrs_or_outdoors.data
-            where_will_sleep=form.where_will_sleep.data
+            previously_owned_jrt=form.previously_owned_jrt.data,
+            why_choose_jrt=form.why_choose_jrt.data,
+            jrt_breed_purpose=form.jrt_breed_purpose.data,
+            planned_activities_with_jrt=form.planned_activities_with_jrt.data,
+            indoors_or_outdoors=form.indorrs_or_outdoors.data,
+            where_will_sleep=form.where_will_sleep.data,
 
-            has_regular_vet=form.has_regular_vet.data
-            Vet_clinic_name=form.Vet_clinic_name.data
-            doctor_name=form.doctor_name.data
-            vet_street_address=form.vet_street_address.data
-            vet_city=form.vet_city.data
-            vet_state =form.vet_state.data
-            vet_zip=form.vet_zip.data
-            vet_phone=form.vet_phone.data
-            last_vet_visit_date=form.last_vet_visit_date.data
+            has_regular_vet=form.has_regular_vet.data,
+            Vet_clinic_name=form.Vet_clinic_name.data,
+            doctor_name=form.doctor_name.data,
+            vet_street_address=form.vet_street_address.data,
+            vet_city=form.vet_city.data,
+            vet_state =form.vet_state.data,
+            vet_zip=form.vet_zip.data,
+            vet_phone=form.vet_phone.data,
+            last_vet_visit_date=form.last_vet_visit_date.data,
             
-            how_learned_about_us=form.how_learned_about_us.data
-            if_other=form.if_other.data
-            personal_reference=form.personal_reference.data
-            reference_name=form.reference_name.data
-            reference_relationship=form.reference_relationship.data
-            reference_phone=form.reference_phone.data
+            how_learned_about_us=form.how_learned_about_us.data,
+            if_other=form.if_other.data,
+            reference_name=form.reference_name.data,
+            reference_relationship=form.reference_relationship.data,
+            reference_phone=form.reference_phone.data,
             additional_comments=form.additional_comments.data
         )
         db.session.add(application)
