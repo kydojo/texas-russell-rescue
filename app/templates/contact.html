@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="form-group col-md-6 w-auto">
+                    <div class="form-group col-md-6">
                         {{ form.city.label(class="form-control-label") }}
                         {% if form.city.errors %}
                             {{ form.city(class="form-control form-control-md is-invalid", placeholder="Dallas") }}
@@ -129,11 +129,11 @@
                         {% endif %}
                     </div>
                 </div>
-              <div class="row justify-content-center">
-                  <div class="form-group col-md-8">
+                <div class="row justify-content-center">
+                    <div class="form-group col-md-8">
                     {{ form.submit(class="btn btn-outline-info custom-submit-btn") }}
-                  </div>
-              </div>
+                    </div>
+                </div>
           </form>
       <p></p>
 {% endblock %}
