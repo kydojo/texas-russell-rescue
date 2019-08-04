@@ -75,10 +75,29 @@ html {
         height: auto;
         width: 250px;
     }
-
 }
 
 
+/* Home Page */
+
+.card-home{
+    padding:20px 10px;
+    margin:30px 0px;
+    background-color: #f9f9ff;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+@media (min-width: 1200px) {
+    .card-home {
+        height: 330px;
+    }
+}
+
+.card-home:hover {
+  cursor: pointer;
+  background-color: #fff;
+}
 
 /* About Page */
 .about-text {
