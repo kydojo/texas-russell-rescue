@@ -85,7 +85,7 @@ class OwnerSurrenderApplication(db.Model):
 		return f"Message('{self.name}', '{self.city}', '{self.state}', '{self.date_sent}')"
 
 
-class adoptionApplication(db.Model):
+class AdoptionApplication(db.Model):
 	id = db.Column(db.Integer, autoincrement=True, primary_key=True)
 	terrier_name = db.Column(db.String(60), nullable=False)
 	male_female = db.Column(db.String(15), nullable=False)
@@ -149,14 +149,14 @@ class adoptionApplication(db.Model):
 	where_will_sleep = db.Column(db.String(200), nullable=False)
 
 	has_regular_vet = db.Column(db.String(3), nullable=False)
-	Vet_clinic_name = db.Column(db.String(60))
+	vet_clinic_name = db.Column(db.String(60))
 	doctor_name = db.Column(db.String(120))
 	vet_street_address = db.Column(db.String(120))
 	vet_city = db.Column(db.String(60))
 	vet_state = db.Column(db.String(2))
 	vet_zip = db.Column(db.String(15))
 	vet_phone = db.Column(db.String(20))
-	last_vet_visit_date = db.Column(db.String(15))	# TODO - should change this to a date type
+	last_vet_visit_date = db.Column(db.String(30))	# TODO - should probably change this to a date type
 
 	how_learned_about_us = db.Column(db.String(50), nullable=False)
 	if_other = db.Column(db.String(200))

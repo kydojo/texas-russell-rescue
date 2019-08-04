@@ -4,7 +4,7 @@ from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrender
 from app import app, db, bcrypt
 from app.pets import get_pets, get_all_pets
 from app.sender import send_application_submission_confirmation, send_contact_info, send_surrender_applicant_info
-from app.models import User, Post, Message, OwnerSurrenderApplication, adoptionApplication
+from app.models import User, Post, Message, OwnerSurrenderApplication, AdoptionApplication
 from flask_login import login_user, logout_user, current_user, login_required
 from sqlalchemy import desc
 
@@ -112,7 +112,7 @@ def adoption_application():
             where_will_sleep=form.where_will_sleep.data,
 
             has_regular_vet=form.has_regular_vet.data,
-            Vet_clinic_name=form.Vet_clinic_name.data,
+            vet_clinic_name=form.Vet_clinic_name.data,
             doctor_name=form.doctor_name.data,
             vet_street_address=form.vet_street_address.data,
             vet_city=form.vet_city.data,
