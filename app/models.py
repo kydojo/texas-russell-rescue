@@ -90,7 +90,8 @@ class adoptionApplication(db.Model):
 	terrier_name = db.Column(db.String(60), nullable=False)
 	male_female = db.Column(db.String(15), nullable=False)
 	dog_age = db.Column(db.String(40), nullable=False)
-	willing_to_consider_alternative = db.Column()
+	willing_to_consider_alternative = db.Column(db.String(20), nullable=False)
+
 	first_name = db.Column(db.String(60), nullable=False)
 	last_name = db.Column(db.String(60), nullable=False)
 	email = db.Column(EmailType, nullable=False)
@@ -112,8 +113,7 @@ class adoptionApplication(db.Model):
 	landlord_permission = db.Column(db.String(5), nullable=False)
 	landlord_name = db.Column(db.String(120))
 	landlord_phone = db.Column(db.String(20))
-	how_long_at_address_years = db.Column(db.String(3), nullable=False)
-	how_long_at_address_months = db.Column(db.String(3), nullable=False)
+	how_long_at_address = db.Column(db.String(30), nullable=False)
 
 	has_fenced_yard = db.Column(db.String(3), nullable=False)
 	has_kennel_run = db.Column(db.String(3), nullable=False)

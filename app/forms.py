@@ -199,8 +199,8 @@ class OwnerSurrenderForm(FlaskForm):
 
 
 MALE_FEMALE_LIST = [
-    ('MALE', 'Age'),
-    ('FEMALE', 'Sex'),
+    ('MALE', 'Male'),
+    ('FEMALE', 'Female'),
     ('NO PREFERENCE', 'No Preference')
 ]
 
@@ -295,13 +295,13 @@ YES_NO = [
 
 class AdoptionApplicationForm(FlaskForm):
     # Adoption Preferences
-    terrier_name = StringField('Name of terrier you would like to adopt (if unknown, type \'Unknown\')', validators=[DataRequired(), Length(max=60)])
-    male_female = SelectField('State', choices=MALE_FEMALE_LIST, validators=[DataRequired()])
+    terrier_name = StringField('Name of terrier (if not known type \'Unknown\')', validators=[DataRequired(), Length(max=60)])
+    male_female = SelectField('Do you want to adopt a ...?', choices=MALE_FEMALE_LIST, validators=[DataRequired()])
     dog_age = StringField('Age Preference', validators=[DataRequired(), Length(max=40)])
-    willing_to_consider_alternative  = SelectField('I am willing to consider a suitable dog of a different', choices=ALTERNATIVES_LIST, validators=[DataRequired()])
+    willing_to_consider_alternative  = SelectField('I would consider a suitable dog of a different', choices=ALTERNATIVES_LIST, validators=[DataRequired()])
 
     # Applicant Information
-    first_name = StringField('First Name', validators=[DataRequired(), Length(max=60)])
+    first_name = StringField('Your First Name', validators=[DataRequired(), Length(max=60)])
     last_name = StringField('Last Name', validators=[DataRequired(), Length(max=60)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     home_phone = StringField('Home Phone', validators=[Length(max=20)])
@@ -325,8 +325,7 @@ class AdoptionApplicationForm(FlaskForm):
     landlord_permission = SelectField('If you rent, do you have your landlords permission to own a dog?', choices=YES_NO, validators=[DataRequired()])
     landlord_name = StringField('Landlord Name', validators=[Length(max=120)])
     landlord_phone = StringField('Landlord Phone', validators=[Length(max=20)])
-    how_long_at_address_years = StringField('How long have you lived at this address? Years', validators=[DataRequired(), Length(max=3)])
-    how_long_at_address_months = StringField('Months', validators=[DataRequired(), Length(max=3)])
+    how_long_at_address = StringField('How long have you lived at this address?', validators=[DataRequired(), Length(max=30)])
 
     # Fence/Yard/Kennel Information
     has_fenced_yard = SelectField('Do you have a completely fenced yard suitable for a dog?', choices=YES_NO, validators=[DataRequired()])

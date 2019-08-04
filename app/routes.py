@@ -74,8 +74,7 @@ def adoption_application():
             landlord_permission=form.landlord_permission.data,
             landlord_name=form.landlord_name.data,
             landlord_phone=form.landlord_phone.data,
-            how_long_at_address_years=form.how_long_at_address_years.data,
-            how_long_at_address_months=form.how_long_at_address_months.data,
+            how_long_at_address=form.how_long_at_address.data,
 
             has_fenced_yard=form.has_fenced_yard.data,
             has_kennel_run=form.has_kennel_run.data,
