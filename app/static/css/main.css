@@ -2978,7 +2978,7 @@ margin-left: -45%;
 }
 
 .process-area {
-  background-color: #f9f9ff;
+  background-color: #fff;
 }
 
 .process-area .single-process .lnr {
@@ -3080,7 +3080,7 @@ margin-left: -45%;
 }
 
 .calltoaction-area {
-  background: url(../img/call-bg.jpg) center;
+  background: url(../img/jr_coats.jpg) center;
   background-size: cover;
   text-align: center;
 }
@@ -3096,9 +3096,9 @@ margin-left: -45%;
 }
 
 .calltoaction-area .primary-btn {
-  background-color: #fff;
+  background-color: #25408f;
   margin: 10px;
-  color: #222;
+  color: #fff;
 }
 
 .calltoaction-area .primary-btn:hover {
@@ -3108,7 +3108,7 @@ margin-left: -45%;
 }
 
 .calltoaction-area .overlay-bg {
-  background-color: rgba(250, 183, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 @media (max-width: 392px) {
@@ -3141,7 +3141,6 @@ margin-left: -45%;
     font-weight: 50;
 	padding: 10px 50px;
 	position: absolute;
-	height: 72px;
 }
 
 .footer-distributed .footer-left p{

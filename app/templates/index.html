@@ -20,6 +20,142 @@
     </section>
     <!-- End banner Area -->
 
+	<!-- Start process Area -->
+	<!--<section class="process-area section-gap">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="menu-content pb-50 col-lg-8">
+					<div class="title text-center">
+						<h1 class="blue-text">Our Adoption Process</h1>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="single-process">
+						<i class="fas fa-dog fa-3x"></i>
+						<a href="#"><h4>View Our Jacks</h4></a>
+						<p>Visit our Available Dogs page to view the Jack Russells that we currently have in foster care.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="single-process">
+						<span class="lnr lnr-user"></span>
+						<a href="#">
+							<h4>
+								Meeting Authority
+							</h4>
+						</a>
+						<p>
+							inappropriate behavior is often laughed off as “boys will be boys,” women face higher
+							conduct.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="single-process">
+						<span class="lnr lnr-license"></span>
+						<a href="#">
+							<h4>
+								Adoption Form Filling
+							</h4>
+						</a>
+						<p>
+							inappropriate behavior is often laughed off as “boys will be boys,” women face higher
+							conduct.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="single-process">
+						<span class="lnr lnr-magic-wand"></span>
+						<a href="#">
+							<h4>
+								Bring to new family
+							</h4>
+						</a>
+						<p>
+							inappropriate behavior is often laughed off as “boys will be boys,” women face higher
+							conduct.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>-->
+    <div class="card-container-webmaster mt-60 mb-60">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+				<div class="menu-content pb-20 col-lg-8">
+					<div class="title text-center">
+						<h1 class="blue-text">Our Adoption Process</h1>
+					</div>
+				</div>
+			</div>
+            <div class="row">
+                <a href="{{ url_for('available_dogs') }}" class="dashboard-link" target="_blank">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="card-home text-center">
+                            <i class="fas fa-dog fa-3x dashboard-icon mt-10 mb-10" aria-hidden="true"></i>
+                            <div class="title">
+                                <h4>View our<br>Jack Russells</h4>
+                            </div>
+                            <div class="dashboard-text">
+                                <span>Visit our Available Dogs page to view the Jack Russells that we currently have in foster care.</span>
+                            </div>
+                            <a href="#" class="dashboard-a"></a>
+                         </div>
+                    </div>
+                </a>
+                <a href="{{ url_for('before_you_adopt') }}" class="dashboard-link" target="_blank">
+                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="card-home text-center">
+                            <i class="fas fa-clipboard-list fa-3x dashboard-icon mt-10 mb-10" aria-hidden="true"></i>
+                            <div class="title">
+                                <h4>Apply to Adopt a Jack Russell</h4>
+                            </div>
+                            <div class="dashboard-text">
+                                <span>Fill out our Adoption Application to start the process of adopting a Jack Russell.</span>
+                            </div>
+                            <a href="#" class="dashboard-a"></a>
+                         </div>
+                    </div>
+                </a>
+
+                <a href="{{ url_for('happy_tails') }}" class="dashboard-link" target="_blank">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="card-home text-center">
+                            <i class="far fa-clock fa-3x dashboard-icon mt-10 mb-10" aria-hidden="true"></i>
+                            <div class="title">
+                                <h4>Application Under Review</h4>
+                            </div>
+                            <div class="dashboard-text">
+                                <span>Our team will thoroughly review your application. This is important for placing our rescues
+                                in the best forever home.</span>
+                            </div>
+                            <a href="#" class="dashboard-a"></a>
+                         </div>
+                    </div>
+                </a>
+                <a href="{{ url_for('contact') }}" class="dashboard-link" target="_blank">
+                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="card-home text-center">
+                            <i class="fas fa-user-friends fa-3x dashboard-icon mt-10 mb-10" aria-hidden="true"></i>
+                            <div class="title">
+                                <h4>A Volunteer will Reach Out</h4>
+                            </div>
+                            <div class="dashboard-text">
+                                <span>After your application is reviewed, one of our volunteers will contact you regarding a home visit.</span>
+                            </div>
+                            <a href="#" class="dashboard-a"></a>
+                         </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+	<!-- End process Area -->
+
     <!-- Start Spotlight Terrier -->
     <section class="home-about-area">
         <div class="container-fluid">
@@ -48,12 +184,13 @@
                         Could Heidi be the dog for you? Apply to adopt today!<br><br>
                     </p>
                     <div class="text-center">
-                        <a href="{{ url_for('adoption_application') }}" class="primary-btn text-uppercase">Apply to Adopt</a>
+                        <a href="{{ url_for('adoption_application') }}" class="primary-btn text-uppercase" target="_blank">Apply to Adopt</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
 	<!-- Start testomial Area -->
 	 <section class="testimonial-area section-gap" id="testimonial">
@@ -132,29 +269,30 @@
 			</div>
 		</div>
 	</section>
-	 <!--End Testimonial Area-->
-<!--<section class="video-area section-gap">-->
-    <!--<div class="container">-->
-        <!--<div class="row justify-content-center align-items-center">-->
-            <!--<div class="col-lg-8">-->
-                <!--<div class="about-video-right justify-content-center align-items-center d-flex relative">-->
-                    <!--<div class="overlay overlay-bg"></div>-->
-                    <!--<a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img-->
-                            <!--class="img-fluid mx-auto" src="../static/img/play-btn.png" alt=""></a>-->
-                <!--</div>-->
-                <!--<div class="description">-->
-                    <!--<h4>Watch this video how they live here</h4>-->
-                    <!--<p>-->
-                        <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt-->
-                        <!--ut labore et dolore magna aliqua. Ut enim ad minim.-->
-                    <!--</p>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</section>-->
 
-<!-- End home-about Area -->
+
+	<!-- Start Call-to-Action Area -->
+	 <section class="calltoaction-area section-gap relative">
+		<div class="container">
+			<div class="overlay overlay-bg"></div>
+			<div class="row align-items-center justify-content-center">
+				<h1 class="text-white">We Need Fosters and Volunteers!</h1>
+				<p class="text-white">
+					Volunteers are needed in Texas for everything from transporting dogs, to managing social media outlets,
+                    posting our adoptable terriers on various websites, conducting home visits for potential adopters, etc.
+                    <br>
+                    However, our greatest need is for foster homes. We can only save as many Jack Russells as we have foster
+                    homes for.
+				</p>
+				<div class="buttons d-flex flex-row">
+					<a href="{{ url_for('volunteer') }}" class="primary-btn text-uppercase" target="_blank">Apply to Foster or Volunteer Today</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Call-to-Action Area -->
+
+
 
 <!-- Start image-carousel Area -->
 <!--<section class="image-carousel-area">-->
