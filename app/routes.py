@@ -4,7 +4,7 @@ from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrender
 from app import app, db, bcrypt
 from app.pets import get_pets, get_all_pets
 from app.sender import send_application_submission_confirmation, send_contact_info, send_surrender_applicant_info
-from app.models import User, Post, Message, OwnerSurrenderApplication, adoptionApplication
+from app.models import User, Post, Message, OwnerSurrenderApplication, AdoptionApplication
 from flask_login import login_user, logout_user, current_user, login_required
 from sqlalchemy import desc
 

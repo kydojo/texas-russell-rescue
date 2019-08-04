@@ -257,6 +257,7 @@ ACTIVITY_LEVEL = [
 ]
 
 NUM_CATS = [
+    ('N/A', 'N/A'),
     ('1', '1'),
     ('2', '2'),
     ('3+', '3+')
@@ -289,6 +290,12 @@ INDOORS_OUTDOORS = [
 ]
 
 YES_NO = [
+    ('NO', 'No'),
+    ('YES', 'Yes')
+]
+
+YES_NO_NA = [
+    ('N/A', 'N/A'),
     ('YES', 'Yes'),
     ('NO', 'No')
 ]
@@ -347,13 +354,13 @@ class AdoptionApplicationForm(FlaskForm):
 
     # Other Animal Information
     own_other_dogs = SelectField('Do you own any other dogs?', choices=YES_NO, validators=[DataRequired()])
-    other_dogs_spayed_neutered = SelectField('If yes, are they Spayed/Neutered?', choices=YES_NO)
-    breed_size_gender_of_other_dogs = TextAreaField('Please list breed, size, and gender of each')
+    other_dogs_spayed_neutered = SelectField('If yes, are they Spayed/Neutered?', choices=YES_NO_NA)
+    breed_size_gender_of_other_dogs = TextAreaField('Please list breed, size, and gender of each dog you own')
     own_cats = SelectField('Do you own any cats?', choices=YES_NO, validators=[DataRequired()])
-    how_many_cats = SelectField(' If Yes, how many?', choices=NUM_CATS)
+    how_many_cats = SelectField(' If yes, how many?', choices=NUM_CATS)
     own_other_animals = SelectField('Do you own any other animals?', choices=YES_NO, validators=[DataRequired()])
     other_animals_description = TextAreaField('If yes, please describe them')
-    num_dogs_owned_past_five_years = StringField('How many dogs have you owned in the past 5 years?', validators=[DataRequired(), Length(max=200)])
+    num_dogs_owned_past_five_years = StringField('How many dogs have you owned during the past 5 years?', validators=[DataRequired(), Length(max=200)])
     status_of_other_dogs_owned = TextAreaField('If you do not still own the dog(s), what happened to them?')
 
     # Breed-specific Information
@@ -383,4 +390,4 @@ class AdoptionApplicationForm(FlaskForm):
     reference_phone = StringField('Phone Number', validators=[DataRequired(), Length(max=20)])
     additional_comments = TextAreaField('Additional Comments')
 
-    submit = SubmitField('Submit')
+    submit = SubmitField('Submit Application')

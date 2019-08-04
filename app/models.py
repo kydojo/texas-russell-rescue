@@ -85,7 +85,7 @@ class OwnerSurrenderApplication(db.Model):
 		return f"Message('{self.name}', '{self.city}', '{self.state}', '{self.date_sent}')"
 
 
-class adoptionApplication(db.Model):
+class AdoptionApplication(db.Model):
 	id = db.Column(db.Integer, autoincrement=True, primary_key=True)
 	terrier_name = db.Column(db.String(60), nullable=False)
 	male_female = db.Column(db.String(15), nullable=False)
