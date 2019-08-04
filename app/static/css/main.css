@@ -2822,8 +2822,17 @@ margin-left: -45%;
   padding: 2% 2% !important;
 }
 
-@media (max-width: 1366px) {
+@media (max-width: 1500px) {
   .home-about-right {
+    margin-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 1330px) {
+  .home-about-right {
+    padding-top: 50px;
     padding-left: 30px;
     padding-right: 30px;
   }
