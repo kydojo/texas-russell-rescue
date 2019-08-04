@@ -25,9 +25,11 @@ def about():
 def volunteer():
     return render_template('volunteer.html', title='Volunteer')
 
+
 @app.route("/volunteer_form")
 def volunteer_form():
     return render_template('volunteer_form.html', title='Volunteer Form')
+
 
 @app.route("/meet_our_volunteers")
 def meet_our_volunteers():
@@ -163,6 +165,7 @@ def happy_tails():
 def surrender():
     return render_template('surrender.html', title='Surrender Program')
 
+
 @app.route("/surrender_form", methods=['GET', 'POST'])
 def surrender_form():
     form = OwnerSurrenderForm()
@@ -294,3 +297,9 @@ def logout():
 @login_required
 def account():
     return render_template('account.html', title='Account')
+
+
+@app.route("/admin")
+@login_required
+def admin():
+    return render_template('admin.html', title='Admin Dashboard')
