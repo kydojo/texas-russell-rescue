@@ -2821,8 +2821,14 @@ margin-left: -45%;
   width: 100%;
 }
 
+.spotlight-row {
+    background-color: #f9f9ff;
+}
+
 .home-about-right {
   margin-top: -50px;
+  height: 100%;
+  width: 100%;
   padding: 2% 2% !important;
 }
 
