@@ -303,3 +303,9 @@ def account():
 @login_required
 def admin():
     return render_template('admin.html', title='Admin Dashboard')
+
+
+@app.route("/webmaster")
+@login_required
+def webmaster():
+    return render_template('webmaster.html', title='Webmaster Dashboard')
