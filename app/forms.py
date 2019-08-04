@@ -373,21 +373,21 @@ class AdoptionApplicationForm(FlaskForm):
 
     # Veterinarian Information
     has_regular_vet = SelectField('Do you have a regular veterinarian? If no, skip this section.', choices=YES_NO, validators=[DataRequired()])  
-    Vet_clinic_name = StringField('Vet Clinic Name', validators=[DataRequired(), Length(max=60)])
+    vet_clinic_name = StringField('Vet Clinic Name', validators=[DataRequired(), Length(max=60)])
     doctor_name = StringField('Doctor Name', validators=[DataRequired(), Length(max=120)])
-    vet_street_address = StringField('Street Address', validators=[DataRequired(), Length(max=120)])
+    vet_street_address = StringField('Vet Address', validators=[DataRequired(), Length(max=120)])
     vet_city = StringField('City', validators=[DataRequired(), Length(max=60)])
     vet_state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
     vet_zip = StringField('Zip', validators=[DataRequired(), Length(max=15)])
     vet_phone = StringField('Vet Phone Number', validators=[Length(max=20)])
-    last_vet_visit_date = StringField('Date of Last Vet Visit', validators=[DataRequired(), Length(max=15)])
+    last_vet_visit_date = StringField('Date of last vet visit', validators=[DataRequired(), Length(max=30)])
 
     # Reference/Miscellaneous Information
     how_learned_about_us = SelectField('How did you learn of Russell Rescue, Inc.?', choices=HOW_FOUND_US_LIST, validators=[DataRequired()])
-    if_other = StringField('If you select other please describe', validators=[Length(max=200)])
-    reference_name = StringField('Name', validators=[DataRequired(), Length(max=120)])
+    if_other = StringField('If you selected other please describe', validators=[Length(max=200)])
+    reference_name = StringField('Reference Name', validators=[DataRequired(), Length(max=120)])
     reference_relationship = StringField('Relationship', validators=[DataRequired(), Length(max=120)])
-    reference_phone = StringField('Phone Number', validators=[DataRequired(), Length(max=20)])
+    reference_phone = StringField('Reference Phone Number', validators=[DataRequired(), Length(max=20)])
     additional_comments = TextAreaField('Additional Comments')
 
     submit = SubmitField('Submit Application')

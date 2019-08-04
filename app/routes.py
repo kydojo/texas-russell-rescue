@@ -112,7 +112,7 @@ def adoption_application():
             where_will_sleep=form.where_will_sleep.data,
 
             has_regular_vet=form.has_regular_vet.data,
-            Vet_clinic_name=form.Vet_clinic_name.data,
+            vet_clinic_name=form.Vet_clinic_name.data,
             doctor_name=form.doctor_name.data,
             vet_street_address=form.vet_street_address.data,
             vet_city=form.vet_city.data,

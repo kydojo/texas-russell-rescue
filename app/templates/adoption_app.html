@@ -772,6 +772,287 @@
                     {% endif %}
                 </div>
             </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-12">
+                    {{ form.jrt_breed_purpose.label(class="form-control-label") }}
+                    {% if form.jrt_breed_purpose.errors %}
+                        {{ form.jrt_breed_purpose(class="form-control form-control-md is-invalid", rows="3") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.jrt_breed_purpose.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.jrt_breed_purpose(class="form-control form-control-md", rows="3") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-6">
+                    {{ form.planned_activities_with_jrt.label(class="form-control-label") }}
+                    {% if form.planned_activities_with_jrt.errors %}
+                        {{ form.planned_activities_with_jrt(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.planned_activities_with_jrt.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.planned_activities_with_jrt(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-6">
+                    {{ form.indoors_or_outdoors.label(class="form-control-label") }}
+                    {% if form.indoors_or_outdoors.errors %}
+                        {{ form.indoors_or_outdoors(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.indoors_or_outdoors.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.indoors_or_outdoors(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-12">
+                    {{ form.where_will_sleep.label(class="form-control-label") }}
+                    {% if form.where_will_sleep.errors %}
+                        {{ form.where_will_sleep(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.where_will_sleep.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.where_will_sleep(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </div>
+            <hr>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-5">
+                    {{ form.has_regular_vet.label(class="form-control-label") }}
+                    {% if form.has_regular_vet.errors %}
+                        {{ form.has_regular_vet(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.has_regular_vet.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.has_regular_vet(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-12">
+                    {{ form.vet_clinic_name.label(class="form-control-label") }}
+                    {% if form.vet_clinic_name.errors %}
+                        {{ form.vet_clinic_name(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.vet_clinic_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.vet_clinic_name(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-7">
+                    {{ form.doctor_name.label(class="form-control-label") }}
+                    {% if form.doctor_name.errors %}
+                        {{ form.doctor_name(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.doctor_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.doctor_name(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-12">
+                    {{ form.vet_street_address.label(class="form-control-label") }}
+                    {% if form.vet_street_address.errors %}
+                        {{ form.vet_street_address(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.vet_street_address.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.vet_street_address(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-6 w-auto">
+                    {{ form.vet_city.label(class="form-control-label") }}
+                    {% if form.vet_city.errors %}
+                        {{ form.vet_city(class="form-control form-control-md is-invalid", placeholder="Dallas") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.vet_city.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.vet_city(class="form-control form-control-md", placeholder="Dallas") }}
+                    {% endif %}
+                </div>
+                <div class="form-group col-md-2">
+                    {{ form.vet_state.label(class="form-control-label") }}
+                    {% if form.vet_state.errors %}
+                    {{ form.vet_state(class="form-control form-control-md is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.vet_state.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.vet_state(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form.vet_zip.label(class="form-control-label") }}
+                    {% if form.vet_zip.errors %}
+                        {{ form.vet_zip(class="form-control form-control-md is-invalid", placeholder="75001") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.vet_zip.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.vet_zip(class="form-control form-control-md", placeholder="75001") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-6">
+                    {{ form.vet_phone.label(class="form-control-label") }}
+                    {% if form.vet_phone.errors %}
+                        {{ form.vet_phone(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.vet_phone.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.vet_phone(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-6">
+                    {{ form.last_vet_visit_date.label(class="form-control-label") }}
+                    {% if form.last_vet_visit_date.errors %}
+                        {{ form.last_vet_visit_date(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.last_vet_visit_date.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.last_vet_visit_date(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </div>
+            <hr>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-7">
+                    {{ form.how_learned_about_us.label(class="form-control-label") }}
+                    {% if form.how_learned_about_us.errors %}
+                        {{ form.how_learned_about_us(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.how_learned_about_us.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.how_learned_about_us(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-12">
+                    {{ form.if_other.label(class="form-control-label") }}
+                    {% if form.if_other.errors %}
+                        {{ form.if_other(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.if_other.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.if_other(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-7">
+                    {{ form.reference_name.label(class="form-control-label") }}
+                    {% if form.reference_name.errors %}
+                        {{ form.reference_name(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.reference_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.reference_name(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+                <div class="form-group col-md-5">
+                    {{ form.reference_relationship.label(class="form-control-label") }}
+                    {% if form.reference_relationship.errors %}
+                        {{ form.reference_relationship(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.reference_relationship.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.reference_relationship(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-6">
+                    {{ form.reference_phone.label(class="form-control-label") }}
+                    {% if form.reference_phone.errors %}
+                        {{ form.reference_phone(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.reference_phone.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.reference_phone(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-12">
+                    {{ form.additional_comments.label(class="form-control-label") }}
+                    {% if form.additional_comments.errors %}
+                        {{ form.additional_comments(class="form-control form-control-md is-invalid", rows="4") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.additional_comments.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.additional_comments(class="form-control form-control-md", rows="4") }}
+                    {% endif %}
+                </div>
+            </div>
             <hr>
             <div class="row justify-content-left">
                 <div class="form-group col-md-8">
