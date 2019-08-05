@@ -29,13 +29,6 @@ html {
     margin -20%;
 }
 
-.capitalize {
-    text-transform: capitalize;
-}
-
-.lower-case {
-    text-transform: none;
-}
 
 
 
@@ -156,6 +149,8 @@ html {
 }
 
 
+
+
 /* Forms */
 
 .custom-submit-btn {
@@ -175,6 +170,13 @@ html {
 
 /* Dashboards */
 
+/*
+body{
+    background: #eee;
+}
+span{
+    font-size:15px;
+}*/
 .dashboard-a{
   text-decoration: none;
   color: #0062cc;
@@ -201,6 +203,7 @@ html {
     .card-dashboard {
         height: 283px;
     }
+
 }
 
 .card-dashboard:hover {
