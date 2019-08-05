@@ -108,11 +108,11 @@ def adoption_application():
             why_choose_jrt=form.why_choose_jrt.data,
             jrt_breed_purpose=form.jrt_breed_purpose.data,
             planned_activities_with_jrt=form.planned_activities_with_jrt.data,
-            indoors_or_outdoors=form.indorrs_or_outdoors.data,
+            indoors_or_outdoors=form.indoors_or_outdoors.data,
             where_will_sleep=form.where_will_sleep.data,
 
             has_regular_vet=form.has_regular_vet.data,
-            vet_clinic_name=form.Vet_clinic_name.data,
+            vet_clinic_name=form.vet_clinic_name.data,
             doctor_name=form.doctor_name.data,
             vet_street_address=form.vet_street_address.data,
             vet_city=form.vet_city.data,
@@ -133,6 +133,16 @@ def adoption_application():
         flash('Your application has been sent.', 'success')
         return redirect(url_for('index'))
     return render_template('adoption_app.html', title='Adoption Application', form=form)
+
+
+@app.route("/adoption_app_inbox", methods=['GET'])
+@login_required
+def application_inbox():
+    applications = AdoptionApplication.query.order_by(
+        desc(AdoptionApplication.date_sent)).all()
+    return render_template(
+        'adoption_app_inbox.html', title='Adoption Application Inbox', applications=applications
+    )
 
 
 @app.route("/available_dogs", methods=["GET"])

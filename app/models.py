@@ -164,3 +164,7 @@ class AdoptionApplication(db.Model):
 	reference_relationship = db.Column(db.String(120), nullable=False)
 	reference_phone = db.Column(db.String(20), nullable=False)
 	additional_comments = db.Column(db.Text)
+	date_sent = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+	def __repr__(self):
+		return f"Message('Dog: {self.terrier_name}', 'Applicant: {self.first_name}', '{self.city}', '{self.date_sent}')"
