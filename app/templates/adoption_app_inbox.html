@@ -11,97 +11,145 @@
 {% endblock %}
 {% block content %} 
   <div class="col-md-8 mt-120">
-    <p><h3>Owner Surrender Applications</h3></p>
+    <p><h3>Terrier Adoption Applications</h3></p>
     <hr>
     {% for application in applications %}
-        <p><strong>From:</strong> {{ application.first_name }} {{ application.last_name }} &emsp;
-            <strong>Date: </strong> {{ application.date_sent }}</p>
+        <hr>
+        <p>
+            <h5>Application Received: {{ application.date_sent }}</h5>
+            <strong>From:</strong> {{ application.first_name }} {{ application.last_name }} &emsp;
+        </p>
+        <p>
+            <hr>
+        </p>
         <P>
-            <strong>Phone:</strong> {{ application.phone }} &emsp; 
-            <strong>Email:</strong> <a href="mailto:{{ application.email }}">{{ application.email }}</a> &emsp;
-            <strong>Address:</strong> {{ application.address }}, {{ application.city }}, {{ application.state }}
+            {% if application.home_phone %}
+                <strong>Home Phone:</strong> {{ application.home_phone }} &emsp;
+            {% endif %}
+            {% if application.cell_phone %}
+                <strong>Cell Phone:</strong> {{ application.cell_phone }} &emsp;
+            {% endif %}
+            {% if application.work_phone %}
+                <strong>Work Phone:</strong> {{ application.work_phone }} &emsp;
+            {% endif %} 
         </P>
-        <p><strong>Where did you get your Jack Russell? Please provide the name of shelter/rescue or name of 
-            breeder if you bought him/her from a breeder:</strong></p>
-        <p>{{ application.dog_origin }}</p>
-        <p><strong>Spayed/neutered: </strong>
-            {% if application.spayed_or_neutered %}
-                <p>Yes</p>
-            {% else %}
-                <p>No</p>
-            {% endif %}
-        </p>
-        <p><strong>Up to date on vaccinations: </strong>
-            {% if application.vaccines_current %}
-                <p>Yes</p>
-            {% else %}
-                <p>No</p>
-            {% endif %}
-        </p>
-        <p><strong>Current on a heartworm prevention medication: </strong>
-            {% if application.heartworm_meds_current %}
-                <p>Yes</p>
-            {% else %}
-                <p>No</p>
-            {% endif %}
+        <p>
+            <strong>Best time to call:</strong> {{ application.best_time_to_call }}
         </p>
         <p>
-            <strong>Why are you rehoming your dog?</strong> 
+            <strong>Email:</strong> <a href="mailto:{{ application.email }}">{{ application.email }}</a> &emsp;
         </p>
         <p>
-            {{ application.why_rehoming }}
+            <strong>Address:</strong> 
+            {{ application.street_address }}, {{ application.city }}, {{ application.state }}, {{ application.zip_code }}
         </p>
-        <p><strong>My Jack Russell gets along with other dogs: </strong>
-            {% if application.dog_friendly %}
-                <p>Yes</p>
-            {% else %}
-                <p>No</p>
-            {% endif %}
-        </p>
-        <p><strong>My Jack Russell gets along with cats: </strong>
-            {% if application.cat_friendly %}
-                <p>Yes</p>
-            {% else %}
-                <p>No</p>
-            {% endif %}
-        </p>
-        <p><strong>How does your Jack Russell interact with people? Are they friendly around people
-             or are they anxious and/or aggressive?  How are they around children?</strong></p>
         <p>
-            {{ application.people_friendly }}
+            <strong>Occupation:</strong> {{ application.occupation }}
         </p>
-        <p><strong>Does your Jack Russell know any tricks or have any type of training?</strong></p>
+        when_able_to_take_posession
         <p>
-            {{ application.training }}
+            <strong></strong>
         </p>
-        <p><strong>How does your Jack Russell do when walking on a leash?</strong></p>
+        how_far_willing_to_travel
         <p>
-            {{ application.leash_behavior }}
+            <strong></strong>
         </p>
-        <p><strong>Does your Jack Russell enjoy rides in the car?</strong></p>
+        housing_type
         <p>
-            {{ application.car_behavior }}
+            <strong></strong>
         </p>
-        <p><strong>Is your Jack Russell healthy?  Are there any special medical needs they might have? Do they have any separation anxiety?</strong></p>
+        housing_type_if_other
         <p>
-            {{ application.general_health }}
+            <strong></strong>
         </p>
-        <p><strong>Is your Jack Russell house trained and crate trained?</strong></p>
+        rent_or_own
         <p>
-            {{ application.potty_trained }}
+            <strong></strong>
         </p>
-        <p><strong>When you leave the house, where does your dog stay?  How long is he/she used to you being gone?</strong></p>
+        landlord_permission
         <p>
-            {{ application.home_alone_behavior }}
+            <strong></strong>
         </p>
-        <p><strong>All dogs entering rescue are either temporarily placed in a foster home or must remain with their owners until a suitable home can be found.  Foster space is limited, so foster homes are generally reserved for dogs that are in danger of euthanasia at local shelters or are in an emergency situation.  Is your dog able to remain in your home while we find a suitable home for him/her?</strong></p>
+        landlord_name
         <p>
-            {{ application.can_remain_home_until_adopted }}
+            <strong></strong>
         </p>
-        <p><strong>Is there anything else you would want us to know about your Jack Russell?</strong></p>
+        landlord_phone
         <p>
-            {{ application.other_info }}
+            <strong></strong>
         </p>
+        how_long_at_address
+        <p>
+            <strong></strong>
+        </p>
+        has_fenced_yard
+        <p>
+            <strong></strong>
+        </p>
+        has_kennel_run
+        <p>
+            <strong></strong>
+        </p>
+        fence_kennel_description
+        <p>
+            <strong></strong>
+        </p>
+        if_none_how_handle_dog_needs
+        <p>
+                <strong></strong>
+        </p>
+        has_dog_crate
+        <p>
+            <strong></strong>
+        </p>
+
+        <p>
+            <h4>Housing/Landlord Information</h4>
+            <hr>
+        </p>
+        num_adults_in_household
+        adults_age
+        num_children_in_household
+        children_age
+        planning_to_have_children
+        animal_allergies
+        hours_terrier_must_be_alone
+        household_visitors
+        lifestyle
+
+        own_other_dogs
+        other_dogs_spayed_neutered
+        breed_size_gender_of_other_dogs
+        own_cats
+        how_many_cats
+        own_other_animals
+        other_animals_description
+        num_dogs_owned_past_five_years
+        status_of_other_dogs_owned
+
+        previously_owned_jrt
+        why_choose_jrt
+        jrt_breed_purpose
+        planned_activities_with_jrt
+        indoors_or_outdoors
+        where_will_sleep
+
+        has_regular_vet
+        vet_clinic_name
+        doctor_name
+        vet_street_address
+        vet_city
+        vet_state
+        vet_zip
+        vet_phone
+        last_vet_visit_date
+
+        how_learned_about_us
+        if_other
+        reference_name
+        reference_relationship
+        reference_phone
+        additional_comments
         <p></p>
         <br>
         <hr>

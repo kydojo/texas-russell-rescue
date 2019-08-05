@@ -219,10 +219,11 @@ HOUSING_TYPE_LIST  = [
 ]
 
 CALL_TIME_LIST = [
-    ('MORNING', 'Morning'),
-    ('NOON', 'Noon'),
-    ('AFTERNOON', 'Afternoon'),
-    ('EVENING', 'Evening')
+    ('N/A', 'N/A'),
+    ('Morning', 'Morning'),
+    ('Noon', 'Noon'),
+    ('Afternoon', 'Afternoon'),
+    ('Evening', 'Evening')
 ]
 
 RENT_OR_OWN = [
