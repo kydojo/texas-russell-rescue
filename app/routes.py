@@ -130,7 +130,6 @@ def adoption_application():
         )
         db.session.add(application)
         db.session.commit()
-        flash('Your application has been sent.', 'success')
         return redirect(url_for('index'))
     return render_template('adoption_app.html', title='Adoption Application', form=form)
 

@@ -199,23 +199,24 @@ class OwnerSurrenderForm(FlaskForm):
 
 
 MALE_FEMALE_LIST = [
-    ('MALE', 'Male'),
-    ('FEMALE', 'Female'),
-    ('NO PREFERENCE', 'No Preference')
+    ('Male', 'Male'),
+    ('Female', 'Female'),
+    ('No Preference', 'No Preference')
 ]
 
 ALTERNATIVES_LIST = [
-    ('AGE', 'Age'),
-    ('SEX', 'Sex'),
-    ('NEITHER', 'Neither')
+    ('Age', 'Age'),
+    ('Sex', 'Sex'),
+    ('Both', 'Both'),
+    ('Neither', 'Neither')
 ]
 
 HOUSING_TYPE_LIST  = [
-    ('HOUSE', 'House'),
-    ('APARTMENT', 'Apartment'),
-    ('TRAILER', 'Trailer'),
-    ('TOWNHOME', 'Townhome'),
-    ('OTHER', 'Other')
+    ('House', 'House'),
+    ('Apartment', 'Apartment'),
+    ('Trailer', 'Trailer'),
+    ('Townhome', 'Townhome'),
+    ('Other', 'Other')
 ]
 
 CALL_TIME_LIST = [
@@ -227,13 +228,13 @@ CALL_TIME_LIST = [
 ]
 
 RENT_OR_OWN = [
-    ('RENT', 'Rent'),
-    ('OWN', 'Own')
+    ('Rent', 'Rent'),
+    ('Own', 'Own')
 ]
 
 LANDLORD_PERMISSION = [
-    ('YES', 'Yes'),
-    ('NO', 'No'),
+    ('Yes', 'Yes'),
+    ('No', 'No'),
     ('N/A', 'I do not rent')
 ]
 
@@ -251,10 +252,10 @@ NUM_CHILDREN_IN_HOUSEHOLD = [
 ]
 
 ACTIVITY_LEVEL = [
-    ('VERY ACTIVE', 'Very Active'),
-    ('ACTIVE', 'Active'),
-    ('NOT VERY ACTIVE', 'Not very active'),
-    ('INACTIVE', 'Inactive')
+    ('Very Active', 'Very Active'),
+    ('Active', 'Active'),
+    ('Not very active', 'Not very active'),
+    ('Inactive', 'Inactive')
 ]
 
 NUM_CATS = [
@@ -265,12 +266,12 @@ NUM_CATS = [
 ]
 
 ACTIVITIES_LIST = [
-    ('PET', 'Family Pet'),
-    ('GUARD', 'Guard'),
-    ('HUNTING', 'Hunting'),
-    ('OBEDIENCE', 'Obedience'),
-    ('TERRIER TRIALS', 'Terrier Trials'),
-    ('OTHER', 'Other')
+    ('Family Pet', 'Family Pet'),
+    ('Guard', 'Guard'),
+    ('Hunting', 'Hunting'),
+    ('Obedience', 'Obedience'),
+    ('Terrier Trials', 'Terrier Trials'),
+    ('Other', 'Other')
 ]
 
 HOW_FOUND_US_LIST = [
@@ -286,19 +287,19 @@ HOW_FOUND_US_LIST = [
 ]
 
 INDOORS_OUTDOORS = [
-    ('INDOORS', "Indoors"),
-    ('OUTDOORS', 'Outdoors')
+    ('Indoors', "Indoors"),
+    ('Outdoors', 'Outdoors')
 ]
 
 YES_NO = [
-    ('NO', 'No'),
-    ('YES', 'Yes')
+    ('No', 'No'),
+    ('Yes', 'Yes')
 ]
 
 YES_NO_NA = [
     ('N/A', 'N/A'),
-    ('YES', 'Yes'),
-    ('NO', 'No')
+    ('Yes', 'Yes'),
+    ('No', 'No')
 ]
 
 class AdoptionApplicationForm(FlaskForm):
@@ -327,10 +328,10 @@ class AdoptionApplicationForm(FlaskForm):
     how_far_willing_to_travel = StringField('How far would you travel to pick up your terrier? (in hours)', validators=[DataRequired(), Length(max=40)])
 
     # Housing/landlord Information
-    housing_type = SelectField('I (we) live in a:', choices=HOUSING_TYPE_LIST, validators=[DataRequired()])
+    housing_type = SelectField('I (we) live in a', choices=HOUSING_TYPE_LIST, validators=[DataRequired()])
     housing_type_if_other = StringField('Housing type if you chose other', validators=[Length(max=60)])
     rent_or_own = SelectField('Do you own or rent your home?', choices=RENT_OR_OWN, validators=[DataRequired()])
-    landlord_permission = SelectField('If you rent, do you have your landlords permission to own a dog?', choices=YES_NO, validators=[DataRequired()])
+    landlord_permission = SelectField('If you rent, do you have your landlords permission to own a dog?', choices=YES_NO_NA, validators=[DataRequired()])
     landlord_name = StringField('Landlord Name', validators=[Length(max=120)])
     landlord_phone = StringField('Landlord Phone', validators=[Length(max=20)])
     how_long_at_address = StringField('How long have you lived at this address?', validators=[DataRequired(), Length(max=30)])

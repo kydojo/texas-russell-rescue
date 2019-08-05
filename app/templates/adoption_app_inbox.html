@@ -11,7 +11,7 @@
 {% endblock %}
 {% block content %} 
   <div class="col-md-8 mt-120">
-    <p><h3>Terrier Adoption Applications</h3></p>
+    <p><h2>Terrier Adoption Applications</h2></p>
     <hr>
     {% for application in applications %}
         <hr>
@@ -24,13 +24,19 @@
         </p>
         <P>
             {% if application.home_phone %}
-                <strong>Home Phone:</strong> {{ application.home_phone }} &emsp;
+                <br>
+                <strong>Home Phone:</strong>
+                {{ application.home_phone }}
             {% endif %}
             {% if application.cell_phone %}
-                <strong>Cell Phone:</strong> {{ application.cell_phone }} &emsp;
+                <br>
+                <strong>Cell Phone:</strong>
+                {{ application.cell_phone }}
             {% endif %}
             {% if application.work_phone %}
-                <strong>Work Phone:</strong> {{ application.work_phone }} &emsp;
+            <br>
+                <strong>Work Phone:</strong>
+                {{ application.work_phone }}
             {% endif %} 
         </P>
         <p>
@@ -46,65 +52,88 @@
         <p>
             <strong>Occupation:</strong> {{ application.occupation }}
         </p>
-        when_able_to_take_posession
         <p>
-            <strong></strong>
+            <strong>If approved, when could you take possession of a dog?</strong>
+            <br>
+            {{ application.when_able_to_take_posession }}
         </p>
-        how_far_willing_to_travel
         <p>
-            <strong></strong>
+            <strong>How far would you travel to pick up your terrier? (in hours)</strong>
+            <br>
+            {{ application.how_far_willing_to_travel }}
         </p>
-        housing_type
         <p>
-            <strong></strong>
+            <br>
+            <h5>Housing/Landlord Information</h5>
+            <hr>
         </p>
-        housing_type_if_other
         <p>
-            <strong></strong>
+            <strong>I (we) live in a:</strong> {{ application.housing_type }}
         </p>
-        rent_or_own
         <p>
-            <strong></strong>
+            {% if application.housing_type_if_other %}
+                <strong>Housing type if you chose other</strong>
+                {{ application.housing_type_if_other }}
+            {% endif %}
         </p>
-        landlord_permission
         <p>
-            <strong></strong>
+            <strong>Do you own or rent your home?</strong> {{ application.rent_or_own}}
         </p>
-        landlord_name
         <p>
-            <strong></strong>
+            <strong>Do you have your landlords permission to own a dog?</strong> {{ application.landlord_permission }}
         </p>
-        landlord_phone
         <p>
-            <strong></strong>
+            {% if application.landlord_name %}
+                <strong>Landlord name: </strong>
+                {{ application.landlord_name }}
+            {% endif %}
         </p>
-        how_long_at_address
         <p>
-            <strong></strong>
+            {% if application.landlord_phone %}
+                <strong>Landlord phone: </strong>
+                {{ application.landlord_phone }}
+            {% endif %}
         </p>
-        has_fenced_yard
         <p>
-            <strong></strong>
+            {% if application.how_long_at_address %}
+                <strong>How long have you lived at this address?</strong>
+                {{ application.how_long_at_address }}
+            {% endif %}
         </p>
-        has_kennel_run
         <p>
-            <strong></strong>
+            <br>
+            <h5>Fence/Kennel/Yard Information</h5>
+            <hr>
         </p>
-        fence_kennel_description
         <p>
-            <strong></strong>
+            <strong>Do you have a completely fenced yard suitable for a dog?</strong>
+            <br>
+            {{ application.has_fenced_yard }}
         </p>
-        if_none_how_handle_dog_needs
         <p>
-                <strong></strong>
+            <strong>Do you have a kennel run?</strong>
+            <br>
+            {{ application.has_kennel_run }}
         </p>
-        has_dog_crate
         <p>
-            <strong></strong>
+            <strong>Describe fence and/or kennel run (type, height, size)</strong>
+            <br>
+            {{ application.fence_kennel_description }}
+        </p>
+        <p>
+                <strong>If no fence/kennel, how will you handle the dog's exercise/toilet needs?</strong>
+                <br>
+                {{ application.if_none_how_handle_dog_needs }}
+        </p>
+        <p>
+            <strong>Do you have a suitable dog crate?</strong>
+            <br>
+            {{ application.has_dog_crate }}
         </p>
 
         <p>
-            <h4>Housing/Landlord Information</h4>
+            <br>
+            <h5>Household Information</h5>
             <hr>
         </p>
         num_adults_in_household
@@ -117,6 +146,11 @@
         household_visitors
         lifestyle
 
+        <p>
+            <br>
+            <h5>Other Animal Information</h5>
+            <hr>
+        </p>
         own_other_dogs
         other_dogs_spayed_neutered
         breed_size_gender_of_other_dogs
@@ -127,6 +161,11 @@
         num_dogs_owned_past_five_years
         status_of_other_dogs_owned
 
+        <p>
+            <br>
+            <h5>Breed-Specific Information</h5>
+            <hr>
+        </p>
         previously_owned_jrt
         why_choose_jrt
         jrt_breed_purpose
@@ -134,6 +173,11 @@
         indoors_or_outdoors
         where_will_sleep
 
+        <p>
+            <br>
+            <h5>Veterinarian Information</h5>
+            <hr>
+        </p>
         has_regular_vet
         vet_clinic_name
         doctor_name
@@ -144,6 +188,11 @@
         vet_phone
         last_vet_visit_date
 
+        <p>
+            <br>
+            <h5>Reference/Miscellaneous Information</h5>
+            <hr>
+        </p>
         how_learned_about_us
         if_other
         reference_name
