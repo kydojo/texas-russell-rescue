@@ -373,14 +373,14 @@ class AdoptionApplicationForm(FlaskForm):
 
     # Veterinarian Information
     has_regular_vet = SelectField('Do you have a regular veterinarian? If no, skip this section.', choices=YES_NO, validators=[DataRequired()])  
-    vet_clinic_name = StringField('Vet Clinic Name', validators=[DataRequired(), Length(max=60)])
-    doctor_name = StringField('Doctor Name', validators=[DataRequired(), Length(max=120)])
-    vet_street_address = StringField('Vet Address', validators=[DataRequired(), Length(max=120)])
-    vet_city = StringField('City', validators=[DataRequired(), Length(max=60)])
-    vet_state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
-    vet_zip = StringField('Zip', validators=[DataRequired(), Length(max=15)])
+    vet_clinic_name = StringField('Vet Clinic Name', validators=[Length(max=60)])
+    doctor_name = StringField('Doctor Name', validators=[Length(max=120)])
+    vet_street_address = StringField('Vet Address', validators=[Length(max=120)])
+    vet_city = StringField('City', validators=[Length(max=60)])
+    vet_state = SelectField('State', choices=STATE_LIST)
+    vet_zip = StringField('Zip', validators=[Length(max=15)])
     vet_phone = StringField('Vet Phone Number', validators=[Length(max=20)])
-    last_vet_visit_date = StringField('Date of last vet visit', validators=[DataRequired(), Length(max=30)])
+    last_vet_visit_date = StringField('Date of last vet visit', validators=[Length(max=30)])
 
     # Reference/Miscellaneous Information
     how_learned_about_us = SelectField('How did you learn of Russell Rescue, Inc.?', choices=HOW_FOUND_US_LIST, validators=[DataRequired()])
