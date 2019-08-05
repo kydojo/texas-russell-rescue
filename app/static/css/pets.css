@@ -23,22 +23,25 @@
     box-shadow: 0 10px 10px rgba(0,0,0,.2);
 }
 
-.dog-card {
-    /*margin: 10px;*/
+/*.dog-card {
+    *//*margin: 10px;*//*
     margin: 10px 0px;
-    /*border-color: #25408f !important;*/
+    *//*border-color: #25408f !important;*//*
     border: 2px solid #25408f;
     background-color: #ecf1ff;
     padding: 5px;
     text-align:center;
-    /*text-transform: capitalize;*/
+    *//*text-transform: capitalize;*//*
+    -webkit-box-shadow: 0 10px 10px rgba(0,0,0,.2);
+    box-shadow: 0 10px 10px rgba(0,0,0,.2);
+}*/
+
+.dog-card {
+    margin: 20px 0px;
     -webkit-box-shadow: 0 10px 10px rgba(0,0,0,.2);
     box-shadow: 0 10px 10px rgba(0,0,0,.2);
 }
 
-.dog-card-outer {
-    /*width: 230px;*/
-}
 
 .dog-name-text {
     width: 120px;
@@ -60,24 +63,40 @@
 
 .owner-listing-text {
     color: #d3232a;
-   /*text-decoration: none !important;*/
+    font-size: 1.5em;
 }
 
 .text-style {
-    font-size: 18px;
-    margin-top: 20px;
+    font-size: 1.5em;
+    margin-top: 40px;
     text-transform: capitalize;
 }
 
+
+.capitalize {
+    text-transform: capitalize;
+}
 .lower-case {
     text-transform: none;
 }
 
-/*.btn {
-    background-color: #d3232a !important;
-}*/
-
 .dog-img {
-    border-radius: 5px;
-    /*border: 2px solid #25408f;*/
+    height: 320px;
+    width: 320px;
+}
+
+.dog-overlay {
+    color: rgba(0, 0, 0, 0);
+    transition: .5s background-color;
+    transition: .5s color;
+}
+.dog-overlay:hover {
+    color: rgba(236, 241, 255, 1);
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
 }
