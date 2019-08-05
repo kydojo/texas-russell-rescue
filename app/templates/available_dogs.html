@@ -41,7 +41,7 @@
 <!-- Disclaimer text -->
 <div class="container container-style">
     <!--<h2 class="title-text">Available Dogs</h2>-->
-    <div class="disclaimer-div border rounded">Regarding dogs marked as "Owner Listing":
+    <div class="disclaimer-div border">Regarding dogs marked as "Owner Listing":
         Texas Russell Rescue is not responsible and/or liable for the outcome of any adoption made through this listing as we are only providing information.
         Texas Russell Rescue is also not responsible and is held harmless for the accuracy and reliability of the information provided within this listing.
         Owners and adopters bear the full responsibility and liability for any dog listed.
@@ -50,85 +50,36 @@
         {% for pet in pets|batch(3) %}
         {% for column in pet %}
 
-
-        <!--<div class="dog-card-outer">-->
-        <!--<a href="https://www.adoptapet.com/pet/{{ column.pet_id }}" target="_blank">-->
-            <div class="col-xs-4 justify-content-center">
-                <div class="row">
+            <div class="col-xs-4 no-decoration">
+                <div class="row md-margin">
                     <div class="col no-padding dog-card">
                         <div style="text-align:center">
-                            <a href="https://www.adoptapet.com/pet/{{ column.pet_id }}" target="_blank">
+                            <a href="https://www.adoptapet.com/pet/{{ column.pet_id }}" target="_blank" style="text-decoration:none">
                                 <img class="dog-img" src="{{ column.large_results_photo_url }}">
-                                <div class="overlay dog-overlay justify-content-center">
-                                        <p class="text-style">{{ column.pet_name }}</p>
+                                <p class="text-style-name blue-text {{ 'mt-5-i' if column.ownerSurrender else 'mt-20-i' }}">{{ column.pet_name }}</p>
 
-                                        {% if column.sex == 'f' %}
-                                            <p class="text-style text-style-sex">Female</p>
-                                        {% elif column.sex == 'm' %}
-                                            <p class="text-style text-style-sex">Male</p>
-                                        {% endif %}
-
-                                        <p class="text-style">{{ column.age }}</p>
-
+                                {% if column.sex == 'f' %}
+                                    <span class="text-style-sex blue-text">
+                                        Female &nbsp;&nbsp;<span class="capitalize"><i class="fa fa-paw sm-paw red-text"></i> &nbsp;&nbsp;{{ column.age }}</span>
                                         {% if column.ownerSurrender %}
-                                            <p class="owner-listing-text">Owner Listing</p>
+                                            <p class="text-style-owner blue-text">Owner Listing</p>
                                         {% endif %}
+                                    </span>
+                                {% elif column.sex == 'm' %}
+                                    <span class="text-style-sex blue-text">
+                                        Male &nbsp;&nbsp;<span class="capitalize"><i class="fa fa-paw sm-paw red-text"></i> &nbsp;&nbsp;{{ column.age }}</span>
+                                        {% if column.ownerSurrender %}
+                                            <p class="text-style-owner blue-text">Owner Listing</p>
+                                        {% endif %}
+                                    </span>
+                                {% endif %}
 
-							  </div>
                             </a>
                         </div>
                     </div>
-                    <!--<div class="col dog-text">-->
-                        <!--<div class="dog-text-inner">-->
-                            <!--&lt;!&ndash;<a class="dog-name-text" href="https://www.adoptapet.com/pet/{{ column.pet_id }}"&ndash;&gt;-->
-                               <!--&lt;!&ndash;target="_blank">{{ column.pet_name }}</a>&ndash;&gt;-->
-
-                            <!--&lt;!&ndash;<div class="text-style">&ndash;&gt;-->
-                                <!--&lt;!&ndash;{% if column.sex == 'f' %}&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<p class="text-style text-style-sex">Female</p>&ndash;&gt;-->
-                                <!--&lt;!&ndash;{% elif column.sex == 'm' %}&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<p class="text-style text-style-sex">Male</p>&ndash;&gt;-->
-                                <!--&lt;!&ndash;{% endif %}&ndash;&gt;-->
-
-                                <!--&lt;!&ndash;<p class="capitalize">{{ column.age }}</p>&ndash;&gt;-->
-
-                                <!--&lt;!&ndash;{% if column.ownerSurrender %}&ndash;&gt;-->
-                                <!--&lt;!&ndash;&lt;!&ndash; Owner Listing flag image needed &ndash;&gt;&ndash;&gt;-->
-                                <!--&lt;!&ndash;<p class="owner-listing-text">Owner Listing</p>&ndash;&gt;-->
-                                <!--&lt;!&ndash;&lt;!&ndash;<button type="button" class="btn owner-listing-text" data-toggle="modal"&ndash;&gt;-->
-                                        <!--&lt;!&ndash;data-target="#owner-listing-modal">Owner Listing&ndash;&gt;-->
-                                <!--&lt;!&ndash;</button>&ndash;&gt;&ndash;&gt;-->
-                                <!--&lt;!&ndash;{% endif %}&ndash;&gt;-->
-                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-                            <!--&lt;!&ndash; Owner Listing Modal &ndash;&gt;-->
-                            <!--&lt;!&ndash;<div class="modal fade" id="owner-listing-modal" tabindex="-1" role="dialog"&ndash;&gt;-->
-                                 <!--&lt;!&ndash;aria-labelledby="exampleModalCenterTitle" aria-hidden="true">&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div class="modal-dialog modal-dialog-centered" role="document">&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<div class="modal-content">&ndash;&gt;-->
-                                        <!--&lt;!&ndash;<div class="modal-header">&ndash;&gt;-->
-                                            <!--&lt;!&ndash;<h5 class="modal-title">Owner Listing</h5>&ndash;&gt;-->
-                                            <!--&lt;!&ndash;<button type="button" class="close" data-dismiss="modal" aria-label="Close">&ndash;&gt;-->
-                                                <!--&lt;!&ndash;<span aria-hidden="true">&times;</span>&ndash;&gt;-->
-                                            <!--&lt;!&ndash;</button>&ndash;&gt;-->
-                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                        <!--&lt;!&ndash;<div class="modal-body lower-case">&ndash;&gt;-->
-                                            <!--&lt;!&ndash;RRI is not responsible and/or liable for the outcome of any adoption made through this listing as we are only providing information. RRI is also not responsible and is held harmless for the accuracy and reliability of the information provided within this listing. Owners and adopters bear the full responsibility and liability for any dog listed.&ndash;&gt;-->
-                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                        <!--&lt;!&ndash;&lt;!&ndash;<div class="modal-footer">&ndash;&gt;-->
-                                            <!--&lt;!&ndash;<button type="button" class="btn btn-secondary" data-dismiss="modal">Close&ndash;&gt;-->
-                                            <!--&lt;!&ndash;</button>&ndash;&gt;-->
-                                            <!--&lt;!&ndash;<button type="button" class="btn btn-primary">Save changes</button>&ndash;&gt;-->
-                                        <!--&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
-                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                        <!--</div>-->
-                    <!--</div>-->
                 </div>
             </div>
-        <!--</a>-->
-        <!--</div>-->
+
         {% endfor %}
         {% endfor %}
     </div>
