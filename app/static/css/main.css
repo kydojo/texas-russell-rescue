@@ -2516,7 +2516,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: url(../img/jr10.jpg) center;
   background-size: cover;
   margin-top: 80px;
-  height: 600px;
+  height: 400px;
 }
 
 .banner-adoption-app {
@@ -2604,10 +2604,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-logo {
-width: 300px;
+width: 500px;
 height: auto;
 text-align: left;
-margin-left: -45%;
+/*margin-left: -75%;*/
 /*padding-left: 10;*/
 }
 
@@ -2622,7 +2622,7 @@ margin-left: -45%;
 
 .banner-content {
     margin: 120px 0px 0px 0px;
-    text-align: center;
+    text-align: center !important;
 }
 
 /*
@@ -2662,12 +2662,11 @@ margin-left: -45%;
   max-width: 550px;
   margin-bottom: 20px;
   margin-top: 5px;
-  /*font-size: 20px;*/
 }
 
 .banner-content .banner-sm-font {
   font-size: 20px;
-  margin-left: -7%;
+  /*margin-left: -7%;*/
   max-width: 500px;
 }
 
@@ -3080,7 +3079,7 @@ margin-left: -45%;
 }
 
 .calltoaction-area {
-  background: url(../img/jr_coats.jpg) center;
+  background: url(../img/jr24.jpg) center;
   background-size: cover;
   text-align: center;
 }
