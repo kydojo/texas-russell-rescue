@@ -22,15 +22,15 @@
     height: 430px;
     background-color: #fff;
     transition: .2s box-shadow;
-    -webkit-box-shadow: 0 10px 10px rgba(37,64,143,.2);
-    box-shadow: 0 0 10px rgba(37,64,143,.2);
+    -webkit-box-shadow: 0 0 20px rgba(37,64,143,.2);
+    box-shadow: 0 0 20px rgba(37,64,143,.2);
 }
 
 .dog-card:hover {
     background-color: #fff;
     cursor: pointer;
-    -webkit-box-shadow: 0 0 20px rgba(37,64,143,.4);
-    box-shadow: 0 0 20px rgba(37,64,143,.4);
+    -webkit-box-shadow: 0 0 30px rgba(37,64,143,.4);
+    box-shadow: 0 0 30px rgba(37,64,143,.4);
 }
 
 .text-style-name {
