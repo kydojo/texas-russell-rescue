@@ -74,7 +74,8 @@ def get_all_pets():
         pet['ownerSurrender'] = True
         all_pets.append(pet)
 
-    return all_pets
+    # return the dogs by alphabetization in ascending alphabetical order
+    return sorted(all_pets, key = lambda i: i['pet_name'])
 
 
 if __name__ == "__main__":
