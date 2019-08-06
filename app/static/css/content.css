@@ -1,7 +1,7 @@
 
 /* General styles */
 
-html {
+body, html {
     height: 100%;
 }
 
@@ -86,6 +86,8 @@ html {
 
 
 /* Home Page */
+
+
 
 .card-home{
     padding:20px 10px;

@@ -750,14 +750,6 @@ td, th {
   overflow: hidden;
 }
 
-.overlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
 .container.fullwidth {
   width: 100%;
 }
@@ -2505,12 +2497,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   bottom: 0;
 }
 
-/*.banner-general {
-  background-size: cover;
-  margin-top: 80px;
-  height: 400px;
-}*/
-
 .banner-home {
   background: url(../img/jr15-mirror.jpg) center;
   background-size: cover;
@@ -2631,7 +2617,7 @@ margin-left: -45%;
 }
 
 .banner-area .overlay-bg {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .banner-content {
