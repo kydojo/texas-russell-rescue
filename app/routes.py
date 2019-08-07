@@ -1,19 +1,42 @@
 
+from functools import wraps
 from flask import render_template, url_for, redirect, flash, request
 from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrenderForm, AdoptionApplicationForm
-from app import app, db, bcrypt
+from app import app, db, bcrypt, login_manager
 from app.pets import get_pets, get_all_pets
 from app.sender import send_application_submission_confirmation, send_contact_info, send_surrender_applicant_info
 from app.models import User, Post, Message, OwnerSurrenderApplication, AdoptionApplication
-from flask_login import login_user, logout_user, current_user, login_required
+from flask_login import login_user, logout_user, current_user
 from sqlalchemy import desc
 
+# add multiple tiers of login levels
+def login_required(role="ANY"):
+    def wrapper(fn):
+        @wraps(fn)
+        def decorated_view(*args, **kwargs):
+            if not current_user.is_authenticated:
+              return login_manager.unauthorized()
+            if ((current_user.urole != role) and (role != "ANY")):
+                return login_manager.unauthorized()
+            return fn(*args, **kwargs)
+        return decorated_view
+    return wrapper
 
 @app.route("/home")
 @app.route("/index")
 @app.route("/")
 def index():
     return render_template('index.html', title='Home')
+
+@app.route("/test0")
+@login_required(role="admin")
+def test0():
+    return render_template('about.html', title='About')
+
+@app.route("/test1")
+@login_required(role="lower")
+def test1():
+    return render_template('about.html', title='About')
 
 
 @app.route("/about")
@@ -136,7 +159,7 @@ def adoption_application():
 
 
 @app.route("/adoption_app_inbox", methods=['GET'])
-@login_required
+@login_required(role="admin")
 def application_inbox():
     applications = AdoptionApplication.query.order_by(
         desc(AdoptionApplication.date_sent)).all()
@@ -217,7 +240,7 @@ def surrender_form():
 
 
 @app.route("/surrender_inbox", methods=['GET'])
-@login_required
+@login_required(role="admin")
 def surrender_inbox():
     applications = OwnerSurrenderApplication.query.order_by(
         desc(OwnerSurrenderApplication.date_sent)).all()
@@ -250,7 +273,7 @@ def contact():
 
 
 @app.route("/contact_inbox", methods=['GET'])
-@login_required
+@login_required(role="admin")
 def contact_inbox():
     messages = Message.query.order_by(desc(Message.date_sent)).all()
     return render_template(
@@ -267,7 +290,7 @@ def register():
         hashed_pw = bcrypt.generate_password_hash(
             form.password.data).decode('utf-8')
         user = User(username=form.username.data,
-                    email=form.email.data, password=hashed_pw)
+                    email=form.email.data, password=hashed_pw, urole="admin")
         db.session.add(user)
         db.session.commit()
         flash(f'Account created for {form.username.data}!', 'success')
@@ -304,18 +327,18 @@ def logout():
 
 
 @app.route("/account")
-@login_required
+@login_required(role="admin")
 def account():
     return render_template('account.html', title='Account')
 
 
 @app.route("/admin")
-@login_required
+@login_required(role="admin")
 def admin():
     return render_template('admin.html', title='Admin Dashboard')
 
 
 @app.route("/webmaster")
-@login_required
+@login_required(role="webmaster")
 def webmaster():
     return render_template('webmaster.html', title='Webmaster Dashboard')
