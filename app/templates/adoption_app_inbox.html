@@ -11,96 +11,335 @@
 {% endblock %}
 {% block content %} 
   <div class="col-md-8 mt-120">
-    <p><h3>Owner Surrender Applications</h3></p>
+    <p><h2>Terrier Adoption Applications</h2></p>
     <hr>
     {% for application in applications %}
-        <p><strong>From:</strong> {{ application.first_name }} {{ application.last_name }} &emsp;
-            <strong>Date: </strong> {{ application.date_sent }}</p>
+        <div style="background-color: lightgray">
+            <h5>Application Received: {{ application.date_sent }}</h5>
+            <strong>From:</strong> {{ application.first_name }} {{ application.last_name }} &emsp;
+        </div>
         <P>
-            <strong>Phone:</strong> {{ application.phone }} &emsp; 
-            <strong>Email:</strong> <a href="mailto:{{ application.email }}">{{ application.email }}</a> &emsp;
-            <strong>Address:</strong> {{ application.address }}, {{ application.city }}, {{ application.state }}
+            {% if application.home_phone %}
+                <br>
+                <strong>Home Phone:</strong>
+                {{ application.home_phone }}
+            {% endif %}
+            {% if application.cell_phone %}
+                <br>
+                <strong>Cell Phone:</strong>
+                {{ application.cell_phone }}
+            {% endif %}
+            {% if application.work_phone %}
+            <br>
+                <strong>Work Phone:</strong>
+                {{ application.work_phone }}
+            {% endif %} 
         </P>
-        <p><strong>Where did you get your Jack Russell? Please provide the name of shelter/rescue or name of 
-            breeder if you bought him/her from a breeder:</strong></p>
-        <p>{{ application.dog_origin }}</p>
-        <p><strong>Spayed/neutered: </strong>
-            {% if application.spayed_or_neutered %}
-                <p>Yes</p>
-            {% else %}
-                <p>No</p>
+        <p>
+            <strong>Best time to call:</strong> {{ application.best_time_to_call }}
+        </p>
+        <p>
+            <strong>Email:</strong> <a href="mailto:{{ application.email }}">{{ application.email }}</a> &emsp;
+        </p>
+        <p>
+            <strong>Address:</strong> 
+            {{ application.street_address }}, {{ application.city }}, {{ application.state }}, {{ application.zip_code }}
+        </p>
+        <p>
+            <strong>Occupation:</strong> {{ application.occupation }}
+        </p>
+        <p>
+            <strong>If approved, when could you take possession of a dog?</strong>
+            <br>
+            {{ application.when_able_to_take_posession }}
+        </p>
+        <p>
+            <strong>How far would you travel to pick up your terrier? (in hours)</strong>
+            <br>
+            {{ application.how_far_willing_to_travel }}
+        </p>
+        <p>
+            <br>
+            <h5>Housing/Landlord Information</h5>
+            <hr>
+        </p>
+        <p>
+            <strong>I (we) live in a:</strong> {{ application.housing_type }}
+        </p>
+        <p>
+            {% if application.housing_type_if_other %}
+                <strong>Housing type if you chose other</strong>
+                {{ application.housing_type_if_other }}
             {% endif %}
         </p>
-        <p><strong>Up to date on vaccinations: </strong>
-            {% if application.vaccines_current %}
-                <p>Yes</p>
-            {% else %}
-                <p>No</p>
+        <p>
+            <strong>Do you own or rent your home?</strong> {{ application.rent_or_own}}
+        </p>
+        <p>
+            <strong>Do you have your landlords permission to own a dog?</strong> {{ application.landlord_permission }}
+        </p>
+        <p>
+            {% if application.landlord_name %}
+                <strong>Landlord name: </strong>
+                {{ application.landlord_name }}
             {% endif %}
         </p>
-        <p><strong>Current on a heartworm prevention medication: </strong>
-            {% if application.heartworm_meds_current %}
-                <p>Yes</p>
-            {% else %}
-                <p>No</p>
+        <p>
+            {% if application.landlord_phone %}
+                <strong>Landlord phone: </strong>
+                {{ application.landlord_phone }}
             {% endif %}
         </p>
         <p>
-            <strong>Why are you rehoming your dog?</strong> 
-        </p>
-        <p>
-            {{ application.why_rehoming }}
-        </p>
-        <p><strong>My Jack Russell gets along with other dogs: </strong>
-            {% if application.dog_friendly %}
-                <p>Yes</p>
-            {% else %}
-                <p>No</p>
+            {% if application.how_long_at_address %}
+                <strong>How long have you lived at this address?</strong>
+                {{ application.how_long_at_address }}
             {% endif %}
         </p>
-        <p><strong>My Jack Russell gets along with cats: </strong>
-            {% if application.cat_friendly %}
-                <p>Yes</p>
-            {% else %}
-                <p>No</p>
+        <p>
+            <br>
+            <h5>Fence/Kennel/Yard Information</h5>
+            <hr>
+        </p>
+        <p>
+            <strong>Do you have a completely fenced yard suitable for a dog?</strong>
+            <br>
+            {{ application.has_fenced_yard }}
+        </p>
+        <p>
+            <strong>Do you have a kennel run?</strong>
+            <br>
+            {{ application.has_kennel_run }}
+        </p>
+        <p>
+            <strong>Describe fence and/or kennel run (type, height, size)</strong>
+            <br>
+            {{ application.fence_kennel_description }}
+        </p>
+        <p>
+                <strong>If no fence/kennel, how will you handle the dog's exercise/toilet needs?</strong>
+                <br>
+                {{ application.if_none_how_handle_dog_needs }}
+        </p>
+        <p>
+            <strong>Do you have a suitable dog crate?</strong>
+            <br>
+            {{ application.has_dog_crate }}
+        </p>
+
+        <p>
+            <br>
+            <h5>Household Information</h5>
+            <hr>
+        </p>
+        <p>
+            <strong>How many adults in the household?</strong>
+            <br>
+            {{ application.num_adults_in_household }}
+        </p>
+        <p>
+            <strong>Age of Adults</strong>
+            <br>
+            {{ application.adults_age }}
+        </p>
+        <p>
+            <strong>How many children in the household?</strong>
+            <br>
+            {{ application.num_children_in_household }}
+        </p>
+        <p>
+            <strong>Age of Children</strong>
+            <br>
+            {{ application.children_age }}
+        </p>
+        <p>
+            <strong>Are you planning to have children within the next 5 years?</strong>
+            <br>
+            {{ application.planning_to_have_children }}
+        </p>
+        <p>
+            <strong>Are any household members allergic to animals?</strong>
+            <br>
+            {{ application.animal_allergies }}
+        </p>
+        <p>
+            <strong>How many hours a day must the terrier be alone?</strong>
+            <br>
+            {{ application.hours_terrier_must_be_alone }}
+        </p>
+        <p>
+            <strong>Are there visitors to your home with which a new dog will have to interact?</strong>
+            <br>
+            {{ application.household_visitors }}
+        </p>
+        <p>
+            <strong>How would you describe your lifestyle?</strong>
+            <br>
+            {{ application.lifestyle }}
+        </p>
+
+        <p>
+            <br>
+            <h5>Other Animal Information</h5>
+            <hr>
+        </p>
+        <p>
+            <strong>Do you own any other dogs?</strong> {{ application.own_other_dogs }}
+        </p>
+        <p>
+            <strong>If yes, are they Spayed/Neutered?</strong> {{ application.other_dogs_spayed_neutered }}
+        </p>
+        <p>
+            <strong>Please list breed, size, and gender of each dog you own</strong>
+            <br>
+            {{ application.breed_size_gender_of_other_dogs }}
+        </p>
+        <p>
+            <strong>Do you own any cats?</strong> {{ application.own_cats }}
+        </p>
+        <p>
+            <strong>If yes, how many?</strong> {{ application.how_many_cats }}
+        </p>
+        <p>
+            <strong>Do you own any other animals?</strong>
+            <br>
+            {{ application.own_other_animals }}
+        </p>
+        <p>
+            <strong>If yes, please describe them</strong>
+            <br>
+            {{ application.other_animals_description }}
+        </p>
+        <p>
+            <strong>How many dogs have you owned during the past 5 years?</strong>
+            <br>
+            {{ application.num_dogs_owned_past_five_years }}
+        </p>
+        <p>
+            <strong>If you do not still own the dog(s), what happened to them?</strong>
+            <br>
+            {{ application.status_of_other_dogs_owned }}
+        </p>
+
+        <p>
+            <br>
+            <h5>Breed-Specific Information</h5>
+            <hr>
+        </p>
+        <p>
+            <strong>Have you ever owned a Jack Russell before?</strong>
+            <br>
+            {{ application.previously_owned_jrt }}
+        </p>
+        <p>
+            <strong>Why did you choose this breed?</strong>
+            <br>
+            {{ application.why_choose_jrt }}
+        </p>
+        <p>
+            <strong>What is the Jack Russell bred to do (if you know)?</strong>
+            <br>
+            {{ application.jrt_breed_purpose }}
+        </p>
+        <p>
+            <strong>What primary activitiy do you plan to do with this dog?</strong>
+            <br>
+            {{ application.planned_activities_with_jrt }}
+        </p>
+        <p>
+            <strong>Where do you intend to keep this dog primarily?</strong>
+            <br>
+            {{ application.indoors_or_outdoors }}
+        </p>
+        <p>
+            <strong>Where will the dog sleep?</strong>
+            <br>
+            {{ application.where_will_sleep }}
+        </p>
+
+        <p>
+            <br>
+            <h5>Veterinarian Information</h5>
+            <hr>
+        </p>
+        <p>
+            <strong>Do you have a regular veterinarian? If no, skip this section</strong>
+            <br>
+            {{ application.has_regular_vet }}
+        </p>
+        <p>
+            {% if application.vet_clinic_name %}
+                <strong>Vet Clinic Name:</strong> {{ application.vet_clinic_name }}
             {% endif %}
         </p>
-        <p><strong>How does your Jack Russell interact with people? Are they friendly around people
-             or are they anxious and/or aggressive?  How are they around children?</strong></p>
         <p>
-            {{ application.people_friendly }}
+            {% if application.doctor_name %}
+                <strong>Doctor Name:</strong> {{ application.doctor_name }}
+            {% endif %}
         </p>
-        <p><strong>Does your Jack Russell know any tricks or have any type of training?</strong></p>
         <p>
-            {{ application.training }}
+            {% if application.vet_street_address %}
+                <strong>Vet Address:</strong> {{ application.vet_street_address }}
+            {% endif %}
         </p>
-        <p><strong>How does your Jack Russell do when walking on a leash?</strong></p>
         <p>
-            {{ application.leash_behavior }}
+            {% if application.vet_city %}
+                <strong>City:</strong> {{ application.vet_city }}
+            {% endif %}
         </p>
-        <p><strong>Does your Jack Russell enjoy rides in the car?</strong></p>
         <p>
-            {{ application.car_behavior }}
+            {% if application.vet_state %}
+                <strong>State:</strong> {{ application.vet_state }}
+            {% endif %}
         </p>
-        <p><strong>Is your Jack Russell healthy?  Are there any special medical needs they might have? Do they have any separation anxiety?</strong></p>
         <p>
-            {{ application.general_health }}
+            {% if application.vet_zip %}
+                <strong>Zip:</strong> {{ application.vet_zip }}
+            {% endif %}
         </p>
-        <p><strong>Is your Jack Russell house trained and crate trained?</strong></p>
         <p>
-            {{ application.potty_trained }}
+            {% if application.vet_phone %}
+                <strong>Vet Phone Number:</strong> {{ application.vet_phone }}
+            {% endif %}
         </p>
-        <p><strong>When you leave the house, where does your dog stay?  How long is he/she used to you being gone?</strong></p>
         <p>
-            {{ application.home_alone_behavior }}
+            {% if application.last_vet_visit_date %}
+                <strong>Date of last vet visit:</strong> {{ application.last_vet_visit_date }}
+            {% endif %}
         </p>
-        <p><strong>All dogs entering rescue are either temporarily placed in a foster home or must remain with their owners until a suitable home can be found.  Foster space is limited, so foster homes are generally reserved for dogs that are in danger of euthanasia at local shelters or are in an emergency situation.  Is your dog able to remain in your home while we find a suitable home for him/her?</strong></p>
+
         <p>
-            {{ application.can_remain_home_until_adopted }}
+            <br>
+            <h5>Reference/Miscellaneous Information</h5>
+            <hr>
         </p>
-        <p><strong>Is there anything else you would want us to know about your Jack Russell?</strong></p>
         <p>
-            {{ application.other_info }}
+            <strong>How did you learn of Russell Rescue, Inc.?</strong>
+            <br>
+            {{ application.how_learned_about_us }}
+        </p>
+        <p>
+            {% if application.if_other %}
+                <strong>If you selected other please describe</strong>
+                <br>
+                {{ application.if_other }}
+            {% endif %}
+        </p>
+        <p>
+            <strong>Reference Name:</strong> {{ application.reference_name }} &emsp;
+            <strong>Relationship:</strong> {{ application.reference_relationship }}
+        </p>
+        <p>
+            <strong>Reference Phone Number:</strong>
+            <br>
+            {{ application.reference_phone }}
+        </p>
+        <p>
+            {% if application.additional_comments %}
+                <strong>Additional Comments</strong>
+                <br>
+                {{ application.additional_comments }}
+            {% endif %}
         </p>
         <p></p>
         <br>

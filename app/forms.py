@@ -199,40 +199,42 @@ class OwnerSurrenderForm(FlaskForm):
 
 
 MALE_FEMALE_LIST = [
-    ('MALE', 'Male'),
-    ('FEMALE', 'Female'),
-    ('NO PREFERENCE', 'No Preference')
+    ('Male', 'Male'),
+    ('Female', 'Female'),
+    ('No Preference', 'No Preference')
 ]
 
 ALTERNATIVES_LIST = [
-    ('AGE', 'Age'),
-    ('SEX', 'Sex'),
-    ('NEITHER', 'Neither')
+    ('Age', 'Age'),
+    ('Sex', 'Sex'),
+    ('Both', 'Both'),
+    ('Neither', 'Neither')
 ]
 
 HOUSING_TYPE_LIST  = [
-    ('HOUSE', 'House'),
-    ('APARTMENT', 'Apartment'),
-    ('TRAILER', 'Trailer'),
-    ('TOWNHOME', 'Townhome'),
-    ('OTHER', 'Other')
+    ('House', 'House'),
+    ('Apartment', 'Apartment'),
+    ('Trailer', 'Trailer'),
+    ('Townhome', 'Townhome'),
+    ('Other', 'Other')
 ]
 
 CALL_TIME_LIST = [
-    ('MORNING', 'Morning'),
-    ('NOON', 'Noon'),
-    ('AFTERNOON', 'Afternoon'),
-    ('EVENING', 'Evening')
+    ('N/A', 'N/A'),
+    ('Morning', 'Morning'),
+    ('Noon', 'Noon'),
+    ('Afternoon', 'Afternoon'),
+    ('Evening', 'Evening')
 ]
 
 RENT_OR_OWN = [
-    ('RENT', 'Rent'),
-    ('OWN', 'Own')
+    ('Rent', 'Rent'),
+    ('Own', 'Own')
 ]
 
 LANDLORD_PERMISSION = [
-    ('YES', 'Yes'),
-    ('NO', 'No'),
+    ('Yes', 'Yes'),
+    ('No', 'No'),
     ('N/A', 'I do not rent')
 ]
 
@@ -250,10 +252,10 @@ NUM_CHILDREN_IN_HOUSEHOLD = [
 ]
 
 ACTIVITY_LEVEL = [
-    ('VERY ACTIVE', 'Very Active'),
-    ('ACTIVE', 'Active'),
-    ('NOT VERY ACTIVE', 'Not very active'),
-    ('INACTIVE', 'Inactive')
+    ('Very Active', 'Very Active'),
+    ('Active', 'Active'),
+    ('Not very active', 'Not very active'),
+    ('Inactive', 'Inactive')
 ]
 
 NUM_CATS = [
@@ -264,12 +266,12 @@ NUM_CATS = [
 ]
 
 ACTIVITIES_LIST = [
-    ('PET', 'Family Pet'),
-    ('GUARD', 'Guard'),
-    ('HUNTING', 'Hunting'),
-    ('OBEDIENCE', 'Obedience'),
-    ('TERRIER TRIALS', 'Terrier Trials'),
-    ('OTHER', 'Other')
+    ('Family Pet', 'Family Pet'),
+    ('Guard', 'Guard'),
+    ('Hunting', 'Hunting'),
+    ('Obedience', 'Obedience'),
+    ('Terrier Trials', 'Terrier Trials'),
+    ('Other', 'Other')
 ]
 
 HOW_FOUND_US_LIST = [
@@ -285,19 +287,19 @@ HOW_FOUND_US_LIST = [
 ]
 
 INDOORS_OUTDOORS = [
-    ('INDOORS', "Indoors"),
-    ('OUTDOORS', 'Outdoors')
+    ('Indoors', "Indoors"),
+    ('Outdoors', 'Outdoors')
 ]
 
 YES_NO = [
-    ('NO', 'No'),
-    ('YES', 'Yes')
+    ('No', 'No'),
+    ('Yes', 'Yes')
 ]
 
 YES_NO_NA = [
     ('N/A', 'N/A'),
-    ('YES', 'Yes'),
-    ('NO', 'No')
+    ('Yes', 'Yes'),
+    ('No', 'No')
 ]
 
 class AdoptionApplicationForm(FlaskForm):
@@ -326,10 +328,10 @@ class AdoptionApplicationForm(FlaskForm):
     how_far_willing_to_travel = StringField('How far would you travel to pick up your terrier? (in hours)', validators=[DataRequired(), Length(max=40)])
 
     # Housing/landlord Information
-    housing_type = SelectField('I (we) live in a:', choices=HOUSING_TYPE_LIST, validators=[DataRequired()])
+    housing_type = SelectField('I (we) live in a', choices=HOUSING_TYPE_LIST, validators=[DataRequired()])
     housing_type_if_other = StringField('Housing type if you chose other', validators=[Length(max=60)])
     rent_or_own = SelectField('Do you own or rent your home?', choices=RENT_OR_OWN, validators=[DataRequired()])
-    landlord_permission = SelectField('If you rent, do you have your landlords permission to own a dog?', choices=YES_NO, validators=[DataRequired()])
+    landlord_permission = SelectField('If you rent, do you have your landlords permission to own a dog?', choices=YES_NO_NA, validators=[DataRequired()])
     landlord_name = StringField('Landlord Name', validators=[Length(max=120)])
     landlord_phone = StringField('Landlord Phone', validators=[Length(max=20)])
     how_long_at_address = StringField('How long have you lived at this address?', validators=[DataRequired(), Length(max=30)])
@@ -348,7 +350,7 @@ class AdoptionApplicationForm(FlaskForm):
     children_age = StringField('Age of Children', validators=[Length(max=200)])
     planning_to_have_children = SelectField('Are you planning to have children within the next 5 years?', choices=YES_NO, validators=[DataRequired()])
     animal_allergies = SelectField('Are any household members allergic to animals?', choices=YES_NO, validators=[DataRequired()])
-    hours_terrier_must_be_alone = StringField('How many hours a day must the terrier be alone? ', validators=[DataRequired(), Length(max=30)])
+    hours_terrier_must_be_alone = StringField('How many hours a day must the terrier be alone?', validators=[DataRequired(), Length(max=30)])
     household_visitors = SelectField('Are there visitors to your home with which a new dog will have to interact?', choices=YES_NO, validators=[DataRequired()])
     lifestyle = SelectField('How would you describe your lifestyle?', choices=ACTIVITY_LEVEL, validators=[DataRequired()])
 
@@ -357,7 +359,7 @@ class AdoptionApplicationForm(FlaskForm):
     other_dogs_spayed_neutered = SelectField('If yes, are they Spayed/Neutered?', choices=YES_NO_NA)
     breed_size_gender_of_other_dogs = TextAreaField('Please list breed, size, and gender of each dog you own')
     own_cats = SelectField('Do you own any cats?', choices=YES_NO, validators=[DataRequired()])
-    how_many_cats = SelectField(' If yes, how many?', choices=NUM_CATS)
+    how_many_cats = SelectField('If yes, how many?', choices=NUM_CATS)
     own_other_animals = SelectField('Do you own any other animals?', choices=YES_NO, validators=[DataRequired()])
     other_animals_description = TextAreaField('If yes, please describe them')
     num_dogs_owned_past_five_years = StringField('How many dogs have you owned during the past 5 years?', validators=[DataRequired(), Length(max=200)])
@@ -372,15 +374,15 @@ class AdoptionApplicationForm(FlaskForm):
     where_will_sleep = StringField('Where will the dog sleep?', validators=[DataRequired(), Length(max=200)])
 
     # Veterinarian Information
-    has_regular_vet = SelectField('Do you have a regular veterinarian? If no, skip this section.', choices=YES_NO, validators=[DataRequired()])  
-    vet_clinic_name = StringField('Vet Clinic Name', validators=[DataRequired(), Length(max=60)])
-    doctor_name = StringField('Doctor Name', validators=[DataRequired(), Length(max=120)])
-    vet_street_address = StringField('Vet Address', validators=[DataRequired(), Length(max=120)])
-    vet_city = StringField('City', validators=[DataRequired(), Length(max=60)])
-    vet_state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
-    vet_zip = StringField('Zip', validators=[DataRequired(), Length(max=15)])
+    has_regular_vet = SelectField('Do you have a regular veterinarian? If no, skip this section', choices=YES_NO, validators=[DataRequired()])  
+    vet_clinic_name = StringField('Vet Clinic Name', validators=[Length(max=60)])
+    doctor_name = StringField('Doctor Name', validators=[Length(max=120)])
+    vet_street_address = StringField('Vet Address', validators=[Length(max=120)])
+    vet_city = StringField('City', validators=[Length(max=60)])
+    vet_state = SelectField('State', choices=STATE_LIST)
+    vet_zip = StringField('Zip', validators=[Length(max=15)])
     vet_phone = StringField('Vet Phone Number', validators=[Length(max=20)])
-    last_vet_visit_date = StringField('Date of last vet visit', validators=[DataRequired(), Length(max=30)])
+    last_vet_visit_date = StringField('Date of last vet visit', validators=[Length(max=30)])
 
     # Reference/Miscellaneous Information
     how_learned_about_us = SelectField('How did you learn of Russell Rescue, Inc.?', choices=HOW_FOUND_US_LIST, validators=[DataRequired()])
