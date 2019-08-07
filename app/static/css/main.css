@@ -750,14 +750,6 @@ td, th {
   overflow: hidden;
 }
 
-.overlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
 .container.fullwidth {
   width: 100%;
 }
@@ -2505,18 +2497,59 @@ body.mobile-nav-active #mobile-nav-toggle {
   bottom: 0;
 }
 
-/*.banner-general {
-  background-size: cover;
-  margin-top: 80px;
-  height: 400px;
-}*/
-
 .banner-home {
   background: url(../img/jr15-mirror.jpg) center;
+  /*background-color: #25408f;*/
+  background-position: bottom;
   background-size: cover;
   margin-top: 80px;
-  height: 700px;
+  height: 800px;
   /*overflow: hidden;*/
+}
+
+@media (max-width: 1500px) {
+    .banner-home {
+        background-position: bottom right;
+    }
+}
+
+@media (max-width: 1400px) {
+    .banner-home {
+        margin-top: 60px;
+        height: 700px;
+    }
+}
+
+@media (max-width: 1250px) {
+    .banner-home {
+        margin-top: 50px;
+        height: 600px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .banner-home {
+        margin-top: 50px;
+        height: 600px;
+    }
+}
+
+@media (max-width: 501px) {
+    .banner-home {
+        background: url(../img/jr15-mirror-sm.jpg) no-repeat center;
+        background-position: bottom right;
+        background-size: cover;
+    }
+}
+
+
+.banner-home-container {
+  background: url(../img/jr15-mirror.jpg) center;
+  background-size: cover;
+  background-color: rgba(0,0,0,0.8);
+  height: 100%;
+  z-index: 10;
+
 }
 
 .banner-about {
@@ -2530,7 +2563,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: url(../img/jr10.jpg) center;
   background-size: cover;
   margin-top: 80px;
-  height: 600px;
+  height: 400px;
 }
 
 .banner-adoption-app {
@@ -2618,11 +2651,25 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-logo {
-width: 300px;
-height: auto;
-text-align: left;
-margin-left: -45%;
-/*padding-left: 10;*/
+    width: 325px;
+    height: auto;
+    margin-bottom: 2%;
+}
+
+@media (max-width: 1250px) {
+    .banner-logo {
+        width: 250px;
+        height: auto;
+        margin-top: 5%;
+    }
+}
+
+@media (max-width: 600px) {
+    .banner-logo {
+        width: 250px;
+        height: auto;
+        margin-top: 20%;
+    }
 }
 
 .banner-area .primary-btn {
@@ -2631,22 +2678,13 @@ margin-left: -45%;
 }
 
 .banner-area .overlay-bg {
-  background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .banner-content {
-    margin: 120px 0px 0px 0px;
-    text-align: center;
+    margin: 5% 0px 0px 2%;
+    text-align: center !important;
 }
-
-/*
-.banner-content h1 {
-  color: #25408f;
-  font-size: 60px;
-  font-weight: 600;
-  line-height: 1em;
-}
-*/
 
 @media (max-width: 991.98px) {
   .banner-content h1 {
@@ -2666,30 +2704,43 @@ margin-left: -45%;
   }
 }
 
-@media (max-width: 767px) {
+/*@media (max-width: 767px) {
   .banner-content h1 {
     margin-top: 50px;
   }
-}
+}*/
 
 .banner-content .sub-head {
   max-width: 550px;
   margin-bottom: 20px;
   margin-top: 5px;
-  /*font-size: 20px;*/
 }
 
 .banner-content .banner-sm-font {
-  font-size: 20px;
-  margin-left: -7%;
-  max-width: 500px;
+  font-size: 2vw;
 }
 
-@media (max-width: 1230px) {
+@media (max-width: 1000px) {
     .banner-content .banner-sm-font {
-       font-size: 20px;
-       margin-left: 0%;
-       max-width: 500px;
+       font-size: 2.5vw;
+    }
+}
+
+@media (max-width: 800px) {
+    .banner-content .banner-sm-font {
+       font-size: 2.75vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .banner-content .banner-sm-font {
+       font-size: 3vw;
+    }
+}
+
+@media (max-width: 550px) {
+    .banner-content .banner-sm-font {
+       font-size: 4vw;
     }
 }
 
@@ -2707,14 +2758,14 @@ margin-left: -45%;
 }
 
 .header-btn {
-  background: #fff;
-  border-radius: 0;
-  color: #222 !important;
-  padding-left: 30px;
-  padding-right: 30px;
-  border: 1px solid transparent;
-  color: #fff;
-  margin-left: -45%;
+    width: 200px;
+    background: #fff;
+    border-radius: 0;
+    color: #222 !important;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: 1px solid transparent;
+    color: #fff;
 }
 
 .header-btn:hover {
@@ -3094,7 +3145,7 @@ margin-left: -45%;
 }
 
 .calltoaction-area {
-  background: url(../img/jr_coats.jpg) center;
+  background: url(../img/jr24.jpg) center;
   background-size: cover;
   text-align: center;
 }
@@ -3331,7 +3382,7 @@ margin-left: -45%;
   }
 
   .banner-area {
-    margin-top: 125px;
+    margin: 0;
   }
 }
 
@@ -3369,10 +3420,6 @@ margin-left: -45%;
     height: 100px;
     width: auto;
     z-index: 1;
-  }
-
-  .banner-area {
-    margin-top: 75px;
   }
 }
 
