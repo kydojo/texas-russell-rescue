@@ -116,7 +116,7 @@ def adoption_application():
             doctor_name=form.doctor_name.data,
             vet_street_address=form.vet_street_address.data,
             vet_city=form.vet_city.data,
-            vet_state =form.vet_state.data,
+            vet_state=form.vet_state.data,
             vet_zip=form.vet_zip.data,
             vet_phone=form.vet_phone.data,
             last_vet_visit_date=form.last_vet_visit_date.data,
@@ -130,7 +130,6 @@ def adoption_application():
         )
         db.session.add(application)
         db.session.commit()
-        flash('Your application has been sent.', 'success')
         return redirect(url_for('index'))
     return render_template('adoption_app.html', title='Adoption Application', form=form)
 
