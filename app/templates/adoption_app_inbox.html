@@ -14,14 +14,10 @@
     <p><h2>Terrier Adoption Applications</h2></p>
     <hr>
     {% for application in applications %}
-        <hr>
-        <p>
+        <div style="background-color: lightgray">
             <h5>Application Received: {{ application.date_sent }}</h5>
             <strong>From:</strong> {{ application.first_name }} {{ application.last_name }} &emsp;
-        </p>
-        <p>
-            <hr>
-        </p>
+        </div>
         <P>
             {% if application.home_phone %}
                 <br>
@@ -136,69 +132,215 @@
             <h5>Household Information</h5>
             <hr>
         </p>
-        num_adults_in_household
-        adults_age
-        num_children_in_household
-        children_age
-        planning_to_have_children
-        animal_allergies
-        hours_terrier_must_be_alone
-        household_visitors
-        lifestyle
+        <p>
+            <strong>How many adults in the household?</strong>
+            <br>
+            {{ application.num_adults_in_household }}
+        </p>
+        <p>
+            <strong>Age of Adults</strong>
+            <br>
+            {{ application.adults_age }}
+        </p>
+        <p>
+            <strong>How many children in the household?</strong>
+            <br>
+            {{ application.num_children_in_household }}
+        </p>
+        <p>
+            <strong>Age of Children</strong>
+            <br>
+            {{ application.children_age }}
+        </p>
+        <p>
+            <strong>Are you planning to have children within the next 5 years?</strong>
+            <br>
+            {{ application.planning_to_have_children }}
+        </p>
+        <p>
+            <strong>Are any household members allergic to animals?</strong>
+            <br>
+            {{ application.animal_allergies }}
+        </p>
+        <p>
+            <strong>How many hours a day must the terrier be alone?</strong>
+            <br>
+            {{ application.hours_terrier_must_be_alone }}
+        </p>
+        <p>
+            <strong>Are there visitors to your home with which a new dog will have to interact?</strong>
+            <br>
+            {{ application.household_visitors }}
+        </p>
+        <p>
+            <strong>How would you describe your lifestyle?</strong>
+            <br>
+            {{ application.lifestyle }}
+        </p>
 
         <p>
             <br>
             <h5>Other Animal Information</h5>
             <hr>
         </p>
-        own_other_dogs
-        other_dogs_spayed_neutered
-        breed_size_gender_of_other_dogs
-        own_cats
-        how_many_cats
-        own_other_animals
-        other_animals_description
-        num_dogs_owned_past_five_years
-        status_of_other_dogs_owned
+        <p>
+            <strong>Do you own any other dogs?</strong> {{ application.own_other_dogs }}
+        </p>
+        <p>
+            <strong>If yes, are they Spayed/Neutered?</strong> {{ application.other_dogs_spayed_neutered }}
+        </p>
+        <p>
+            <strong>Please list breed, size, and gender of each dog you own</strong>
+            <br>
+            {{ application.breed_size_gender_of_other_dogs }}
+        </p>
+        <p>
+            <strong>Do you own any cats?</strong> {{ application.own_cats }}
+        </p>
+        <p>
+            <strong>If yes, how many?</strong> {{ application.how_many_cats }}
+        </p>
+        <p>
+            <strong>Do you own any other animals?</strong>
+            <br>
+            {{ application.own_other_animals }}
+        </p>
+        <p>
+            <strong>If yes, please describe them</strong>
+            <br>
+            {{ application.other_animals_description }}
+        </p>
+        <p>
+            <strong>How many dogs have you owned during the past 5 years?</strong>
+            <br>
+            {{ application.num_dogs_owned_past_five_years }}
+        </p>
+        <p>
+            <strong>If you do not still own the dog(s), what happened to them?</strong>
+            <br>
+            {{ application.status_of_other_dogs_owned }}
+        </p>
 
         <p>
             <br>
             <h5>Breed-Specific Information</h5>
             <hr>
         </p>
-        previously_owned_jrt
-        why_choose_jrt
-        jrt_breed_purpose
-        planned_activities_with_jrt
-        indoors_or_outdoors
-        where_will_sleep
+        <p>
+            <strong>Have you ever owned a Jack Russell before?</strong>
+            <br>
+            {{ application.previously_owned_jrt }}
+        </p>
+        <p>
+            <strong>Why did you choose this breed?</strong>
+            <br>
+            {{ application.why_choose_jrt }}
+        </p>
+        <p>
+            <strong>What is the Jack Russell bred to do (if you know)?</strong>
+            <br>
+            {{ application.jrt_breed_purpose }}
+        </p>
+        <p>
+            <strong>What primary activitiy do you plan to do with this dog?</strong>
+            <br>
+            {{ application.planned_activities_with_jrt }}
+        </p>
+        <p>
+            <strong>Where do you intend to keep this dog primarily?</strong>
+            <br>
+            {{ application.indoors_or_outdoors }}
+        </p>
+        <p>
+            <strong>Where will the dog sleep?</strong>
+            <br>
+            {{ application.where_will_sleep }}
+        </p>
 
         <p>
             <br>
             <h5>Veterinarian Information</h5>
             <hr>
         </p>
-        has_regular_vet
-        vet_clinic_name
-        doctor_name
-        vet_street_address
-        vet_city
-        vet_state
-        vet_zip
-        vet_phone
-        last_vet_visit_date
+        <p>
+            <strong>Do you have a regular veterinarian? If no, skip this section</strong>
+            <br>
+            {{ application.has_regular_vet }}
+        </p>
+        <p>
+            {% if application.vet_clinic_name %}
+                <strong>Vet Clinic Name:</strong> {{ application.vet_clinic_name }}
+            {% endif %}
+        </p>
+        <p>
+            {% if application.doctor_name %}
+                <strong>Doctor Name:</strong> {{ application.doctor_name }}
+            {% endif %}
+        </p>
+        <p>
+            {% if application.vet_street_address %}
+                <strong>Vet Address:</strong> {{ application.vet_street_address }}
+            {% endif %}
+        </p>
+        <p>
+            {% if application.vet_city %}
+                <strong>City:</strong> {{ application.vet_city }}
+            {% endif %}
+        </p>
+        <p>
+            {% if application.vet_state %}
+                <strong>State:</strong> {{ application.vet_state }}
+            {% endif %}
+        </p>
+        <p>
+            {% if application.vet_zip %}
+                <strong>Zip:</strong> {{ application.vet_zip }}
+            {% endif %}
+        </p>
+        <p>
+            {% if application.vet_phone %}
+                <strong>Vet Phone Number:</strong> {{ application.vet_phone }}
+            {% endif %}
+        </p>
+        <p>
+            {% if application.last_vet_visit_date %}
+                <strong>Date of last vet visit:</strong> {{ application.last_vet_visit_date }}
+            {% endif %}
+        </p>
 
         <p>
             <br>
             <h5>Reference/Miscellaneous Information</h5>
             <hr>
         </p>
-        how_learned_about_us
-        if_other
-        reference_name
-        reference_relationship
-        reference_phone
-        additional_comments
+        <p>
+            <strong>How did you learn of Russell Rescue, Inc.?</strong>
+            <br>
+            {{ application.how_learned_about_us }}
+        </p>
+        <p>
+            {% if application.if_other %}
+                <strong>If you selected other please describe</strong>
+                <br>
+                {{ application.if_other }}
+            {% endif %}
+        </p>
+        <p>
+            <strong>Reference Name:</strong> {{ application.reference_name }} &emsp;
+            <strong>Relationship:</strong> {{ application.reference_relationship }}
+        </p>
+        <p>
+            <strong>Reference Phone Number:</strong>
+            <br>
+            {{ application.reference_phone }}
+        </p>
+        <p>
+            {% if application.additional_comments %}
+                <strong>Additional Comments</strong>
+                <br>
+                {{ application.additional_comments }}
+            {% endif %}
+        </p>
         <p></p>
         <br>
         <hr>

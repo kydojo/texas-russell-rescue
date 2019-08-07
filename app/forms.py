@@ -350,7 +350,7 @@ class AdoptionApplicationForm(FlaskForm):
     children_age = StringField('Age of Children', validators=[Length(max=200)])
     planning_to_have_children = SelectField('Are you planning to have children within the next 5 years?', choices=YES_NO, validators=[DataRequired()])
     animal_allergies = SelectField('Are any household members allergic to animals?', choices=YES_NO, validators=[DataRequired()])
-    hours_terrier_must_be_alone = StringField('How many hours a day must the terrier be alone? ', validators=[DataRequired(), Length(max=30)])
+    hours_terrier_must_be_alone = StringField('How many hours a day must the terrier be alone?', validators=[DataRequired(), Length(max=30)])
     household_visitors = SelectField('Are there visitors to your home with which a new dog will have to interact?', choices=YES_NO, validators=[DataRequired()])
     lifestyle = SelectField('How would you describe your lifestyle?', choices=ACTIVITY_LEVEL, validators=[DataRequired()])
 
@@ -359,7 +359,7 @@ class AdoptionApplicationForm(FlaskForm):
     other_dogs_spayed_neutered = SelectField('If yes, are they Spayed/Neutered?', choices=YES_NO_NA)
     breed_size_gender_of_other_dogs = TextAreaField('Please list breed, size, and gender of each dog you own')
     own_cats = SelectField('Do you own any cats?', choices=YES_NO, validators=[DataRequired()])
-    how_many_cats = SelectField(' If yes, how many?', choices=NUM_CATS)
+    how_many_cats = SelectField('If yes, how many?', choices=NUM_CATS)
     own_other_animals = SelectField('Do you own any other animals?', choices=YES_NO, validators=[DataRequired()])
     other_animals_description = TextAreaField('If yes, please describe them')
     num_dogs_owned_past_five_years = StringField('How many dogs have you owned during the past 5 years?', validators=[DataRequired(), Length(max=200)])
@@ -374,7 +374,7 @@ class AdoptionApplicationForm(FlaskForm):
     where_will_sleep = StringField('Where will the dog sleep?', validators=[DataRequired(), Length(max=200)])
 
     # Veterinarian Information
-    has_regular_vet = SelectField('Do you have a regular veterinarian? If no, skip this section.', choices=YES_NO, validators=[DataRequired()])  
+    has_regular_vet = SelectField('Do you have a regular veterinarian? If no, skip this section', choices=YES_NO, validators=[DataRequired()])  
     vet_clinic_name = StringField('Vet Clinic Name', validators=[Length(max=60)])
     doctor_name = StringField('Doctor Name', validators=[Length(max=120)])
     vet_street_address = StringField('Vet Address', validators=[Length(max=120)])
