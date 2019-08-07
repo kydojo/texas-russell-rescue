@@ -51,9 +51,9 @@ body, html {
         width: 350px;
     }
 
-    .banner-home {
+    /*.banner-home {
         margin-top: 70px;
-    }
+    }*/
 }
 
 @media (max-width: 1090px) {
