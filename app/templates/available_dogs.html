@@ -41,7 +41,7 @@
 <!-- Disclaimer text -->
 <div class="container container-style">
     <!--<h2 class="title-text">Available Dogs</h2>-->
-    <div class="disclaimer-div border rounded">Regarding dogs marked as "Owner Listing":
+    <div class="disclaimer-div border">Regarding dogs marked as "Owner Listing":
         Texas Russell Rescue is not responsible and/or liable for the outcome of any adoption made through this listing as we are only providing information.
         Texas Russell Rescue is also not responsible and is held harmless for the accuracy and reliability of the information provided within this listing.
         Owners and adopters bear the full responsibility and liability for any dog listed.
@@ -50,68 +50,36 @@
         {% for pet in pets|batch(3) %}
         {% for column in pet %}
 
-
-        <!--<div class="dog-card-outer">-->
-        <!--<a href="https://www.adoptapet.com/pet/{{ column.pet_id }}" target="_blank">-->
-            <div class="col-xs-4 justify-content-center border rounded dog-card">
-                <div class="row">
-                    <div class="col">
+            <div class="col-xs-4 no-decoration">
+                <div class="row md-margin">
+                    <div class="col no-padding dog-card">
                         <div style="text-align:center">
-                            <a href="https://www.adoptapet.com/pet/{{ column.pet_id }}" target="_blank">
-                                <!--{{ column.pet_name }}--><img class="dog-img" src="{{ column.large_results_photo_url }}"></a>
-                        </div>
-                    </div>
-                    <div class="col dog-text">
-                        <div class="dog-text-inner">
-                            <a class="dog-name-text" href="https://www.adoptapet.com/pet/{{ column.pet_id }}"
-                               target="_blank">{{ column.pet_name }}</a>
+                            <a href="https://www.adoptapet.com/pet/{{ column.pet_id }}" target="_blank" style="text-decoration:none">
+                                <img class="dog-img" src="{{ column.large_results_photo_url }}">
+                                <p class="text-style-name blue-text {{ 'mt-5-i' if column.ownerSurrender else 'mt-20-i' }}">{{ column.pet_name }}</p>
 
-                            <div class="text-style">
                                 {% if column.sex == 'f' %}
-                                    <p class="text-style text-style-sex">Female</p>
+                                    <span class="text-style-sex blue-text">
+                                        Female &nbsp;&nbsp;<span class="capitalize"><i class="fa fa-paw sm-paw red-text"></i> &nbsp;&nbsp;{{ column.age }}</span>
+                                        {% if column.ownerSurrender %}
+                                            <p class="text-style-owner blue-text">Owner Listing</p>
+                                        {% endif %}
+                                    </span>
                                 {% elif column.sex == 'm' %}
-                                    <p class="text-style text-style-sex">Male</p>
+                                    <span class="text-style-sex blue-text">
+                                        Male &nbsp;&nbsp;<span class="capitalize"><i class="fa fa-paw sm-paw red-text"></i> &nbsp;&nbsp;{{ column.age }}</span>
+                                        {% if column.ownerSurrender %}
+                                            <p class="text-style-owner blue-text">Owner Listing</p>
+                                        {% endif %}
+                                    </span>
                                 {% endif %}
 
-                                <p class="capitalize">{{ column.age }}</p>
-
-                                {% if column.ownerSurrender %}
-                                <!-- Owner Listing flag image needed -->
-                                <p class="owner-listing-text">Owner Listing</p>
-                                <!--<button type="button" class="btn owner-listing-text" data-toggle="modal"
-                                        data-target="#owner-listing-modal">Owner Listing
-                                </button>-->
-                                {% endif %}
-                            </div>
-
-                            <!-- Owner Listing Modal -->
-                            <!--<div class="modal fade" id="owner-listing-modal" tabindex="-1" role="dialog"-->
-                                 <!--aria-labelledby="exampleModalCenterTitle" aria-hidden="true">-->
-                                <!--<div class="modal-dialog modal-dialog-centered" role="document">-->
-                                    <!--<div class="modal-content">-->
-                                        <!--<div class="modal-header">-->
-                                            <!--<h5 class="modal-title">Owner Listing</h5>-->
-                                            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-                                                <!--<span aria-hidden="true">&times;</span>-->
-                                            <!--</button>-->
-                                        <!--</div>-->
-                                        <!--<div class="modal-body lower-case">-->
-                                            <!--RRI is not responsible and/or liable for the outcome of any adoption made through this listing as we are only providing information. RRI is also not responsible and is held harmless for the accuracy and reliability of the information provided within this listing. Owners and adopters bear the full responsibility and liability for any dog listed.-->
-                                        <!--</div>-->
-                                        <!--&lt;!&ndash;<div class="modal-footer">-->
-                                            <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close-->
-                                            <!--</button>-->
-                                            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
-                                        <!--</div>&ndash;&gt;-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        <!--</a>-->
-        <!--</div>-->
+
         {% endfor %}
         {% endfor %}
     </div>

@@ -1,0 +1,110 @@
+/*.petsBorderAlignment{
+    margin:100px; 
+    padding:100px; 
+    background-color: coral;
+}*/
+
+.container-style {
+    padding: 20px;
+}
+
+.title-text {
+    text-align:center;
+    color: #25408f;
+}
+
+.disclaimer-div {
+    color: #d3232a !important;
+    background-color: #ecf1ff;
+    /*border-color: #25408f !important;*/
+    padding: 5px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 10px 10px rgba(0,0,0,.2);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+/*.dog-card {
+    *//*margin: 10px;*//*
+    margin: 10px 0px;
+    *//*border-color: #25408f !important;*//*
+    border: 2px solid #25408f;
+    background-color: #ecf1ff;
+    padding: 5px;
+    text-align:center;
+    *//*text-transform: capitalize;*//*
+    -webkit-box-shadow: 0 10px 10px rgba(0,0,0,.2);
+    box-shadow: 0 10px 10px rgba(0,0,0,.2);
+}*/
+
+.dog-card {
+    margin: 20px 0px;
+    height: 430px;
+    background-color: #ecf1ff;
+    -webkit-box-shadow: 0 10px 10px rgba(0,0,0,.2);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+.dog-card:hover {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+
+.dog-name-text {
+    width: 120px;
+    padding-right: 5px;
+    font-size: 20px;
+    color: #25408f;
+    text-decoration: none !important;
+}
+
+.dog-text {
+    padding-right: 10px;
+    padding-left: 0px;
+    width: 138px;
+}
+
+.dog-text-inner {
+    padding-right: 10px;
+}
+
+.text-style-owner {
+    /*font-size: 1.3em;*/
+}
+
+.text-style-name {
+    font-size: 1.5em;
+    margin-top: 10px;
+    text-decoration: none !important;
+}
+
+.text-style-sex {
+   font-size: 1.3em;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+.lower-case {
+    text-transform: none;
+}
+
+.dog-img {
+    height: 320px;
+    width: 320px;
+}
+
+.dog-overlay {
+    color: rgba(0, 0, 0, 0);
+    transition: .5s background-color;
+    transition: .5s color;
+}
+.dog-overlay:hover {
+    color: rgba(236, 241, 255, 1);
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

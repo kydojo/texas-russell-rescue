@@ -245,10 +245,6 @@ td, th {
   font-style: italic;
 }
 
-.mt-5-i {
-  margin-top: 5px !important;
-}
-
 .mt-10 {
   margin-top: 10px;
 }
@@ -259,10 +255,6 @@ td, th {
 
 .mt-20 {
   margin-top: 20px;
-}
-
-.mt-20-i {
-  margin-top: 20px !important;
 }
 
 .mt-25 {
