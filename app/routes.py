@@ -10,17 +10,35 @@ from flask_login import login_user, logout_user, current_user
 from sqlalchemy import desc
 
 # add multiple tiers of login levels
-def login_required(role="ANY"):
+# def login_required(role="ANY"):
+#     def wrapper(fn):
+#         @wraps(fn)
+#         def decorated_view(*args, **kwargs):
+#             if not current_user.is_authenticated:
+#               return login_manager.unauthorized()
+#             if ((current_user.urole != role) and (role != "ANY")):
+#                 return login_manager.unauthorized()
+#             return fn(*args, **kwargs)
+#         return decorated_view
+#     return wrapper
+
+# Global vars for tiered access levels
+ADMIN = 500
+WEBMASTER = 100
+
+
+def login_required(level):
     def wrapper(fn):
         @wraps(fn)
         def decorated_view(*args, **kwargs):
             if not current_user.is_authenticated:
-              return login_manager.unauthorized()
-            if ((current_user.urole != role) and (role != "ANY")):
+                return login_manager.unauthorized()
+            if current_user.access_level < level:
                 return login_manager.unauthorized()
             return fn(*args, **kwargs)
         return decorated_view
     return wrapper
+
 
 @app.route("/home")
 @app.route("/index")
@@ -28,13 +46,15 @@ def login_required(role="ANY"):
 def index():
     return render_template('index.html', title='Home')
 
+
 @app.route("/test0")
-@login_required(role="admin")
+@login_required(ADMIN)
 def test0():
     return render_template('about.html', title='About')
 
+
 @app.route("/test1")
-@login_required(role="lower")
+@login_required(ADMIN)
 def test1():
     return render_template('about.html', title='About')
 
@@ -139,11 +159,11 @@ def adoption_application():
             doctor_name=form.doctor_name.data,
             vet_street_address=form.vet_street_address.data,
             vet_city=form.vet_city.data,
-            vet_state =form.vet_state.data,
+            vet_state=form.vet_state.data,
             vet_zip=form.vet_zip.data,
             vet_phone=form.vet_phone.data,
             last_vet_visit_date=form.last_vet_visit_date.data,
-            
+
             how_learned_about_us=form.how_learned_about_us.data,
             if_other=form.if_other.data,
             reference_name=form.reference_name.data,
@@ -159,7 +179,7 @@ def adoption_application():
 
 
 @app.route("/adoption_app_inbox", methods=['GET'])
-@login_required(role="admin")
+@login_required(ADMIN)
 def application_inbox():
     applications = AdoptionApplication.query.order_by(
         desc(AdoptionApplication.date_sent)).all()
@@ -240,7 +260,7 @@ def surrender_form():
 
 
 @app.route("/surrender_inbox", methods=['GET'])
-@login_required(role="admin")
+@login_required(ADMIN)
 def surrender_inbox():
     applications = OwnerSurrenderApplication.query.order_by(
         desc(OwnerSurrenderApplication.date_sent)).all()
@@ -273,7 +293,7 @@ def contact():
 
 
 @app.route("/contact_inbox", methods=['GET'])
-@login_required(role="admin")
+@login_required(ADMIN)
 def contact_inbox():
     messages = Message.query.order_by(desc(Message.date_sent)).all()
     return render_template(
@@ -290,7 +310,7 @@ def register():
         hashed_pw = bcrypt.generate_password_hash(
             form.password.data).decode('utf-8')
         user = User(username=form.username.data,
-                    email=form.email.data, password=hashed_pw, urole="admin")
+                    email=form.email.data, password=hashed_pw, urole="admin", access_level=100)
         db.session.add(user)
         db.session.commit()
         flash(f'Account created for {form.username.data}!', 'success')
@@ -327,18 +347,18 @@ def logout():
 
 
 @app.route("/account")
-@login_required(role="admin")
+@login_required(ADMIN)
 def account():
     return render_template('account.html', title='Account')
 
 
 @app.route("/admin")
-@login_required(role="admin")
+@login_required(ADMIN)
 def admin():
     return render_template('admin.html', title='Admin Dashboard')
 
 
 @app.route("/webmaster")
-@login_required(role="webmaster")
+@login_required(ADMIN)
 def webmaster():
     return render_template('webmaster.html', title='Webmaster Dashboard')
