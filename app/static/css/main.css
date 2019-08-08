@@ -2718,6 +2718,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .banner-content .banner-sm-font {
   font-size: 2vw;
+  font-weight: 600;
+  text-shadow: 2px 2px 10px rgba( 0,0,0,0.8)
 }
 
 @media (max-width: 1000px) {
