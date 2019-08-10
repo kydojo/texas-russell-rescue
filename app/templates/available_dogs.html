@@ -39,13 +39,7 @@
 </section>
 
 <!-- Disclaimer text -->
-<div class="container container-style">
-    <!--<h2 class="title-text">Available Dogs</h2>-->
-    <div class="disclaimer-div border">Regarding dogs marked as "Owner Listing":
-        Texas Russell Rescue is not responsible and/or liable for the outcome of any adoption made through this listing as we are only providing information.
-        Texas Russell Rescue is also not responsible and is held harmless for the accuracy and reliability of the information provided within this listing.
-        Owners and adopters bear the full responsibility and liability for any dog listed.
-    </div>
+<div class="container container-style mt-30">
     <div class="row justify-content-around">
         {% for pet in pets|batch(3) %}
         {% for column in pet %}
@@ -82,6 +76,12 @@
 
         {% endfor %}
         {% endfor %}
+    </div>
+
+    <div class="disclaimer-div border mt-30 mb-30">
+        Owner Listings: Texas Russell Rescue is not responsible and/or liable for the outcome of any adoption made through this listing as we are only providing information.
+        Texas Russell Rescue is also not responsible and is held harmless for the accuracy and reliability of the information provided within this listing.
+        Owners and adopters bear the full responsibility and liability for any dog listed.
     </div>
 </div>
 

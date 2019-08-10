@@ -1,7 +1,7 @@
 
 /* General styles */
 
-html {
+body, html {
     height: 100%;
 }
 
@@ -50,6 +50,10 @@ html {
         height: auto;
         width: 350px;
     }
+
+    /*.banner-home {
+        margin-top: 70px;
+    }*/
 }
 
 @media (max-width: 1090px) {
@@ -86,6 +90,9 @@ html {
 
 
 /* Home Page */
+
+
+
 
 .card-home{
     padding:20px 10px;
