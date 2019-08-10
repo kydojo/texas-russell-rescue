@@ -4,7 +4,7 @@ from flask_login import current_user
 from wtforms import BooleanField, PasswordField, StringField, SubmitField, TextAreaField, SelectField, DateField
 from wtforms.fields.core import BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
-from app.models import User, Post, Message
+from app.models import User, HappyTailsPost, Message
 
 
 # Python classes will be converted into HTML forms. General approach
@@ -15,6 +15,7 @@ USER_ROLES=(
     ('ADMIN', 'Admin'),
     ('WEBMASTER', 'Webmaster')
 )
+
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[
                            DataRequired(), Length(min=2, max=20)])
@@ -82,6 +83,10 @@ class UpdateAccountForm(FlaskForm):
                 raise ValidationError(
                     'That email address is taken. Please choose another.')
 
+class HappyTailsForm(FlaskForm):
+    title = StringField('Post Title', validators=[DataRequired()])
+    content = TextAreaField('Content', validators=[DataRequired()])
+    submit = SubmitField('Submit Post')
 
 STATE_LIST = [
     ('TX', 'Texas'),
