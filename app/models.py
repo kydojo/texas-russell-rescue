@@ -21,6 +21,8 @@ class User(db.Model, UserMixin):
 	image_file = db.Column(db.String(20), nullable=False, default='default.jpg') # image_file attribute for profile pic, hash will have a max length of 20, default image will be set
 	password = db.Column(db.String(60), nullable=False) # password attribute, hash will have a max length of 60
 	posts = db.relationship('Post', backref='author', lazy=True) # posts attribute to connect User to the Post model
+	urole = db.Column(db.String(60)) # not technically needed anymore, but i'm going to keep it in. Could be useful for differentiating admins
+	access_level = db.Column(db.Integer) # webmaster=500, admin=100, so all other levels can be added somewhere in between
 
 	# Dunder (magic) method to define how the object will be printed out
 	def __repr__(self):
