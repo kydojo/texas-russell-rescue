@@ -2568,10 +2568,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 
 .banner-before-you-adopt {
-  background: url(../img/jr10.jpg) center;
-  background-size: cover;
-  margin-top: 80px;
-  height: 400px;
+    background: url(../img/jr10.jpg) center;
+    background-size: cover;
+    background-position: top;
+    margin-top: 80px;
+    height: 400px;
 }
 
 .banner-adoption-app {
