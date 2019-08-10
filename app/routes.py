@@ -4,7 +4,7 @@ from flask import render_template, url_for, redirect, flash, request
 from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrenderForm, AdoptionApplicationForm, HappyTailsForm
 from app import app, db, bcrypt, login_manager
 from app.pets import get_pets, get_all_pets
-from app.sender import send_application_submission_confirmation, send_contact_info, send_surrender_applicant_info
+from app.sender import send_application_submission_confirmation, send_contact_info, send_surrender_applicant_info, send_adoption_application
 from app.models import User, HappyTailsPost, Message, OwnerSurrenderApplication, AdoptionApplication
 from flask_login import login_user, logout_user, current_user
 from sqlalchemy import desc
@@ -160,6 +160,10 @@ def adoption_application():
         )
         db.session.add(application)
         db.session.commit()
+        send_adoption_application(
+            form, "d-eb6b1f21737c4b0fa5b014bcf99e1d80")
+        send_application_submission_confirmation(
+            form.email.data, "texasrussell@test.com", "", "d-21bc2284cfb946ed8f0f5da52af20abf")
         return redirect(url_for('index'))
     return render_template('adoption_app.html', title='Adoption Application', form=form)
 
