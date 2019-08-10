@@ -295,7 +295,7 @@ def register():
     if form.validate_on_submit():
         hashed_pw = bcrypt.generate_password_hash(
             form.password.data).decode('utf-8')
-        
+
         user = User(username=form.username.data,
                     email=form.email.data,
                     urole=form.urole.data,
@@ -307,6 +307,23 @@ def register():
         flash(f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+
+@app.route("/manage_admins", methods=['GET', 'POST'])
+@login_required(WEBMASTER)
+def manage_admins():
+    users = User.query.all()
+    return render_template('manage_admins.html', title='Manage Admins', users=users)
+
+
+@app.route("/manage_admins/<user_id>", methods=['GET', 'POST'])
+@login_required(WEBMASTER)
+def manage_admin_users(user_id):
+    if request.method == 'POST':
+        User.query.filter_by(id=user_id).delete()
+        print("Deleted user_id: ", user_id)
+        users = User.query.all()
+        return render_template('manage_admins.html', title='Manage Admins', users=users)
 
 
 @app.route("/login", methods=['GET', 'POST'])
