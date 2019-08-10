@@ -23,8 +23,8 @@ from sqlalchemy import desc
 #     return wrapper
 
 # Global vars for tiered access levels
-ADMIN = 500
-WEBMASTER = 100
+WEBMASTER = 500
+ADMIN = 100
 
 
 def login_required(level):
