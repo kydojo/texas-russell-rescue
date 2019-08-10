@@ -16,13 +16,15 @@ class User(db.Model, UserMixin):
 	id = db.Column(db.Integer, autoincrement=True, primary_key=True) # create the user id attribute and set it to the PK for the db
 	username = db.Column(db.String(20), unique=True, nullable=False) # username attribute, string with max length of 20, unique, not null
 	email = db.Column(db.String(120), unique=True, nullable=False) # email attribute, string with max length of 120, unique, not null
+	urole = db.Column(db.String(20), nullable=False)
+	access_level = db.Column(db.Integer, nullable=False)
 	image_file = db.Column(db.String(20), nullable=False, default='default.jpg') # image_file attribute for profile pic, hash will have a max length of 20, default image will be set
 	password = db.Column(db.String(60), nullable=False) # password attribute, hash will have a max length of 60
 	posts = db.relationship('Post', backref='author', lazy=True) # posts attribute to connect User to the Post model
 
 	# Dunder (magic) method to define how the object will be printed out
 	def __repr__(self):
-		return f"User('{self.username}', '{self.email}', '{self.image_file}')"
+		return f"User('{self.username}', '{self.email}', '{self.urole}')"
 
 
 # Post class, inherits from db.Model
