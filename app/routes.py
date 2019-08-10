@@ -9,19 +9,6 @@ from app.models import User, Post, Message, OwnerSurrenderApplication, AdoptionA
 from flask_login import login_user, logout_user, current_user
 from sqlalchemy import desc
 
-# add multiple tiers of login levels
-# def login_required(role="ANY"):
-#     def wrapper(fn):
-#         @wraps(fn)
-#         def decorated_view(*args, **kwargs):
-#             if not current_user.is_authenticated:
-#               return login_manager.unauthorized()
-#             if ((current_user.urole != role) and (role != "ANY")):
-#                 return login_manager.unauthorized()
-#             return fn(*args, **kwargs)
-#         return decorated_view
-#     return wrapper
-
 # Global vars for tiered access levels
 WEBMASTER = 500
 ADMIN = 100
