@@ -20,7 +20,7 @@ class User(db.Model, UserMixin):
 	access_level = db.Column(db.Integer, nullable=False)
 	image_file = db.Column(db.String(20), nullable=False, default='default.jpg') # image_file attribute for profile pic, hash will have a max length of 20, default image will be set
 	password = db.Column(db.String(60), nullable=False) # password attribute, hash will have a max length of 60
-	posts = db.relationship('Post', backref='author', lazy=True) # posts attribute to connect User to the Post model
+	# posts = db.relationship('HappyTailsPost', backref='author', lazy=True) # posts attribute to connect User to the Post model
 	urole = db.Column(db.String(60)) # not technically needed anymore, but i'm going to keep it in. Could be useful for differentiating admins
 	access_level = db.Column(db.Integer) # webmaster=500, admin=100, so all other levels can be added somewhere in between
 
@@ -30,16 +30,16 @@ class User(db.Model, UserMixin):
 
 
 # Post class, inherits from db.Model
-class Post(db.Model):
-	id = db.Column(db.Integer, autoincrement=True, primary_key=True) # create the user id attribute and set it to the PK for the db
+class HappyTailsPost(db.Model):
+	id = db.Column(db.Integer, autoincrement=True, primary_key=True)
 	title = db.Column(db.String(100), nullable=False) # title attribute, string with a max length of 100, not null
 	date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow) # date_posted attribute, DateTime, set the default to the time posted unless set
 	content = db.Column(db.Text, nullable=False) # content attribute, text content of the post
-	user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False) # user_id attribute, FK is the author's user.id (from the User model)
+	# user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False) # user_id attribute, FK is the author's user.id (from the User model)
 
 	# Dunder (magic) method to define how the object will be printed out
 	def __repr__(self):
-		return f"Post('{self.title}', '{self.date_posted}')"
+		return f"HappyTailsPost('{self.title}', '{self.date_posted}')"
 
 # Message class, inherits from db.Model
 class Message(db.Model):

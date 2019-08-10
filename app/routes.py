@@ -1,11 +1,11 @@
 
 from functools import wraps
 from flask import render_template, url_for, redirect, flash, request
-from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrenderForm, AdoptionApplicationForm
+from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrenderForm, AdoptionApplicationForm, HappyTailsForm
 from app import app, db, bcrypt, login_manager
 from app.pets import get_pets, get_all_pets
 from app.sender import send_application_submission_confirmation, send_contact_info, send_surrender_applicant_info
-from app.models import User, Post, Message, OwnerSurrenderApplication, AdoptionApplication
+from app.models import User, HappyTailsPost, Message, OwnerSurrenderApplication, AdoptionApplication
 from flask_login import login_user, logout_user, current_user
 from sqlalchemy import desc
 
@@ -195,9 +195,25 @@ def spotlight_terriers():
     return render_template('spotlight_terriers.html', title='Spotlight Terriers')
 
 
-@app.route("/happy_tails")
+@app.route("/happy_tails", methods=['GET'])
 def happy_tails():
-    return render_template('happy_tails.html', title='Happy Tails')
+    posts = HappyTailsPost.query.order_by(
+        desc(HappyTailsPost.date_posted)).all()
+    return render_template('happy_tails.html', title='Happy Tails', posts=posts)
+
+
+@app.route("/happy_tails_post", methods=['GET', 'POST'])
+def happy_tails_post():
+    form = HappyTailsForm()
+    if form.validate_on_submit():
+        post = HappyTailsPost(
+            title=form.title.data,
+            content=form.content.data
+        )
+        db.session.add(post)
+        db.session.commit()
+        return redirect(url_for('happy_tails'))
+    return render_template('happy_tails_post.html', title='New Happy Tails Post', form=form)
 
 
 @app.route("/surrender")
