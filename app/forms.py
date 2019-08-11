@@ -4,22 +4,27 @@ from flask_login import current_user
 from wtforms import BooleanField, PasswordField, StringField, SubmitField, TextAreaField, SelectField, DateField
 from wtforms.fields.core import BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
-from app.models import User, Post, Message
+from app.models import User, HappyTailsPost, Message
 
 
 # Python classes will be converted into HTML forms. General approach
 # adapted from Corey Schafer's Flask tutorial series:
 # https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=1
 
-# Registration form class that inherits from FlaskForm
+USER_ROLES=(
+    ('ADMIN', 'Admin'),
+    ('WEBMASTER', 'Webmaster')
+)
+
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[
                            DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
+    urole = SelectField('User Role', choices=USER_ROLES, validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField(
         'Confirm Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Sign Up')
+    submit = SubmitField('Add User')
 
     # Custom validation function template
     def validate_field(self, field):
@@ -78,6 +83,10 @@ class UpdateAccountForm(FlaskForm):
                 raise ValidationError(
                     'That email address is taken. Please choose another.')
 
+class HappyTailsForm(FlaskForm):
+    title = StringField('Post Title', validators=[DataRequired()])
+    content = TextAreaField('Content', validators=[DataRequired()])
+    submit = SubmitField('Submit Post')
 
 STATE_LIST = [
     ('TX', 'Texas'),

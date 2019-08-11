@@ -1,12 +1,30 @@
 
+from functools import wraps
 from flask import render_template, url_for, redirect, flash, request
-from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrenderForm, AdoptionApplicationForm
-from app import app, db, bcrypt
+from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrenderForm, AdoptionApplicationForm, HappyTailsForm
+from app import app, db, bcrypt, login_manager
 from app.pets import get_pets, get_all_pets
-from app.sender import send_application_submission_confirmation, send_contact_info, send_surrender_applicant_info
-from app.models import User, Post, Message, OwnerSurrenderApplication, AdoptionApplication
-from flask_login import login_user, logout_user, current_user, login_required
+from app.sender import send_application_submission_confirmation, send_contact_info, send_surrender_applicant_info, send_adoption_application
+from app.models import User, HappyTailsPost, Message, OwnerSurrenderApplication, AdoptionApplication
+from flask_login import login_user, logout_user, current_user
 from sqlalchemy import desc
+
+# Global vars for tiered access levels
+WEBMASTER = 500
+ADMIN = 100
+
+
+def login_required(level):
+    def wrapper(fn):
+        @wraps(fn)
+        def decorated_view(*args, **kwargs):
+            if not current_user.is_authenticated:
+                return login_manager.unauthorized()
+            if current_user.access_level < level:
+                return login_manager.unauthorized()
+            return fn(*args, **kwargs)
+        return decorated_view
+    return wrapper
 
 
 @app.route("/home")
@@ -14,6 +32,18 @@ from sqlalchemy import desc
 @app.route("/")
 def index():
     return render_template('index.html', title='Home')
+
+
+@app.route("/test0")
+@login_required(ADMIN)
+def test0():
+    return render_template('about.html', title='About')
+
+
+@app.route("/test1")
+@login_required(ADMIN)
+def test1():
+    return render_template('about.html', title='About')
 
 
 @app.route("/about")
@@ -120,7 +150,7 @@ def adoption_application():
             vet_zip=form.vet_zip.data,
             vet_phone=form.vet_phone.data,
             last_vet_visit_date=form.last_vet_visit_date.data,
-            
+
             how_learned_about_us=form.how_learned_about_us.data,
             if_other=form.if_other.data,
             reference_name=form.reference_name.data,
@@ -130,12 +160,16 @@ def adoption_application():
         )
         db.session.add(application)
         db.session.commit()
+        send_adoption_application(
+            form, "d-eb6b1f21737c4b0fa5b014bcf99e1d80")
+        send_application_submission_confirmation(
+            form.email.data, "texasrussell@test.com", "", "d-21bc2284cfb946ed8f0f5da52af20abf")
         return redirect(url_for('index'))
     return render_template('adoption_app.html', title='Adoption Application', form=form)
 
 
 @app.route("/adoption_app_inbox", methods=['GET'])
-@login_required
+@login_required(ADMIN)
 def application_inbox():
     applications = AdoptionApplication.query.order_by(
         desc(AdoptionApplication.date_sent)).all()
@@ -165,9 +199,25 @@ def spotlight_terriers():
     return render_template('spotlight_terriers.html', title='Spotlight Terriers')
 
 
-@app.route("/happy_tails")
+@app.route("/happy_tails", methods=['GET'])
 def happy_tails():
-    return render_template('happy_tails.html', title='Happy Tails')
+    posts = HappyTailsPost.query.order_by(
+        desc(HappyTailsPost.date_posted)).all()
+    return render_template('happy_tails.html', title='Happy Tails', posts=posts)
+
+
+@app.route("/happy_tails_post", methods=['GET', 'POST'])
+def happy_tails_post():
+    form = HappyTailsForm()
+    if form.validate_on_submit():
+        post = HappyTailsPost(
+            title=form.title.data,
+            content=form.content.data
+        )
+        db.session.add(post)
+        db.session.commit()
+        return redirect(url_for('happy_tails'))
+    return render_template('happy_tails_post.html', title='New Happy Tails Post', form=form)
 
 
 @app.route("/surrender")
@@ -216,7 +266,7 @@ def surrender_form():
 
 
 @app.route("/surrender_inbox", methods=['GET'])
-@login_required
+@login_required(ADMIN)
 def surrender_inbox():
     applications = OwnerSurrenderApplication.query.order_by(
         desc(OwnerSurrenderApplication.date_sent)).all()
@@ -249,7 +299,7 @@ def contact():
 
 
 @app.route("/contact_inbox", methods=['GET'])
-@login_required
+@login_required(ADMIN)
 def contact_inbox():
     messages = Message.query.order_by(desc(Message.date_sent)).all()
     return render_template(
@@ -265,13 +315,35 @@ def register():
     if form.validate_on_submit():
         hashed_pw = bcrypt.generate_password_hash(
             form.password.data).decode('utf-8')
+
         user = User(username=form.username.data,
-                    email=form.email.data, password=hashed_pw)
+                    email=form.email.data,
+                    urole=form.urole.data,
+                    access_level=WEBMASTER if form.urole.data == 'WEBMASTER' else ADMIN,
+                    password=hashed_pw)
+
         db.session.add(user)
         db.session.commit()
         flash(f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+
+@app.route("/manage_admins", methods=['GET', 'POST'])
+@login_required(WEBMASTER)
+def manage_admins():
+    users = User.query.all()
+    return render_template('manage_admins.html', title='Manage Admins', users=users)
+
+
+@app.route("/manage_admins/<user_id>", methods=['GET', 'POST'])
+@login_required(WEBMASTER)
+def manage_admin_users(user_id):
+    if request.method == 'POST':
+        User.query.filter_by(id=user_id).delete()
+        print("Deleted user_id: ", user_id)
+        users = User.query.all()
+        return render_template('manage_admins.html', title='Manage Admins', users=users)
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -303,18 +375,18 @@ def logout():
 
 
 @app.route("/account")
-@login_required
+@login_required(ADMIN)
 def account():
     return render_template('account.html', title='Account')
 
 
 @app.route("/admin")
-@login_required
+@login_required(ADMIN)
 def admin():
     return render_template('admin.html', title='Admin Dashboard')
 
 
 @app.route("/webmaster")
-@login_required
+@login_required(ADMIN)
 def webmaster():
     return render_template('webmaster.html', title='Webmaster Dashboard')

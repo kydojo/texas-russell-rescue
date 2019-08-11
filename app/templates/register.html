@@ -1,10 +1,15 @@
 {% extends "layout.html" %}
 {% block content %}
+<p></p>
+<br>
+<p>
 	<div class="content-section w-50 p-3">
+		<p></p>
+	<br>
 		<form action="" method="POST">
 			{{ form.hidden_tag() }} 
 			<fieldset class="form-group">
-				<legend class="border-bottom mb-4">Join Today</legend>
+				<legend class="border-bottom mb-4">Add New User</legend>
 				<div class="form-group">
 					{{ form.username.label(class="form-control-label") }}
 
@@ -32,6 +37,20 @@
 						</div>
 					{% else %}
 						{{ form.email(class="form-control form-control-md") }}
+					{% endif %}
+				</div>
+				<div class="form-group">
+					{{ form.urole.label(class="form-control-label") }}
+					<!-- If the form has errors, print the error -->
+					{% if form.urole.errors %}
+						{{ form.urole(class="form-control form-control-md is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.urole.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.urole(class="form-control form-control-md") }}
 					{% endif %}
 				</div>
 				<div class="form-group">
@@ -73,4 +92,5 @@
 			Already have an account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>	
 		</small>
 	</div>
+</p>
 {% endblock content %}

@@ -9,30 +9,28 @@
 {% endblock %}
 {% block content %}
 
-    <section class="banner-area relative banner-general banner-happy-tails">
-        <div class="container">
-            <div class="overlay overlay-bg"></div>
-            <div class="row fullscreen d-flex justify-content-start" style="0px">
-                <div class="banner-content col-lg-8 col-md-12">
-                     <!--<a><img class="banner-logo" src="../static/img/LOGO2.png" alt="" title="" /></a>-->
-                    <p class="text-white sub-head banner-lg-font">
-                        Happy Tails
-                    </p>
-                    <!--<a href="#" class="primary-btn header-btn text-uppercase no-decoration">Find a pet to adopt</a>-->
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="banner-area relative banner-general banner-happy-tails">
+      <div class="container">
+          <div class="overlay overlay-bg"></div>
+          <div class="row fullscreen d-flex justify-content-start" style="0px">
+              <div class="banner-content col-lg-8 col-md-12">
+                    <!--<a><img class="banner-logo" src="../static/img/LOGO2.png" alt="" title="" /></a>-->
+                  <p class="text-white sub-head banner-lg-font">
+                      Happy Tails
+                  </p>
+                  <!--<a href="#" class="primary-btn header-btn text-uppercase no-decoration">Find a pet to adopt</a>-->
+              </div>
+          </div>
+      </div>
+  </section>
 
-
-<h1>Happy Tails</h1>
-  <p>Happy Tails page content will go here.</p>
-
-  <!-- Load in list of post objects passed by @app.route("/happy_tails") and display -->
-  {% for post in posts %}
-    <h2>{{ post.title }}</h2>
-    <p>By {{ post.author }}</p>
-    <p>{{ post.content }}</p>
-    <br>
-  {% endfor %}
+  <div class="col-md-8 mt-120">
+      {% for post in posts %}
+            <p></p>
+            <h4>{{ post.title }}</h4>
+            <p>{{ post.content }}</p>
+            <br>
+            <hr>
+      {% endfor %}
+  </div>
 {% endblock %}

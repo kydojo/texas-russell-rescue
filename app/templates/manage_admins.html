@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}Admins{% endblock %}
+{% block content %} 
+  <div class="col-md-8 mt-120">
+    <h4>Admins</h4>
+    <hr>
+    {% for a in users %}
+        <p></p>
+        <h4>{{ a.email }}</h4>
+        <P>
+		    <form action="/manage_admins/{{ a.id }}" method="POST">
+                <button type="submit" class="btn btn-outline-primary">Delete</button>
+            </form>
+        </P>
+        <br>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}
