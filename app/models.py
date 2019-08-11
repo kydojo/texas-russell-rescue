@@ -172,3 +172,150 @@ class AdoptionApplication(db.Model):
 
 	def __repr__(self):
 		return f"Message('Dog: {self.terrier_name}', 'Applicant: {self.first_name}', '{self.city}', '{self.date_sent}')"
+
+
+class VolunteerApplication(db.Model):
+	id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+	
+	# Section 1 - Your Information:
+	first_name = db.Column(db.String(60), nullable=False)
+	last_name = db.Column(db.String(60), nullable=False)
+	email = db.Column(EmailType, nullable=False)
+	home_phone = db.Column(db.String(20))
+	cell_phone = db.Column(db.String(20))
+	work_phone = db.Column(db.String(20))
+	best_time_to_call = db.Column(db.String(10))
+	street_address = db.Column(db.String(120), nullable=False)
+	city = db.Column(db.String(60), nullable=False)
+	state = db.Column(db.String(2), nullable=False)
+	zip_code = db.Column(db.String(15), nullable=False)
+
+    # Section 2 - How would you like to help? (Check all that apply.)
+	foster_home = db.Column(db.Boolean, default=False)
+	adoption_screen_or_counseling = db.Column(db.Boolean, default=False)
+	transport_dogs = db.Column(db.Boolean, default=False)
+	behavior_counseling = db.Column(db.Boolean, default=False)
+	fundraising = db.Column(db.Boolean, default=False)
+	home_visits = db.Column(db.Boolean, default=False)
+	staff_booths_info_centers = db.Column(db.Boolean, default=False) # (table at trials, pet expos, etc.)
+	shelter_contact = db.Column(db.Boolean, default=False)
+	web_or_social_media = db.Column(db.Boolean, default=False)
+	other_role = db.Column(db.String(200))
+
+	# Section 3 - Experience and Schedule:
+	volunteer_experience = db.Column(db.Text)
+	dog_handling_experience  = db.Column(db.Text)
+
+	# hours_can_volunteer
+	schedule_flexibility = db.Column(db.Text, nullable=False)
+	availability = db.Column(db.Text, nullable=False)
+	ok_call_at_work = db.Column(db.String(3), nullable=False)
+
+	# # Section 4 - Your Home
+	owns_cats = db.Column(db.String(3), nullable=False)
+	num_cats = db.Column(db.String(3))
+	owns_dogs = db.Column(db.String(3), nullable=False)
+	num_dogs = db.Column(db.String(3))
+	dog_descriptions = db.Column(db.Text)
+	pets_spayed_neutered = db.Column(db.String(3))
+
+	is_breeder = db.Column(db.String(3), nullable=False)
+	litters_per_year = db.Column(db.String(120))
+
+	children_in_home = db.Column(db.String(3), nullable=False)
+	children_dog_contact_frequency = db.Column(db.String(200))
+	children_age = db.Column(db.String(200))
+
+	# Section 5 - Your Vet
+	has_regular_vet = db.Column(db.String(3), nullable=False)
+	vet_clinic_name = db.Column(db.String(60))
+	doctor_name = db.Column(db.String(120))
+	vet_street_address = db.Column(db.String(120))
+	vet_city = db.Column(db.String(60))
+	vet_state = db.Column(db.String(2))
+	vet_zip = db.Column(db.String(15))
+	vet_phone = db.Column(db.String(20))
+
+	# # Section 6 - Your Opinions/Preferences
+	feelings_about_rescue = db.Column(db.Text, nullable=False)
+	euthanasia_feelings = db.Column(db.Text, nullable=False)
+	euthanasia_circumstances = db.Column(db.Text, nullable=False)
+
+	# Are you willing to handle and/or evaluate the following? (check all that apply)*
+	sick_dogs = db.Column(db.Boolean, default=False)
+	pregnant_females = db.Column(db.Boolean, default=False)
+	unstable_dogs = db.Column(db.Boolean, default=False)
+	females_in_heat = db.Column(db.Boolean, default=False)
+	dog_aggressive_dogs = db.Column(db.Boolean, default=False)
+	intact_dogs = db.Column(db.Boolean, default=False)
+	no_children_dogs = db.Column(db.Boolean, default=False)
+	geriatric_dogs = db.Column(db.Boolean, default=False)
+	dogs_not_potty_trained = db.Column(db.Boolean, default=False)
+	hyper_dogs = db.Column(db.Boolean, default=False)
+	escape_artists = db.Column(db.Boolean, default=False)
+	other_handling_preferences = db.Column(db.Text)
+
+	# # Section 7 - References
+	first_reference_name = db.Column(db.String(120), nullable=False)
+	first_reference_relationship = db.Column(db.String(120), nullable=False)
+	first_reference_phone = db.Column(db.String(20), nullable=False)
+	second_reference_name = db.Column(db.String(120))
+	second_reference_relationship = db.Column(db.String(120))
+	second_reference_phone = db.Column(db.String(20))
+	additional_comments = db.Column(db.Text)
+
+	# Section 8 - Volunteer Waiver
+	volunteer_waiver_agreement = db.Column(db.Boolean, default=False)
+
+	# Section 9 - Foster Home Application
+	# Please skip Section 9 and 10 if you are not applying to foster.
+	has_crate = db.Column(db.String(3), nullable=False)
+	has_fenced_yard = db.Column(db.String(3), nullable=False)
+	has_kennel = db.Column(db.String(3), nullable=False)
+	fence_kennel_description = db.Column(db.Text)
+	housing_type = db.Column(db.String(15))
+	housing_type_if_other = db.Column(db.String(60))
+	rent_or_own = db.Column(db.String(5))
+	how_long_at_address = db.Column(db.String(30), nullable=False)
+
+
+	# # Where will the foster dog be housed during the day (check all that apply)?
+	inside_crated = db.Column(db.Boolean, default=False)
+	outdoors_loose = db.Column(db.Boolean, default=False)
+	inside_loose = db.Column(db.String(120), default=False)
+	outdoors_kenneled = db.Column(db.Boolean, default=False)
+	garage = db.Column(db.Boolean, default=False)
+	barn = db.Column(db.Boolean, default=False)
+	other_dog_housing = db.Column(db.Text)
+
+	# Where will the foster dog be kept when unsupervised or when left alone? (Check all that apply)
+	unsupervised_inside_crated = db.Column(db.Boolean, default=False)
+	unsupervised_outdoors_loose = db.Column(db.Boolean, default=False)
+	unsupervised_inside_loose = db.Column(db.String(120), default=False) 
+	unsupervised_outdoors_kenneled = db.Column(db.Boolean, default=False)
+	unsupervised_garage = db.Column(db.Boolean, default=False)
+	unsupervised_barn = db.Column(db.Boolean, default=False)
+	unsupervised_other = db.Column(db.Text)
+
+	# Where will the foster dog sleep? (Check all that apply)
+	sleep_inside_crated = db.Column(db.Boolean, default=False)
+	sleep_outdoors_loose = db.Column(db.Boolean, default=False)
+	sleep_inside_loose = db.Column(db.String(120), default=False)
+	sleep_outdoors_kenneled = db.Column(db.Boolean, default=False)
+	sleep_garage = db.Column(db.Boolean, default=False)
+	sleep_barn = db.Column(db.Boolean, default=False)
+	sleep_other = db.Column(db.Text)
+
+	knows_lack_of_med_historyhas_kennel = db.Column(db.String(3), nullable=False)
+	accepts_liabilityhas_kennel = db.Column(db.String(3), nullable=False)
+	will_travel_to_pick_up_fosterhas_kennel = db.Column(db.String(3), nullable=False)
+	distance_willing_to_travel = db.Column(db.String(40), nullable=False)
+	travel_or_open_home_for_adoptershas_kennel = db.Column(db.String(3), nullable=False)
+	aware_foster_is_indefinitehas_kennel = db.Column(db.String(3), nullable=False)
+	will_take_to_vet_if_neededhas_kennel = db.Column(db.String(3), nullable=False)
+
+	# Section 10 - Foster Home Application Waiver
+	foster_waiver_agreement = db.Column(db.Boolean, default=False)
+
+	def __repr__(self):
+		return f"Message('Applicant: {self.first_name}', '{self.city}', '{self.date_sent}')"
