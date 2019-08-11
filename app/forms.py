@@ -474,7 +474,7 @@ class VolunteerForm(FlaskForm):
     # sick_dogs
     # pregnant_females
     # unstable_dogs
-    # females_in_hear
+    # females_in_heat
     # dog_aggressive_dogs
     # intact_dogs
     # no_children_dogs
