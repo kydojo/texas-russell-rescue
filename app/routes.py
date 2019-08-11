@@ -203,6 +203,7 @@ def happy_tails():
 
 
 @app.route("/happy_tails_post", methods=['GET', 'POST'])
+@login_required(WEBMASTER)
 def happy_tails_post():
     form = HappyTailsForm()
     if form.validate_on_submit():
@@ -304,6 +305,7 @@ def contact_inbox():
 
 
 @app.route("/register", methods=['GET', 'POST'])
+@login_required(ADMIN)
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
