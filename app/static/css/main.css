@@ -2659,18 +2659,25 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-donate {
-  background: url(../img/jr27.jpg) center;
-  background-size: cover;
-  background-position: bottom;
-  margin-top: 80px;
-  height: 400px;
+    background: url(../img/jr27.jpg) center;
+    background-size: cover;
+    background-position: bottom;
+    margin-top: 70px;
+    height: 400px;
 }
 
 .banner-volunteer {
-  background: url(../img/jr7.jpg) center;
-  background-size: cover;
-  margin-top: 80px;
-  height: 400px;
+    background: url(../img/volunteer_collage2.png) center;
+    background-size: cover;
+    background-position: bottom;
+    margin-top: 70px;
+    height: 400px;
+}
+
+@media (min-width: 1150px) {
+    .banner-volunteer-content {
+        margin-top: 7% !important;
+    }
 }
 
 .banner-volunteer-form {
@@ -2678,6 +2685,10 @@ body.mobile-nav-active #mobile-nav-toggle {
   background-size: cover;
   margin-top: 80px;
   height: 400px;
+}
+
+.quotation {
+    color: rgba(210,35,42, 0.3) !important;
 }
 
 .banner-meet-our-volunteers {
