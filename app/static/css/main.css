@@ -245,6 +245,10 @@ td, th {
   font-style: italic;
 }
 
+.mt-5 {
+  margin-top: 5px;
+}
+
 .mt-5-i {
   margin-top: 5px !important;
 }
@@ -2687,9 +2691,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   height: 400px;
 }
 
-.quotation {
-    color: rgba(210,35,42, 0.3) !important;
-}
+
 
 .banner-meet-our-volunteers {
   background: url(../img/jr_coats.jpg) center;
