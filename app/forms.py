@@ -464,85 +464,83 @@ class VolunteerForm(FlaskForm):
     vet_phone = StringField('Vet Phone Number', validators=[Length(max=20)])
 
     # Section 6 - Your Opinions/Preferences
-    feelings_about_rescue
-    euthanasia_feelings
-    euthanasia_circumstances
+    feelings_about_rescue = TextAreaField('Please describe your feelings about what rescue is', validators=[DataRequired()])
+    euthanasia_feelings = TextAreaField('How would you feel if you had to recommend euthanasia of a Jack Russell Terrier?', validators=[DataRequired()])
+    euthanasia_circumstances = TextAreaField('Under what circumstances could you see yourself recommending euthanasia?', validators=[DataRequired()])
 
-    # # Are you willing to handle and/or evaluate the following? (check all that apply)*
-    # sick_dogs
-    # pregnant_females
-    # unstable_dogs
-    # females_in_heat
-    # dog_aggressive_dogs
-    # intact_dogs
-    # no_children_dogs
-    # geriatric_dogs
-    # dogs_not_potty_trained
-    # hyper_dogs
-    # escape_artists 
-    # other_handling_preferences
+    # Are you willing to handle and/or evaluate the following? (check all that apply)*
+    sick_dogs = BooleanField('Sick dogs')
+    pregnant_females = BooleanField('Pregnant females')
+    unstable_dogs = BooleanField('Dogs deemed mentally unstable')
+    females_in_heat = BooleanField('Females in heat')
+    dog_aggressive_dogs = BooleanField('Dog-aggressive dogs')
+    intact_dogs = BooleanField('Intact dogs (until spay or neuter can be arranged)')
+    no_children_dogs = BooleanField('Dogs that don\'t like children')
+    geriatric_dogs = BooleanField('Geriatric dogs')
+    dogs_not_potty_trained = BooleanField('Dogs that are not housebroken or crate trained')
+    hyper_dogs = BooleanField('Extremely hyper dogs')
+    escape_artists = BooleanField('Escape artists')
+    other_handling_preferences = TextAreaField('Please list anything else you are or are not willing/able to work with')
 
-    # # Section 7 - References
-    first_reference_name = StringField('Reference Name', validators=[DataRequired(), Length(max=120)])
+    # Section 7 - References
+    first_reference_name = StringField('First Reference Name', validators=[DataRequired(), Length(max=120)])
     first_reference_relationship = StringField('Relationship', validators=[DataRequired(), Length(max=120)])
-    first_reference_phone = StringField('Reference Phone Number', validators=[DataRequired(), Length(max=20)])
-    second_reference_name = StringField('Reference Name', validators=[DataRequired(), Length(max=120)])
-    second_reference_relationship = StringField('Relationship', validators=[DataRequired(), Length(max=120)])
-    second_reference_phone = StringField('Reference Phone Number', validators=[DataRequired(), Length(max=20)])
-    # additional_comments 
+    first_reference_phone = StringField('First Reference Phone Number', validators=[DataRequired(), Length(max=20)])
+    second_reference_name = StringField('Second Reference Name', validators=[Length(max=120)])
+    second_reference_relationship = StringField('Relationship', validators=[Length(max=120)])
+    second_reference_phone = StringField('Second Reference Phone Number', validators=[Length(max=20)])
+    additional_comments = TextAreaField('Please provide any additional comments that you might have')
 
-    # # Section 8 - Volunteer Waiver
-    # volunteer_waiver_agreement
+    # Section 8 - Volunteer Waiver
+    volunteer_waiver_agreement = BooleanField('I Agree', validators=[DataRequired()])
 
-    # # Section 9 - Foster Home Application
-    # # Please skip Section 9 and 10 if you are not applying to foster.
-
-    # has_crate  
-    # has_fenced_yard
-    # has_kennel
-    # fence_kennel_description
-    housing_type = SelectField('I (we) live in a', choices=HOUSING_TYPE_LIST, validators=[DataRequired()])
-    housing_type_if_other = StringField('Housing type if you chose other', validators=[Length(max=60)])
+    # Section 9 - Foster Home Application
+    # Please skip Section 9 and 10 if you are not applying to foster.
+    has_crate = SelectField('Do you have a dog crate?', choices=YES_NO)
+    has_fenced_yard = SelectField('Do you have a fenced yard?', choices=YES_NO)
+    has_kennel = SelectField('Do you have a kennel run?', choices=YES_NO)
+    fence_kennel_description = TextAreaField('Describe fence and/or kennel run (type, height, size)')
     rent_or_own = SelectField('Do you own or rent your home?', choices=RENT_OR_OWN, validators=[DataRequired()])
+    housing_type = SelectField('What type of home do you live in?', choices=HOUSING_TYPE_LIST, validators=[DataRequired()])
+    housing_type_if_other = StringField('Housing type if you chose other', validators=[Length(max=60)])
     how_long_at_address = StringField('How long have you lived at this address?', validators=[DataRequired(), Length(max=30)])
 
+    # Where will the foster dog be housed during the day (check all that apply)?
+    inside_crated = BooleanField('Inside crated')
+    outdoors_loose = BooleanField('Outdoors loose (in fenced area only)')
+    inside_loose = StringField('Inside loose (describe location)',  validators=[Length(max=120)]) 
+    outdoors_kenneled = BooleanField('Outdoors kenneled')
+    garage = BooleanField('Garage')
+    barn = BooleanField('Barn')
+    other_dog_housing = TextAreaField('Other (if other please explain)')
 
-    # # Where will the foster dog be housed during the day (check all that apply)?
-    # inside_crated
-    # outdoors_loose
-    # inside_loose   
-    # outdoors_kenneled
-    # garage
-    # barn
-    # other_dog_housing
+    # Where will the foster dog be kept when unsupervised or when left alone? (Check all that apply)
+    unsupervised_inside_crated = BooleanField('Inside crated')
+    unsupervised_outdoors_loose = BooleanField('Outdoors loose (in fenced area only)')
+    unsupervised_inside_loose = StringField('Inside loose (describe location)',  validators=[Length(max=120)]) 
+    unsupervised_outdoors_kenneled = BooleanField('Outdoors kenneled')
+    unsupervised_garage = BooleanField('Garage')
+    unsupervised_barn = BooleanField('Barn')
+    unsupervised_other = TextAreaField('Other (if other please explain)')
 
-    # # Where will the foster dog be kept when unsupervised or when left alone? (Check all that apply)
-    # unsupervised_inside_crated
-    # unsupervised_outdoors_loose
-    # unsupervised_inside_loose   
-    # unsupervised_outdoors_kenneled
-    # unsupervised_garage
-    # unsupervised_barn
-    # unsupervised_other
+    # Where will the foster dog sleep? (Check all that apply)
+    sleep_inside_crated = BooleanField('Inside crated')
+    sleep_outdoors_loose = BooleanField('Outdoors loose (in fenced area only)')
+    sleep_inside_loose = StringField('Inside loose (describe location)',  validators=[Length(max=120)]) 
+    sleep_outdoors_kenneled = BooleanField('Outdoors kenneled')
+    sleep_garage = BooleanField('Garage')
+    sleep_barn = BooleanField('Barn')
+    sleep_other = TextAreaField('Other (if other please explain)')
 
-    # # Where will the foster dog sleep? (Check all that apply)
-    # sleep_inside_crated
-    # sleep_outdoors_loose
-    # sleep_inside_loose   
-    # sleep_outdoors_kenneled
-    # sleep_garage
-    # sleep_barn
-    # sleep_other
+    knows_lack_of_med_history = SelectField('Did you know that most foster dogs have no medical and behavior history?', choices=YES_NO)
+    accepts_liability = SelectField('Are you willing to accept all responsibility and liability of a foster dog\'s actions on or off your property while in your care?', choices=YES_NO)
+    will_travel_to_pick_up_foster = SelectField('Are you willing to travel to pick up a foster dog?', choices=YES_NO)
+    distance_willing_to_travel = StringField('Distance you are willing to travel (round trip in hours)',  validators=[Length(max=40), DataRequired()])
+    travel_or_open_home_for_adopters = SelectField('Are you willing to travel and/or open your home for potential adopters to visit the dog?', choices=YES_NO)
+    aware_foster_is_indefinite = SelectField('Are you aware that a foster dog may be in your home for an indefinite period of time?', choices=YES_NO)
+    will_take_to_vet_if_needed = SelectField('Are you willing to transport the foster dog to the vet if it is required?', choices=YES_NO)
 
-    # knows_lack_of_med_history
-    # accepts_liability
-    # will_travel_to_pick_up_foster
-    # distance_willing_to_travel
-    # travel_or_open_home_for_adopters
-    # aware_foster_is_indefinite
-    # will_take_to_vet_if_needed
+    # Section 10 - Foster Home Application Waiver
+    foster_waiver_agreement = BooleanField('I Agree', validators=[DataRequired()])
 
-    # # Section 10 - Foster Home Application Waiver
-    # foster_waiver_agreement
-
-    # submit = SubmitField('Submit Application')
+    submit = SubmitField('Submit Application')

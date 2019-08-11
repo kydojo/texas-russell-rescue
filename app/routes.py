@@ -63,139 +63,139 @@ def volunteer_form():
         application = VolunteerApplication(
             # Section 1 - Your Information:
             first_name=form.first_name.data,
-            last_name=form.last_name.data
-            email=form.email.data
-            home_phone=form.home_phone.data
-            cell_phone=form.cell_phone.data
-            work_phone=form.work_phone.data
-            best_time_to_call=form.best_time_to_call.data
-            street_address=form.street_address.data
-            city=form.city.data
-            state=form.state.data
-            zip_code=form.zip_code.data
+            last_name=form.last_name.data,
+            email=form.email.data,
+            home_phone=form.home_phone.data,
+            cell_phone=form.cell_phone.data,
+            work_phone=form.work_phone.data,
+            best_time_to_call=form.best_time_to_call.data,
+            street_address=form.street_address.data,
+            city=form.city.data,
+            state=form.state.data,
+            zip_code=form.zip_code.data,
 
             # Section 2 - How would you like to help? (Check all that apply.)
-            foster_home=form.foster_home.data
-            adoption_screen_or_counseling=form.adoption_screen_or_counseling.data
-            transport_dogs=form.transport_dogs.data
-            behavior_counseling=form.behavior_counseling.data
-            fundraising=form.fundraising.data
-            home_visits=form.home_visits.data
-            staff_booths_info_centers=form.staff_booths_info_centers.data # (table at trials, pet expos, etc.)
-            shelter_contact=form.shelter_contact.data
-            web_or_social_media=form.web_or_social_media.data
-            other_role=form.other_role.data
+            foster_home=form.foster_home.data,
+            adoption_screen_or_counseling=form.adoption_screen_or_counseling.data,
+            transport_dogs=form.transport_dogs.data,
+            behavior_counseling=form.behavior_counseling.data,
+            fundraising=form.fundraising.data,
+            home_visits=form.home_visits.data,
+            staff_booths_info_centers=form.staff_booths_info_centers.data, # (table at trials, pet expos, etc.)
+            shelter_contact=form.shelter_contact.data,
+            web_or_social_media=form.web_or_social_media.data,
+            other_role=form.other_role.data,
 
             # Section 3 - Experience and Schedule:
-            volunteer_experience=form.volunteer_experience.data
-            dog_handling_experience=form.dog_handling_experience.data
+            volunteer_experience=form.volunteer_experience.data,
+            dog_handling_experience=form.dog_handling_experience.data,
 
-            hours_can_volunteer=form.hours_can_volunteer.data
-            schedule_flexibility=form.schedule_flexibility.data  # For example, if you receive a call in the morning, can you make time during the day to pick up a dog in an emergency situation?  
-            availability=form.availability.data
-            ok_call_at_work=form.ok_call_at_work.data
+            hours_can_volunteer=form.hours_can_volunteer.data,
+            schedule_flexibility=form.schedule_flexibility.data,  # For example, if you receive a call in the morning, can you make time during the day to pick up a dog in an emergency situation?  
+            availability=form.availability.data,
+            ok_call_at_work=form.ok_call_at_work.data,
 
             # Section 4 - Your Home
-            owns_cats=form.owns_cats.data
-            num_cats=form.num_cats.data
-            owns_dogs=form.owns_dogs.data 
-            num_dogs=form.num_dogs.data
-            dog_descriptions=form.dog_descriptions.data
-            pets_spayed_neutered=form.pets_spayed_neutered.data
+            owns_cats=form.owns_cats.data,
+            num_cats=form.num_cats.data,
+            owns_dogs=form.owns_dogs.data,
+            num_dogs=form.num_dogs.data,
+            dog_descriptions=form.dog_descriptions.data,
+            pets_spayed_neutered=form.pets_spayed_neutered.data,
 
-            is_breeder=form.is_breeder.data
-            litters_per_year=form.litters_per_year.data
+            is_breeder=form.is_breeder.data,
+            litters_per_year=form.litters_per_year.data,
 
-            children_in_home=form.children_in_home.data
-            children_dog_contact_frequency=form.children_dog_contact_frequency.data  
-            children_age=form.children_age.data
+            children_in_home=form.children_in_home.data,
+            children_dog_contact_frequency=form.children_dog_contact_frequency.data,
+            children_age=form.children_age.data,
 
             # # Section 5 - Your Vet
-            has_regular_vet=form.has_regular_vet.data
-            vet_clinic_name=form.vet_clinic_name.data
-            doctor_name=form.doctor_name.data
-            vet_street_address=form.vet_street_address.data
-            vet_city=form.vet_city.data
-            vet_state=form.vet_state.data
-            vet_zip=form.vet_zip.data
-            vet_phone=form.vet_phone.data
+            has_regular_vet=form.has_regular_vet.data,
+            vet_clinic_name=form.vet_clinic_name.data,
+            doctor_name=form.doctor_name.data,
+            vet_street_address=form.vet_street_address.data,
+            vet_city=form.vet_city.data,
+            vet_state=form.vet_state.data,
+            vet_zip=form.vet_zip.data,
+            vet_phone=form.vet_phone.data,
 
             # Section 6 - Your Opinions/Preferences
-            feelings_about_rescue=form.feelings_about_rescue.data
-            euthanasia_feelings=form.euthanasia_feelings.data
-            euthanasia_circumstances=form.euthanasia_circumstances.data
+            feelings_about_rescue=form.feelings_about_rescue.data,
+            euthanasia_feelings=form.euthanasia_feelings.data,
+            euthanasia_circumstances=form.euthanasia_circumstances.data,
 
             # Are you willing to handle and/or evaluate the following? (check all that apply)*
-            sick_dogs=form.sick_dogs.data
-            pregnant_females=form.pregnant_females.data
-            unstable_dogs=form.unstable_dogs.data
-            females_in_heat=form.females_in_heat.data
-            dog_aggressive_dogs=form.dog_aggressive_dogs.data
-            intact_dogs=form.intact_dogs.data
-            no_children_dogs=form.no_children_dogs.data
-            geriatric_dogs=form.geriatric_dogs.data
-            dogs_not_potty_trained=form.dogs_not_potty_trained.data
-            hyper_dogs=form.hyper_dogs.data
-            escape_artists=form.escape_artists.data 
-            other_handling_preferences=form.other_handling_preferences.data
+            sick_dogs=form.sick_dogs.data,
+            pregnant_females=form.pregnant_females.data,
+            unstable_dogs=form.unstable_dogs.data,
+            females_in_heat=form.females_in_heat.data,
+            dog_aggressive_dogs=form.dog_aggressive_dogs.data,
+            intact_dogs=form.intact_dogs.data,
+            no_children_dogs=form.no_children_dogs.data,
+            geriatric_dogs=form.geriatric_dogs.data,
+            dogs_not_potty_trained=form.dogs_not_potty_trained.data,
+            hyper_dogs=form.hyper_dogs.data,
+            escape_artists=form.escape_artists.data,
+            other_handling_preferences=form.other_handling_preferences.data,
 
             # Section 7 - References
-            first_reference_name=form.first_reference_name.data
-            first_reference_relationship=form.first_reference_relationship.data
-            first_reference_phone=form.first_reference_phone.data
-            second_reference_name=form.second_reference_name.data
-            second_reference_relationship=form.second_reference_relationship.data
-            second_reference_phone=form.second_reference_phone.data
-            additional_comments=form.additional_comments.data 
+            first_reference_name=form.first_reference_name.data,
+            first_reference_relationship=form.first_reference_relationship.data,
+            first_reference_phone=form.first_reference_phone.data,
+            second_reference_name=form.second_reference_name.data,
+            second_reference_relationship=form.second_reference_relationship.data,
+            second_reference_phone=form.second_reference_phone.data,
+            additional_comments=form.additional_comments.data,
 
             # Section 8 - Volunteer Waiver
-            volunteer_waiver_agreement=form.volunteer_waiver_agreement.data
+            volunteer_waiver_agreement=form.volunteer_waiver_agreement.data,
 
             # Section 9 - Foster Home Application
             # Please skip Section 9 and 10 if you are not applying to foster.
-            has_crate=form.has_crate.data
-            has_fenced_yard=form.has_fenced_yard.data
-            has_kennel=form.has_kennel.data
-            fence_kennel_description=form.fence_kennel_description.data
-            housing_type=form.housing_type.data
-            housing_type_if_other=form.housing_type_if_other.data
-            rent_or_own=form.rent_or_own.data
-            how_long_at_address=form.how_long_at_address.data
+            has_crate=form.has_crate.data,
+            has_fenced_yard=form.has_fenced_yard.data,
+            has_kennel=form.has_kennel.data,
+            fence_kennel_description=form.fence_kennel_description.data,
+            housing_type=form.housing_type.data,
+            housing_type_if_other=form.housing_type_if_other.data,
+            rent_or_own=form.rent_or_own.data,
+            how_long_at_address=form.how_long_at_address.data,
 
             # Where will the foster dog be housed during the day (check all that apply)?
-            inside_crated=form.inside_crated.data
-            outdoors_loose=form.outdoors_loose.data
-            inside_loose=form.inside_loose.data
-            outdoors_kenneled=form.outdoors_kenneled.data
-            garage=form.garage.data
-            barn=form.barn.data
-            other_dog_housing=form.other_dog_housing.data
+            inside_crated=form.inside_crated.data,
+            outdoors_loose=form.outdoors_loose.data,
+            inside_loose=form.inside_loose.data,
+            outdoors_kenneled=form.outdoors_kenneled.data,
+            garage=form.garage.data,
+            barn=form.barn.data,
+            other_dog_housing=form.other_dog_housing.data,
 
             # Where will the foster dog be kept when unsupervised or when left alone? (Check all that apply)
-            unsupervised_inside_crated=form.unsupervised_inside_crated.data
-            unsupervised_outdoors_loose=form.unsupervised_outdoors_loose.data
-            unsupervised_inside_loose=form.unsupervised_inside_loose.data
-            unsupervised_outdoors_kenneled=form.unsupervised_outdoors_kenneled.data
-            unsupervised_garage=form.unsupervised_garage.data
-            unsupervised_barn=form.unsupervised_barn.data
-            unsupervised_other=form.unsupervised_other.data
+            unsupervised_inside_crated=form.unsupervised_inside_crated.data,
+            unsupervised_outdoors_loose=form.unsupervised_outdoors_loose.data,
+            unsupervised_inside_loose=form.unsupervised_inside_loose.data,
+            unsupervised_outdoors_kenneled=form.unsupervised_outdoors_kenneled.data,
+            unsupervised_garage=form.unsupervised_garage.data,
+            unsupervised_barn=form.unsupervised_barn.data,
+            unsupervised_other=form.unsupervised_other.data,
 
             # Where will the foster dog sleep? (Check all that apply)
-            sleep_inside_crated=form.sleep_inside_crated.data
-            sleep_outdoors_loose=form.sleep_outdoors_loose.data
-            sleep_inside_loose=form.sleep_inside_loose.data
-            sleep_outdoors_kenneled=form.sleep_outdoors_kenneled.data
-            sleep_garage=form.sleep_garage.data
-            sleep_barn=form.sleep_barn.data
-            sleep_other=form.sleep_other.data
+            sleep_inside_crated=form.sleep_inside_crated.data,
+            sleep_outdoors_loose=form.sleep_outdoors_loose.data,
+            sleep_inside_loose=form.sleep_inside_loose.data,
+            sleep_outdoors_kenneled=form.sleep_outdoors_kenneled.data,
+            sleep_garage=form.sleep_garage.data,
+            sleep_barn=form.sleep_barn.data,
+            sleep_other=form.sleep_other.data,
 
-            knows_lack_of_med_history=form.knows_lack_of_med_history.data
-            accepts_liability=form.accepts_liability.data
-            will_travel_to_pick_up_foster=form.will_travel_to_pick_up_foster.data
-            distance_willing_to_travel=form.distance_willing_to_travel.data
-            travel_or_open_home_for_adopters=form.travel_or_open_home_for_adopters.data
-            aware_foster_is_indefinite=form.aware_foster_is_indefinite.data
-            will_take_to_vet_if_needed=form.will_take_to_vet_if_needed.data
+            knows_lack_of_med_history=form.knows_lack_of_med_history.data,
+            accepts_liability=form.accepts_liability.data,
+            will_travel_to_pick_up_foster=form.will_travel_to_pick_up_foster.data,
+            distance_willing_to_travel=form.distance_willing_to_travel.data,
+            travel_or_open_home_for_adopters=form.travel_or_open_home_for_adopters.data,
+            aware_foster_is_indefinite=form.aware_foster_is_indefinite.data,
+            will_take_to_vet_if_needed=form.will_take_to_vet_if_needed.data,
 
             # Section 10 - Foster Home Application Waiver
             foster_waiver_agreement=form.foster_waiver_agreement.data
