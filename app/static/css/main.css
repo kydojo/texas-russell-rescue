@@ -2567,13 +2567,13 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media (min-width: 1300px) {
-    .banner-content-adoption-app {
-    margin-top: 1% !important;
+    .banner-content-margins {
+        margin-top: 1% !important;
     }
 }
 @media (max-width: 950px) {
-    .banner-content-adoption-app {
-    margin-top: 10% !important;
+    .banner-content-margins {
+        margin-top: 10% !important;
     }
 }
 
@@ -2596,13 +2596,72 @@ body.mobile-nav-active #mobile-nav-toggle {
 .banner-available-dogs {
   background: url(../img/jr13.jpg) center;
   background-size: cover;
+  background-position: bottom;
   margin-top: 80px;
   height: 400px;
 }
 
+@media (min-width: 1350px) {
+    .banner-content-margins {
+        /*margin-top: 7% !important;*/
+    }
+
+}
+
+@media (max-width: 1349px) {
+    .banner-available-dogs {
+        margin-top: 70px;
+    }
+
+    .banner-content-margins {
+        margin-top: 3% !important;
+    }
+}
+
+@media (max-width: 1150px) {
+    .banner-content-margins {
+        margin-top: 12% !important;
+    }
+}
+
+@media (max-width: 1000px) {
+    .banner-content-margins {
+        margin-top: 14% !important;
+    }
+}
+
+@media (max-width: 850px) {
+    .banner-content-margins {
+        margin-top: 16% !important;
+    }
+}
+
+@media (max-width: 750px) {
+    .banner-content-margins {
+        margin-top: 18% !important;
+    }
+}
+
+@media (max-width: 650px) {
+    .banner-content-margins {
+        margin-top: 20% !important;
+    }
+}
+
+@media (max-width: 550px) {
+    .banner-content-margins {
+        margin-top: 10% !important;
+    }
+
+    .banner-donate-sm-pic {
+        background-position: bottom right !important;
+    }
+}
+
 .banner-donate {
-  background: url(../img/jr8.jpg) center;
+  background: url(../img/jr27.jpg) center;
   background-size: cover;
+  background-position: bottom;
   margin-top: 80px;
   height: 400px;
 }
