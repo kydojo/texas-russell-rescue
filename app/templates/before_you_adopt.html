@@ -9,52 +9,66 @@
 {% endblock %}
 {% block content %}
 
-<section class="banner-area relative banner-general banner-before-you-adopt" id="home">
+<!--<section class="banner-area relative banner-general banner-before-you-adopt" id="home">
     <div class="container">
         <div class="overlay overlay-bg"></div>
         <div class="row fullscreen d-flex justify-content-start" style="0px">
             <div class="banner-content col-lg-8 col-md-12">
-                 <!--<a><img class="banner-logo" src="../static/img/LOGO2.png" alt="" title="" /></a>-->
+                 &lt;!&ndash;<a><img class="banner-logo" src="../static/img/LOGO2.png" alt="" title="" /></a>&ndash;&gt;
                 <p class="text-white sub-head banner-lg-font">
                     Before You Adopt
                 </p>
-                <!--<a href="#" class="primary-btn header-btn text-uppercase no-decoration">Find a pet to adopt</a>-->
+                &lt;!&ndash;<a href="#" class="primary-btn header-btn text-uppercase no-decoration">Find a pet to adopt</a>&ndash;&gt;
             </div>
         </div>
     </div>
-</section>
-  <div class="container content-section">
-    <h1>Before You Adopt</h1>
-    <p>
-      <a href="https://www.therealjackrussell.com/breed/jrprofiler.php?fbclid=IwAR0gQNwzhWMxMgMfCpGGXIw5XsA5E9K6Nwel8lYklsSOBlC0hevGgvc2dUQ">
-        Is a Jack Russell Terrier the Right Dog for You?
-      </a>
-      <br>
-      1. Rescue dogs must have containment (fence, kennel); JRTs are rarely suitable for city living. 
-      <br>
-      2. We do not place terriers in homes where it must remain alone for extended periods of time.
-      <br> 
-      3. We do not place dogs in homes where there are children under six years of age.
-      <br>
-      4. Few rescue dogs are good with cats.
-      <br>
-      5. Most terriers in Rescue are young adults; puppies are rarely, if ever, available.
-      <br>
-      6. Filling out an application does not guarantee adoption. Jack Russell Terriers have special needs. Not all homes are suitable for placement.
-      <br>
-      7. All applicants are thoroughly screened and must meet certain qualifications before being referred for a terrier.
-      <br>
-      8. Compatible terriers may not be immediately available; your patience is appreciated.
-      <br>
-      9. A donation to Russell Rescue, Inc. is required to adopt a terrier.
-      <br>
-      10. Remember, the more conditions you make (i.e., color, coat type, age, sex and body type), the longer it will take to find a suitable terrier to match your environment.  Please be open-minded to the different qualities that each terrier has to offer.
-      <br>
-      11. By submitting this application, you are making a formal request to adopt a dog from Russell Rescue, Inc. Please do not fill out this application if you are not serious about working with Russell Rescue, Inc.
-      <br>
-      12. If a terrier is matched to your application and placed in your home, you must agree to keep the terrier for at least 3 weeks (to allow time for the terrier and you to acclimate with each other).
-      <br>
-      13. We can only place terriers in homes located in the United States.
-    </p>
-  </div>
+</section>-->
+
+    <section class="banner-area relative banner-before-you-adopt">
+        <div class="overlay overlay-bg"></div>
+       <div class="row" style="margin-left: 0px; margin-right: 0px">
+                <div class="banner-content banner-content-before-you-adopt col-lg-12 col-md-6 justify-content-center">
+                    <p class="text-white banner-lg-font">Before You Adopt</p>
+                </div>
+            </div>
+    </section>
+
+    <div class="container content-section mt-40">
+        <div style="text-align: center">
+            <h3>Do you think a Jack Russell Terrier might be the right dog for you?</h3>
+            <h4>Visit the Jack Russell Terrier Club of America's online profiler to find out.</h4>
+            <div class="text-center mt-30">
+                <a href="https://www.therealjackrussell.com/breed/jrprofiler.php?fbclid=IwAR0gQNwzhWMxMgMfCpGGXIw5XsA5E9K6Nwel8lYklsSOBlC0hevGgvc2dUQ" class="primary-btn text-uppercase" target="_blank">Jack Russell Terrier Adoption Profiler</a>
+            </div>
+        </div>
+        <div class="mt-80 mb-60" style="font-size: 17px">
+            <div class="row">
+                <div class="col-lg-8 mt-30">
+                    <h3>Please read and understand before proceeding:</h3>
+                    <ol type="1" style="list-style-position: outside; margin-left: 1em">
+                        <li>Rescue dogs must have containment (fence, kennel); JRTs are rarely suitable for city living.</li>
+                        <li>We do not place terriers in homes where it must remain alone for extended periods of time.</li>
+                        <li>We do not place dogs in homes where there are children under six years of age.</li>
+                        <li>Few rescue dogs are good with cats.</li>
+                        <li>Most terriers in Rescue are young adults; puppies are rarely, if ever, available.</li>
+                        <li>Filling out an application does not guarantee adoption. Jack Russell Terriers have special needs. Not all homes are suitable for placement.</li>
+                        <li>All applicants are thoroughly screened and must meet certain qualifications before being referred for a terrier.</li>
+                        <li>Compatible terriers may not be immediately available; your patience is appreciated.</li>
+                        <li>A donation to Russell Rescue, Inc. is required to adopt a terrier.</li>
+                        <li>Remember, the more conditions you make (i.e., color, coat type, age, sex and body type), the longer it will take to find a suitable terrier to match your environment.  Please be open-minded to the different qualities that each terrier has to offer.</li>
+                        <li>By submitting this application, you are making a formal request to adopt a dog from Russell Rescue, Inc. Please do not fill out this application if you are not serious about working with Russell Rescue, Inc.</li>
+                        <li>If a terrier is matched to your application and placed in your home, you must agree to keep the terrier for at least 3 weeks (to allow time for the terrier and you to acclimate with each other).</li>
+                        <li>We can only place terriers in homes located in the United States.</li>
+                    </ol>
+                    <div class="text-center mt-30">
+                        <a href="{{ url_for('adoption_application') }}" class="primary-btn text-uppercase" target="_blank">Adoption Application</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                    <img class="" src="../static/img/jr_Halo2.jpg" alt="Halo" title="Halo"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
 {% endblock %}

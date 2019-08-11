@@ -125,7 +125,13 @@ body, html {
 }
 
 .about-text-inner {
-    margin: 10px 0px;
+    margin: 5px 0px;
+}
+
+@media (max-width: 991px) {
+    .about-text-inner {
+        margin: -20px 0px;
+    }
 }
 
 .about-logo {
@@ -138,9 +144,16 @@ body, html {
     width: auto;
 }
 
+@media (max-width: 1200px) {
+    .about-text-bottom {
+        margin-top: 0px;
+    }
+}
+
 @media (max-width: 991px) {
     .about-text {
         padding: 0px 50px !important;
+        text-align: center;
     }
 }
 
