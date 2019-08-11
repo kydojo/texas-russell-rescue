@@ -23,66 +23,75 @@
 <link rel="stylesheet" href="../static/css/pets.css">
 
 <!-- Banner area -->
-<section class="banner-area relative banner-general banner-available-dogs" id="home">
+<!--<section class="banner-area relative banner-general banner-available-dogs" id="home">
     <div class="container">
         <div class="overlay overlay-bg"></div>
         <div class="row fullscreen d-flex justify-content-start" style="0px">
             <div class="banner-content col-lg-8 col-md-12">
-                 <!--<a><img class="banner-logo" src="../static/img/LOGO2.png" alt="" title="" /></a>-->
+                 &lt;!&ndash;<a><img class="banner-logo" src="../static/img/LOGO2.png" alt="" title="" /></a>&ndash;&gt;
                 <p class="text-white sub-head banner-lg-font">
                     Available Dogs
                 </p>
-                <!--<a href="#" class="primary-btn header-btn text-uppercase no-decoration">Find a pet to adopt</a>-->
+                &lt;!&ndash;<a href="#" class="primary-btn header-btn text-uppercase no-decoration">Find a pet to adopt</a>&ndash;&gt;
             </div>
         </div>
     </div>
-</section>
+</section>-->
 
-<!-- Disclaimer text -->
-<div class="container container-style mt-30">
-    <div class="row justify-content-around">
-        {% for pet in pets|batch(3) %}
-        {% for column in pet %}
+    <section class="banner-area relative banner-available-dogs">
+        <div class="overlay overlay-bg"></div>
+        <div class="row" style="margin-left: 0px; margin-right: 0px">
+            <div class="banner-content banner-content-available-dogs col-lg-12 justify-content-center">
+                <p class="text-white banner-lg-font">Available Dogs</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="col-xs-4 no-decoration">
-                <div class="row md-margin">
-                    <div class="col no-padding dog-card">
-                        <div style="text-align:center">
-                            <a href="https://www.adoptapet.com/pet/{{ column.pet_id }}" target="_blank" style="text-decoration:none">
-                                <img class="dog-img" src="{{ column.large_results_photo_url }}">
-                                <p class="text-style-name blue-text {{ 'mt-5-i' if column.ownerSurrender else 'mt-20-i' }}">{{ column.pet_name }}</p>
+    <div class="container container-style mt-30">
+        <div class="row justify-content-around">
+            {% for pet in pets|batch(3) %}
+                {% for column in pet %}
 
-                                {% if column.sex == 'f' %}
-                                    <span class="text-style-sex blue-text">
-                                        Female &nbsp;&nbsp;<span class="capitalize"><i class="fa fa-paw sm-paw red-text"></i> &nbsp;&nbsp;{{ column.age }}</span>
-                                        {% if column.ownerSurrender %}
-                                            <p class="text-style-owner blue-text">Owner Listing</p>
+                    <div class="col-xs-4 no-decoration">
+                        <div class="row md-margin">
+                            <div class="col no-padding dog-card">
+                                <div style="text-align:center">
+                                    <a href="https://www.adoptapet.com/pet/{{ column.pet_id }}" target="_blank" style="text-decoration:none">
+                                        <img class="dog-img" src="{{ column.large_results_photo_url }}">
+                                        <p class="text-style-name blue-text {{ 'mt-5-i' if column.ownerSurrender else 'mt-20-i' }}">{{ column.pet_name }}</p>
+
+                                        {% if column.sex == 'f' %}
+                                            <span class="text-style-sex blue-text">
+                                                Female &nbsp;&nbsp;<span class="capitalize"><i class="fa fa-paw sm-paw red-text"></i> &nbsp;&nbsp;{{ column.age }}</span>
+                                                {% if column.ownerSurrender %}
+                                                    <p class="text-style-owner blue-text">Owner Listing</p>
+                                                {% endif %}
+                                            </span>
+                                        {% elif column.sex == 'm' %}
+                                            <span class="text-style-sex blue-text">
+                                                Male &nbsp;&nbsp;<span class="capitalize"><i class="fa fa-paw sm-paw red-text"></i> &nbsp;&nbsp;{{ column.age }}</span>
+                                                {% if column.ownerSurrender %}
+                                                    <p class="text-style-owner blue-text">Owner Listing</p>
+                                                {% endif %}
+                                            </span>
                                         {% endif %}
-                                    </span>
-                                {% elif column.sex == 'm' %}
-                                    <span class="text-style-sex blue-text">
-                                        Male &nbsp;&nbsp;<span class="capitalize"><i class="fa fa-paw sm-paw red-text"></i> &nbsp;&nbsp;{{ column.age }}</span>
-                                        {% if column.ownerSurrender %}
-                                            <p class="text-style-owner blue-text">Owner Listing</p>
-                                        {% endif %}
-                                    </span>
-                                {% endif %}
 
-                            </a>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-        {% endfor %}
-        {% endfor %}
-    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
 
-    <div class="disclaimer-div border mt-30 mb-30">
-        Owner Listings: Texas Russell Rescue is not responsible and/or liable for the outcome of any adoption made through this listing as we are only providing information.
-        Texas Russell Rescue is also not responsible and is held harmless for the accuracy and reliability of the information provided within this listing.
-        Owners and adopters bear the full responsibility and liability for any dog listed.
+        <!-- Disclaimer text -->
+        <div class="disclaimer-div border mt-30 mb-30">
+            Owner Listings: Texas Russell Rescue is not responsible and/or liable for the outcome of any adoption made through this listing as we are only providing information.
+            Texas Russell Rescue is also not responsible and is held harmless for the accuracy and reliability of the information provided within this listing.
+            Owners and adopters bear the full responsibility and liability for any dog listed.
+        </div>
     </div>
-</div>
 
 {% endblock %}
