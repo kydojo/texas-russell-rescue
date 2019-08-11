@@ -175,6 +175,15 @@ body, html {
     text-decoration: none;
 }
 
+.quotation {
+    color: rgba(210,35,42, 0.1) !important;
+}
+
+.volunteer-logo {
+    margin-top: 90px;
+    height: 300px;
+    width: auto;
+}
 
 /* Forms */
 
