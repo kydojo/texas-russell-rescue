@@ -143,6 +143,9 @@ def volunteer_form():
             first_reference_name=form.first_reference_name.data
             first_reference_relationship=form.first_reference_relationship.data
             first_reference_phone=form.first_reference_phone.data
+            second_reference_name=form.second_reference_name.data
+            second_reference_relationship=form.second_reference_relationship.data
+            second_reference_phone=form.second_reference_phone.data
             additional_comments=form.additional_comments.data 
 
             # Section 8 - Volunteer Waiver

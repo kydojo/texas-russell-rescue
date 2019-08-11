@@ -177,70 +177,69 @@ class AdoptionApplication(db.Model):
 class VolunteerApplication(db.Model):
 	id = db.Column(db.Integer, autoincrement=True, primary_key=True)
 	
-	# # Section 1 - Your Information:
-    # first_name
-    # last_name
-    # email
-    # home_phone
-    # cell_phone
-    # work_phone 
-    # best_time_to_call
-    # street_address
-    # city
-    # state
-    # zip_code
+	# Section 1 - Your Information:
+	first_name = db.Column(db.String(60), nullable=False)
+	last_name = db.Column(db.String(60), nullable=False)
+	email = db.Column(EmailType, nullable=False)
+	home_phone = db.Column(db.String(20))
+	cell_phone = db.Column(db.String(20))
+	work_phone = db.Column(db.String(20))
+	best_time_to_call = db.Column(db.String(10))
+	street_address = db.Column(db.String(120), nullable=False)
+	city = db.Column(db.String(60), nullable=False)
+	state = db.Column(db.String(2), nullable=False)
+	zip_code = db.Column(db.String(15), nullable=False)
 
-    # # Section 2 - How would you like to help? (Check all that apply.)
-    # foster_home
-    # adoption_screen_or_counseling
-    # transport_dogs
-    # behavior_counseling
-    # fundraising
-    # home_visits
-    # staff_booths_info_centers # (table at trials, pet expos, etc.)
-    # shelter_contact
-    # web_or_social_media
-    # other_role
+    # Section 2 - How would you like to help? (Check all that apply.)
+    foster_home = db.Column(db.Boolean, default=False)
+    adoption_screen_or_counseling = db.Column(db.Boolean, default=False)
+    transport_dogs = db.Column(db.Boolean, default=False)
+    behavior_counseling = db.Column(db.Boolean, default=False)
+    fundraising = db.Column(db.Boolean, default=False)
+    home_visits = db.Column(db.Boolean, default=False)
+    staff_booths_info_centers = db.Column(db.Boolean, default=False) # (table at trials, pet expos, etc.)
+    shelter_contact = db.Column(db.Boolean, default=False)
+    web_or_social_media = db.Column(db.Boolean, default=False)
+    other_role = db.Column(String(200))
 
-    # # Section 3 - Experience and Schedule:
-    # volunteer_experience
-    # dog_handling_experience
+    # Section 3 - Experience and Schedule:
+    volunteer_experience = db.Column(db.Text)
+    dog_handling_experience  = db.Column(db.Text)
 
     # hours_can_volunteer
-    # schedule_flexibility  # For example, if you receive a call in the morning, can you make time during the day to pick up a dog in an emergency situation?  
-    # availability
-    # ok_call_at_work
+    schedule_flexibility = db.Column(db.Text, nullable=False)
+    availability = db.Column(db.Text, nullable=False)
+    ok_call_at_work = db.Column(db.String(3), nullable=False)
 
     # # Section 4 - Your Home
-    # owns_cats
-    # num_cats
-    # owns_dogs 
-    # num_dogs
-    # dog_descriptions
-    # pets_spayed_neutered
+    owns_cats = db.Column(db.String(3), nullable=False)
+    num_cats = db.Column(db.String(3))
+    owns_dogs = db.Column(db.String(3), nullable=False)
+    num_dogs = db.Column(db.String(3))
+    dog_descriptions = db.Column(db.Text)
+    pets_spayed_neutered = db.Column(db.String(3))
 
-    # is_breeder
-    # litters_per_year
+    is_breeder = db.Column(db.String(3), nullable=False)
+    litters_per_year = db.Column(db.String(120))
 
-    # children_in_home
-    # children_dog_contact_frequency  
-    # children_age
+    children_in_home = db.Column(db.String(3), nullable=False)
+    children_dog_contact_frequency = db.Column(db.String(200))
+    children_age = db.Column(db.String(200))
 
-    # # Section 5 - Your Vet
-
-    # has_regular_vet
-    # vet_clinic_name
-    # doctor_name
-    # vet_street_address
-    # vet_city
-    # vet_state
-    # vet_zip
-    # vet_phone
+    # Section 5 - Your Vet
+	has_regular_vet = db.Column(db.String(3), nullable=False)
+	vet_clinic_name = db.Column(db.String(60))
+	doctor_name = db.Column(db.String(120))
+	vet_street_address = db.Column(db.String(120))
+	vet_city = db.Column(db.String(60))
+	vet_state = db.Column(db.String(2))
+	vet_zip = db.Column(db.String(15))
+	vet_phone = db.Column(db.String(20))
 
     # # Section 6 - Your Opinions/Preferences
-    # feelings_about_rescue
-    # euthanasia_feelings
-    # euthanasia_circumstances
+    feelings_about_rescue = db.Column(db.Text, nullable=False)
+    euthanasia_feelings = db.Column(db.Text, nullable=False)
+    euthanasia_circumstances = db.Column(db.Text, nullable=False)
 
     # # Are you willing to handle and/or evaluate the following? (check all that apply)*
     # sick_dogs
@@ -260,6 +259,9 @@ class VolunteerApplication(db.Model):
     # first_reference_name
     # first_reference_relationship
     # first_reference_phone
+	# second_reference_name
+    # second_reference_relationship
+    # second_reference_phone
     # additional_comments 
 
     # # Section 8 - Volunteer Waiver

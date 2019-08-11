@@ -419,56 +419,54 @@ class VolunteerForm(FlaskForm):
     zip_code = StringField('Zip', validators=[DataRequired(), Length(max=15)])
 
     # # Section 2 - How would you like to help? (Check all that apply.)
-    # foster_home
-    # adoption_screen_or_counseling
-    # transport_dogs
-    # behavior_counseling
-    # fundraising
-    # home_visits
-    # staff_booths_info_centers # (table at trials, pet expos, etc.)
-    # shelter_contact
-    # web_or_social_media
-    # other_role
+    foster_home = BooleanField('Foster Home')
+    adoption_screen_or_counseling = BooleanField('Screen Applicants/Adoption Counseling')
+    transport_dogs = BooleanField('Transport Dogs')
+    behavior_counseling = BooleanField('Behavior Counseling')
+    fundraising = BooleanField('Fundraising')
+    home_visits = BooleanField('Home Visits')
+    staff_booths_info_centers = BooleanField('Staff booths/info centers (at trials, pet expos, etc.)') # (table at trials, pet expos, etc.)
+    shelter_contact = BooleanField('Shelter Contact')
+    web_or_social_media = BooleanField('Post dogs available for adoption on our websites and social media')
+    other_role = StringField('Other (please describe):')
 
     # # Section 3 - Experience and Schedule:
-    # volunteer_experience
-    # dog_handling_experience
-
-    # hours_can_volunteer
-    # schedule_flexibility  # For example, if you receive a call in the morning, can you make time during the day to pick up a dog in an emergency situation?  
-    # availability
-    # ok_call_at_work
+    volunteer_experience = TextAreaField('Please describe previous volunteer and/or rescue experience')
+    dog_handling_experience = TextAreaField('Please describe any special dog handling experience you might have')
+    hours_can_volunteer = StringField('How many hours per week can you devote to Russell Rescue?  Please be realistic.', validators=[DataRequired()])
+    schedule_flexibility = TextAreaField('How flexible is your schedule? For example, could you make time during the day to pick up a dog in an emergency situation?',  validators=[DataRequired()]) 
+    availability = TextAreaField('Please describe your availability',  validators=[DataRequired()])
+    ok_call_at_work = StringField('Is it okay for us to contact you at your work number?', validators=[DataRequired()])
 
     # # Section 4 - Your Home
-    # owns_cats
-    # num_cats
-    # owns_dogs 
-    # num_dogs
-    # dog_descriptions
-    # pets_spayed_neutered
+    owns_cats = SelectField('Do you own any cats?', choices=YES_NO, validators=[DataRequired()])
+    num_cats = SelectField('If yes, how many live with you?', choices=NUM_CATS)
+    owns_dogs = SelectField('Do you own dogs?', choices=YES_NO, validators=[DataRequired()])
+    num_dogs = SelectField('If yes, how many live with you?', choices=NUM_CATS)
+    dog_descriptions = TextAreaField('Please list breed, gender, and age of each dog')
+    pets_spayed_neutered = SelectField('Are your pets spayed/neutered?', choices=YES_NO_NA, validators=[DataRequired()])
 
-    # is_breeder
-    # litters_per_year
+    is_breeder = SelectField('Do you breed?', choices=YES_NO)
+    litters_per_year = StringField('If so, how many litters per year?', validators=[Length(max=120)])
 
-    # children_in_home
-    # children_dog_contact_frequency  
-    # children_age
+    children_in_home = SelectField('Are there children in your home that would come in contact with a dog?', choices=YES_NO)
+    children_dog_contact_frequency = StringField('If yes, how often would this contact occur?', validators=[Length(max=200)])
+    children_age = StringField('What are the ages of the children?', validators=[Length(max=200)])
 
-    # # Section 5 - Your Vet
+    # Section 5 - Your Vet
+    has_regular_vet = SelectField('Do you have a regular veterinarian? If no, skip this section', choices=YES_NO, validators=[DataRequired()])  
+    vet_clinic_name = StringField('Vet Clinic Name', validators=[Length(max=60)])
+    doctor_name = StringField('Doctor Name', validators=[Length(max=120)])
+    vet_street_address = StringField('Vet Address', validators=[Length(max=120)])
+    vet_city = StringField('City', validators=[Length(max=60)])
+    vet_state = SelectField('State', choices=STATE_LIST)
+    vet_zip = StringField('Zip', validators=[Length(max=15)])
+    vet_phone = StringField('Vet Phone Number', validators=[Length(max=20)])
 
-    # has_regular_vet = SelectField('Do you have a regular veterinarian? If no, skip this section', choices=YES_NO, validators=[DataRequired()])  
-    # vet_clinic_name = StringField('Vet Clinic Name', validators=[Length(max=60)])
-    # doctor_name = StringField('Doctor Name', validators=[Length(max=120)])
-    # vet_street_address = StringField('Vet Address', validators=[Length(max=120)])
-    # vet_city = StringField('City', validators=[Length(max=60)])
-    # vet_state = SelectField('State', choices=STATE_LIST)
-    # vet_zip = StringField('Zip', validators=[Length(max=15)])
-    # vet_phone = StringField('Vet Phone Number', validators=[Length(max=20)])
-
-    # # Section 6 - Your Opinions/Preferences
-    # feelings_about_rescue
-    # euthanasia_feelings
-    # euthanasia_circumstances
+    # Section 6 - Your Opinions/Preferences
+    feelings_about_rescue
+    euthanasia_feelings
+    euthanasia_circumstances
 
     # # Are you willing to handle and/or evaluate the following? (check all that apply)*
     # sick_dogs
@@ -485,9 +483,12 @@ class VolunteerForm(FlaskForm):
     # other_handling_preferences
 
     # # Section 7 - References
-    # first_reference_name = StringField('Reference Name', validators=[DataRequired(), Length(max=120)])
-    # first_reference_relationship = StringField('Relationship', validators=[DataRequired(), Length(max=120)])
-    # first_reference_phone = StringField('Reference Phone Number', validators=[DataRequired(), Length(max=20)]) 
+    first_reference_name = StringField('Reference Name', validators=[DataRequired(), Length(max=120)])
+    first_reference_relationship = StringField('Relationship', validators=[DataRequired(), Length(max=120)])
+    first_reference_phone = StringField('Reference Phone Number', validators=[DataRequired(), Length(max=20)])
+    second_reference_name = StringField('Reference Name', validators=[DataRequired(), Length(max=120)])
+    second_reference_relationship = StringField('Relationship', validators=[DataRequired(), Length(max=120)])
+    second_reference_phone = StringField('Reference Phone Number', validators=[DataRequired(), Length(max=20)])
     # additional_comments 
 
     # # Section 8 - Volunteer Waiver
@@ -500,10 +501,10 @@ class VolunteerForm(FlaskForm):
     # has_fenced_yard
     # has_kennel
     # fence_kennel_description
-    # housing_type = SelectField('I (we) live in a', choices=HOUSING_TYPE_LIST, validators=[DataRequired()])
-    # housing_type_if_other = StringField('Housing type if you chose other', validators=[Length(max=60)])
-    # rent_or_own = SelectField('Do you own or rent your home?', choices=RENT_OR_OWN, validators=[DataRequired()])
-    # how_long_at_address = StringField('How long have you lived at this address?', validators=[DataRequired(), Length(max=30)])
+    housing_type = SelectField('I (we) live in a', choices=HOUSING_TYPE_LIST, validators=[DataRequired()])
+    housing_type_if_other = StringField('Housing type if you chose other', validators=[Length(max=60)])
+    rent_or_own = SelectField('Do you own or rent your home?', choices=RENT_OR_OWN, validators=[DataRequired()])
+    how_long_at_address = StringField('How long have you lived at this address?', validators=[DataRequired(), Length(max=30)])
 
 
     # # Where will the foster dog be housed during the day (check all that apply)?
