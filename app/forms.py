@@ -402,3 +402,146 @@ class AdoptionApplicationForm(FlaskForm):
     additional_comments = TextAreaField('Additional Comments')
 
     submit = SubmitField('Submit Application')
+
+
+class VolunteerForm(FlaskForm):
+    # Section 1 - Your Information:
+    first_name = StringField('Your First Name', validators=[DataRequired(), Length(max=60)])
+    last_name = StringField('Last Name', validators=[DataRequired(), Length(max=60)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    home_phone = StringField('Home Phone', validators=[Length(max=20)])
+    cell_phone = StringField('Cell Phone', validators=[Length(max=20)]) 
+    work_phone = StringField('Work Phone', validators=[Length(max=20)]) 
+    best_time_to_call = SelectField('Best time to Call', choices=CALL_TIME_LIST, validators=[DataRequired()]) 
+    street_address = StringField('Street Address', validators=[DataRequired(), Length(max=120)])
+    city = StringField('City', validators=[DataRequired(), Length(max=60)])
+    state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
+    zip_code = StringField('Zip', validators=[DataRequired(), Length(max=15)])
+
+    # # Section 2 - How would you like to help? (Check all that apply.)
+    # foster_home
+    # adoption_screen_or_counseling
+    # transport_dogs
+    # behavior_counseling
+    # fundraising
+    # home_visits
+    # staff_booths_info_centers # (table at trials, pet expos, etc.)
+    # shelter_contact
+    # web_or_social_media
+    # other_role
+
+    # # Section 3 - Experience and Schedule:
+    # volunteer_experience
+    # dog_handling_experience
+
+    # hours_can_volunteer
+    # schedule_flexibility  # For example, if you receive a call in the morning, can you make time during the day to pick up a dog in an emergency situation?  
+    # availability
+    # ok_call_at_work
+
+    # # Section 4 - Your Home
+    # owns_cats
+    # num_cats
+    # owns_dogs 
+    # num_dogs
+    # dog_descriptions
+    # pets_spayed_neutered
+
+    # is_breeder
+    # litters_per_year
+
+    # children_in_home
+    # children_dog_contact_frequency  
+    # children_age
+
+    # # Section 5 - Your Vet
+
+    # has_regular_vet = SelectField('Do you have a regular veterinarian? If no, skip this section', choices=YES_NO, validators=[DataRequired()])  
+    # vet_clinic_name = StringField('Vet Clinic Name', validators=[Length(max=60)])
+    # doctor_name = StringField('Doctor Name', validators=[Length(max=120)])
+    # vet_street_address = StringField('Vet Address', validators=[Length(max=120)])
+    # vet_city = StringField('City', validators=[Length(max=60)])
+    # vet_state = SelectField('State', choices=STATE_LIST)
+    # vet_zip = StringField('Zip', validators=[Length(max=15)])
+    # vet_phone = StringField('Vet Phone Number', validators=[Length(max=20)])
+
+    # # Section 6 - Your Opinions/Preferences
+    # feelings_about_rescue
+    # euthanasia_feelings
+    # euthanasia_circumstances
+
+    # # Are you willing to handle and/or evaluate the following? (check all that apply)*
+    # sick_dogs
+    # pregnant_females
+    # unstable_dogs
+    # females_in_hear
+    # dog_aggressive_dogs
+    # intact_dogs
+    # no_children_dogs
+    # geriatric_dogs
+    # dogs_not_potty_trained
+    # hyper_dogs
+    # escape_artists 
+    # other_handling_preferences
+
+    # # Section 7 - References
+    # first_reference_name = StringField('Reference Name', validators=[DataRequired(), Length(max=120)])
+    # first_reference_relationship = StringField('Relationship', validators=[DataRequired(), Length(max=120)])
+    # first_reference_phone = StringField('Reference Phone Number', validators=[DataRequired(), Length(max=20)]) 
+    # additional_comments 
+
+    # # Section 8 - Volunteer Waiver
+    # volunteer_waiver_agreement
+
+    # # Section 9 - Foster Home Application
+    # # Please skip Section 9 and 10 if you are not applying to foster.
+
+    # has_crate  
+    # has_fenced_yard
+    # has_kennel
+    # fence_kennel_description
+    # housing_type = SelectField('I (we) live in a', choices=HOUSING_TYPE_LIST, validators=[DataRequired()])
+    # housing_type_if_other = StringField('Housing type if you chose other', validators=[Length(max=60)])
+    # rent_or_own = SelectField('Do you own or rent your home?', choices=RENT_OR_OWN, validators=[DataRequired()])
+    # how_long_at_address = StringField('How long have you lived at this address?', validators=[DataRequired(), Length(max=30)])
+
+
+    # # Where will the foster dog be housed during the day (check all that apply)?
+    # inside_crated
+    # outdoors_loose
+    # inside_loose   
+    # outdoors_kenneled
+    # garage
+    # barn
+    # other_dog_housing
+
+    # # Where will the foster dog be kept when unsupervised or when left alone? (Check all that apply)
+    # unsupervised_inside_crated
+    # unsupervised_outdoors_loose
+    # unsupervised_inside_loose   
+    # unsupervised_outdoors_kenneled
+    # unsupervised_garage
+    # unsupervised_barn
+    # unsupervised_other
+
+    # # Where will the foster dog sleep? (Check all that apply)
+    # sleep_inside_crated
+    # sleep_outdoors_loose
+    # sleep_inside_loose   
+    # sleep_outdoors_kenneled
+    # sleep_garage
+    # sleep_barn
+    # sleep_other
+
+    # knows_lack_of_med_history
+    # accepts_liability
+    # will_travel_to_pick_up_foster
+    # distance_willing_to_travel
+    # travel_or_open_home_for_adopters
+    # aware_foster_is_indefinite
+    # will_take_to_vet_if_needed
+
+    # # Section 10 - Foster Home Application Waiver
+    # foster_waiver_agreement
+
+    # submit = SubmitField('Submit Application')

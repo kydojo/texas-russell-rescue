@@ -1,11 +1,11 @@
 
 from functools import wraps
 from flask import render_template, url_for, redirect, flash, request
-from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrenderForm, AdoptionApplicationForm, HappyTailsForm
+from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrenderForm, AdoptionApplicationForm, HappyTailsForm, VolunteerForm
 from app import app, db, bcrypt, login_manager
 from app.pets import get_pets, get_all_pets
 from app.sender import send_application_submission_confirmation, send_contact_info, send_surrender_applicant_info
-from app.models import User, HappyTailsPost, Message, OwnerSurrenderApplication, AdoptionApplication
+from app.models import User, HappyTailsPost, Message, OwnerSurrenderApplication, AdoptionApplication, VolunteerApplication
 from flask_login import login_user, logout_user, current_user
 from sqlalchemy import desc
 
@@ -58,7 +58,152 @@ def volunteer():
 
 @app.route("/volunteer_form")
 def volunteer_form():
-    return render_template('volunteer_form.html', title='Volunteer Form')
+    form = VolunteerForm()
+    if form.validate_on_submit():
+        application = VolunteerApplication(
+            # Section 1 - Your Information:
+            first_name=form.first_name.data,
+            # last_name
+            # email
+            # home_phone
+            # cell_phone
+            # work_phone 
+            # best_time_to_call
+            # street_address
+            # city
+            # state
+            # zip_code
+
+            # # Section 2 - How would you like to help? (Check all that apply.)
+            # foster_home
+            # adoption_screen_or_counseling
+            # transport_dogs
+            # behavior_counseling
+            # fundraising
+            # home_visits
+            # staff_booths_info_centers # (table at trials, pet expos, etc.)
+            # shelter_contact
+            # web_or_social_media
+            # other_role
+
+            # # Section 3 - Experience and Schedule:
+            # volunteer_experience
+            # dog_handling_experience
+
+            # hours_can_volunteer
+            # schedule_flexibility  # For example, if you receive a call in the morning, can you make time during the day to pick up a dog in an emergency situation?  
+            # availability
+            # ok_call_at_work
+
+            # # Section 4 - Your Home
+            # owns_cats
+            # num_cats
+            # owns_dogs 
+            # num_dogs
+            # dog_descriptions
+            # pets_spayed_neutered
+
+            # is_breeder
+            # litters_per_year
+
+            # children_in_home
+            # children_dog_contact_frequency  
+            # children_age
+
+            # # Section 5 - Your Vet
+
+            # has_regular_vet
+            # vet_clinic_name
+            # doctor_name
+            # vet_street_address
+            # vet_city
+            # vet_state
+            # vet_zip
+            # vet_phone
+
+            # # Section 6 - Your Opinions/Preferences
+            # feelings_about_rescue
+            # euthanasia_feelings
+            # euthanasia_circumstances
+
+            # # Are you willing to handle and/or evaluate the following? (check all that apply)*
+            # sick_dogs
+            # pregnant_females
+            # unstable_dogs
+            # females_in_hear
+            # dog_aggressive_dogs
+            # intact_dogs
+            # no_children_dogs
+            # geriatric_dogs
+            # dogs_not_potty_trained
+            # hyper_dogs
+            # escape_artists 
+            # other_handling_preferences
+
+            # # Section 7 - References
+            # first_reference_name
+            # first_reference_relationship
+            # first_reference_phone
+            # additional_comments 
+
+            # # Section 8 - Volunteer Waiver
+            # volunteer_waiver_agreement
+
+            # # Section 9 - Foster Home Application
+            # # Please skip Section 9 and 10 if you are not applying to foster.
+
+            # has_crate  
+            # has_fenced_yard
+            # has_kennel
+            # fence_kennel_description
+            # housing_type
+            # housing_type_if_other
+            # rent_or_own
+            # how_long_at_address
+
+
+            # # Where will the foster dog be housed during the day (check all that apply)?
+            # inside_crated
+            # outdoors_loose
+            # inside_loose   
+            # outdoors_kenneled
+            # garage
+            # barn
+            # other_dog_housing
+
+            # # Where will the foster dog be kept when unsupervised or when left alone? (Check all that apply)
+            # unsupervised_inside_crated
+            # unsupervised_outdoors_loose
+            # unsupervised_inside_loose   
+            # unsupervised_outdoors_kenneled
+            # unsupervised_garage
+            # unsupervised_barn
+            # unsupervised_other
+
+            # # Where will the foster dog sleep? (Check all that apply)
+            # sleep_inside_crated
+            # sleep_outdoors_loose
+            # sleep_inside_loose   
+            # sleep_outdoors_kenneled
+            # sleep_garage
+            # sleep_barn
+            # sleep_other
+
+            # knows_lack_of_med_history
+            # accepts_liability
+            # will_travel_to_pick_up_foster
+            # distance_willing_to_travel
+            # travel_or_open_home_for_adopters
+            # aware_foster_is_indefinite
+            # will_take_to_vet_if_needed
+
+            # # Section 10 - Foster Home Application Waiver
+            # foster_waiver_agreement
+        )
+        db.session.add(application)
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('volunteer_form.html', title='Volunteer Form', form=form)
 
 
 @app.route("/meet_our_volunteers")
