@@ -62,7 +62,7 @@ body {
 ol, ul {
   margin: 0;
   padding: 0;
-  list-style: none;
+  /*list-style: none;*/
 }
 
 select {
@@ -2566,6 +2566,17 @@ body.mobile-nav-active #mobile-nav-toggle {
     }
 }
 
+@media (min-width: 1300px) {
+    .banner-content-adoption-app {
+    margin-top: 1% !important;
+    }
+}
+@media (max-width: 950px) {
+    .banner-content-adoption-app {
+    margin-top: 10% !important;
+    }
+}
+
 
 .banner-before-you-adopt {
     background: url(../img/jr10.jpg) center;
@@ -2744,15 +2755,20 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-family: "Poppins", sans-serif;
 }
 
+.banner-content-about {
+    margin-top: 12% !important;
+}
+
 @media (max-width: 1000px) {
     .banner-content .banner-sm-font {
        font-size: 2.5vw;
     }
-
-    .banner-content-about {
-        margin-top: 12%;
-    }
 }
+
+.banner-content-about {
+    margin-top: 7% !important;
+}
+
 
 @media (max-width: 800px) {
     .banner-content .banner-sm-font {
