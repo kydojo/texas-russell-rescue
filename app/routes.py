@@ -4,7 +4,7 @@ from flask import render_template, url_for, redirect, flash, request
 from app.forms import RegistrationForm, LoginForm, ContactUsForm, OwnerSurrenderForm, AdoptionApplicationForm, HappyTailsForm, VolunteerForm
 from app import app, db, bcrypt, login_manager
 from app.pets import get_pets, get_all_pets
-from app.sender import send_application_submission_confirmation, send_contact_info, send_surrender_applicant_info
+from app.sender import send_application_submission_confirmation, send_contact_info, send_surrender_applicant_info, send_adoption_application
 from app.models import User, HappyTailsPost, Message, OwnerSurrenderApplication, AdoptionApplication, VolunteerApplication
 from flask_login import login_user, logout_user, current_user
 from sqlalchemy import desc
@@ -305,6 +305,10 @@ def adoption_application():
         )
         db.session.add(application)
         db.session.commit()
+        send_adoption_application(
+            form, "d-eb6b1f21737c4b0fa5b014bcf99e1d80")
+        send_application_submission_confirmation(
+            form.email.data, "texasrussell@test.com", "", "d-21bc2284cfb946ed8f0f5da52af20abf")
         return redirect(url_for('index'))
     return render_template('adoption_app.html', title='Adoption Application', form=form)
 
@@ -458,7 +462,7 @@ def register():
     if form.validate_on_submit():
         hashed_pw = bcrypt.generate_password_hash(
             form.password.data).decode('utf-8')
-        
+
         user = User(username=form.username.data,
                     email=form.email.data,
                     urole=form.urole.data,
@@ -470,6 +474,23 @@ def register():
         flash(f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+
+@app.route("/manage_admins", methods=['GET', 'POST'])
+@login_required(WEBMASTER)
+def manage_admins():
+    users = User.query.all()
+    return render_template('manage_admins.html', title='Manage Admins', users=users)
+
+
+@app.route("/manage_admins/<user_id>", methods=['GET', 'POST'])
+@login_required(WEBMASTER)
+def manage_admin_users(user_id):
+    if request.method == 'POST':
+        User.query.filter_by(id=user_id).delete()
+        print("Deleted user_id: ", user_id)
+        users = User.query.all()
+        return render_template('manage_admins.html', title='Manage Admins', users=users)
 
 
 @app.route("/login", methods=['GET', 'POST'])

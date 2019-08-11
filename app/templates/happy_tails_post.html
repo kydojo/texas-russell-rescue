@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% set current_page = "happy_tales_post" %}
+{% block title %}New Happy Tails Post{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+
+<!-- <section class="banner-area relative banner-general banner-adoption-app">
+    <div class="container">
+        <div class="overlay overlay-bg"></div>
+        <div class="row fullscreen d-flex justify-content-start" style="0px">
+            <div class="banner-content col-lg-8 col-md-12">
+                <p class="text-white sub-head banner-lg-font">
+                    HappyT 
+                </p>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<div class="container content-section">
+  <p>
+  <br>
+  <p></p>
+  <div class='container col-md-8'>
+      <p></p>
+      <br>
+      <div class="center-content">
+        <p>
+            <br>
+            <h1>Create New Happy Tails Post</h1>
+        </p>
+    </div>
+    <form method="POST" action="" class="center-content">
+        {{ form.hidden_tag() }}
+            <div class="row mt-30 justify-content-left">
+                <div class="form-group col-md-12">
+                    {{ form.title.label(class="form-control-label") }}
+                    {% if form.title.errors %}
+                        {{ form.title(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.title(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-12">
+                    {{ form.content.label(class="form-control-label") }}
+                    {% if form.content.errors %}
+                        {{ form.content(class="form-control form-control-md is-invalid", rows="30") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.content.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.content(class="form-control form-control-md", rows="30") }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-left">
+                <div class="form-group col-md-8">
+                {{ form.submit(class="btn btn-outline-info custom-submit-btn") }}
+                </div>
+            </div>
+            <hr>
+        </form>
+    </div>
+  </p>
+  </div>
+{% endblock %}
