@@ -2722,21 +2722,23 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-surrender {
-  background: url(../img/jr8.jpg) center;
-  background-size: cover;
-  margin-top: 80px;
-  height: 400px;
+    background: url(../img/jr28.jpg) center;
+    background-size: cover;
+    background-position: bottom;
+    margin-top: 70px;
+    height: 400px;
 }
 
 .banner-surrender-form {
-  background: url(../img/jr8.jpg) center;
-  background-size: cover;
-  margin-top: 80px;
-  height: 400px;
+    background: url(../img/jr8.jpg) center;
+    background-size: cover;
+    background-position: bottom;
+    margin-top: 70px;
+    height: 400px;
 }
 
 .banner-contact {
-  background: url(../img/jr8.jpg) center;
+  background: url(../img/jr23.jpg) center;
   background-size: cover;
   margin-top: 80px;
   height: 400px;
