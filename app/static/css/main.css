@@ -2572,7 +2572,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 @media (min-width: 1300px) {
     .banner-content-margins {
-        margin-top: 1% !important;
+        margin-top: 5% !important;
     }
 }
 @media (max-width: 950px) {
