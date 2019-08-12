@@ -2,31 +2,22 @@
 {% set current_page = "surrender_form" %}
 {% block title %}Index{% endblock %}
 {% block head %}
-  <!--{{ super() }}
-  <style type="text/css">
-    .important { color: #336699; }
-  </style>-->
 {% endblock %}
 {% block content %}
 
-    <section class="banner-area relative banner-general banner-surrender-form">
-        <div class="container">
-            <div class="overlay overlay-bg"></div>
-            <div class="row fullscreen d-flex justify-content-start" style="0px">
-                <div class="banner-content col-lg-8 col-md-12">
-                     <!--<a><img class="banner-logo" src="../static/img/LOGO2.png" alt="" title="" /></a>-->
-                    <p class="text-white sub-head banner-lg-font">
-                        Surrender Form
-                    </p>
-                    <!--<a href="#" class="primary-btn header-btn text-uppercase no-decoration">Find a pet to adopt</a>-->
-                </div>
+    <!-- Banner area -->
+    <section class="banner-area relative banner-surrender">
+        <div class="overlay overlay-bg"></div>
+        <div class="row" style="margin-left: 0px; margin-right: 0px">
+            <div class="banner-content banner-content-margins banner-volunteer-content col-lg-12 col-sm-12 justify-content-center">
+                <p class="text-white banner-lg-font">Surrender Program</p>
             </div>
         </div>
     </section>
 
 
-  <div class="container content-section mt-30">
-      <form method="POST" action="">
+    <div class="container content-section mt-30">
+        <form method="POST" action="">
         {{ form.hidden_tag() }}
             <!--<legend class="border-bottom mb-4">Surrender Program</legend>-->
             <div class="row justify-content-center">
