@@ -778,8 +778,8 @@ td, th {
 }
 
 .row.no-margin {
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .sample-text-area {
@@ -2776,7 +2776,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-content {
-    margin: 5% 0px 0px 2%;
+    margin: 5% 0px 0px 0px;
     text-align: center !important;
 }
 
