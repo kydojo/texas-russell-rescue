@@ -418,7 +418,7 @@ class VolunteerForm(FlaskForm):
     state = SelectField('State', choices=STATE_LIST, validators=[DataRequired()])
     zip_code = StringField('Zip', validators=[DataRequired(), Length(max=15)])
 
-    # # Section 2 - How would you like to help? (Check all that apply.)
+    # Section 2 - How would you like to help? (Check all that apply.)
     foster_home = BooleanField('Foster Home')
     adoption_screen_or_counseling = BooleanField('Screen Applicants/Adoption Counseling')
     transport_dogs = BooleanField('Transport Dogs')
@@ -430,15 +430,15 @@ class VolunteerForm(FlaskForm):
     web_or_social_media = BooleanField('Post dogs available for adoption on our websites and social media')
     other_role = StringField('Other (please describe):')
 
-    # # Section 3 - Experience and Schedule:
+    # Section 3 - Experience and Schedule:
     volunteer_experience = TextAreaField('Please describe previous volunteer and/or rescue experience')
     dog_handling_experience = TextAreaField('Please describe any special dog handling experience you might have')
     hours_can_volunteer = StringField('How many hours per week can you devote to Russell Rescue?  Please be realistic.', validators=[DataRequired()])
     schedule_flexibility = TextAreaField('How flexible is your schedule? For example, could you make time during the day to pick up a dog in an emergency situation?',  validators=[DataRequired()]) 
     availability = TextAreaField('Please describe your availability',  validators=[DataRequired()])
-    ok_call_at_work = StringField('Is it okay for us to contact you at your work number?', validators=[DataRequired()])
+    ok_call_at_work = SelectField('Is it okay for us to contact you at your work number?', choices=YES_NO, validators=[DataRequired()])
 
-    # # Section 4 - Your Home
+    # Section 4 - Your Home
     owns_cats = SelectField('Do you own any cats?', choices=YES_NO, validators=[DataRequired()])
     num_cats = SelectField('If yes, how many live with you?', choices=NUM_CATS)
     owns_dogs = SelectField('Do you own dogs?', choices=YES_NO, validators=[DataRequired()])
