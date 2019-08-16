@@ -34,18 +34,6 @@ def index():
     return render_template('index.html', title='Home')
 
 
-@app.route("/test0")
-@login_required(ADMIN)
-def test0():
-    return render_template('about.html', title='About')
-
-
-@app.route("/test1")
-@login_required(ADMIN)
-def test1():
-    return render_template('about.html', title='About')
-
-
 @app.route("/about")
 def about():
     return render_template('about.html', title='About')
