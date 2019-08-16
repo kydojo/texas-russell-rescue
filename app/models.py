@@ -206,12 +206,12 @@ class VolunteerApplication(db.Model):
 	volunteer_experience = db.Column(db.Text)
 	dog_handling_experience  = db.Column(db.Text)
 
-	# hours_can_volunteer
+	hours_can_volunteer = db.Column(db.String(200), nullable=False)
 	schedule_flexibility = db.Column(db.Text, nullable=False)
 	availability = db.Column(db.Text, nullable=False)
 	ok_call_at_work = db.Column(db.String(3), nullable=False)
 
-	# # Section 4 - Your Home
+	# Section 4 - Your Home
 	owns_cats = db.Column(db.String(3), nullable=False)
 	num_cats = db.Column(db.String(3))
 	owns_dogs = db.Column(db.String(3), nullable=False)
@@ -236,7 +236,7 @@ class VolunteerApplication(db.Model):
 	vet_zip = db.Column(db.String(15))
 	vet_phone = db.Column(db.String(20))
 
-	# # Section 6 - Your Opinions/Preferences
+	# Section 6 - Your Opinions/Preferences
 	feelings_about_rescue = db.Column(db.Text, nullable=False)
 	euthanasia_feelings = db.Column(db.Text, nullable=False)
 	euthanasia_circumstances = db.Column(db.Text, nullable=False)
@@ -255,7 +255,7 @@ class VolunteerApplication(db.Model):
 	escape_artists = db.Column(db.Boolean, default=False)
 	other_handling_preferences = db.Column(db.Text)
 
-	# # Section 7 - References
+	# Section 7 - References
 	first_reference_name = db.Column(db.String(120), nullable=False)
 	first_reference_relationship = db.Column(db.String(120), nullable=False)
 	first_reference_phone = db.Column(db.String(20), nullable=False)
@@ -279,7 +279,7 @@ class VolunteerApplication(db.Model):
 	how_long_at_address = db.Column(db.String(30), nullable=False)
 
 
-	# # Where will the foster dog be housed during the day (check all that apply)?
+	# Where will the foster dog be housed during the day (check all that apply)?
 	inside_crated = db.Column(db.Boolean, default=False)
 	outdoors_loose = db.Column(db.Boolean, default=False)
 	inside_loose = db.Column(db.String(120), default=False)
@@ -306,16 +306,17 @@ class VolunteerApplication(db.Model):
 	sleep_barn = db.Column(db.Boolean, default=False)
 	sleep_other = db.Column(db.Text)
 
-	knows_lack_of_med_historyhas_kennel = db.Column(db.String(3), nullable=False)
-	accepts_liabilityhas_kennel = db.Column(db.String(3), nullable=False)
-	will_travel_to_pick_up_fosterhas_kennel = db.Column(db.String(3), nullable=False)
+	knows_lack_of_med_history = db.Column(db.String(3), nullable=False)
+	accepts_liability = db.Column(db.String(3), nullable=False)
+	will_travel_to_pick_up_foster = db.Column(db.String(3), nullable=False)
 	distance_willing_to_travel = db.Column(db.String(40), nullable=False)
-	travel_or_open_home_for_adoptershas_kennel = db.Column(db.String(3), nullable=False)
-	aware_foster_is_indefinitehas_kennel = db.Column(db.String(3), nullable=False)
-	will_take_to_vet_if_neededhas_kennel = db.Column(db.String(3), nullable=False)
+	travel_or_open_home_for_adopters = db.Column(db.String(3), nullable=False)
+	aware_foster_is_indefinite = db.Column(db.String(3), nullable=False)
+	will_take_to_vet_if_needed = db.Column(db.String(3), nullable=False)
 
 	# Section 10 - Foster Home Application Waiver
 	foster_waiver_agreement = db.Column(db.Boolean, default=False)
+	date_sent = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 	def __repr__(self):
 		return f"Message('Applicant: {self.first_name}', '{self.city}', '{self.date_sent}')"
