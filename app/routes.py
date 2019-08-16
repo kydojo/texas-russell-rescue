@@ -44,10 +44,12 @@ def volunteer():
     return render_template('volunteer.html', title='Volunteer')
 
 
-@app.route("/volunteer_form")
+@app.route("/volunteer_form", methods=['GET', 'POST'])
 def volunteer_form():
+    print("In volunteer form")
     form = VolunteerForm()
     if form.validate_on_submit():
+        print("in validate on submit")
         application = VolunteerApplication(
             # Section 1 - Your Information:
             first_name=form.first_name.data,
@@ -77,7 +79,6 @@ def volunteer_form():
             # Section 3 - Experience and Schedule:
             volunteer_experience=form.volunteer_experience.data,
             dog_handling_experience=form.dog_handling_experience.data,
-
             hours_can_volunteer=form.hours_can_volunteer.data,
             schedule_flexibility=form.schedule_flexibility.data,  # For example, if you receive a call in the morning, can you make time during the day to pick up a dog in an emergency situation?  
             availability=form.availability.data,
@@ -90,10 +91,8 @@ def volunteer_form():
             num_dogs=form.num_dogs.data,
             dog_descriptions=form.dog_descriptions.data,
             pets_spayed_neutered=form.pets_spayed_neutered.data,
-
             is_breeder=form.is_breeder.data,
             litters_per_year=form.litters_per_year.data,
-
             children_in_home=form.children_in_home.data,
             children_dog_contact_frequency=form.children_dog_contact_frequency.data,
             children_age=form.children_age.data,
@@ -176,7 +175,6 @@ def volunteer_form():
             sleep_garage=form.sleep_garage.data,
             sleep_barn=form.sleep_barn.data,
             sleep_other=form.sleep_other.data,
-
             knows_lack_of_med_history=form.knows_lack_of_med_history.data,
             accepts_liability=form.accepts_liability.data,
             will_travel_to_pick_up_foster=form.will_travel_to_pick_up_foster.data,
@@ -191,6 +189,8 @@ def volunteer_form():
         db.session.add(application)
         db.session.commit()
         return redirect(url_for('index'))
+    else:
+        print(form.errors)
     return render_template('volunteer_form.html', title='Volunteer Form', form=form)
 
 
@@ -442,10 +442,10 @@ def contact_inbox():
 
 
 @app.route("/register", methods=['GET', 'POST'])
-@login_required(ADMIN)
+@login_required(WEBMASTER)
 def register():
-    if current_user.is_authenticated:
-        return redirect(url_for('index'))
+    # if current_user.is_authenticated: TODO - might want to delete this since only the webmaster can register new users
+    #     return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_pw = bcrypt.generate_password_hash(
