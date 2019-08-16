@@ -454,10 +454,10 @@ def contact_inbox():
 
 
 @app.route("/register", methods=['GET', 'POST'])
-@login_required(ADMIN)
+@login_required(WEBMASTER)
 def register():
-    if current_user.is_authenticated:
-        return redirect(url_for('index'))
+    # if current_user.is_authenticated: TODO - might want to delete this since only the webmaster can register new users
+    #     return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_pw = bcrypt.generate_password_hash(
