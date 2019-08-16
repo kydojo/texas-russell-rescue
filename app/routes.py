@@ -477,6 +477,7 @@ def manage_admin_users(user_id):
     if request.method == 'POST':
         User.query.filter_by(id=user_id).delete()
         print("Deleted user_id: ", user_id)
+        db.session.commit()
         users = User.query.all()
         return render_template('manage_admins.html', title='Manage Admins', users=users)
 
