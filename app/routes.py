@@ -303,7 +303,7 @@ def adoption_application():
 
 @app.route("/adoption_app_inbox", methods=['GET'])
 @login_required(ADMIN)
-def application_inbox():
+def adoption_app_inbox():
     applications = AdoptionApplication.query.order_by(
         desc(AdoptionApplication.date_sent)).all()
     return render_template(
@@ -495,8 +495,13 @@ def login():
             # .get() returns None if key does not exist
             next_page = request.args.get('next')
 
-            # If applicable, redirect to page user tried to access before logging in, else to home page
-            return redirect(next_page) if next_page else redirect(url_for('index'))
+            # If applicable, redirect to page user tried to access before logging in, else to appropriate dashboard
+            if next_page:
+                return redirect(next_page) 
+            elif user.access_level == WEBMASTER: 
+                return redirect(url_for('webmaster')) 
+            else: 
+                return redirect(url_for('admin'))
         else:
             # TODO - this executes but does not properly display the flash message
             flash('Login Unsuccessful. Please check email and password', 'danger')
