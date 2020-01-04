@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="TexasRussellRescue.SiteMaster" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+	<title>
+		<asp:ContentPlaceHolder ID="HeadTitle" runat="server">
+		</asp:ContentPlaceHolder>
+	</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<asp:ContentPlaceHolder ID="HeadContent" runat="server">
+	</asp:ContentPlaceHolder>
+	<style>
+		img
+		{
+			display: block;
+		}
+	</style>
+	<script type="text/javascript">
+		function navAway(url) {
+			window.open(url);
+		}</script>
+</head>
+<body>
+	<form runat="server">
+	<style>
+		img
+		{
+			display: block;
+		}
+	</style>
+	<div class="page">
+		<div class="header" style="cursor: pointer;" title="Home" onclick="location.href='http://www.TexasRussellRescue.com';">
+			<div class="headLeft">
+			</div>
+			<div class="headMiddle">
+								<br /><br /><br /><br />
+								<br /><br /><br /><br />
+								<br /><br /><br /><br />
+								<br /><br /><br />
+				<table align="center" style="vertical-align: bottom;">
+					<tr>
+						<td>
+							<telerik:RadMenu ID="RadMenu1" runat="server" Height="25px" Skin="Default" Flow="Horizontal">
+								<Items>
+									<telerik:RadMenuItem Text="WELCOME" Width="100px" NavigateUrl="Default.aspx">
+									</telerik:RadMenuItem>
+									<telerik:RadMenuItem Text="AVAILABLE DOGS" Width="125px" NavigateUrl="AvailableDogs.aspx">
+										<Items>
+											<telerik:RadMenuItem Text="RESCUE DOGS" NavigateUrl="RescueDogs.aspx">
+											</telerik:RadMenuItem>
+											<telerik:RadMenuItem Text="OWNER LISTINGS"  NavigateUrl="OwnerDogs.aspx">
+											</telerik:RadMenuItem>
+										</Items>
+									</telerik:RadMenuItem>
+									<telerik:RadMenuItem Text="WE NEED YOU!" Width="115px" NavigateUrl="Volunteer.aspx">
+									</telerik:RadMenuItem>
+									<telerik:RadMenuItem Text="SPOTLIGHT DOGS" Width="125px" NavigateUrl="SpotLightDogs.aspx">
+									</telerik:RadMenuItem>
+											<telerik:RadMenuItem Text="HAPPY TAILS" Width="125px" NavigateUrl="HappyTails.aspx">
+									</telerik:RadMenuItem>
+									<telerik:RadMenuItem Text="ADOPTION APP" Width="115px" NavigateUrl="http://bit.ly/russellrescuetx">
+									</telerik:RadMenuItem>	
+									<telerik:RadMenuItem Text="CONTACT US" Width="115px" NavigateUrl="Contact.aspx">
+									</telerik:RadMenuItem>	
+									<telerik:RadMenuItem Text="FAQS" Width="70px" NavigateUrl="FAQ.aspx">
+									</telerik:RadMenuItem>
+									<telerik:RadMenuItem Text="MEET THE AGENTS" Width="125px" NavigateUrl="Agents.aspx">
+									</telerik:RadMenuItem>
+									<telerik:RadMenuItem Text="REPS ONLY" Width="110px" NavigateUrl="Reps.aspx">
+									</telerik:RadMenuItem>
+								</Items>
+							</telerik:RadMenu>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="headRight">
+			</div>
+		</div>
+		<div>
+			<div class="leftDiv">
+			</div>
+			<div class="middleDiv">
+				<telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" RestoreOriginalRenderDelegate="false"> 
+				</telerik:RadAjaxManager>
+				<asp:ScriptManager ID="ScriptManager1" runat="server">
+				</asp:ScriptManager>
+				<asp:ContentPlaceHolder ID="PageTitle" runat="server" />
+				<asp:ContentPlaceHolder ID="MainContent" runat="server" />
+			</div>
+			<div class="rightDiv">
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+	</div>
+<%--	<br />
+	<div class="footer">
+		<ul id="footerUl">
+					<li><a href="Employment.aspx">Employment Opportunities</a></li>
+			<li><a href="Partnerships.aspx">Business Partnerships</a></li>
+			<li><a href="Legal.aspx">Legal Information</a></li>
+			<li><a href="Community.aspx">Community</a></li>
+			<li><a href="Contact.aspx">Contact Us</a></li>
+		</ul>
+	</div>--%>
+	</form>
+</body>
+</html>

@@ -1,0 +1,284 @@
+body   
+{
+    background:#b0cddd;
+    font-size:10pt;
+    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color:Black;
+}
+
+linkColor
+{
+    color: #034af3;
+}
+
+linkHover
+{
+    color: #1d60ff;
+    text-decoration: none;
+}
+
+linkActive
+{
+    color: #034af3;
+}
+.dogLink
+{
+    color:Black;
+    font-size:14pt;
+    font-family:Verdana;
+    margin-bottom: 10px;   
+}
+p
+{
+    color:Black;
+    font-size:10pt;
+    font-family:Verdana;
+    margin-bottom: 10px;
+
+}
+li
+{
+      color:Black;
+    font-size:12pt;
+    font-family:Verdana;
+}
+.titleText
+{
+    padding-left:15px;
+    font-size:x-large;
+    font-family:Verdana;
+    font-weight:bold;
+    color:Black;
+    text-decoration:underline;
+}
+.headText
+{
+    font-size:x-large;
+    color:gold;
+    font-family:Verdana;
+    
+ 
+}
+.bookText
+{
+    color:Black;
+    font-weight:lighter;
+    font-size:x-large;
+    font-family:Verdana;   
+}
+
+
+/* this rule styles <h1> and <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0px;
+}
+
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+.leftDiv
+{
+    width: 5%;
+    float: left;
+    height:100%;
+
+}
+.middleDiv
+{
+    margin-top:25px;
+    width: 90%;
+    float: left;
+    height:100%;
+    
+}
+.rightDiv
+{
+    width: 5%;
+    float: left;
+    height:%;
+
+}
+.headLeft
+{
+    width: 5%;
+    float: left;
+    height:100%;
+    position: relative;
+  
+}
+.headMiddle
+{
+    vertical-align:bottom;
+    width: 90%;
+    float: left;
+    height:200px;
+}
+.headRight
+{
+    width: 5%;
+    float: right;
+        height:100%;
+    
+}
+.menuDiv
+{
+    background-position:center;
+    float:left;
+    align:center;
+    width: 100%;
+    background-color: #b0cddd;
+    
+}
+.page
+{
+    width: 100%;
+    background-color: #b0cddd;
+    
+}
+.social
+{
+    padding-left:25px;
+}
+.header
+{
+    text-align:center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    background-image:url('/myimages/banner.jpg');
+    background-position:center;
+    background-repeat:no-repeat;
+    height:250px;
+    background-color:#b0cddd;
+}
+
+.footer
+{
+    
+    padding: 8px 0px 0px 0px;
+    margin: 0px auto;
+    line-height: normal;
+    width:1248px;
+    position:absolute;
+}
+
+div.footerMenu
+{
+    float:left;
+    width:100%;
+    padding: 4px 0px 4px 8px;
+    text-align:center;
+    font-size:smaller;
+}
+
+div.footerMenu ul
+{
+
+    list-style: none;
+
+}
+div.footerMenu ul li
+{
+
+   display:inline;
+}
+div.footerMenu ul li a, div.menu ul li a:visited
+{
+    
+    display: inline;
+    line-height: 1.35em;
+    
+    text-decoration: none;
+    white-space: nowrap;
+
+
+}
+
+div.footerMenu ul li a:hover
+{
+
+    color: gold;
+    text-decoration: none;
+}
+
+#footerUl
+{
+    width:1248px;
+    text-align:center;
+    list-style:none;
+   
+}
+#footerUl li
+{
+    font-size:small;
+    display:inline;
+    color: #dde4ec;
+             }
+#footerUl li a
+{
+  padding: 4px 20px;
+    color: black;
+             }
+#footerUl li a:hover
+{
+  color: gold;
+}
+
+
+/* MISC  
+----------------------------------------------------------*/
+
+.clear
+{
+    clear: both;
+}
+
+.title
+{
+    display: block;
+    float: left;
+    text-align: left;
+    width: auto;
+}
+
+
+    .homeImage
+  {
+  position:relative;
+    background-image:url('/myimages/TexasRussellRescueHome.jpg');
+    width:536px;
+    height:360px;
+    display: block;
+  }
+  
+@media only screen and (device-width: 768px) {
+  /* For general iPad layouts */
+
+
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+  /* For portrait layouts only */
+
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+  /* For landscape layouts only */
+
+}
+
+/* Kyle Additions */
+
+.RadMenu {
+    margin-top: -10px;
+}
+
+
+.middleDiv:nth-child(3):nth-child(3):first-child {
+    height: 500px !important
+} 
+
