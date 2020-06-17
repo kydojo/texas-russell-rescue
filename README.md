@@ -7,7 +7,7 @@ Texas Russell Rescue, Inc. website development
 
 To run the site locally:
   ```
-  python3 run.py
+  python3 application.py
   ```
 Access the site at:
   ```
