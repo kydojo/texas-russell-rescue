@@ -14,6 +14,4 @@ Access the site at:
   localhost:5000
   ```
 
----
 
-Link to the current site: http://texasrussellrescue.com/Default.aspx
