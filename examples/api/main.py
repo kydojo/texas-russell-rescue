@@ -4,7 +4,9 @@ import os
 import logging
 
 api_base_url = "https://api.adoptapet.com/search/pets_at_shelter?key="
-api_token = os.environ['ADOPTAPET_API_KEY']
+# api_token = os.environ['ADOPTAPET_API_KEY']
+api_key = '54188660446c78dd431e966d72efbf86' # temp
+
 api_version = "v=2"
 api_output = "output=json"
 api_shelter_id = "shelter_id=79570"

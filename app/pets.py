@@ -5,7 +5,9 @@ import os
 
 def get_pets():
     api_base_url = "https://api.adoptapet.com/search/pets_at_shelters?v=2&output=json&shelter_id=77070&shelter_id=79568&shelter_id=79570&shelter_id=99754&shelter_id=79569&shelter_id=80090&key="
-    api_key = os.environ['ADOPTAPET_API_KEY']
+    # api_key = os.environ['ADOPTAPET_API_KEY']
+    api_key = '54188660446c78dd431e966d72efbf86' # temp
+
     url = api_base_url + api_key
 
     response = requests.get(url)
@@ -56,7 +58,9 @@ def pet_get_request(url):
 def get_all_pets():
     owner_surrender_base_url = "https://api.adoptapet.com/search/pets_at_shelters?v=2&output=json&shelter_id=77070&key="
     rescue_base_url = "https://api.adoptapet.com/search/pets_at_shelters?v=2&output=json&shelter_id=79568&shelter_id=79570&shelter_id=99754&shelter_id=79569&shelter_id=80090&key="
-    api_key = os.environ['ADOPTAPET_API_KEY']
+    # api_key = os.environ['ADOPTAPET_API_KEY']
+    api_key = '54188660446c78dd431e966d72efbf86' # temp
+
     owner_url = owner_surrender_base_url + api_key
     rescue_url = rescue_base_url + api_key
 
