@@ -20,8 +20,8 @@ Flask-WTF==0.14.2
 future==0.16.0
 gunicorn==20.1.0
 idna==2.7
-ipython==7.21.0
-ipython-genutils==0.2.0
+#ipython==7.21.0
+#ipython-genutils==0.2.0
 isort==4.3.20
 itsdangerous==1.1.0
 jedi==0.18.0
