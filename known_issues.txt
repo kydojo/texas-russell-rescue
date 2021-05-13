@@ -1,4 +1,0 @@
-Navbar
-    - Logo too big, which causes bar to be too tall
-    - Not responsive to mid-size screen
-    - Too much space between links within toggle menu
